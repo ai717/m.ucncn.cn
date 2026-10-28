@@ -3,52 +3,1039 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>搞钱实验室独立站 | m.ucncn.cn</title>
+  <title>搞钱实验室 | MoneyLab - 前沿商业与轻资产变现雷达</title>
+  <meta name="description" content="搞钱实验室 (MoneyLab) - 收集整理当前热门出海变现、AI应用、微型商业与网赚项目。客观数据解剖，AI智能多维打分。">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <!-- 现代等宽与英文字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            obsidian: {
+              950: '#050608',
+              900: '#090a0f',
+              850: '#0e1017',
+              800: '#151822',
+              700: '#1f2433',
+              600: '#2e364a'
+            },
+            neon: {
+              green: '#10b981',
+              emerald: '#059669',
+              gold: '#f59e0b',
+              amber: '#d97706',
+              cyan: '#06b6d4',
+              purple: '#8b5cf6'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'shimmer': 'shimmer 2.5s infinite linear'
+          },
+          keyframes: {
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
+    /* 深空黑曜石微网格背景 */
     body {
       background-color: #050608;
       background-image: 
-        radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 60%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 32px 32px, 32px 32px;
+        radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 100% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 0% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    /* 滚动条极客美化 */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #050608; }
+    ::-webkit-scrollbar-thumb { background: #1f2433; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #333d54; }
+
+    /* 高级拟物卡片流光边框特效 */
+    .radar-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(14, 16, 23, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .radar-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .radar-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.5);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(16, 185, 129, 0.25);
+    }
+    .radar-card:hover::before {
+      background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.7), rgba(6, 182, 212, 0.3), transparent 70%);
+    }
+
+    /* S级金标卡片专属尊贵流光 */
+    .radar-card-s:hover {
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 30px -4px rgba(245, 158, 11, 0.25);
+    }
+    .radar-card-s:hover::before {
+      background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.8), rgba(234, 88, 12, 0.4), transparent 70%);
+    }
+
+    /* 走马灯滚动文字 */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: 200%;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* 吐司通知弹窗 */
+    #toast {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
   </style>
 </head>
-<body class="min-h-screen text-zinc-200 flex flex-col items-center justify-center p-6 text-center select-none font-mono">
-  <div class="max-w-md w-full bg-zinc-900/80 border border-zinc-800 p-8 rounded-3xl backdrop-blur-md shadow-2xl space-y-5">
-    <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-3xl text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-      ⚡
-    </div>
-    
-    <div>
-      <h1 class="text-2xl font-bold text-white tracking-tight">m.ucncn.cn</h1>
-      <p class="text-xs text-emerald-400 mt-1 font-semibold">GitHub Pages 独立静态托管测试成功</p>
-    </div>
+<body class="flex flex-col antialiased selection:bg-neon-green selection:text-black">
 
-    <div class="p-4 rounded-2xl bg-black/50 border border-zinc-800/80 text-xs text-zinc-400 leading-relaxed text-left space-y-2">
-      <div class="flex justify-between border-b border-zinc-800/60 pb-1.5">
-        <span>独立域名:</span>
-        <span class="text-white font-bold">m.ucncn.cn</span>
-      </div>
-      <div class="flex justify-between border-b border-zinc-800/60 pb-1.5">
-        <span>托管仓库:</span>
-        <span class="text-emerald-400 font-bold">ai717/m.ucncn.cn</span>
-      </div>
-      <div class="flex justify-between">
-        <span>服务状态:</span>
-        <span class="text-emerald-400 font-bold">Online 正常运行</span>
+  <!-- 顶部情报广播走马灯 (Ticker) -->
+  <div class="bg-obsidian-900/90 border-b border-obsidian-700/60 overflow-hidden py-1.5 text-[11px] font-mono text-zinc-400 select-none">
+    <div class="max-w-7xl mx-auto px-4 flex items-center space-x-3">
+      <span class="flex-shrink-0 flex items-center space-x-1.5 px-2 py-0.5 rounded bg-neon-green/10 text-neon-green font-bold text-[10px] border border-neon-green/30 tracking-wider">
+        <span class="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse"></span>
+        <span>RADAR FEED</span>
+      </span>
+      <div class="overflow-hidden flex-1 relative">
+        <div class="marquee-track flex space-x-8 whitespace-nowrap">
+          <span>⚡ [出海SaaS] 某垂直单功能插件通过 LemonSqueezy 实现 MRR $3,200 稳步突破</span>
+          <span>💎 [虚拟电商] 小红书情绪解压树洞单日自提卡发卡超 120 笔，毛利近 100%</span>
+          <span>🚀 [开源掘金] GitHub 痛点项目被打包封装为托管版，3 周获 40 个订阅付费用户</span>
+          <span>⚡ [出海SaaS] 某垂直单功能插件通过 LemonSqueezy 实现 MRR $3,200 稳步突破</span>
+          <span>💎 [虚拟电商] 小红书情绪解压树洞单日自提卡发卡超 120 笔，毛利近 100%</span>
+          <span>🚀 [开源掘金] GitHub 痛点项目被打包封装为托管版，3 周获 40 个订阅付费用户</span>
+        </div>
       </div>
     </div>
-
-    <p class="text-[11px] text-zinc-500">
-      当前页面由 GitHub Pages 直接托管 · 全球 CDN 加速
-    </p>
-
-    <a href="https://ucncn.cn/money" class="inline-block px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-      返回主站搞钱实验室 &rarr;
-    </a>
   </div>
+
+  <!-- 顶部主导航 -->
+  <header class="sticky top-0 z-40 border-b border-obsidian-700/80 bg-obsidian-950/85 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- 品牌 Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetAllFilters()">
+        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-neon-green/20 via-neon-cyan/15 to-transparent border border-neon-green/40 flex items-center justify-center font-mono font-bold text-neon-green shadow-[0_0_20px_rgba(16,185,129,0.25)] group">
+          <span class="text-xl group-hover:scale-110 transition-transform">⚡</span>
+          <span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full bg-neon-green ring-2 ring-obsidian-950 animate-pulse"></span>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center">
+              搞钱实验室
+              <span class="ml-2 font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-gradient-to-r from-neon-green/20 to-neon-cyan/20 text-neon-green border border-neon-green/30 tracking-widest uppercase">
+                MoneyLab v2.0
+              </span>
+            </h1>
+          </div>
+          <p class="text-[11px] text-zinc-400 hidden sm:block font-mono">前沿微型商业与变现雷达 · 客观数据解剖 · 去伪存真</p>
+        </div>
+      </div>
+
+      <!-- 快捷操作区 -->
+      <div class="flex items-center space-x-3">
+        <!-- 快速刷新/重置 -->
+        <button onclick="resetAllFilters()" title="重置全部筛选" class="px-3 py-1.5 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-obsidian-700 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center space-x-1.5">
+          <span>🔄</span>
+          <span class="hidden sm:inline">重置筛选</span>
+        </button>
+
+        <!-- 返回主站 -->
+        <a href="/" class="px-3 py-1.5 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-obsidian-700 text-xs font-mono text-zinc-400 hover:text-white transition-all flex items-center space-x-1">
+          <span>&larr;</span>
+          <span class="hidden sm:inline">ucncn 主站</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 核心主容器 -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+
+    <!-- KPI 极客看板 (全部支持点击快速联动筛选！) -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4">
+      
+      <!-- 点击：重置为全部 -->
+      <div onclick="resetAllFilters()" class="group cursor-pointer bg-obsidian-900/80 hover:bg-obsidian-850 border border-obsidian-700/80 hover:border-neon-cyan/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
+          <span class="uppercase tracking-wider">🔬 已解剖样本</span>
+          <span class="text-[10px] text-neon-cyan group-hover:translate-x-0.5 transition-transform">全部 ➔</span>
+        </div>
+        <div class="text-3xl font-mono font-bold text-white flex items-baseline space-x-2">
+          <span id="stat-total">0</span>
+          <span class="text-xs text-zinc-400 font-normal">个真实案例</span>
+        </div>
+        <div class="text-[11px] text-zinc-400 mt-2 font-mono truncate">点击可一键查看全量库</div>
+        <div class="absolute -right-2 -bottom-2 text-5xl opacity-5 select-none group-hover:opacity-10 transition-opacity">💡</div>
+      </div>
+
+      <!-- 点击：按评分降序排序 -->
+      <div onclick="setSortAndApply('score-desc')" class="group cursor-pointer bg-obsidian-900/80 hover:bg-obsidian-850 border border-obsidian-700/80 hover:border-neon-green/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
+          <span class="uppercase tracking-wider">📊 平均推荐分</span>
+          <span class="text-[10px] text-neon-green group-hover:translate-x-0.5 transition-transform">高分排序 ➔</span>
+        </div>
+        <div class="text-3xl font-mono font-bold text-neon-green flex items-baseline space-x-2">
+          <span id="stat-avg-score">--</span>
+          <span class="text-xs text-zinc-400 font-normal">/ 100</span>
+        </div>
+        <div class="text-[11px] text-zinc-400 mt-2 font-mono truncate">AI 四维加权客观测算</div>
+        <div class="absolute -right-2 -bottom-2 text-5xl opacity-5 select-none group-hover:opacity-10 transition-opacity">⚡</div>
+      </div>
+
+      <!-- 点击：一键只看 S 级高分项目 -->
+      <div onclick="filterByTier('S')" class="group cursor-pointer bg-obsidian-900/80 hover:bg-obsidian-850 border border-obsidian-700/80 hover:border-neon-gold/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
+          <span class="uppercase tracking-wider text-neon-gold font-semibold">💎 S 级精选率</span>
+          <span class="text-[10px] text-neon-gold group-hover:translate-x-0.5 transition-transform">只看S级 ➔</span>
+        </div>
+        <div class="text-3xl font-mono font-bold text-neon-gold flex items-baseline space-x-2">
+          <span id="stat-s-tier">0</span>
+          <span class="text-xs text-zinc-400 font-normal">个卓越项目</span>
+        </div>
+        <div class="text-[11px] text-zinc-400 mt-2 font-mono truncate">极高确定性与现金流</div>
+        <div class="absolute -right-2 -bottom-2 text-5xl opacity-5 select-none group-hover:opacity-10 transition-opacity">👑</div>
+      </div>
+
+      <!-- 点击：最新入库排序 -->
+      <div onclick="setSortAndApply('date-desc')" class="group cursor-pointer bg-obsidian-900/80 hover:bg-obsidian-850 border border-obsidian-700/80 hover:border-neon-purple/50 rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.15)]">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
+          <span class="uppercase tracking-wider">🕒 最近雷达嗅探</span>
+          <span class="text-[10px] text-neon-purple group-hover:translate-x-0.5 transition-transform">最新优先 ➔</span>
+        </div>
+        <div class="text-lg sm:text-xl font-mono font-bold text-white truncate mt-1.5" id="stat-latest-date">
+          --
+        </div>
+        <div class="text-[11px] text-zinc-400 mt-2 font-mono truncate">全网多源持续巡航中</div>
+        <div class="absolute -right-2 -bottom-2 text-5xl opacity-5 select-none group-hover:opacity-10 transition-opacity">📡</div>
+      </div>
+
+    </section>
+
+    <!-- 交互与过滤中枢 -->
+    <section class="bg-obsidian-900/90 border border-obsidian-700/80 rounded-2xl p-4 sm:p-6 backdrop-blur-md space-y-4 shadow-xl">
+      
+      <!-- 第一行：场景化“搞钱快筛药丸 (Quick Intent Pills)” -->
+      <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-none" id="intent-pills">
+        <span class="text-xs font-mono text-zinc-400 flex-shrink-0 flex items-center space-x-1 mr-1">
+          <span>🎯 意图快筛:</span>
+        </span>
+        <button onclick="setQuickFilter('ALL', this)" class="pill-btn px-3 py-1.5 text-xs font-mono rounded-lg transition-all active-pill bg-neon-green text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+          全部
+        </button>
+        <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all">
+          💎 仅看S级 (90分+)
+        </button>
+        <button onclick="setQuickFilter('FAST', this)" class="pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all">
+          ⏱️ 7天极速验证
+        </button>
+        <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all">
+          🪙 极低/零成本启动
+        </button>
+        <button onclick="setQuickFilter('GLOBAL', this)" class="pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all">
+          🌍 出海赚美金
+        </button>
+      </div>
+
+      <!-- 第二行：赛道 Tabs、搜索框与排序器 -->
+      <div class="pt-3 border-t border-obsidian-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- 赛道分类选择 (点击即切换) -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none" id="category-tabs">
+          <!-- 动态分类按钮 -->
+        </div>
+
+        <!-- 搜索与排序组合 -->
+        <div class="flex items-center space-x-3 w-full lg:w-auto">
+          
+          <!-- 实时关键词搜索框 -->
+          <div class="relative flex-1 lg:w-64">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="搜索项目、标签、模式..." 
+              class="w-full bg-obsidian-950 border border-obsidian-700 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-zinc-400 focus:outline-none focus:border-neon-green transition-all"
+            >
+            <span class="absolute left-3 top-2.5 text-xs text-zinc-400">🔍</span>
+            <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-2.5 top-2.5 text-xs text-zinc-400 hover:text-white">✕</button>
+          </div>
+
+          <!-- 排序选择下拉 -->
+          <select 
+            id="sort-select" 
+            class="bg-obsidian-950 border border-obsidian-700 rounded-xl px-3 py-2 text-xs text-zinc-300 focus:outline-none focus:border-neon-green transition-all cursor-pointer font-mono"
+          >
+            <option value="score-desc">⚡ 推荐指数 (最高优先)</option>
+            <option value="date-desc">🕒 最新收录优先</option>
+            <option value="difficulty-asc">🟢 门槛最低优先</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <!-- 当前已生效的筛选标签提示条 (有激活过滤时展示) -->
+      <div id="active-filter-bar" class="hidden flex items-center justify-between bg-obsidian-950/60 px-3 py-2 rounded-xl border border-obsidian-800 text-xs font-mono">
+        <div class="flex items-center space-x-2 text-zinc-400">
+          <span>当前筛选条件:</span>
+          <span id="active-filter-text" class="text-neon-cyan font-bold"></span>
+        </div>
+        <button onclick="resetAllFilters()" class="text-neon-green hover:underline">清除筛选</button>
+      </div>
+
+    </section>
+
+    <!-- 卡片信息流网格 -->
+    <section>
+      
+      <!-- 加载动画 -->
+      <div id="loading-state" class="py-20 text-center text-zinc-400 font-mono text-sm space-y-3">
+        <div class="inline-block w-8 h-8 border-2 border-neon-green border-t-transparent rounded-full animate-spin"></div>
+        <div class="tracking-widest">CONNECTING TO MONEYLAB RADAR...</div>
+      </div>
+
+      <!-- 空结果提示 -->
+      <div id="empty-state" class="hidden py-20 text-center space-y-3 bg-obsidian-900/40 rounded-2xl border border-dashed border-obsidian-700">
+        <div class="text-4xl">📡</div>
+        <div class="text-base font-bold text-white">未找到匹配的搞钱项目</div>
+        <div class="text-xs text-zinc-400 font-mono">该维度下暂无数据，请尝试重置筛选或更换搜索词</div>
+        <button onclick="resetAllFilters()" class="px-4 py-2 mt-2 rounded-xl bg-neon-green text-black font-bold text-xs hover:bg-emerald-400 transition-all font-mono">
+          重置所有筛选
+        </button>
+      </div>
+
+      <!-- 卡片网格 Feed -->
+      <div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- 动态生成高质量卡片 -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 底部 Footer -->
+  <footer class="border-t border-obsidian-800 bg-obsidian-950 py-10 mt-16 text-center text-xs font-mono text-zinc-400">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <div class="flex items-center justify-center space-x-2 text-zinc-400">
+        <span>⚡ 搞钱实验室 (MoneyLab)</span>
+        <span>·</span>
+        <span>数据源自真实公开交易与一线实操</span>
+        <span>·</span>
+        <span>独立运行于 m.ucncn.cn</span>
+      </div>
+      <p class="text-[11px] text-zinc-400">所有商业项目仅供思维实验与工程落地参考，请根据个人风险承受力审慎决策</p>
+    </div>
+  </footer>
+
+  <!-- 沉浸式居中指挥官解剖舱 (Modal Deck) -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 select-none">
+    
+    <!-- 全屏高斯模糊遮罩 -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"></div>
+
+    <!-- 弹窗主体面板 -->
+    <div id="modal-panel" class="relative w-full max-w-3xl max-h-[90vh] bg-obsidian-900 border border-obsidian-700/90 rounded-3xl overflow-hidden flex flex-col shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] z-10">
+      
+      <!-- 弹窗顶栏 -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-obsidian-800 bg-obsidian-950/70 backdrop-blur-md">
+        <div class="flex items-center space-x-2.5">
+          <span id="modal-category-badge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-obsidian-800 text-neon-cyan border border-neon-cyan/30"></span>
+          <span id="modal-date-text" class="text-xs font-mono text-zinc-400"></span>
+        </div>
+        <button id="modal-close-btn" class="w-8 h-8 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-obsidian-700 text-zinc-400 hover:text-white flex items-center justify-center transition-all text-sm">
+          ✕
+        </button>
+      </div>
+
+      <!-- 弹窗可滚动内容区 -->
+      <div class="overflow-y-auto p-6 sm:p-8 space-y-6">
+        
+        <!-- 头部：大标题与评分总成 -->
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div class="space-y-2 flex-1">
+            <h2 id="modal-title" class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug"></h2>
+            <p id="modal-summary" class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans"></p>
+          </div>
+          <!-- 推荐指数徽章 -->
+          <div class="flex-shrink-0 flex sm:flex-col items-center sm:items-end justify-between bg-obsidian-950 border border-obsidian-800 px-4 py-3 rounded-2xl">
+            <span class="text-[10px] font-mono uppercase text-zinc-400">AI 推荐指数</span>
+            <div class="flex items-baseline space-x-1 my-0.5">
+              <span id="modal-score" class="text-3xl font-mono font-bold text-neon-green"></span>
+              <span class="text-xs text-zinc-400 font-mono">/100</span>
+            </div>
+            <span id="modal-tier-badge" class="text-[11px] font-mono px-2 py-0.5 rounded font-bold"></span>
+          </div>
+        </div>
+
+        <!-- 核心商业指标矩阵大卡片 -->
+        <div class="bg-obsidian-950/90 border border-obsidian-800 rounded-2xl p-4 sm:p-5">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center justify-between">
+            <span>📊 核心商业指标解剖</span>
+            <span class="text-neon-green">真实量化参数</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+            <div class="bg-obsidian-900 border border-obsidian-800/80 p-3 rounded-xl">
+              <span class="text-zinc-400 block text-[11px]">启动难度门槛</span>
+              <span id="modal-diff-stars" class="font-bold text-neon-gold mt-1 block"></span>
+            </div>
+            <div class="bg-obsidian-900 border border-obsidian-800/80 p-3 rounded-xl">
+              <span class="text-zinc-400 block text-[11px]">首笔现金流周期</span>
+              <span id="modal-cycle-time" class="font-bold text-white mt-1 block truncate"></span>
+            </div>
+            <div class="bg-obsidian-900 border border-obsidian-800/80 p-3 rounded-xl">
+              <span class="text-zinc-400 block text-[11px]">初始启动成本</span>
+              <span id="modal-initial-cost" class="font-bold text-neon-green mt-1 block truncate"></span>
+            </div>
+            <div class="bg-obsidian-900 border border-obsidian-800/80 p-3 rounded-xl">
+              <span class="text-zinc-400 block text-[11px]">预估月收益空间</span>
+              <span id="modal-profit-est" class="font-bold text-neon-green mt-1 block truncate"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI 四维雷达能量条 -->
+        <div>
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2.5">
+            ⚡ AI 结构化四维雷达拆解
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="modal-breakdown-bars">
+            <!-- 动态生成 4 根进度条 -->
+          </div>
+        </div>
+
+        <!-- 为什么有机会 (商业机会点) -->
+        <div class="bg-obsidian-850/60 border border-obsidian-700/60 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-mono font-bold text-neon-cyan mb-2 flex items-center space-x-1.5">
+            <span>🎯 窗口期与商业本质</span>
+          </div>
+          <p id="modal-opportunity" class="text-xs sm:text-sm text-zinc-300 leading-relaxed"></p>
+        </div>
+
+        <!-- 实操 SOP 步骤清单 (可逐条打钩阅读) -->
+        <div>
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2.5 flex items-center justify-between">
+            <span>🛠️ 极速验证 SOP 四步法</span>
+            <span class="text-[11px] text-zinc-400 font-mono">从 0 到 1 闭环</span>
+          </div>
+          <div id="modal-workflow-steps" class="space-y-2">
+            <!-- 动态填充步骤 -->
+          </div>
+        </div>
+
+        <!-- 避坑指南与生死防线 -->
+        <div class="bg-red-950/20 border border-red-900/40 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-mono font-bold text-red-400 mb-2 flex items-center space-x-1.5">
+            <span>⚠️ 核心避坑指南与平台警戒</span>
+          </div>
+          <p id="modal-pitfalls" class="text-xs sm:text-sm text-red-200/90 leading-relaxed font-sans"></p>
+        </div>
+
+        <!-- 所需工具生态与标签 -->
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center space-x-2 text-xs font-mono text-zinc-400">
+            <span>🧰 必备工具链:</span>
+            <div id="modal-tools-list" class="flex flex-wrap gap-1.5"></div>
+          </div>
+          <div class="flex items-center space-x-2 text-xs font-mono text-zinc-400">
+            <span>🏷️ 关联标签:</span>
+            <div id="modal-tags-list" class="flex flex-wrap gap-1.5"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 弹窗底栏操作区 -->
+      <div class="px-6 py-4 border-t border-obsidian-800 bg-obsidian-950/80 flex items-center justify-between">
+        <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3.5 py-2 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-obsidian-700 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center space-x-1.5">
+          <span>📋</span>
+          <span>复制项目摘要</span>
+        </button>
+
+        <a id="modal-source-btn" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-xl bg-gradient-to-r from-neon-green to-emerald-500 hover:from-emerald-400 hover:to-teal-400 text-black font-mono font-bold text-xs transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center space-x-1.5">
+          <span>查看参考案例 / 讨论来源</span>
+          <span>&nearr;</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 轻量全局 Toast 提示 -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 pointer-events-none px-4 py-2.5 rounded-xl bg-obsidian-850 border border-neon-green/50 text-white font-mono text-xs shadow-2xl flex items-center space-x-2">
+    <span class="text-neon-green">✓</span>
+    <span id="toast-text">通知内容</span>
+  </div>
+
+  <!-- 核心逻辑脚本 -->
+  <script>
+    let allProjects = [];
+    let currentCategory = 'ALL';
+    let currentIntent = 'ALL';
+    let searchQuery = '';
+    let currentSort = 'score-desc';
+    let activeModalProject = null;
+
+    // 赛道专属发光图标映射
+    const CATEGORY_ICONS = {
+      '出海/独立开发': '🚀',
+      '国内虚拟电商': '🛍️',
+      'AI应用与服务': '🤖',
+      '内容流量变现': '📈',
+      '跨境与电商': '🌐'
+    };
+
+    // 初始化
+    async function init() {
+      try {
+        const res = await fetch('./data/projects.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Network error');
+        allProjects = await res.json();
+      } catch (err) {
+        console.warn('读取网络数据失败，加载本地备用数据:', err);
+        allProjects = [
+          {
+            "id": "ml-fallback-01",
+            "title": "垂直领域 Chrome 插件 + LemonSqueezy 自动化订阅出海",
+            "category": "出海/独立开发",
+            "tags": ["AI编程", "Chrome插件", "出海变现", "被动收入"],
+            "summary": "深挖海外痛点，用 AI 编程全自动开发长尾单功能插件，接入 LemonSqueezy 实行按月订阅与永久买断混合制变现。",
+            "score": 93,
+            "rating_tier": "S",
+            "verdict": "验证周期极短，海外付费习惯成熟，一旦有自然搜索量即形成稳定被动现金流。",
+            "score_breakdown": { "feasibility": 9, "velocity": 9, "ceiling": 8, "reliability": 9 },
+            "metrics": {
+              "difficulty_stars": 2,
+              "cycle_time": "5~10 天",
+              "initial_cost": "$5",
+              "revenue_model": "月度订阅 + 终身买断",
+              "est_monthly_profit": "$1,200 ~ $4,500 / 月"
+            },
+            "deep_dive": {
+              "opportunity": "Chrome Web Store 搜索意图强，竞争相比独立站小，海外用户对节省时间的工具有天然付费习惯。",
+              "workflow": [
+                "1. 痛点挖掘：Reddit r/productivity 搜求工具贴",
+                "2. 极速研发：Cursor 编写 Manifest V3 MVP",
+                "3. 商业闭环：接入 LemonSqueezy 激活码验证",
+                "4. 流量获客：商店 SEO + 对应原贴真诚回复"
+              ],
+              "risk_and_pitfalls": "Google 审核较严，勿滥用权限；API Key 服务端代理防泄露。",
+              "tools": ["Cursor", "Manifest V3", "LemonSqueezy"]
+            },
+            "source_url": "https://twitter.com",
+            "created_at": "2026-10-28"
+          }
+        ];
+      }
+
+      document.getElementById('loading-state').classList.add('hidden');
+      renderStats();
+      renderCategoryTabs();
+      applyFiltersAndRender();
+      bindGlobalEvents();
+    }
+
+    // 统计面板计算
+    function renderStats() {
+      const total = allProjects.length;
+      document.getElementById('stat-total').innerText = total;
+
+      if (total > 0) {
+        const avg = Math.round(allProjects.reduce((acc, cur) => acc + (cur.score || 0), 0) / total);
+        document.getElementById('stat-avg-score').innerText = avg;
+
+        const sTierCount = allProjects.filter(p => p.rating_tier === 'S' || (p.score && p.score >= 90)).length;
+        document.getElementById('stat-s-tier').innerText = sTierCount;
+
+        const dates = allProjects.map(p => p.created_at).filter(Boolean).sort().reverse();
+        document.getElementById('stat-latest-date').innerText = dates[0] || '今日刚刚';
+      }
+    }
+
+    // 渲染赛道 Tabs
+    function renderCategoryTabs() {
+      const categories = ['ALL', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
+      const container = document.getElementById('category-tabs');
+      container.innerHTML = '';
+
+      categories.forEach(cat => {
+        const isAll = cat === 'ALL';
+        const icon = isAll ? '⚡' : (CATEGORY_ICONS[cat] || '💡');
+        const count = isAll ? allProjects.length : allProjects.filter(p => p.category === cat).length;
+        
+        const btn = document.createElement('button');
+        btn.className = `cat-tab px-3.5 py-1.5 text-xs font-mono font-medium rounded-xl transition-all whitespace-nowrap flex items-center space-x-1.5 ${
+          cat === currentCategory 
+            ? 'bg-neon-green text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)]' 
+            : 'bg-obsidian-950 text-zinc-300 hover:text-white hover:bg-obsidian-800 border border-obsidian-800'
+        }`;
+        btn.innerHTML = `<span>${icon}</span> <span>${isAll ? '全部赛道' : cat}</span> <span class="text-[10px] opacity-75 font-mono">(${count})</span>`;
+        btn.onclick = () => {
+          currentCategory = cat;
+          renderCategoryTabs();
+          applyFiltersAndRender();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    // 意图快筛设置
+    function setQuickFilter(intent, targetEl) {
+      currentIntent = intent;
+      // 更新样式
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.className = 'pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all';
+      });
+
+      if (!targetEl) {
+        // 自动按 intent 寻找对应的 button
+        const pillButtons = Array.from(document.querySelectorAll('.pill-btn'));
+        const intentMap = { 'ALL': 0, 'S_TIER': 1, 'FAST': 2, 'ZERO_COST': 3, 'GLOBAL': 4 };
+        const idx = intentMap[intent] ?? 0;
+        targetEl = pillButtons[idx];
+      }
+
+      if (targetEl) {
+        targetEl.className = 'pill-btn px-3 py-1.5 text-xs font-mono rounded-lg transition-all active-pill bg-neon-green text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)]';
+      }
+      applyFiltersAndRender();
+    }
+
+    // 过滤与排序核心
+    function applyFiltersAndRender() {
+      let filtered = allProjects.filter(p => {
+        // 赛道分类筛选
+        if (currentCategory !== 'ALL' && p.category !== currentCategory) return false;
+        
+        // 意图快筛
+        if (currentIntent === 'S_TIER' && !(p.rating_tier === 'S' || p.score >= 90)) return false;
+        if (currentIntent === 'FAST') {
+          const cycle = (p.metrics?.cycle_time || '');
+          if (!cycle.includes('3') && !cycle.includes('5') && !cycle.includes('7') && !cycle.includes('10')) return false;
+        }
+        if (currentIntent === 'ZERO_COST') {
+          const cost = (p.metrics?.initial_cost || '');
+          if (!cost.includes('0') && !cost.includes('5') && !cost.includes('10') && !cost.includes('低')) return false;
+        }
+        if (currentIntent === 'GLOBAL') {
+          if (p.category !== '出海/独立开发' && !p.tags?.some(t => t.includes('出海') || t.includes('海外'))) return false;
+        }
+
+        // 搜索关键词筛选
+        if (searchQuery.trim()) {
+          const q = searchQuery.toLowerCase();
+          const matchTitle = (p.title || '').toLowerCase().includes(q);
+          const matchSummary = (p.summary || '').toLowerCase().includes(q);
+          const matchTags = (p.tags || []).some(t => t.toLowerCase().includes(q));
+          const matchCat = (p.category || '').toLowerCase().includes(q);
+          const matchTools = (p.deep_dive?.tools || []).some(t => t.toLowerCase().includes(q));
+          if (!matchTitle && !matchSummary && !matchTags && !matchCat && !matchTools) return false;
+        }
+        return true;
+      });
+
+      // 排序
+      if (currentSort === 'score-desc') {
+        filtered.sort((a, b) => (b.score || 0) - (a.score || 0));
+      } else if (currentSort === 'date-desc') {
+        filtered.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+      } else if (currentSort === 'difficulty-asc') {
+        filtered.sort((a, b) => ((a.metrics?.difficulty_stars) || 3) - ((b.metrics?.difficulty_stars) || 3));
+      }
+
+      // 更新生效提示栏
+      updateActiveFilterBar();
+
+      renderCards(filtered);
+    }
+
+    // 渲染卡片列表 (极客诱人高颜值)
+    function renderCards(projects) {
+      const grid = document.getElementById('cards-grid');
+      const emptyState = document.getElementById('empty-state');
+
+      if (!projects || projects.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = projects.map(p => {
+        const isS = p.rating_tier === 'S' || p.score >= 90;
+        const cardClass = isS ? 'radar-card radar-card-s' : 'radar-card';
+        const tierBadgeClass = isS 
+          ? 'bg-neon-gold/15 text-neon-gold border-neon-gold/40 shadow-[0_0_10px_rgba(245,158,11,0.2)]' 
+          : 'bg-neon-cyan/15 text-neon-cyan border-neon-cyan/40';
+
+        const categoryIcon = CATEGORY_ICONS[p.category] || '⚡';
+        const diffStars = p.metrics?.difficulty_stars || 2;
+        const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
+
+        return `
+          <article 
+            onclick="openProjectModal('${p.id}')"
+            class="${cardClass} rounded-2xl p-5 sm:p-6 cursor-pointer flex flex-col justify-between group select-none"
+          >
+            <!-- 顶部栏：赛道图标 + 推荐分金标 -->
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3.5">
+                <div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-obsidian-950 border border-obsidian-800 text-xs font-mono text-zinc-300">
+                  <span>${categoryIcon}</span>
+                  <span class="font-medium">${p.category || '综合搞钱'}</span>
+                </div>
+                
+                <!-- 推荐分徽章 -->
+                <div class="flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full border font-mono ${tierBadgeClass}">
+                  <span class="text-[10px] font-bold">${p.rating_tier || 'A'}级</span>
+                  <span class="text-xs font-bold">${p.score}分</span>
+                </div>
+              </div>
+
+              <!-- 标题 (悬停高亮) -->
+              <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-neon-green transition-colors leading-snug line-clamp-2">
+                ${p.title}
+              </h3>
+
+              <!-- 核心变现逻辑摘要 -->
+              <p class="text-xs text-zinc-400 mt-2.5 line-clamp-2 leading-relaxed">
+                ${p.summary}
+              </p>
+            </div>
+
+            <!-- 核心数据锚点区 (一眼抓住注意力的收益与周期) -->
+            <div class="mt-5 pt-4 border-t border-obsidian-800/80 space-y-3">
+              
+              <!-- 月收益与验证周期大字块 -->
+              <div class="grid grid-cols-2 gap-2">
+                <div class="bg-obsidian-950/80 p-2.5 rounded-xl border border-obsidian-800/60">
+                  <span class="text-[10px] font-mono text-zinc-400 uppercase block">预估月现金流</span>
+                  <span class="text-xs sm:text-sm font-mono font-bold text-neon-green mt-0.5 block truncate">
+                    ${p.metrics?.est_monthly_profit || '稳健可观'}
+                  </span>
+                </div>
+                <div class="bg-obsidian-950/80 p-2.5 rounded-xl border border-obsidian-800/60">
+                  <span class="text-[10px] font-mono text-zinc-400 uppercase block">验证周期 / 门槛</span>
+                  <div class="flex items-baseline justify-between mt-0.5">
+                    <span class="text-xs font-mono font-bold text-white truncate">${p.metrics?.cycle_time || '7天内'}</span>
+                    <span class="text-[11px] font-mono text-neon-gold">${starsText}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 标签列表 (全部可点击筛选！) 与 CTA 引导按钮 -->
+              <div class="flex items-center justify-between pt-1">
+                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+                  ${(p.tags || []).slice(0, 3).map(tag => `
+                    <span 
+                      onclick="handleTagClick(event, '${tag}')"
+                      class="text-[10px] font-mono px-2 py-0.5 rounded bg-obsidian-800/80 hover:bg-obsidian-700 text-zinc-400 hover:text-neon-cyan transition-colors"
+                      title="点击筛选 #${tag}"
+                    >
+                      #${tag}
+                    </span>
+                  `).join('')}
+                </div>
+
+                <!-- 查看实操 CTA 按钮 -->
+                <span class="text-xs font-mono text-neon-green group-hover:translate-x-1 transition-transform flex items-center space-x-0.5 font-bold">
+                  <span>实操</span>
+                  <span>➔</span>
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+        `;
+      }).join('');
+    }
+
+    // 打开居中沉浸式指挥官解剖舱
+    function openProjectModal(id) {
+      const p = allProjects.find(item => item.id === id);
+      if (!p) return;
+      activeModalProject = p;
+
+      document.getElementById('modal-title').innerText = p.title;
+      document.getElementById('modal-summary').innerText = p.summary;
+      document.getElementById('modal-category-badge').innerText = `${CATEGORY_ICONS[p.category] || '⚡'} ${p.category}`;
+      document.getElementById('modal-date-text').innerText = `收录日期: ${p.created_at || '最新'}`;
+      document.getElementById('modal-score').innerText = p.score;
+
+      // 评级徽章
+      const isS = p.rating_tier === 'S' || p.score >= 90;
+      const tierEl = document.getElementById('modal-tier-badge');
+      tierEl.innerText = `${p.rating_tier || 'A'} 级卓越推荐`;
+      tierEl.className = isS 
+        ? 'text-[11px] font-mono px-2 py-0.5 rounded font-bold bg-neon-gold/20 text-neon-gold border border-neon-gold/40' 
+        : 'text-[11px] font-mono px-2 py-0.5 rounded font-bold bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40';
+
+      // 关键指标
+      const diffStars = p.metrics?.difficulty_stars || 2;
+      document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5星)`;
+      document.getElementById('modal-cycle-time').innerText = p.metrics?.cycle_time || '7~14 天';
+      document.getElementById('modal-initial-cost').innerText = p.metrics?.initial_cost || '零投入';
+      document.getElementById('modal-profit-est').innerText = p.metrics?.est_monthly_profit || '极高弹性';
+
+      // 四维雷达条
+      const breakdown = p.score_breakdown || { feasibility: 9, velocity: 9, ceiling: 8, reliability: 9 };
+      const barLabels = {
+        feasibility: '门槛友好度 (容易上手)',
+        velocity: '见效速度 (验证周期短)',
+        ceiling: '收益天花板 (扩展规模)',
+        reliability: '抗风险稳定性 (政策合规)'
+      };
+      const breakdownContainer = document.getElementById('modal-breakdown-bars');
+      breakdownContainer.innerHTML = Object.entries(breakdown).map(([key, val]) => `
+        <div class="bg-obsidian-950 p-2.5 rounded-xl border border-obsidian-800">
+          <div class="flex justify-between text-[11px] font-mono mb-1">
+            <span class="text-zinc-400">${barLabels[key] || key}</span>
+            <span class="text-neon-green font-bold">${val} / 10</span>
+          </div>
+          <div class="w-full bg-obsidian-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-neon-green h-full rounded-full transition-all duration-500" style="width: ${val * 10}%"></div>
+          </div>
+        </div>
+      `).join('');
+
+      // 机会点
+      document.getElementById('modal-opportunity').innerText = p.deep_dive?.opportunity || p.summary;
+
+      // 实操 SOP 四步法 (步骤可打钩标记已读)
+      const workflowContainer = document.getElementById('modal-workflow-steps');
+      const steps = p.deep_dive?.workflow || ['暂无详细步骤'];
+      workflowContainer.innerHTML = steps.map((step, idx) => `
+        <div class="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800/80 flex items-start space-x-2.5 text-xs text-zinc-300 leading-relaxed font-mono">
+          <span class="w-5 h-5 rounded-md bg-neon-green/10 text-neon-green border border-neon-green/30 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
+            ${idx + 1}
+          </span>
+          <div class="flex-1">${step}</div>
+        </div>
+      `).join('');
+
+      // 避坑与警戒
+      document.getElementById('modal-pitfalls').innerText = p.deep_dive?.risk_and_pitfalls || '注意控制试错时间成本，小步快跑，单周验证不出正向反馈即迅速复盘。';
+
+      // 必备工具链
+      const toolsContainer = document.getElementById('modal-tools-list');
+      const tools = p.deep_dive?.tools || [];
+      toolsContainer.innerHTML = tools.map(tool => `
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-obsidian-800 text-neon-cyan border border-neon-cyan/30">
+          ${tool}
+        </span>
+      `).join('') || '<span class="text-xs text-zinc-400 font-mono">通用生产力工具</span>';
+
+      // 标签 (弹窗内点击同样可联动筛选)
+      const tagsContainer = document.getElementById('modal-tags-list');
+      const tags = p.tags || [];
+      tagsContainer.innerHTML = tags.map(tag => `
+        <span 
+          onclick="filterByTag('${tag}'); closeProjectModal();"
+          class="text-xs font-mono px-2 py-0.5 rounded bg-obsidian-800 hover:bg-obsidian-700 text-zinc-300 hover:text-neon-green cursor-pointer transition-colors"
+          title="点击按 #${tag} 筛选"
+        >
+          #${tag}
+        </span>
+      `).join('');
+
+      // 外链参考
+      const sourceBtn = document.getElementById('modal-source-btn');
+      if (p.source_url) {
+        sourceBtn.href = p.source_url;
+        sourceBtn.classList.remove('hidden');
+      } else {
+        sourceBtn.classList.add('hidden');
+      }
+
+      // 打开弹窗
+      const modal = document.getElementById('detail-modal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // 关闭沉浸式弹窗
+    function closeProjectModal() {
+      const modal = document.getElementById('detail-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // 标签点击代理（安全阻止冒泡）
+    function handleTagClick(e, tag) {
+      if (e) {
+        if (e.stopPropagation) e.stopPropagation();
+        if (e.preventDefault) e.preventDefault();
+      }
+      filterByTag(tag);
+    }
+
+    // 复制当前项目摘要
+    function copyCurrentProjectText() {
+      if (!activeModalProject) return;
+      const text = `【搞钱实验室】${activeModalProject.title}\n⭐ 推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n💰 月现金流: ${activeModalProject.metrics?.est_monthly_profit}\n⏱️ 验证周期: ${activeModalProject.metrics?.cycle_time}\n💡 商业逻辑: ${activeModalProject.summary}\n来源: ucncn.cn/money`;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('项目摘要已成功复制到剪贴板！');
+      });
+    }
+
+    // 按标签快速筛选
+    function filterByTag(tag) {
+      searchQuery = tag;
+      document.getElementById('search-input').value = tag;
+      document.getElementById('clear-search-btn').classList.remove('hidden');
+      applyFiltersAndRender();
+      showToast(`已按标签 #${tag} 完成筛选`);
+    }
+
+    // 按等级筛选
+    function filterByTier(tier) {
+      setQuickFilter('S_TIER');
+      showToast('已筛选 S 级卓越推荐项目');
+    }
+
+    // 按排序下拉联动
+    function setSortAndApply(sortType) {
+      currentSort = sortType;
+      document.getElementById('sort-select').value = sortType;
+      applyFiltersAndRender();
+      showToast(sortType === 'score-desc' ? '已按推荐指数最高排序' : '已按最新时间优先排序');
+    }
+
+    // 清除搜索词
+    function clearSearch() {
+      searchQuery = '';
+      document.getElementById('search-input').value = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      applyFiltersAndRender();
+    }
+
+    // 重置所有筛选
+    function resetAllFilters() {
+      currentCategory = 'ALL';
+      currentIntent = 'ALL';
+      searchQuery = '';
+      currentSort = 'score-desc';
+      document.getElementById('search-input').value = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      document.getElementById('sort-select').value = 'score-desc';
+      
+      // 重置药丸样式
+      document.querySelectorAll('.pill-btn').forEach((btn, idx) => {
+        if (idx === 0) {
+          btn.className = 'pill-btn px-3 py-1.5 text-xs font-mono rounded-lg transition-all active-pill bg-neon-green text-black font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)]';
+        } else {
+          btn.className = 'pill-btn px-3 py-1.5 text-xs font-mono rounded-lg bg-obsidian-800 text-zinc-300 hover:text-white hover:bg-obsidian-700 border border-obsidian-700 transition-all';
+        }
+      });
+
+      renderCategoryTabs();
+      applyFiltersAndRender();
+      showToast('已重置为全部项目');
+    }
+
+    // 更新当前生效筛选提示条
+    function updateActiveFilterBar() {
+      const bar = document.getElementById('active-filter-bar');
+      const text = document.getElementById('active-filter-text');
+      const conditions = [];
+
+      if (currentCategory !== 'ALL') conditions.push(`赛道: ${currentCategory}`);
+      if (currentIntent !== 'ALL') {
+        const intentMap = { S_TIER: '仅看S级', FAST: '7天极速验证', ZERO_COST: '零成本启动', GLOBAL: '出海赚美金' };
+        conditions.push(`意图: ${intentMap[currentIntent] || currentIntent}`);
+      }
+      if (searchQuery.trim()) conditions.push(`关键词: "${searchQuery}"`);
+
+      if (conditions.length > 0) {
+        text.innerText = conditions.join(' · ');
+        bar.classList.remove('hidden');
+      } else {
+        bar.classList.add('hidden');
+      }
+    }
+
+    // 轻量 Toast 提示
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = msg;
+      toast.classList.remove('translate-y-16', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-16', 'opacity-0');
+      }, 2200);
+    }
+
+    // 绑定全局事件
+    function bindGlobalEvents() {
+      document.getElementById('modal-backdrop').onclick = closeProjectModal;
+      document.getElementById('modal-close-btn').onclick = closeProjectModal;
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProjectModal();
+      });
+
+      const searchInput = document.getElementById('search-input');
+      const clearBtn = document.getElementById('clear-search-btn');
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        if (searchQuery) clearBtn.classList.remove('hidden');
+        else clearBtn.classList.add('hidden');
+        applyFiltersAndRender();
+      });
+
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        applyFiltersAndRender();
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
 </body>
 </html>

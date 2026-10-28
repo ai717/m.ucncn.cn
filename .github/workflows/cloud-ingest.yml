@@ -1,0 +1,59 @@
+name: MoneyLab Cloud Ingest (独立站云端自动入库)
+
+on:
+  repository_dispatch:
+    types: [moneylab_ingest]
+  workflow_dispatch:
+    inputs:
+      json_data:
+        description: '粘贴搞钱项目 JSON 数组'
+        required: true
+        default: '[]'
+
+permissions:
+  contents: write
+
+jobs:
+  cloud_ingest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Parse and ingest data
+        run: |
+          mkdir -p /tmp/moneylab
+
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo '${{ toJson(github.event.client_payload.projects) }}' > /tmp/moneylab/incoming.json
+          else
+            echo '${{ github.event.inputs.json_data }}' > /tmp/moneylab/incoming.json
+          fi
+
+          echo "📦 正在执行云端入库与去重校验..."
+          node scripts/ingest.js --file=/tmp/moneylab/incoming.json
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet data/projects.json; then
+            echo "💡 数据未发生变化，无需提交。"
+          else
+            echo "🚀 发现新数据，提交并推送到 main 分支..."
+            git add data/projects.json
+            git commit -m "chore(money): auto-ingest new projects via cloud webhook"
+            git pull --rebase origin main
+            git push origin main
+            echo "✅ 独立站数据已更新，GitHub Pages 将全自动刷新生效！"
+          fi
