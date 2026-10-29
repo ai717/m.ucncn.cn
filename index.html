@@ -53,72 +53,56 @@
     }
   </script>
   <style>
-    /* 深空黑曜石微网格背景 */
+    /* 高性能低功耗深空暗黑背景 */
     body {
-      background-color: #050608;
+      background-color: #07080b;
       background-image: 
-        radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 100% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 0% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 600px, 40px 40px, 40px 40px;
       color: #e2e8f0;
       min-height: 100vh;
     }
 
     /* 滚动条极客美化 */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: #050608; }
+    ::-webkit-scrollbar-track { background: #07080b; }
     ::-webkit-scrollbar-thumb { background: #1f2433; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #333d54; }
 
-    /* 高级拟物卡片流光边框特效 */
+    /* 高性能零负载极客卡片 (彻底移除造成 GPU 狂转的 mask-composite 运算) */
     .radar-card {
-      position: relative;
-      background: linear-gradient(145deg, rgba(14, 16, 23, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%);
+      background: #0d0f17;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .radar-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), transparent 60%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transform: translateZ(0); /* 开启独立硬件加速 */
     }
     .radar-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: rgba(16, 185, 129, 0.5);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(16, 185, 129, 0.25);
-    }
-    .radar-card:hover::before {
-      background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.7), rgba(6, 182, 212, 0.3), transparent 70%);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.7), 0 0 15px -3px rgba(16, 185, 129, 0.15);
     }
 
-    /* S级金标卡片专属尊贵流光 */
+    /* S级金标卡片专属尊贵微光 */
+    .radar-card-s {
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
     .radar-card-s:hover {
       border-color: rgba(245, 158, 11, 0.6);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 30px -4px rgba(245, 158, 11, 0.25);
-    }
-    .radar-card-s:hover::before {
-      background: linear-gradient(to bottom right, rgba(245, 158, 11, 0.8), rgba(234, 88, 12, 0.4), transparent 70%);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.7), 0 0 18px -3px rgba(245, 158, 11, 0.18);
     }
 
-    /* 走马灯滚动文字 */
+    /* 走马灯滚动 (独立层优化，绝对不触发整页重绘) */
     @keyframes marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
     }
     .marquee-track {
       display: flex;
       width: 200%;
-      animation: marquee 28s linear infinite;
+      will-change: transform;
+      animation: marquee 32s linear infinite;
     }
     .marquee-track:hover {
       animation-play-state: paused;
@@ -153,7 +137,7 @@
   </div>
 
   <!-- 顶部主导航 -->
-  <header class="sticky top-0 z-40 border-b border-obsidian-700/80 bg-obsidian-950/85 backdrop-blur-xl">
+  <header class="sticky top-0 z-40 border-b border-obsidian-700/80 bg-obsidian-950/95">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- 品牌 Logo -->
@@ -255,7 +239,7 @@
     </section>
 
     <!-- 交互与过滤中枢 -->
-    <section class="bg-obsidian-900/90 border border-obsidian-700/80 rounded-2xl p-4 sm:p-6 backdrop-blur-md space-y-4 shadow-xl">
+    <section class="bg-obsidian-900/95 border border-obsidian-700/80 rounded-2xl p-4 sm:p-6 space-y-4 shadow-xl">
       
       <!-- 第一行：场景化“搞钱快筛药丸 (Quick Intent Pills)” -->
       <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-none" id="intent-pills">
@@ -372,14 +356,14 @@
   <!-- 沉浸式居中指挥官解剖舱 (Modal Deck) -->
   <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 select-none">
     
-    <!-- 全屏高斯模糊遮罩 -->
-    <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"></div>
+    <!-- 全屏遮罩 -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/85 cursor-pointer"></div>
 
     <!-- 弹窗主体面板 -->
     <div id="modal-panel" class="relative w-full max-w-3xl max-h-[90vh] bg-obsidian-900 border border-obsidian-700/90 rounded-3xl overflow-hidden flex flex-col shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] z-10">
       
       <!-- 弹窗顶栏 -->
-      <div class="flex items-center justify-between px-6 py-4 border-b border-obsidian-800 bg-obsidian-950/70 backdrop-blur-md">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-obsidian-800 bg-obsidian-950">
         <div class="flex items-center space-x-2.5">
           <span id="modal-category-badge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-obsidian-800 text-neon-cyan border border-neon-cyan/30"></span>
           <span id="modal-date-text" class="text-xs font-mono text-zinc-400"></span>
