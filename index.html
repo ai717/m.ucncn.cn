@@ -177,17 +177,15 @@
 
       <!-- 快捷操作区 -->
       <div class="flex items-center space-x-3">
+        <div class="hidden sm:flex items-center space-x-2 text-xs font-mono text-zinc-400 px-3 py-1.5 rounded-lg bg-obsidian-850 border border-obsidian-700">
+          <span class="w-2 h-2 rounded-full bg-neon-green animate-pulse"></span>
+          <span>雷达巡航中</span>
+        </div>
         <!-- 快速刷新/重置 -->
         <button onclick="resetAllFilters()" title="重置全部筛选" class="px-3 py-1.5 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-obsidian-700 text-xs font-mono text-zinc-300 hover:text-white transition-all flex items-center space-x-1.5">
           <span>🔄</span>
-          <span class="hidden sm:inline">重置筛选</span>
+          <span>重置筛选</span>
         </button>
-
-        <!-- 返回主站 -->
-        <a href="/" class="px-3 py-1.5 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-obsidian-700 text-xs font-mono text-zinc-400 hover:text-white transition-all flex items-center space-x-1">
-          <span>&larr;</span>
-          <span class="hidden sm:inline">ucncn 主站</span>
-        </a>
       </div>
 
     </div>
@@ -917,7 +915,7 @@
     // 复制当前项目摘要
     function copyCurrentProjectText() {
       if (!activeModalProject) return;
-      const text = `【搞钱实验室】${activeModalProject.title}\n⭐ 推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n💰 月现金流: ${activeModalProject.metrics?.est_monthly_profit}\n⏱️ 验证周期: ${activeModalProject.metrics?.cycle_time}\n💡 商业逻辑: ${activeModalProject.summary}\n来源: ucncn.cn/money`;
+      const text = `【搞钱实验室】${activeModalProject.title}\n⭐ 推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n💰 月现金流: ${activeModalProject.metrics?.est_monthly_profit}\n⏱️ 验证周期: ${activeModalProject.metrics?.cycle_time}\n💡 商业逻辑: ${activeModalProject.summary}\n来源: m.ucncn.cn`;
       navigator.clipboard.writeText(text).then(() => {
         showToast('项目摘要已成功复制到剪贴板！');
       });
