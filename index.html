@@ -250,7 +250,10 @@
       <!-- 右侧元信息与状态 -->
       <div class="flex items-center space-x-4">
         <div class="hidden md:flex items-center space-x-2 text-xs font-mono text-brand-textMuted border-r border-brand-border pr-4">
-          <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+          </span>
           <span>实时巡航中 · 7×24h 数据对齐</span>
         </div>
         <div class="text-xs font-mono text-brand-textSecondary">
