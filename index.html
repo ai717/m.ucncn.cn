@@ -593,7 +593,7 @@
     let currentSort = 'score-desc';
     let activeModalProject = null;
 
-    // 格式化摘要文本：自动提炼高亮第一句主动作，后续为细节
+    // 格式化摘要文本：柔和正文灰度，首句微强调，整体与大标题拉开清晰的视觉景深
     function formatSummaryText(summary) {
       if (!summary) return '';
       const match = summary.match(/^([^。！？\n]+[。！？]?)([\s\S]*)$/);
@@ -601,11 +601,11 @@
         const lead = match[1].trim();
         const rest = match[2].trim();
         if (rest) {
-          return `<strong class="text-brand-textPrimary font-medium">${lead}</strong> <span class="text-brand-textSecondary">${rest}</span>`;
+          return `<span class="text-slate-300 font-normal">${lead}</span> <span class="text-slate-500">${rest}</span>`;
         }
-        return `<strong class="text-brand-textPrimary font-medium">${lead}</strong>`;
+        return `<span class="text-slate-300 font-normal">${lead}</span>`;
       }
-      return summary;
+      return `<span class="text-slate-400">${summary}</span>`;
     }
 
     // 格式化 SOP 步骤为流水线步进卡片
@@ -848,23 +848,23 @@
                 </div>
               </div>
 
-              <!-- 顶部第二层：项目标题 (主视觉焦点，字重清晰，防拥挤) -->
-              <h3 class="text-[17px] font-bold text-brand-textPrimary group-hover:text-emerald-400 transition-colors leading-[1.4] tracking-tight">
+              <!-- 顶部第二层：项目标题 (主视觉焦点：纯白、加大字号、字重与字间距调优) -->
+              <h3 class="text-[19px] sm:text-[20px] font-extrabold text-white group-hover:text-emerald-400 transition-colors leading-[1.38] tracking-tight">
                 ${p.title}
               </h3>
 
               <!-- 顶部第三层：商业模式与门槛标签 (弱化辅助，统一深色基底) -->
               <div class="flex flex-wrap items-center gap-1.5 mt-3 text-[11px] font-mono text-brand-textMuted">
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-brand-textSecondary">
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400">
                   ${p.metrics?.revenue_model || '一次性/订阅'}
                 </span>
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-brand-textSecondary">
-                  启动成本: <span class="text-brand-primary">${p.metrics?.initial_cost || '极低'}</span>
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400">
+                  启动成本: <span class="text-brand-primary font-medium">${p.metrics?.initial_cost || '极低'}</span>
                 </span>
               </div>
 
-              <!-- 顶部第四层：商业逻辑摘要 (舒适行高，首句加白加粗提炼，细节弱化，易于扫读) -->
-              <p class="text-[13px] text-brand-textSecondary mt-3.5 line-clamp-3 leading-[1.65] font-sans">
+              <!-- 顶部第四层：商业逻辑摘要 (降噪沉底：13px，深冷灰，行高1.7，与纯白大标题拉开明显层次) -->
+              <p class="text-[13px] text-slate-400/90 mt-3.5 line-clamp-3 leading-[1.7] font-sans">
                 ${formatSummaryText(p.summary)}
               </p>
             </div>
