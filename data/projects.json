@@ -21,7 +21,7 @@
     "metrics": {
       "cycle_time": "5~7 天",
       "difficulty_stars": 2,
-      "est_monthly_profit": ",000 ~ ,000 / 月",
+      "est_monthly_profit": "000 ~ 000 / 月",
       "initial_cost": "",
       "revenue_model": "月度订阅 (/月) 或 单条线索购买"
     },
@@ -72,7 +72,7 @@
       "cycle_time": "7~10 天",
       "initial_cost": "$20",
       "revenue_model": "基础订阅 ($19/月) + 超额 Token 计费",
-      "est_monthly_profit": "$2,000 ~ $6,000 / 月"
+      "est_monthly_profit": "$2000 ~ $6000 / 月"
     },
     "deep_dive": {
       "opportunity": "传统 Google/DeepL 翻译缺乏电商语境营销转化词汇，而大模型擅长本土化俚语改写。Shopify 应用市场对此类垂直利基工具需求旺盛。",
@@ -120,7 +120,7 @@
       "cycle_time": "5~10 天",
       "initial_cost": "$5 (开发者账号)",
       "revenue_model": "月度订阅 ($4.99) + 终身买断 ($29)",
-      "est_monthly_profit": "$1,200 ~ $4,500 / 月"
+      "est_monthly_profit": "$1200 ~ $4500 / 月"
     },
     "deep_dive": {
       "opportunity": "Chrome Web Store 类似苹果 App Store 早期，搜索长尾词意图强且竞争相比独立网站极低。海外用户对节省 10 分钟时间的工具具有天然付费习惯。",
@@ -167,7 +167,7 @@
       "cycle_time": "30~45 天",
       "initial_cost": "¥300 (域名+服务器)",
       "revenue_model": "MRR 现金流 + 一次性资产转手出售",
-      "est_monthly_profit": "$3,000 ~ $12,000 / 单"
+      "est_monthly_profit": "$3000 ~ $12000 / 单"
     },
     "deep_dive": {
       "opportunity": "欧美有大量非技术投资人、代理商寻找有真实付费数据、代码干净的 Micro-SaaS 买来补充业务版图，流动性极佳。",
@@ -215,7 +215,7 @@
       "cycle_time": "3~7 天",
       "initial_cost": "¥0 (零投入)",
       "revenue_model": "虚拟内容单笔购买 (9.9~39.9元)",
-      "est_monthly_profit": "¥6,000 ~ ¥25,000 / 月"
+      "est_monthly_profit": "¥6000 ~ ¥25000 / 月"
     },
     "deep_dive": {
       "opportunity": "大众焦虑与情感寄托已成为确定性最高的虚拟消费板块，相比实体商品无需库存物流，履约自动化。",
@@ -262,7 +262,7 @@
       "cycle_time": "15~20 天",
       "initial_cost": "¥500 (演示服务器)",
       "revenue_model": "项目实施费 (¥3k~¥1w) + 月度维护费 (¥800/月)",
-      "est_monthly_profit": "¥15,000 ~ ¥40,000 / 月"
+      "est_monthly_profit": "¥15000 ~ ¥40000 / 月"
     },
     "deep_dive": {
       "opportunity": "传统行业老板对 AI 大模型有强烈认知但缺乏落地实施能力，市面通用 SaaS 往往无法满足定制化数据隐私要求。",
@@ -310,7 +310,7 @@
       "cycle_time": "7~14 天",
       "initial_cost": "$20 (Etsy 上架费与小额广告)",
       "revenue_model": "单品数字下载 ($9.99 ~ $24.99)",
-      "est_monthly_profit": "$800 ~ $3,500 / 月"
+      "est_monthly_profit": "$800 ~ $3500 / 月"
     },
     "deep_dive": {
       "opportunity": "欧美市场对实用型数字化模板认可度极高，Etsy 平台自带搜索流量，且数字商品买家退款率极低。",
