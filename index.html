@@ -823,9 +823,13 @@
         const diffStars = p.metrics?.difficulty_stars || 2;
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
-        // 智能处理月现金流过长导致截断的问题
-        const profitRaw = p.metrics?.est_monthly_profit || '稳健可观';
-        const profitDisplay = profitRaw.replace(/\s*\/.*$/, ''); // 去掉冗余后缀只留核心数字区间
+        // 精炼商业模式：剥离具体价格杂音，只保留纯粹的变现形态（如“月度订阅 + 终身买断”）
+        const rawModel = p.metrics?.revenue_model || '订阅 / 买断';
+        const cleanModel = rawModel.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+
+        // 精炼启动成本：剥离括号解释，只保留最核心的成本结论
+        const rawCost = p.metrics?.initial_cost || '零投入';
+        const cleanCost = rawCost.replace(/\([^)]*\)/g, '').trim();
 
         return `
           <article 
@@ -853,13 +857,14 @@
                 ${p.title}
               </h3>
 
-              <!-- 顶部第三层：商业模式与门槛标签 (单行不换行，水平溢出自适应，保持绝对整齐) -->
-              <div class="flex items-center gap-1.5 mt-3 text-[11px] font-mono text-brand-textMuted overflow-hidden whitespace-nowrap">
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400 flex-shrink-0">
-                  ${p.metrics?.revenue_model || '一次性/订阅'}
+              <!-- 顶部第三层：商业模式与启动门槛 (极简降噪，仅保留纯粹定性模式，杜绝杂乱细节) -->
+              <div class="flex items-center gap-2 mt-3 text-[11px] font-mono text-brand-textMuted">
+                <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-300 font-medium">
+                  ${cleanModel}
                 </span>
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400 flex-shrink-0">
-                  启动成本: <span class="text-brand-primary font-medium">${p.metrics?.initial_cost || '极低'}</span>
+                <span class="text-brand-borderHighlight font-light">·</span>
+                <span>
+                  门槛: <strong class="text-brand-primary font-normal">${cleanCost}</strong>
                 </span>
               </div>
 
