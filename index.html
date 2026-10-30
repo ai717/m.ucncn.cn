@@ -164,19 +164,19 @@
           },
           colors: {
             brand: {
-              black: '#08090b',
-              surface: '#0f1115',
-              surfaceHover: '#161920',
-              border: '#1e222b',
-              borderHighlight: '#2e3544',
+              black: 'var(--color-bg)',
+              surface: 'var(--color-surface)',
+              surfaceHover: 'var(--color-surface-hover)',
+              border: 'var(--color-border)',
+              borderHighlight: 'var(--color-border-highlight)',
               primary: '#10b981',
               primaryDim: '#065f46',
               accent: '#38bdf8',
               gold: '#f59e0b',
               goldDim: '#78350f',
-              textPrimary: '#f8fafc',
-              textSecondary: '#94a3b8',
-              textMuted: '#64748b'
+              textPrimary: 'var(--color-text-primary)',
+              textSecondary: 'var(--color-text-secondary)',
+              textMuted: 'var(--color-text-muted)'
             }
           }
         }
@@ -184,43 +184,94 @@
     }
   </script>
   <style>
-    /* 高级出版级深灰底色与极简冷微光 */
+    :root {
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-surface-hover: #f1f5f9;
+      --color-border: #e2e8f0;
+      --color-border-highlight: #cbd5e1;
+      --color-text-primary: #0f172a;
+      --color-text-secondary: #475569;
+      --color-text-muted: #64748b;
+      --color-card-bg: #ffffff;
+      --color-card-border: #e2e8f0;
+      --color-card-hover: #f8fafc;
+      --color-inner-box: #f1f5f9;
+      --color-scrollbar-track: #f1f5f9;
+      --color-scrollbar-thumb: #cbd5e1;
+    }
+
+    html.dark {
+      --color-bg: #08090b;
+      --color-surface: #0f1115;
+      --color-surface-hover: #161920;
+      --color-border: #1e222b;
+      --color-border-highlight: #2e3544;
+      --color-text-primary: #f8fafc;
+      --color-text-secondary: #94a3b8;
+      --color-text-muted: #64748b;
+      --color-card-bg: #0d0f14;
+      --color-card-border: #1a1e27;
+      --color-card-hover: #11141b;
+      --color-inner-box: rgba(8, 9, 11, 0.7);
+      --color-scrollbar-track: #08090b;
+      --color-scrollbar-thumb: #1e222b;
+    }
+
+    /* 全局背景与平滑过度 */
     body {
-      background-color: #08090b;
-      color: #94a3b8;
+      background-color: var(--color-bg);
+      color: var(--color-text-secondary);
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     /* 滚动条极简处理 */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #08090b; }
-    ::-webkit-scrollbar-thumb { background: #1e222b; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #2e3544; }
+    ::-webkit-scrollbar-track { background: var(--color-scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background: var(--color-scrollbar-thumb); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-border-highlight); }
 
     /* 研报卡片质感 */
     .memo-card {
-      background: #0d0f14;
-      border: 1px solid #1a1e27;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .memo-card:hover {
-      background: #11141b;
-      border-color: #2b3342;
+      background: var(--color-card-hover);
+      border-color: var(--color-border-highlight);
       transform: translateY(-2px);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.12);
+    }
+    html.dark .memo-card:hover {
       box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
     }
 
     /* S级卓越评级边框质感 (带金石沉淀微光) */
     .memo-card-s {
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--color-card-bg) 100%);
+    }
+    .memo-card-s:hover {
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 16px 36px -12px rgba(245, 158, 11, 0.15);
+    }
+    html.dark .memo-card-s {
       border: 1px solid rgba(245, 158, 11, 0.22);
       background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, rgba(13, 15, 20, 1) 100%);
     }
-    .memo-card-s:hover {
+    html.dark .memo-card-s:hover {
       border-color: rgba(245, 158, 11, 0.45);
       box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(245, 158, 11, 0.08);
+    }
+
+    /* 卡片内嵌下沉区域背景 */
+    .card-inner-box {
+      background-color: var(--color-inner-box);
     }
 
     /* 提示 Toast */
@@ -259,6 +310,24 @@
         <div class="text-xs font-mono text-brand-textSecondary">
           已解剖 <span id="nav-count" class="text-brand-textPrimary font-semibold">0</span> 份商业样本
         </div>
+
+        <!-- 亮暗模式切换开关 -->
+        <button 
+          id="theme-toggle-btn" 
+          onclick="toggleTheme()" 
+          title="切换明亮 / 暗色模式"
+          class="p-2 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-brand-textSecondary hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer"
+        >
+          <!-- 太阳图标 (暗模式下显示，点击切亮) -->
+          <svg id="theme-icon-sun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- 月亮图标 (亮模式下显示，点击切暗) -->
+          <svg id="theme-icon-moon" class="w-4 h-4 text-slate-600 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
         <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-brand-textSecondary hover:text-brand-textPrimary transition-colors">
           重置筛选
         </button>
@@ -601,11 +670,11 @@
         const lead = match[1].trim();
         const rest = match[2].trim();
         if (rest) {
-          return `<span class="text-slate-300 font-normal">${lead}</span> <span class="text-slate-500">${rest}</span>`;
+          return `<span class="text-brand-textSecondary font-normal">${lead}</span> <span class="text-brand-textMuted">${rest}</span>`;
         }
-        return `<span class="text-slate-300 font-normal">${lead}</span>`;
+        return `<span class="text-brand-textSecondary font-normal">${lead}</span>`;
       }
-      return `<span class="text-slate-400">${summary}</span>`;
+      return `<span class="text-brand-textSecondary">${summary}</span>`;
     }
 
     // 格式化 SOP 步骤为流水线步进卡片
@@ -648,8 +717,44 @@
       }).join('');
     }
 
+    // 主题切换系统 (亮模式 / 暗模式，带 localStorage 持久化记忆与系统偏好自动侦测)
+    function initTheme() {
+      const savedTheme = localStorage.getItem('moneylab_theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'dark'); // 默认暗色模式
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('moneylab_theme', newTheme);
+      showToast(newTheme === 'dark' ? '已切换至深色暗曜模式' : '已切换至明亮雅白模式');
+    }
+
+    function applyTheme(theme) {
+      const htmlEl = document.documentElement;
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+
+      if (theme === 'dark') {
+        htmlEl.classList.add('dark');
+        if (sunIcon) sunIcon.classList.remove('hidden');
+        if (moonIcon) moonIcon.classList.add('hidden');
+      } else {
+        htmlEl.classList.remove('dark');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+      }
+    }
+
     // 初始化
     async function init() {
+      initTheme();
       try {
         const res = await fetch('./data/projects.json?t=' + Date.now());
         if (!res.ok) throw new Error('Network error');
@@ -856,14 +961,14 @@
                 </div>
               </div>
 
-              <!-- 顶部第二层：项目标题 (主视觉焦点：纯白、加大字号、字重与字间距调优) -->
-              <h3 class="text-[19px] sm:text-[20px] font-extrabold text-white group-hover:text-emerald-400 transition-colors leading-[1.38] tracking-tight">
+              <!-- 顶部第二层：项目标题 (主视觉焦点：黑夜模式纯白/白天模式深黑，字号字重调优) -->
+              <h3 class="text-[19px] sm:text-[20px] font-extrabold text-brand-textPrimary group-hover:text-emerald-500 transition-colors leading-[1.38] tracking-tight">
                 ${p.title}
               </h3>
 
               <!-- 顶部第三层：商业模式与启动门槛 (极简降噪，仅保留纯粹定性模式，杜绝杂乱细节) -->
               <div class="flex items-center gap-2 mt-3 text-[11px] font-mono text-brand-textMuted">
-                <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-slate-300 font-medium">
+                <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-textSecondary font-medium">
                   ${cleanModel}
                 </span>
                 <span class="text-brand-borderHighlight font-light">·</span>
@@ -872,8 +977,8 @@
                 </span>
               </div>
 
-              <!-- 顶部第四层：商业逻辑摘要 (降噪沉底：13px，深冷灰，行高1.7，与纯白大标题拉开明显层次) -->
-              <p class="text-[13px] text-slate-400/90 mt-3.5 line-clamp-3 leading-[1.7] font-sans">
+              <!-- 顶部第四层：商业逻辑摘要 (降噪沉底：13px，行高1.7，与大标题拉开明显层次) -->
+              <p class="text-[13px] text-brand-textMuted mt-3.5 line-clamp-3 leading-[1.7] font-sans">
                 ${formatSummaryText(p.summary)}
               </p>
             </div>
@@ -882,7 +987,7 @@
             <div class="mt-6 pt-4 border-t border-brand-border/60 space-y-3.5">
               
               <!-- 核心指标仪表盘：上下分层，彻底杜绝左右对挤折行 -->
-              <div class="bg-brand-black/70 px-3.5 py-3 rounded-xl border border-brand-border/50 space-y-2.5">
+              <div class="card-inner-box px-3.5 py-3 rounded-xl border border-brand-border/50 space-y-2.5">
                 
                 <!-- 第一行：预估现金流 (尊重项目原生计价，独占整行，纯净无逗号) -->
                 <div class="flex items-baseline justify-between gap-2 overflow-hidden">
