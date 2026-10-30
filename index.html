@@ -164,19 +164,19 @@
           },
           colors: {
             brand: {
-              black: 'var(--color-bg)',
-              surface: 'var(--color-surface)',
-              surfaceHover: 'var(--color-surface-hover)',
-              border: 'var(--color-border)',
-              borderHighlight: 'var(--color-border-highlight)',
+              black: '#08090b',
+              surface: '#0f1115',
+              surfaceHover: '#161920',
+              border: '#1e222b',
+              borderHighlight: '#2e3544',
               primary: '#10b981',
               primaryDim: '#065f46',
               accent: '#38bdf8',
               gold: '#f59e0b',
               goldDim: '#78350f',
-              textPrimary: 'var(--color-text-primary)',
-              textSecondary: 'var(--color-text-secondary)',
-              textMuted: 'var(--color-text-muted)'
+              textPrimary: '#f8fafc',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b'
             }
           }
         }
@@ -184,44 +184,123 @@
     }
   </script>
   <style>
-    :root {
-      --color-bg: #f1f5f9;
-      --color-surface: #ffffff;
-      --color-surface-hover: #f8fafc;
-      --color-border: #cbd5e1;
-      --color-border-highlight: #94a3b8;
-      --color-text-primary: #0f172a;
-      --color-text-secondary: #334155;
-      --color-text-muted: #64748b;
-      --color-card-bg: #ffffff;
-      --color-card-border: #cbd5e1;
-      --color-card-hover: #ffffff;
-      --color-inner-box: #f8fafc;
-      --color-scrollbar-track: #e2e8f0;
-      --color-scrollbar-thumb: #94a3b8;
-    }
-
+    /* 暗色模式（默认基底：黑曜石研报风，100% 保持原有高级感） */
     html.dark {
-      --color-bg: #08090b;
-      --color-surface: #0f1115;
-      --color-surface-hover: #161920;
-      --color-border: #1e222b;
-      --color-border-highlight: #2e3544;
-      --color-text-primary: #f8fafc;
-      --color-text-secondary: #94a3b8;
-      --color-text-muted: #64748b;
-      --color-card-bg: #0d0f14;
-      --color-card-border: #1a1e27;
-      --color-card-hover: #11141b;
-      --color-inner-box: rgba(8, 9, 11, 0.7);
-      --color-scrollbar-track: #08090b;
-      --color-scrollbar-thumb: #1e222b;
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #08090b;
+      color: #94a3b8;
+    }
+    html.dark .memo-card {
+      background-color: #0d0f14;
+      border: 1px solid #1a1e27;
+      box-shadow: none;
+    }
+    html.dark .memo-card:hover {
+      background-color: #11141b;
+      border-color: #2b3342;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+    }
+    html.dark .memo-card-s {
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, #0d0f14 100%);
+    }
+    html.dark .memo-card-s:hover {
+      border-color: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(245, 158, 11, 0.08);
+    }
+    html.dark .tier-badge-s {
+      background-color: rgba(69, 26, 3, 0.35);
+      color: #fbbf24;
+      border: 1px solid rgba(180, 83, 9, 0.5);
+    }
+    html.dark .tier-badge-normal {
+      background-color: #0f1115;
+      color: #94a3b8;
+      border: 1px solid #1e222b;
+    }
+    html.dark .dashboard-box {
+      background-color: rgba(8, 9, 11, 0.7);
+      border-color: rgba(30, 34, 43, 0.6);
+    }
+    html.dark .dashboard-box-divider {
+      border-color: rgba(30, 34, 43, 0.6);
     }
 
-    /* 全局背景与平滑过度 */
+    /* 亮色模式（优雅冷雾灰底 + 实体纸质白卡，清晰深邃） */
+    html:not(.dark) {
+      color-scheme: light;
+    }
+    html:not(.dark) body {
+      background-color: #f1f5f9;
+      color: #334155;
+    }
+    html:not(.dark) header {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) .memo-card {
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    }
+    html:not(.dark) .memo-card:hover {
+      background-color: #ffffff;
+      border-color: #94a3b8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12);
+    }
+    html:not(.dark) .memo-card-s {
+      border: 1px solid #fcd34d;
+      background: linear-gradient(180deg, rgba(254, 243, 199, 0.4) 0%, #ffffff 100%);
+    }
+    html:not(.dark) .memo-card-s:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 12px 24px -8px rgba(217, 119, 6, 0.18);
+    }
+    html:not(.dark) .tier-badge-s {
+      background-color: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fcd34d;
+    }
+    html:not(.dark) .tier-badge-normal {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    html:not(.dark) .dashboard-box {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    html:not(.dark) .dashboard-box-divider {
+      border-color: #e2e8f0;
+    }
+    html:not(.dark) #search-input,
+    html:not(.dark) #sort-select {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    html:not(.dark) .bg-brand-surface {
+      background-color: #ffffff !important;
+    }
+    html:not(.dark) .border-brand-border {
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .text-brand-textPrimary {
+      color: #0f172a !important;
+    }
+    html:not(.dark) .text-brand-textSecondary {
+      color: #334155 !important;
+    }
+    html:not(.dark) .text-brand-textMuted {
+      color: #64748b !important;
+    }
+
+    /* 全局通用排版 */
     body {
-      background-color: var(--color-bg);
-      color: var(--color-text-secondary);
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -229,78 +308,10 @@
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    /* 滚动条极简处理 */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--color-scrollbar-track); }
-    ::-webkit-scrollbar-thumb { background: var(--color-scrollbar-thumb); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--color-border-highlight); }
-
-    /* 评级徽章在双模式下的精细调优 (彻底解决明亮模式下发白看不清的问题) */
-    .tier-badge-s {
-      background-color: #fef3c7;
-      color: #b45309;
-      border: 1px solid #fcd34d;
-    }
-    html.dark .tier-badge-s {
-      background-color: rgba(69, 26, 3, 0.35);
-      color: #fbbf24;
-      border: 1px solid rgba(180, 83, 9, 0.5);
-    }
-
-    .tier-badge-normal {
-      background-color: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-    }
-    html.dark .tier-badge-normal {
-      background-color: var(--color-surface);
-      color: var(--color-text-secondary);
-      border: 1px solid var(--color-border);
-    }
-
-    /* 研报卡片质感 (明亮模式具备纸质沉浸轻阴影，暗色模式具备深曜质感) */
-    .memo-card {
-      background: var(--color-card-bg);
-      border: 1px solid var(--color-card-border);
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .memo-card:hover {
-      background: var(--color-card-hover);
-      border-color: #94a3b8;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12);
-    }
-    html.dark .memo-card {
-      box-shadow: none;
-    }
-    html.dark .memo-card:hover {
-      border-color: var(--color-border-highlight);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
-    }
-
-    /* S级卓越评级边框质感 (明亮模式雅致琥珀金边，暗色模式微光金) */
-    .memo-card-s {
-      border: 1px solid #fcd34d;
-      background: linear-gradient(180deg, rgba(254, 243, 199, 0.4) 0%, #ffffff 100%);
-    }
-    .memo-card-s:hover {
-      border-color: #f59e0b;
-      box-shadow: 0 12px 24px -8px rgba(217, 119, 6, 0.18);
-    }
-    html.dark .memo-card-s {
-      border: 1px solid rgba(245, 158, 11, 0.22);
-      background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, rgba(13, 15, 20, 1) 100%);
-    }
-    html.dark .memo-card-s:hover {
-      border-color: rgba(245, 158, 11, 0.45);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(245, 158, 11, 0.08);
-    }
-
-    /* 卡片内嵌下沉区域背景 */
-    .card-inner-box {
-      background-color: var(--color-inner-box);
-    }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    html.dark ::-webkit-scrollbar-thumb { background: #1e222b; }
 
     /* 提示 Toast */
     #toast {
@@ -1012,10 +1023,10 @@
             </div>
 
             <!-- 底部：独立财务与执行仪表盘 (卡片式深色/浅色下沉区) -->
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-brand-border/60 space-y-3.5">
+            <div class="mt-6 pt-4 border-t border-slate-200/80 dark:border-brand-border/60 space-y-3.5">
               
-              <!-- 核心指标仪表盘：明亮模式下为柔和淡灰微下沉，暗色模式为纯黑下沉 -->
-              <div class="bg-slate-50/90 dark:bg-brand-black/70 px-3.5 py-3 rounded-xl border border-slate-200/80 dark:border-brand-border/50 space-y-2.5">
+              <!-- 核心指标仪表盘：上下分层，彻底杜绝左右对挤折行 -->
+              <div class="dashboard-box px-3.5 py-3 rounded-xl border space-y-2.5">
                 
                 <!-- 第一行：预估现金流 (尊重项目原生计价，独占整行，纯净无逗号) -->
                 <div class="flex items-baseline justify-between gap-2 overflow-hidden">
@@ -1026,7 +1037,7 @@
                 </div>
 
                 <!-- 第二行：细分隔虚线 + 周期与门槛 -->
-                <div class="pt-2 border-t border-slate-200/70 dark:border-brand-border/40 flex items-center justify-between text-xs font-mono">
+                <div class="pt-2 border-t dashboard-box-divider flex items-center justify-between text-xs font-mono">
                   <div class="flex items-center space-x-1.5">
                     <span class="text-[11px] text-slate-500 dark:text-brand-textMuted">验证周期:</span>
                     <span class="text-[12px] font-medium text-slate-800 dark:text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
@@ -1045,7 +1056,7 @@
                   ${(p.tags || []).slice(0, 3).map(tag => `
                     <span 
                       onclick="handleTagClick(event, '${tag}')"
-                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface/80 dark:hover:bg-brand-surfaceHover text-slate-600 hover:text-slate-900 dark:text-brand-textMuted dark:hover:text-brand-textPrimary border border-slate-200 dark:border-brand-border/60 transition-colors flex-shrink-0 cursor-pointer"
+                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover text-slate-600 hover:text-slate-900 dark:text-brand-textMuted dark:hover:text-brand-textPrimary border border-slate-200 dark:border-brand-border transition-colors flex-shrink-0 cursor-pointer"
                       title="点击筛选 #${tag}"
                     >
                       #${tag}
