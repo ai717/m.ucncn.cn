@@ -453,7 +453,7 @@
           id="theme-toggle-btn" 
           onclick="toggleTheme()" 
           title="切换明亮 / 暗色模式"
-          class="p-2 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-brand-textSecondary hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer"
+          class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer"
         >
           <!-- 太阳图标 (暗模式下显示，点击切亮) -->
           <svg id="theme-icon-sun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -465,7 +465,7 @@
           </svg>
         </button>
 
-        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-brand-textSecondary hover:text-brand-textPrimary transition-colors">
+        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors">
           重置筛选
         </button>
       </div>
@@ -570,16 +570,16 @@
         <!-- 场景快速筛选过滤器 (放置在排序左侧) -->
         <div class="flex items-center flex-wrap gap-1.5" id="intent-pills">
           <span class="text-xs text-brand-textMuted font-mono mr-1">快速筛选:</span>
-          <button onclick="setQuickFilter('ALL', this)" class="pill-btn px-2.5 py-1 text-xs font-medium rounded-md transition-all active-pill bg-brand-surfaceHover text-brand-textPrimary border border-brand-borderHighlight font-mono">
+          <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             全部
           </button>
-          <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn px-2.5 py-1 text-xs font-medium rounded-md text-brand-textSecondary hover:text-brand-textPrimary border border-transparent hover:border-brand-border transition-all font-mono">
+          <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             S 级精选
           </button>
-          <button onclick="setQuickFilter('FAST', this)" class="pill-btn px-2.5 py-1 text-xs font-medium rounded-md text-brand-textSecondary hover:text-brand-textPrimary border border-transparent hover:border-brand-border transition-all font-mono">
+          <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             快速见效 (&lt;14天)
           </button>
-          <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn px-2.5 py-1 text-xs font-medium rounded-md text-brand-textSecondary hover:text-brand-textPrimary border border-transparent hover:border-brand-border transition-all font-mono">
+          <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             低成本启动
           </button>
         </div>
@@ -1085,10 +1085,10 @@
               <!-- 顶部第一层：赛道分类标签 + 机构评分徽章 (左右对齐，干净利落) -->
               <div class="flex items-center justify-between gap-2 mb-4 text-xs font-mono">
                 <div class="flex items-center space-x-2">
-                  <span class="px-2.5 py-0.5 rounded-md bg-brand-surface text-brand-textSecondary border border-brand-border font-medium">
+                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border font-medium">
                     ${p.category || '综合赛道'}
                   </span>
-                  <span class="text-brand-textMuted/60 text-[11px]">#${String(index + 1).padStart(2, '0')}</span>
+                  <span class="text-slate-400 dark:text-brand-textMuted/60 text-[11px]">#${String(index + 1).padStart(2, '0')}</span>
                 </div>
                 
                 <!-- 评级徽章 -->
