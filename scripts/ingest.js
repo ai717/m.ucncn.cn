@@ -146,6 +146,73 @@ if (totalAdded === 0 && totalUpdated === 0) {
 fs.writeFileSync(DB_PATH, JSON.stringify(existing, null, 2), 'utf8');
 console.log(`\n🎉 数据合并完成！当前实验室总项目数: ${existing.length} 条 (本次新增: ${totalAdded}, 更新: ${totalUpdated})`);
 
+// 自动同步刷新 index.html 的 JSON-LD 结构化微数据与 sitemap.xml
+try {
+  const htmlPath = path.resolve(__dirname, '../index.html');
+  const sitemapPath = path.resolve(__dirname, '../sitemap.xml');
+  
+  if (fs.existsSync(htmlPath)) {
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    const schemaData = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://m.ucncn.cn/#website',
+          'url': 'https://m.ucncn.cn/',
+          'name': '搞钱实验室 (MoneyLab)',
+          'description': '前沿出海变现、AI副业与微型商业项目尽调雷达。',
+          'inLanguage': 'zh-CN',
+          'potentialAction': {
+            '@type': 'SearchAction',
+            'target': 'https://m.ucncn.cn/?q={search_term_string}',
+            'query-input': 'required name=search_term_string'
+          }
+        },
+        {
+          '@type': 'ItemList',
+          '@id': 'https://m.ucncn.cn/#itemlist',
+          'name': '精选商业变现与搞钱项目库',
+          'description': '经过AI四维量化打分与客观解剖的精锐商业案例。',
+          'itemListElement': existing.map((p, idx) => ({
+            '@type': 'ListItem',
+            'position': idx + 1,
+            'item': {
+              '@type': 'Article',
+              'headline': p.title,
+              'description': p.summary,
+              'url': 'https://m.ucncn.cn/#' + (p.slug || p.id),
+              'datePublished': p.created_at,
+              'keywords': (p.tags || []).join(','),
+              'about': p.category
+            }
+          }))
+        }
+      ]
+    };
+    
+    html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i, `<script type="application/ld+json">\n${JSON.stringify(schemaData, null, 2)}\n  </script>`);
+    fs.writeFileSync(htmlPath, html, 'utf8');
+    console.log('✓ Google 结构化微数据 (JSON-LD) 已同步刷新！');
+  }
+
+  // 刷新 sitemap.xml
+  const today = new Date().toISOString().slice(0, 10);
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://m.ucncn.cn/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>\n`;
+  fs.writeFileSync(sitemapPath, sitemapXml, 'utf8');
+  console.log('✓ 网站地图 (sitemap.xml) 已同步刷新！');
+} catch (seoErr) {
+  console.warn('⚠️ 同步更新 SEO 元数据时出现提示:', seoErr.message);
+}
+
 // 自动移动处理完的文件到 archive 归档
 for (const src of processedFiles) {
   const base = path.basename(src);
@@ -165,7 +232,7 @@ console.log(`📦 已处理文件已自动移动到 inbox/archive/ 归档备份�
 if (shouldPush) {
   try {
     console.log('\n🚀 正在推送到 GitHub，GitHub Pages 将全自动构建生效...');
-    execSync('git add data/projects.json inbox', { stdio: 'inherit' });
+    execSync('git add data/projects.json inbox index.html sitemap.xml', { stdio: 'inherit' });
     execSync(`git commit -m "chore: auto-ingest ${totalAdded} projects via inbox"`, { stdio: 'inherit' });
     
     try {

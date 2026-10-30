@@ -1,0 +1,6 @@
+# 搞钱实验室 (MoneyLab) - robots.txt
+User-agent: *
+Allow: /
+
+# 核心网站地图索引
+Sitemap: https://m.ucncn.cn/sitemap.xml

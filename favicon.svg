@@ -1,33 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- 渐变定义 -->
   <defs>
-    <linearGradient id="dbGreen" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00c822"/>
-      <stop offset="100%" stop-color="#008a16"/>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141820" />
+      <stop offset="100%" stop-color="#08090c" />
     </linearGradient>
-    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbbf24"/>
-      <stop offset="100%" stop-color="#f59e0b"/>
+    <!-- 脉冲上升渐变 -->
+    <linearGradient id="lineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="60%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
     </linearGradient>
+    <!-- 发光柔光 -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
-  <!-- 背景圆角底色 -->
-  <rect width="64" height="64" rx="16" fill="#0d1a12"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#1b3824" stroke-width="2"/>
-  
-  <!-- 胶片孔边缘装饰 (左侧与右侧) -->
-  <rect x="6" y="10" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="6" y="22" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="6" y="34" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="6" y="46" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="54" y="10" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="54" y="22" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="54" y="34" width="4" height="6" rx="1.5" fill="#1b3824"/>
-  <rect x="54" y="46" width="4" height="6" rx="1.5" fill="#1b3824"/>
 
-  <!-- 核心放映机镜头与豆瓣笑脸双螺旋隐喻 -->
-  <circle cx="32" cy="28" r="14" fill="url(#dbGreen)"/>
-  <circle cx="32" cy="28" r="11" fill="#0d1a12"/>
-  <circle cx="32" cy="28" r="6" fill="url(#goldGlow)"/>
+  <!-- 外层精密黑曜石底板 -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bgGrad)" stroke="#262d3d" stroke-width="2" />
   
-  <!-- 豆瓣经典微笑弧度 -->
-  <path d="M 22 44 Q 32 54 42 44" fill="none" stroke="url(#dbGreen)" stroke-width="4" stroke-linecap="round"/>
+  <!-- 内部几何网格微底纹 -->
+  <path d="M4 32h56M32 4v56" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
+
+  <!-- 核心几何图形：折线上升与极简 M 结构融合 -->
+  <!-- 左支柱与上升折线 -->
+  <path 
+    d="M16 46V24l11 15 8-11 13 18" 
+    stroke="url(#lineGrad)" 
+    stroke-width="4.5" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  />
+
+  <!-- 顶点商业锚点 (金色增益粒子) -->
+  <circle cx="35" cy="28" r="3" fill="#f59e0b" stroke="#08090c" stroke-width="1.5" />
+  <circle cx="48" cy="46" r="3" fill="#10b981" stroke="#08090c" stroke-width="1.5" />
+  <circle cx="16" cy="24" r="3" fill="#06b6d4" stroke="#08090c" stroke-width="1.5" />
 </svg>
