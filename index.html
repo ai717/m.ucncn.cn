@@ -184,7 +184,7 @@
     }
   </script>
   <style>
-    /* 暗色模式（黑曜石机构研报风，高级稳重） */
+    /* 暗色模式（黑曜石机构研报风，纯色平整，高级克制，零渐变） */
     html.dark {
       color-scheme: dark;
     }
@@ -192,24 +192,29 @@
       background-color: #08090b;
       color: #94a3b8;
     }
-    html.dark .memo-card {
+    /* 卡片纯色无渐变 */
+    html.dark .memo-card,
+    html.dark .memo-card-s {
       background-color: #0d0f14;
       border: 1px solid #1a1e27;
       box-shadow: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    /* 高亮依靠微空间景深与环境光漫反射，绝不粗暴加深描边 */
     html.dark .memo-card:hover {
-      background-color: #11141b;
-      border-color: #2b3342;
+      background-color: #12151c;
+      border-color: rgba(255, 255, 255, 0.09);
       transform: translateY(-2px);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
     }
     html.dark .memo-card-s {
-      border: 1px solid rgba(245, 158, 11, 0.22);
-      background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, #0d0f14 100%);
+      border: 1px solid rgba(245, 158, 11, 0.25);
     }
     html.dark .memo-card-s:hover {
-      border-color: rgba(245, 158, 11, 0.45);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(245, 158, 11, 0.08);
+      background-color: #12151c;
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -8px rgba(245, 158, 11, 0.1);
     }
     html.dark .tier-badge-s {
       background-color: rgba(69, 26, 3, 0.35);
@@ -221,15 +226,8 @@
       color: #94a3b8;
       border: 1px solid #1e222b;
     }
-    html.dark .dashboard-box {
-      background-color: rgba(8, 9, 11, 0.7);
-      border-color: rgba(30, 34, 43, 0.6);
-    }
-    html.dark .dashboard-box-divider {
-      border-color: rgba(30, 34, 43, 0.6);
-    }
 
-    /* 亮色模式（极简冷雾灰纸质风，彻底告别泛黄与脏感） */
+    /* 亮色模式（极简冷雾灰纸质风，纯色平整，通透高阶，零渐变） */
     html:not(.dark) {
       color-scheme: light;
     }
@@ -241,26 +239,24 @@
       background-color: rgba(255, 255, 255, 0.95) !important;
       border-color: #e2e8f0 !important;
     }
-    html:not(.dark) .memo-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
-    }
-    html:not(.dark) .memo-card:hover {
-      background-color: #ffffff;
-      border-color: #cbd5e1;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.08);
-    }
-    /* S级卡片在亮色模式下纯白通透，彻底去除黄色渐变，仅靠高质感微阴影与精致琥珀金标彰显地位 */
+    /* 卡片纯白平整，零渐变，微阴影底色 */
+    html:not(.dark) .memo-card,
     html:not(.dark) .memo-card-s {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    /* 亮色模式高亮：靠浮起与精致多层柔和阴影，描边保持精致浅色，绝不加黑死线条 */
+    html:not(.dark) .memo-card:hover,
     html:not(.dark) .memo-card-s:hover {
+      background-color: #ffffff;
       border-color: #cbd5e1;
-      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+    }
+    html:not(.dark) .memo-card-s {
+      border: 1px solid #e2e8f0;
     }
     html:not(.dark) .tier-badge-s {
       background-color: #fef3c7;
@@ -272,13 +268,7 @@
       color: #475569;
       border: 1px solid #e2e8f0;
     }
-    html:not(.dark) .dashboard-box {
-      background-color: #f8fafc;
-      border-color: #e2e8f0;
-    }
-    html:not(.dark) .dashboard-box-divider {
-      border-color: #edf2f7;
-    }
+
     html:not(.dark) #search-input,
     html:not(.dark) #sort-select {
       background-color: #ffffff !important;
@@ -286,13 +276,13 @@
       color: #0f172a !important;
     }
 
-    /* 亮色模式下的分类 Tabs 与 快速筛选 Pills (杜绝黑块与看不清文字) */
+    /* 亮色模式下的分类 Tabs 与 快速筛选 Pills：高级纯净质感，高对比度白字 */
     html:not(.dark) .cat-tab-active,
     html:not(.dark) .active-pill {
       background-color: #0f172a !important;
       color: #ffffff !important;
       border-color: #0f172a !important;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px -1px rgba(15, 23, 42, 0.12);
     }
     html:not(.dark) .cat-tab-active span,
     html:not(.dark) .active-pill span {
@@ -308,7 +298,7 @@
     html:not(.dark) .inactive-pill:hover {
       background-color: #f1f5f9 !important;
       color: #0f172a !important;
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
     }
 
     /* 暗色模式下的分类 Tabs 与 快速筛选 Pills */
@@ -316,7 +306,8 @@
     html.dark .active-pill {
       background-color: #1e222b !important;
       color: #f8fafc !important;
-      border-color: #3b4252 !important;
+      border-color: #2e3544 !important;
+      box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.4);
     }
     html.dark .cat-tab-inactive,
     html.dark .inactive-pill {
@@ -328,7 +319,7 @@
     html.dark .inactive-pill:hover {
       background-color: #0f1115 !important;
       color: #f8fafc !important;
-      border-color: #1e222b !important;
+      border-color: #1a1e27 !important;
     }
 
     html:not(.dark) .border-brand-border {
@@ -344,7 +335,7 @@
       color: #64748b !important;
     }
 
-    /* 亮色模式弹窗 (解决白底黑框脏乱与对比度缺陷) */
+    /* 亮色模式弹窗 (彻底清理死角黑块) */
     html:not(.dark) #modal-backdrop {
       background-color: rgba(15, 23, 42, 0.45) !important;
       backdrop-filter: blur(4px);
@@ -354,20 +345,12 @@
       border-color: #e2e8f0 !important;
       box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
     }
-    html:not(.dark) #modal-panel > div:first-child {
-      background-color: #f8fafc !important;
-      border-color: #e2e8f0 !important;
-    }
-    html:not(.dark) #modal-panel > div:last-child {
-      background-color: #f8fafc !important;
-      border-color: #e2e8f0 !important;
-    }
     html:not(.dark) .bg-brand-black {
       background-color: #f8fafc !important;
       border-color: #e2e8f0 !important;
     }
     html:not(.dark) .bg-brand-surface {
-      background-color: #ffffff !important;
+      background-color: #f8fafc !important;
       border-color: #e2e8f0 !important;
       color: #334155 !important;
     }
@@ -606,12 +589,12 @@
       </div>
 
       <!-- 当前筛选状态提示条 -->
-      <div id="active-filter-bar" class="hidden flex items-center justify-between bg-brand-surface/60 px-3.5 py-2 rounded-lg border border-brand-border text-xs">
+      <div id="active-filter-bar" class="hidden flex items-center justify-between bg-slate-100/90 dark:bg-brand-surface/60 px-3.5 py-2 rounded-lg border border-slate-200 dark:border-brand-border text-xs">
         <div class="flex items-center space-x-2">
-          <span class="text-brand-textMuted">当前筛选:</span>
-          <span id="active-filter-text" class="text-brand-textPrimary font-medium font-mono"></span>
+          <span class="text-slate-500 dark:text-brand-textMuted">当前筛选:</span>
+          <span id="active-filter-text" class="text-slate-800 dark:text-brand-textPrimary font-medium font-mono"></span>
         </div>
-        <button onclick="resetAllFilters()" class="text-brand-primary hover:underline font-mono">清除全部条件</button>
+        <button onclick="resetAllFilters()" class="text-emerald-600 dark:text-brand-primary hover:underline font-mono font-medium">清除全部条件</button>
       </div>
 
     </section>
@@ -669,11 +652,11 @@
       <!-- 弹窗顶栏 -->
       <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-brand-border bg-slate-50 dark:bg-brand-black/80">
         <div class="flex items-center space-x-3">
-          <span id="modal-id-badge" class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-textMuted"></span>
-          <span id="modal-category-badge" class="text-xs font-medium px-2.5 py-0.5 rounded bg-brand-surface text-brand-textPrimary border border-brand-border"></span>
-          <span id="modal-date-text" class="text-xs font-mono text-brand-textMuted hidden sm:inline"></span>
+          <span id="modal-id-badge" class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textMuted"></span>
+          <span id="modal-category-badge" class="text-xs font-medium px-2.5 py-0.5 rounded bg-slate-100 dark:bg-brand-surface text-slate-800 dark:text-brand-textPrimary border border-slate-200 dark:border-brand-border"></span>
+          <span id="modal-date-text" class="text-xs font-mono text-slate-500 dark:text-brand-textMuted hidden sm:inline"></span>
         </div>
-        <button id="modal-close-btn" class="w-8 h-8 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-brand-textSecondary hover:text-brand-textPrimary flex items-center justify-center transition-colors text-sm">
+        <button id="modal-close-btn" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 hover:text-slate-900 dark:text-brand-textSecondary dark:hover:text-brand-textPrimary flex items-center justify-center transition-colors text-sm cursor-pointer">
           ✕
         </button>
       </div>
@@ -682,7 +665,7 @@
       <div class="overflow-y-auto p-6 sm:p-8 space-y-6 text-brand-textSecondary font-sans">
         
         <!-- 头部：标题与核心评级 -->
-        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-brand-border">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-slate-100 dark:border-brand-border/40">
           <div class="space-y-3 flex-1">
             <h2 id="modal-title" class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-brand-textPrimary tracking-tight leading-snug"></h2>
             <p id="modal-summary" class="text-sm text-slate-600 dark:text-brand-textSecondary leading-relaxed"></p>
@@ -776,7 +759,7 @@
 
       <!-- 弹窗底栏操作区 -->
       <div class="px-6 py-4 border-t border-brand-border bg-brand-black/90 flex items-center justify-between">
-        <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3.5 py-2 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-brand-textSecondary hover:text-brand-textPrimary transition-colors flex items-center space-x-1.5">
+        <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono text-slate-700 hover:text-slate-900 dark:text-brand-textSecondary dark:hover:text-brand-textPrimary transition-colors flex items-center space-x-1.5 cursor-pointer">
           <span>复制研报摘要</span>
         </button>
 
@@ -1130,33 +1113,29 @@
               </p>
             </div>
 
-            <!-- 底部：独立财务与执行仪表盘 (卡片式深色/浅色下沉区) -->
-            <div class="mt-6 pt-4 border-t border-slate-200/80 dark:border-brand-border/60 space-y-3.5">
+            <!-- 底部财务与执行数据：直接融入卡片，杜绝生硬的嵌套矩形框与双重描边 -->
+            <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-brand-border/40 space-y-2">
               
-              <!-- 核心指标仪表盘：上下分层，彻底杜绝左右对挤折行 -->
-              <div class="dashboard-box px-3.5 py-3 rounded-xl border space-y-2.5">
-                
-                <!-- 第一行：预估现金流 (尊重项目原生计价，独占整行，纯净无逗号) -->
-                <div class="flex items-baseline justify-between gap-2 overflow-hidden">
-                  <span class="text-xs font-mono text-slate-500 dark:text-brand-textMuted flex-shrink-0">预估月现金流</span>
-                  <span class="text-base font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight whitespace-nowrap" title="${profitRaw}">
-                    ${cleanProfit}
-                  </span>
-                </div>
-
-                <!-- 第二行：细分隔虚线 + 周期与门槛 -->
-                <div class="pt-2 border-t dashboard-box-divider flex items-center justify-between text-xs font-mono">
-                  <div class="flex items-center space-x-1.5">
-                    <span class="text-xs text-slate-500 dark:text-brand-textMuted">验证周期:</span>
-                    <span class="text-xs font-medium text-slate-800 dark:text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
-                  </div>
-                  <div class="flex items-center space-x-1.5">
-                    <span class="text-xs text-slate-500 dark:text-brand-textMuted">门槛:</span>
-                    <span class="text-xs text-amber-500 dark:text-amber-400 tracking-tight">${starsText}</span>
-                  </div>
-                </div>
-
+              <!-- 第一行：预估现金流 (尊重原生币种，独占整行，纯净无逗号) -->
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="text-xs font-mono text-slate-400 dark:text-brand-textMuted">预估月现金流</span>
+                <span class="text-base font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight whitespace-nowrap" title="${profitRaw}">
+                  ${cleanProfit}
+                </span>
               </div>
+
+              <!-- 第二行：周期与门槛 (平铺自然展现) -->
+              <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-brand-textMuted pt-0.5">
+                <div class="flex items-center space-x-1.5">
+                  <span class="text-slate-400 dark:text-brand-textMuted/70">验证周期:</span>
+                  <span class="font-medium text-slate-700 dark:text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <span class="text-slate-400 dark:text-brand-textMuted/70">门槛:</span>
+                  <span class="text-amber-500 dark:text-amber-400 tracking-tight">${starsText}</span>
+                </div>
+              </div>
+            </div>
 
               <!-- 标签流与 CTA 操作提示 (单行严格锁定，标签单行超出隐藏或自适应，绝不换行破坏底栏高度) -->
               <div class="flex items-center justify-between pt-1 gap-2">
@@ -1202,8 +1181,8 @@
       const tierEl = document.getElementById('modal-tier-badge');
       tierEl.innerText = `${p.rating_tier || 'A'} 级卓越推荐`;
       tierEl.className = isS 
-        ? 'text-xs font-mono px-2 py-0.5 rounded font-semibold bg-amber-950/40 text-brand-gold border border-amber-800/60' 
-        : 'text-xs font-mono px-2 py-0.5 rounded font-semibold bg-brand-surface text-brand-textSecondary border border-brand-border';
+        ? 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-brand-gold dark:border-amber-800/60' 
+        : 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200 dark:bg-brand-surface dark:text-brand-textSecondary dark:border-brand-border';
 
       const diffStars = p.metrics?.difficulty_stars || 2;
       document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5)`;
@@ -1247,10 +1226,10 @@
       const toolsContainer = document.getElementById('modal-tools-list');
       const tools = p.deep_dive?.tools || [];
       toolsContainer.innerHTML = tools.map(tool => `
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-brand-surface text-brand-textSecondary border border-brand-border">
+        <span class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border">
           ${tool}
         </span>
-      `).join('') || '<span class="text-xs text-brand-textMuted">通用工具</span>';
+      `).join('') || '<span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono">通用工具</span>';
 
       // 标签
       const tagsContainer = document.getElementById('modal-tags-list');
@@ -1258,7 +1237,7 @@
       tagsContainer.innerHTML = tags.map(tag => `
         <span 
           onclick="filterByTag('${tag}'); closeProjectModal();"
-          class="text-xs font-mono px-2 py-0.5 rounded bg-brand-surface hover:bg-brand-surfaceHover text-brand-textMuted hover:text-brand-textPrimary cursor-pointer border border-brand-border transition-colors"
+          class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover text-slate-600 hover:text-slate-900 dark:text-brand-textMuted dark:hover:text-brand-textPrimary cursor-pointer border border-slate-200 dark:border-brand-border transition-colors"
           title="点击按 #${tag} 筛选"
         >
           #${tag}
