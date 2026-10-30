@@ -795,7 +795,7 @@
                 onclick="openCheckoutModal()" 
                 class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-2 cursor-pointer"
               >
-                <span>⚡ 直接支付解锁 (单篇 $4.99 / 年度 VIP $39)</span>
+                <span>⚡ 直接支付解锁 (单篇 ¥9.9 / 年度 VIP ¥299)</span>
                 <span class="font-mono">→</span>
               </button>
             </div>
@@ -924,8 +924,8 @@
               <span id="radio-single" class="w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center"></span>
             </div>
             <div>
-              <div class="text-2xl font-bold font-mono text-slate-900 dark:text-brand-textPrimary">$4.99</div>
-              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">约 ¥35 / 仅解锁当前项目</div>
+              <div class="text-2xl font-bold font-mono text-slate-900 dark:text-brand-textPrimary">¥9.90</div>
+              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">一次性买断 · 仅解锁当前项目</div>
             </div>
             <ul class="text-[11px] text-slate-600 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
               <li class="flex items-center space-x-1.5">
@@ -957,8 +957,8 @@
               <span id="radio-annual" class="w-4 h-4 rounded-full bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]">✓</span>
             </div>
             <div>
-              <div class="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">$39 <span class="text-xs font-sans text-slate-400 font-normal">/ 年</span></div>
-              <div class="text-[11px] text-slate-500 dark:text-brand-textMuted font-mono">约 ¥280 / 全年 150+ 项目全解</div>
+              <div class="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">¥299.00 <span class="text-xs font-sans text-slate-400 font-normal">/ 年</span></div>
+              <div class="text-[11px] text-slate-500 dark:text-brand-textMuted font-mono">全年 150+ 方案无限全解 · 每日持续对齐</div>
             </div>
             <ul class="text-[11px] text-slate-700 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
               <li class="flex items-center space-x-1.5">
@@ -995,7 +995,7 @@
             id="stripe-checkout-btn"
             class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-bold text-sm transition-all shadow-md flex items-center justify-center space-x-2 cursor-pointer"
           >
-            <span>直接支付 $39 (年度 VIP · 全站畅读)</span>
+            <span>直接支付 ¥299.00 (年度 VIP · 全站畅读)</span>
             <span class="font-mono">→</span>
           </button>
 
@@ -1620,6 +1620,212 @@
         currentSort = e.target.value;
         applyFiltersAndRender();
       });
+    }
+
+    // ==========================================
+    // Stripe 真实直接支付与全自动免密解锁引擎
+    // ==========================================
+    const STRIPE_CONFIG = {
+      // 年度 VIP 真实支付链接 (¥299.00 / 年)
+      annual_link: 'https://buy.stripe.com/4gMeVd9HZ8du1QPdEKg7e01',
+      // 单篇深度买断真实支付链接 (¥9.90 / 篇)
+      single_link: 'https://buy.stripe.com/28EbJ1dYf1P63YXfMSg7e02'
+    };
+
+    let selectedPlan = 'annual'; // 默认推荐年度全站 VIP
+
+    // 打开收银台
+    function openCheckoutModal() {
+      selectPlan('annual');
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    // 关闭收银台
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    // 选择方案
+    function selectPlan(plan) {
+      selectedPlan = plan;
+      const cardSingle = document.getElementById('plan-card-single');
+      const cardAnnual = document.getElementById('plan-card-annual');
+      const radioSingle = document.getElementById('radio-single');
+      const radioAnnual = document.getElementById('radio-annual');
+      const payBtn = document.getElementById('stripe-checkout-btn');
+
+      if (plan === 'annual') {
+        cardAnnual.className = 'p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group';
+        cardSingle.className = 'p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group';
+        radioAnnual.className = 'w-4 h-4 rounded-full bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]';
+        radioAnnual.innerText = '✓';
+        radioSingle.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
+        radioSingle.innerText = '';
+        payBtn.innerHTML = '<span>直接支付 ¥299.00 (年度 VIP · 全站畅读)</span> <span class="font-mono">→</span>';
+      } else {
+        cardSingle.className = 'p-4 rounded-xl border-2 border-slate-900 dark:border-emerald-500 bg-slate-50/50 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group';
+        cardAnnual.className = 'p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group';
+        radioSingle.className = 'w-4 h-4 rounded-full bg-slate-900 dark:bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]';
+        radioSingle.innerText = '✓';
+        radioAnnual.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
+        radioAnnual.innerText = '';
+        payBtn.innerHTML = '<span>直接支付 ¥9.90 (仅解锁本篇)</span> <span class="font-mono">→</span>';
+      }
+    }
+
+    // 跳转至 Stripe 官方收银台直接付款
+    function proceedToStripePayment() {
+      const projectId = activeModalProject ? activeModalProject.id : '';
+
+      if (selectedPlan === 'annual') {
+        window.location.href = STRIPE_CONFIG.annual_link;
+      } else {
+        if (projectId) {
+          localStorage.setItem('moneylab_pending_unlock_id', projectId);
+        }
+        window.location.href = STRIPE_CONFIG.single_link;
+      }
+    }
+
+    // 检查项目是否拥有查看权限 (年度 VIP 或 已单买该项目)
+    function isProjectUnlocked(projectId) {
+      if (localStorage.getItem('moneylab_annual_vip') === 'true') return true;
+      try {
+        const unlockedList = JSON.parse(localStorage.getItem('moneylab_unlocked_projects') || '[]');
+        return unlockedList.includes(projectId);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // 将项目或年度 VIP 标记为已解锁
+    function markAsUnlocked(type, projectId) {
+      if (type === 'annual') {
+        localStorage.setItem('moneylab_annual_vip', 'true');
+      } else if (projectId) {
+        try {
+          const list = JSON.parse(localStorage.getItem('moneylab_unlocked_projects') || '[]');
+          if (!list.includes(projectId)) list.push(projectId);
+          localStorage.setItem('moneylab_unlocked_projects', JSON.stringify(list));
+        } catch (e) {
+          localStorage.setItem('moneylab_unlocked_projects', JSON.stringify([projectId]));
+        }
+      }
+    }
+
+    // 刷新弹窗内部的 VIP 锁区展示状态
+    function updateModalVipState(project) {
+      if (!project) return;
+      const lockedBox = document.getElementById('vip-locked-box');
+      const unlockedBox = document.getElementById('vip-unlocked-box');
+      const sourceBtn = document.getElementById('modal-source-btn');
+      const unlocked = isProjectUnlocked(project.id);
+
+      if (unlocked) {
+        if (lockedBox) lockedBox.classList.add('hidden');
+        if (unlockedBox) unlockedBox.classList.remove('hidden');
+
+        // 填充真实信源直链
+        const sourceUrl = project.source_url || 'https://twitter.com';
+        const urlEl = document.getElementById('unlocked-source-url');
+        const linkEl = document.getElementById('unlocked-source-link');
+        if (urlEl) urlEl.innerText = sourceUrl;
+        if (linkEl) linkEl.href = sourceUrl;
+
+        // 填充 AI 工业级工程提示词
+        const promptTemplate = `# Role: 搞钱实验室 (MoneyLab) 工业化落地专家
+# Target Project: ${project.title}
+# Category: ${project.category} | Expected MRR: ${cleanFinancialText(project.metrics?.est_monthly_profit)}
+
+## 1. 核心需求背景与机会洞察:
+${project.deep_dive?.opportunity || project.summary}
+
+## 2. 自动化架构与执行步骤 (可直接喂给 Cursor / Claude Code):
+${(project.deep_dive?.workflow || []).map((s, i) => `Step ${i+1}: ${s}`).join('\n')}
+
+## 3. 防踩坑与平台红线守则:
+${project.deep_dive?.risk_and_pitfalls || '合规守正'}
+
+## 4. 依赖推荐工具链:
+${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
+
+        const promptEl = document.getElementById('unlocked-prompt-text');
+        if (promptEl) promptEl.innerText = promptTemplate;
+
+        // 弹窗底部操作按钮
+        if (sourceBtn) {
+          sourceBtn.href = sourceUrl;
+          sourceBtn.onclick = null;
+          sourceBtn.innerHTML = '<span>打开参考案例 / 一手信源</span> <span class="font-mono">→</span>';
+          sourceBtn.className = 'px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer';
+        }
+      } else {
+        if (lockedBox) lockedBox.classList.remove('hidden');
+        if (unlockedBox) unlockedBox.classList.add('hidden');
+
+        // 锁定态底栏：点击直接唤起收银台
+        if (sourceBtn) {
+          sourceBtn.href = 'javascript:void(0)';
+          sourceBtn.onclick = () => openCheckoutModal();
+          sourceBtn.innerHTML = '<span>🔒 解锁核心信源与 AI 落地包</span>';
+          sourceBtn.className = 'px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer';
+        }
+      }
+    }
+
+    // 复制 AI 提示词
+    function copyAiPrompt() {
+      const text = document.getElementById('unlocked-prompt-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('AI 工业级落地提示词已复制到剪贴板！');
+      });
+    }
+
+    // 模拟测试直接支付成功回调 (开发测试通道)
+    function simulateSuccessfulPayment() {
+      if (selectedPlan === 'annual') {
+        markAsUnlocked('annual');
+        showToast('🎉 年度 VIP 订阅成功！全站 150+ 方案已全部永久解锁');
+      } else {
+        const id = activeModalProject ? activeModalProject.id : 'ml-20261028-001';
+        markAsUnlocked('single', id);
+        showToast('🎉 单篇方案支付成功！核心信源与 AI 代码包已解锁');
+      }
+      closeCheckoutModal();
+      if (activeModalProject) updateModalVipState(activeModalProject);
+    }
+
+    // 检查 URL 中是否有 Stripe 支付成功重定向参数 (例如: ?stripe=success&plan=annual)
+    function checkStripeReturnParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isSuccess = urlParams.get('stripe') === 'success' || urlParams.get('status') === 'success';
+      const plan = urlParams.get('plan') || urlParams.get('tier');
+      const projectId = urlParams.get('id') || urlParams.get('project');
+
+      if (isSuccess) {
+        if (plan === 'annual') {
+          markAsUnlocked('annual');
+          showToast('🎉 欢迎成为 MoneyLab 年度研究员！全站 150+ 方案已永久无限解锁');
+        } else {
+          // 单篇购买
+          const pendingId = localStorage.getItem('moneylab_pending_unlock_id');
+          const unlockTarget = projectId || pendingId;
+          if (unlockTarget) {
+            markAsUnlocked('single', unlockTarget);
+            showToast('🎉 支付成功！本篇一手信源与 AI 落地代码包已成功解锁');
+            setTimeout(() => {
+              openProjectModal(unlockTarget);
+            }, 600);
+          } else {
+            markAsUnlocked('annual');
+            showToast('🎉 支付成功！已为您开启畅读权限');
+          }
+        }
+        localStorage.removeItem('moneylab_pending_unlock_id');
+        // 清理 URL 参数，保持地址栏纯净
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
     }
 
     window.addEventListener('DOMContentLoaded', init);
