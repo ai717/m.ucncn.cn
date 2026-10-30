@@ -19,11 +19,11 @@
     },
     "id": "ml-cloud-test-001",
     "metrics": {
-      "cycle_time": "5~7 天",
       "difficulty_stars": 2,
-      "est_monthly_profit": " ~  / 月",
-      "initial_cost": "",
-      "revenue_model": "月度订阅 (/月) 或 单条线索购买"
+      "cycle_time": "5~7 天",
+      "initial_cost": "$0 (零投入)",
+      "revenue_model": "月度订阅 ($29/月) 或 单条线索购买",
+      "est_monthly_profit": "$1000 ~ $3500 / 月"
     },
     "rating_tier": "S",
     "score": 91,

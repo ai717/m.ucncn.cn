@@ -159,7 +159,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', '"Segoe UI"', 'Roboto', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
           },
           colors: {
@@ -184,7 +184,7 @@
     }
   </script>
   <style>
-    /* 暗色模式（默认基底：黑曜石研报风，100% 保持原有高级感） */
+    /* 暗色模式（黑曜石机构研报风，高级稳重） */
     html.dark {
       color-scheme: dark;
     }
@@ -229,13 +229,13 @@
       border-color: rgba(30, 34, 43, 0.6);
     }
 
-    /* 亮色模式（优雅冷雾灰底 + 实体纸质白卡，清晰深邃） */
+    /* 亮色模式（极简冷雾灰纸质风，彻底告别泛黄与脏感） */
     html:not(.dark) {
       color-scheme: light;
     }
     html:not(.dark) body {
-      background-color: #f1f5f9;
-      color: #334155;
+      background-color: #f8fafc;
+      color: #1e293b;
     }
     html:not(.dark) header {
       background-color: rgba(255, 255, 255, 0.95) !important;
@@ -243,47 +243,50 @@
     }
     html:not(.dark) .memo-card {
       background-color: #ffffff;
-      border: 1px solid #cbd5e1;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
     }
     html:not(.dark) .memo-card:hover {
       background-color: #ffffff;
-      border-color: #94a3b8;
+      border-color: #cbd5e1;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.08);
     }
+    /* S级卡片在亮色模式下纯白通透，彻底去除黄色渐变，仅靠高质感微阴影与精致琥珀金标彰显地位 */
     html:not(.dark) .memo-card-s {
-      border: 1px solid #fcd34d;
-      background: linear-gradient(180deg, rgba(254, 243, 199, 0.4) 0%, #ffffff 100%);
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04);
     }
     html:not(.dark) .memo-card-s:hover {
-      border-color: #f59e0b;
-      box-shadow: 0 12px 24px -8px rgba(217, 119, 6, 0.18);
+      border-color: #cbd5e1;
+      box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.1);
     }
     html:not(.dark) .tier-badge-s {
       background-color: #fef3c7;
       color: #b45309;
-      border: 1px solid #fcd34d;
+      border: 1px solid #fde68a;
     }
     html:not(.dark) .tier-badge-normal {
       background-color: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
+      color: #475569;
+      border: 1px solid #e2e8f0;
     }
     html:not(.dark) .dashboard-box {
       background-color: #f8fafc;
-      border-color: #cbd5e1;
+      border-color: #e2e8f0;
     }
     html:not(.dark) .dashboard-box-divider {
-      border-color: #e2e8f0;
+      border-color: #edf2f7;
     }
     html:not(.dark) #search-input,
     html:not(.dark) #sort-select {
       background-color: #ffffff !important;
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
       color: #0f172a !important;
     }
-    /* 亮色模式下的分类 Tabs 与 快速筛选 Pills 状态控制 (杜绝出现黑底药丸与文字缺失) */
+
+    /* 亮色模式下的分类 Tabs 与 快速筛选 Pills (杜绝黑块与看不清文字) */
     html:not(.dark) .cat-tab-active,
     html:not(.dark) .active-pill {
       background-color: #0f172a !important;
@@ -299,16 +302,16 @@
     html:not(.dark) .inactive-pill {
       background-color: #ffffff !important;
       color: #475569 !important;
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
     }
     html:not(.dark) .cat-tab-inactive:hover,
     html:not(.dark) .inactive-pill:hover {
-      background-color: #f8fafc !important;
+      background-color: #f1f5f9 !important;
       color: #0f172a !important;
-      border-color: #94a3b8 !important;
+      border-color: #cbd5e1 !important;
     }
 
-    /* 暗色模式下的分类 Tabs 与 快速筛选 Pills 状态控制 */
+    /* 暗色模式下的分类 Tabs 与 快速筛选 Pills */
     html.dark .cat-tab-active,
     html.dark .active-pill {
       background-color: #1e222b !important;
@@ -327,8 +330,9 @@
       color: #f8fafc !important;
       border-color: #1e222b !important;
     }
+
     html:not(.dark) .border-brand-border {
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
     }
     html:not(.dark) .text-brand-textPrimary {
       color: #0f172a !important;
@@ -340,15 +344,15 @@
       color: #64748b !important;
     }
 
-    /* 亮色模式弹窗深度精修 (解决白底黑框脏乱与对比度缺陷) */
+    /* 亮色模式弹窗 (解决白底黑框脏乱与对比度缺陷) */
     html:not(.dark) #modal-backdrop {
       background-color: rgba(15, 23, 42, 0.45) !important;
       backdrop-filter: blur(4px);
     }
     html:not(.dark) #modal-panel {
       background-color: #ffffff !important;
-      border-color: #cbd5e1 !important;
-      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
     }
     html:not(.dark) #modal-panel > div:first-child {
       background-color: #f8fafc !important;
@@ -360,30 +364,32 @@
     }
     html:not(.dark) .bg-brand-black {
       background-color: #f8fafc !important;
-      border-color: #cbd5e1 !important;
-    }
-    html:not(.dark) .bg-brand-black\/70 {
-      background-color: #f1f5f9 !important;
-      border-color: #cbd5e1 !important;
-    }
-    html:not(.dark) .bg-brand-black\/80 {
-      background-color: #f8fafc !important;
       border-color: #e2e8f0 !important;
     }
+    html:not(.dark) .bg-brand-surface {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #334155 !important;
+    }
+    html:not(.dark) .bg-brand-surfaceHover {
+      background-color: #f1f5f9 !important;
+    }
+    html:not(.dark) .bg-brand-black\/70,
+    html:not(.dark) .bg-brand-black\/80,
     html:not(.dark) .bg-brand-black\/90 {
       background-color: #f8fafc !important;
       border-color: #e2e8f0 !important;
     }
     html:not(.dark) #modal-workflow-steps > div {
       background-color: #f8fafc !important;
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
     }
     html:not(.dark) #modal-workflow-steps > div:hover {
-      border-color: #94a3b8 !important;
+      border-color: #cbd5e1 !important;
     }
     html:not(.dark) #modal-breakdown-bars > div {
       background-color: #f8fafc !important;
-      border-color: #cbd5e1 !important;
+      border-color: #e2e8f0 !important;
     }
     html:not(.dark) .bg-red-950\/20 {
       background-color: #fef2f2 !important;
@@ -397,21 +403,21 @@
       color: #7f1d1d !important;
     }
 
-    /* 全局通用排版 */
+    /* 全局排版抗锯齿与清晰度保证 */
     body {
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       min-height: 100vh;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
     html.dark ::-webkit-scrollbar-thumb { background: #1e222b; }
 
-    /* 提示 Toast */
     #toast {
       transition: all 0.2s ease;
     }
@@ -489,7 +495,7 @@
           <span id="stat-total" class="text-3xl font-bold font-mono text-brand-textPrimary">0</span>
           <span class="text-xs text-brand-textMuted font-sans">个真实案例</span>
         </div>
-        <div class="text-xs text-brand-textMuted mt-3 pt-2.5 border-t border-slate-100 dark:border-brand-border/40">
+        <div class="text-xs text-slate-500 dark:text-brand-textMuted mt-2.5">
           剔除伪需求与空壳项目
         </div>
       </div>
@@ -504,7 +510,7 @@
           <span id="stat-avg-score" class="text-3xl font-bold font-mono text-brand-primary">--</span>
           <span class="text-xs text-brand-textMuted font-mono">/ 100</span>
         </div>
-        <div class="text-xs text-brand-textMuted mt-3 pt-2.5 border-t border-slate-100 dark:border-brand-border/40">
+        <div class="text-xs text-slate-500 dark:text-brand-textMuted mt-2.5">
           基于四维确定性量化测算
         </div>
       </div>
@@ -519,7 +525,7 @@
           <span id="stat-s-tier" class="text-3xl font-bold font-mono text-brand-gold">0</span>
           <span class="text-xs text-brand-textMuted font-sans">个极高确定性</span>
         </div>
-        <div class="text-xs text-brand-textMuted mt-3 pt-2.5 border-t border-slate-100 dark:border-brand-border/40">
+        <div class="text-xs text-slate-500 dark:text-brand-textMuted mt-2.5">
           商业闭环已完整验证
         </div>
       </div>
@@ -533,7 +539,7 @@
         <div class="text-lg font-mono font-bold text-brand-textPrimary mt-1 truncate" id="stat-latest-date">
           --
         </div>
-        <div class="text-xs text-brand-textMuted mt-3 pt-2.5 border-t border-slate-100 dark:border-brand-border/40">
+        <div class="text-xs text-slate-500 dark:text-brand-textMuted mt-2.5">
           定向监控海外交易与痛点
         </div>
       </div>
@@ -661,7 +667,7 @@
     <div id="modal-panel" class="relative w-full max-w-3xl max-h-[90vh] bg-brand-surface border border-brand-borderHighlight rounded-2xl overflow-hidden flex flex-col shadow-2xl z-10">
       
       <!-- 弹窗顶栏 -->
-      <div class="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-brand-black/80">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-brand-border bg-slate-50 dark:bg-brand-black/80">
         <div class="flex items-center space-x-3">
           <span id="modal-id-badge" class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-textMuted"></span>
           <span id="modal-category-badge" class="text-xs font-medium px-2.5 py-0.5 rounded bg-brand-surface text-brand-textPrimary border border-brand-border"></span>
@@ -678,11 +684,11 @@
         <!-- 头部：标题与核心评级 -->
         <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-brand-border">
           <div class="space-y-3 flex-1">
-            <h2 id="modal-title" class="text-xl sm:text-2xl font-bold text-brand-textPrimary tracking-tight leading-snug"></h2>
-            <p id="modal-summary" class="text-sm text-brand-textSecondary leading-relaxed"></p>
+            <h2 id="modal-title" class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-brand-textPrimary tracking-tight leading-snug"></h2>
+            <p id="modal-summary" class="text-sm text-slate-600 dark:text-brand-textSecondary leading-relaxed"></p>
           </div>
           <!-- 评级展示 -->
-          <div class="flex-shrink-0 flex sm:flex-col items-center sm:items-end justify-between bg-brand-black border border-brand-border px-4 py-3 rounded-xl min-w-[130px]">
+          <div class="flex-shrink-0 flex sm:flex-col items-center sm:items-end justify-between bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border px-4 py-3 rounded-xl min-w-[130px]">
             <span class="text-xs font-mono text-brand-textMuted">综合推荐指数</span>
             <div class="flex items-baseline space-x-1 my-0.5">
               <span id="modal-score" class="text-3xl font-mono font-bold text-brand-primary"></span>
@@ -698,19 +704,19 @@
             财务与落地参数矩阵
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div class="bg-brand-black border border-brand-border p-3 rounded-lg">
+            <div class="bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border p-3 rounded-lg">
               <span class="text-brand-textMuted block">启动技术门槛</span>
               <span id="modal-diff-stars" class="font-bold text-brand-textPrimary font-mono mt-1 block"></span>
             </div>
-            <div class="bg-brand-black border border-brand-border p-3 rounded-lg">
+            <div class="bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border p-3 rounded-lg">
               <span class="text-brand-textMuted block">首单验证周期</span>
               <span id="modal-cycle-time" class="font-bold text-brand-textPrimary font-mono mt-1 block truncate"></span>
             </div>
-            <div class="bg-brand-black border border-brand-border p-3 rounded-lg">
+            <div class="bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border p-3 rounded-lg">
               <span class="text-brand-textMuted block">启动资金需求</span>
               <span id="modal-initial-cost" class="font-bold text-brand-primary font-mono mt-1 block truncate"></span>
             </div>
-            <div class="bg-brand-black border border-brand-border p-3 rounded-lg">
+            <div class="bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border p-3 rounded-lg">
               <span class="text-brand-textMuted block">预估月利润空间</span>
               <span id="modal-profit-est" class="font-bold text-brand-primary font-mono mt-1 block truncate"></span>
             </div>
@@ -718,11 +724,11 @@
         </div>
 
         <!-- 核心商业逻辑与窗口期分析 (带重音竖条，突出核心论点) -->
-        <div class="bg-brand-black/70 border border-brand-border border-l-2 border-l-brand-primary p-4 sm:p-5 rounded-r-xl rounded-l-sm space-y-2">
+        <div class="bg-slate-50 dark:bg-brand-black/70 border border-slate-200 dark:border-brand-border border-l-4 border-l-emerald-500 dark:border-l-brand-primary p-4 sm:p-5 rounded-r-xl rounded-l-sm space-y-2">
           <div class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-primary flex items-center space-x-1.5">
             <span>CORE THESIS · 商业本质与机会点</span>
           </div>
-          <p id="modal-opportunity" class="text-sm text-brand-textSecondary leading-relaxed"></p>
+          <p id="modal-opportunity" class="text-sm text-slate-700 dark:text-brand-textSecondary leading-relaxed font-sans"></p>
         </div>
 
         <!-- 四步落地 SOP 步骤 (流水线步进卡片，清晰透气) -->
@@ -747,7 +753,7 @@
         </div>
 
         <!-- 风险提示与避坑防线 (警戒级重音卡片) -->
-        <div class="bg-red-950/20 border border-red-900/40 border-l-2 border-l-red-500 p-4 sm:p-5 rounded-r-xl rounded-l-sm space-y-2">
+        <div class="bg-rose-50 dark:bg-red-950/20 border border-rose-200 dark:border-red-900/40 border-l-4 border-l-rose-500 p-4 sm:p-5 rounded-r-xl rounded-l-sm space-y-2">
           <div class="text-xs font-mono font-semibold uppercase tracking-wider text-red-400">
             CRITICAL RISKS · 风险合规与平台警戒
           </div>
@@ -800,6 +806,11 @@
     let activeModalProject = null;
 
     // 格式化摘要文本：柔和正文灰度，首句微强调，整体与大标题拉开清晰的视觉景深
+    function cleanFinancialText(text) {
+      return (text || '').replace(/,/g, '');
+    }
+
+    // 格式化摘要文本：亮暗模式高对比度抗锯齿排版
     function formatSummaryText(summary) {
       if (!summary) return '';
       const match = summary.match(/^([^。！？\n]+[。！？]?)([\s\S]*)$/);
@@ -807,11 +818,11 @@
         const lead = match[1].trim();
         const rest = match[2].trim();
         if (rest) {
-          return `<span class="text-brand-textSecondary font-normal">${lead}</span> <span class="text-brand-textMuted">${rest}</span>`;
+          return `<span class="text-slate-800 dark:text-slate-200 font-medium">${lead}</span> <span class="text-slate-600 dark:text-slate-400">${rest}</span>`;
         }
-        return `<span class="text-brand-textSecondary font-normal">${lead}</span>`;
+        return `<span class="text-slate-800 dark:text-slate-200 font-medium">${lead}</span>`;
       }
-      return `<span class="text-brand-textSecondary">${summary}</span>`;
+      return `<span class="text-slate-700 dark:text-slate-300">${summary}</span>`;
     }
 
     // 格式化 SOP 步骤为流水线步进卡片
@@ -837,16 +848,16 @@
         }
 
         return `
-          <div class="p-4 rounded-xl bg-brand-black border border-brand-border hover:border-brand-borderHighlight transition-colors space-y-1.5">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight transition-colors space-y-1.5">
             <div class="flex items-center space-x-2 text-xs font-mono">
-              <span class="px-2 py-0.5 rounded bg-brand-surface border border-brand-border font-bold text-brand-primary">
+              <span class="px-2 py-0.5 rounded bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border font-bold text-emerald-600 dark:text-brand-primary">
                 PHASE 0${idx + 1}
               </span>
-              <span class="font-semibold text-brand-textPrimary uppercase tracking-wide">
+              <span class="font-semibold text-slate-800 dark:text-brand-textPrimary uppercase tracking-wide">
                 ${phaseTitle}
               </span>
             </div>
-            <div class="text-sm text-brand-textSecondary leading-relaxed pt-0.5">
+            <div class="text-sm text-slate-600 dark:text-brand-textSecondary leading-relaxed pt-0.5 font-sans">
               ${stepContent}
             </div>
           </div>
@@ -1085,25 +1096,25 @@
               <!-- 顶部第一层：赛道分类标签 + 机构评分徽章 (左右对齐，干净利落) -->
               <div class="flex items-center justify-between gap-2 mb-4 text-xs font-mono">
                 <div class="flex items-center space-x-2">
-                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border font-medium">
+                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border text-xs font-medium">
                     ${p.category || '综合赛道'}
                   </span>
-                  <span class="text-slate-400 dark:text-brand-textMuted/60 text-[11px]">#${String(index + 1).padStart(2, '0')}</span>
+                  <span class="text-slate-400 dark:text-brand-textMuted/60 text-xs font-mono">#${String(index + 1).padStart(2, '0')}</span>
                 </div>
                 
                 <!-- 评级徽章 -->
-                <div class="px-2.5 py-0.5 rounded-md border font-semibold tracking-wide ${tierBadgeClass}">
+                <div class="px-2.5 py-0.5 rounded-md border text-xs font-semibold tracking-wide ${tierBadgeClass}">
                   ${p.rating_tier || 'A'} 级 · ${p.score}分
                 </div>
               </div>
 
               <!-- 顶部第二层：项目标题 (主视觉焦点：黑夜纯白/明亮墨黑，字号字重绝对突出) -->
-              <h3 class="text-[19px] sm:text-[20px] font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-[1.38] tracking-tight">
+              <h3 class="text-lg sm:text-[19px] font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug tracking-tight">
                 ${p.title}
               </h3>
 
               <!-- 顶部第三层：商业模式与启动门槛 (极简降噪，仅保留纯粹定性模式，杜绝杂乱细节) -->
-              <div class="flex items-center gap-2 mt-3 text-[11px] font-mono text-slate-500 dark:text-brand-textMuted">
+              <div class="flex items-center gap-2 mt-3 text-xs font-mono text-slate-500 dark:text-brand-textMuted">
                 <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary font-medium">
                   ${cleanModel}
                 </span>
@@ -1113,8 +1124,8 @@
                 </span>
               </div>
 
-              <!-- 顶部第四层：商业逻辑摘要 (舒适行高，深灰色系，字号微调至13.5px，杜绝模糊发虚) -->
-              <p class="text-[13.5px] text-slate-600 dark:text-slate-400 mt-3.5 line-clamp-3 leading-[1.68] font-sans">
+              <!-- 顶部第四层：商业逻辑摘要 (舒适行高，深灰色系，字号14px，彻底杜绝模糊发虚与锯齿) -->
+              <p class="text-sm text-slate-600 dark:text-slate-400 mt-3.5 line-clamp-3 leading-relaxed font-sans">
                 ${formatSummaryText(p.summary)}
               </p>
             </div>
@@ -1127,8 +1138,8 @@
                 
                 <!-- 第一行：预估现金流 (尊重项目原生计价，独占整行，纯净无逗号) -->
                 <div class="flex items-baseline justify-between gap-2 overflow-hidden">
-                  <span class="text-[11px] font-mono text-slate-500 dark:text-brand-textMuted flex-shrink-0">预估月现金流</span>
-                  <span class="text-[16px] font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight whitespace-nowrap" title="${profitRaw}">
+                  <span class="text-xs font-mono text-slate-500 dark:text-brand-textMuted flex-shrink-0">预估月现金流</span>
+                  <span class="text-base font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight whitespace-nowrap" title="${profitRaw}">
                     ${cleanProfit}
                   </span>
                 </div>
@@ -1136,12 +1147,12 @@
                 <!-- 第二行：细分隔虚线 + 周期与门槛 -->
                 <div class="pt-2 border-t dashboard-box-divider flex items-center justify-between text-xs font-mono">
                   <div class="flex items-center space-x-1.5">
-                    <span class="text-[11px] text-slate-500 dark:text-brand-textMuted">验证周期:</span>
-                    <span class="text-[12px] font-medium text-slate-800 dark:text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
+                    <span class="text-xs text-slate-500 dark:text-brand-textMuted">验证周期:</span>
+                    <span class="text-xs font-medium text-slate-800 dark:text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
                   </div>
                   <div class="flex items-center space-x-1.5">
-                    <span class="text-[11px] text-slate-500 dark:text-brand-textMuted">门槛:</span>
-                    <span class="text-[11px] text-amber-500 dark:text-amber-400 tracking-tight">${starsText}</span>
+                    <span class="text-xs text-slate-500 dark:text-brand-textMuted">门槛:</span>
+                    <span class="text-xs text-amber-500 dark:text-amber-400 tracking-tight">${starsText}</span>
                   </div>
                 </div>
 
@@ -1153,7 +1164,7 @@
                   ${(p.tags || []).slice(0, 3).map(tag => `
                     <span 
                       onclick="handleTagClick(event, '${tag}')"
-                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover text-slate-600 hover:text-slate-900 dark:text-brand-textMuted dark:hover:text-brand-textPrimary border border-slate-200 dark:border-brand-border transition-colors flex-shrink-0 cursor-pointer"
+                      class="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover text-slate-600 hover:text-slate-900 dark:text-brand-textMuted dark:hover:text-brand-textPrimary border border-slate-200 dark:border-brand-border transition-colors flex-shrink-0 cursor-pointer"
                       title="点击筛选 #${tag}"
                     >
                       #${tag}
@@ -1161,7 +1172,7 @@
                   `).join('')}
                 </div>
 
-                <div class="text-[12px] font-semibold text-emerald-600 dark:text-brand-primary group-hover:translate-x-0.5 transition-transform flex items-center space-x-1 pl-2 flex-shrink-0 whitespace-nowrap">
+                <div class="text-xs font-semibold text-emerald-600 dark:text-brand-primary group-hover:translate-x-0.5 transition-transform flex items-center space-x-1 pl-2 flex-shrink-0 whitespace-nowrap">
                   <span>尽调拆解</span>
                   <span class="font-mono text-xs">→</span>
                 </div>
@@ -1197,8 +1208,8 @@
       const diffStars = p.metrics?.difficulty_stars || 2;
       document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5)`;
       document.getElementById('modal-cycle-time').innerText = p.metrics?.cycle_time || '7~14 天';
-      document.getElementById('modal-initial-cost').innerText = p.metrics?.initial_cost || '零投入';
-      document.getElementById('modal-profit-est').innerText = p.metrics?.est_monthly_profit || '稳健可观';
+      document.getElementById('modal-initial-cost').innerText = cleanFinancialText(p.metrics?.initial_cost) || '零投入';
+      document.getElementById('modal-profit-est').innerText = cleanFinancialText(p.metrics?.est_monthly_profit) || '稳健可观';
 
       // 四维雷达条
       const breakdown = p.score_breakdown || { feasibility: 9, velocity: 9, ceiling: 8, reliability: 9 };
@@ -1210,13 +1221,13 @@
       };
       const breakdownContainer = document.getElementById('modal-breakdown-bars');
       breakdownContainer.innerHTML = Object.entries(breakdown).map(([key, val]) => `
-        <div class="bg-brand-black p-3 rounded-lg border border-brand-border">
+        <div class="bg-slate-50 dark:bg-brand-black p-3 rounded-lg border border-slate-200 dark:border-brand-border">
           <div class="flex justify-between text-xs font-mono mb-1.5">
-            <span class="text-brand-textMuted">${barLabels[key] || key}</span>
-            <span class="text-brand-textPrimary font-semibold">${val} / 10</span>
+            <span class="text-slate-500 dark:text-brand-textMuted">${barLabels[key] || key}</span>
+            <span class="text-slate-800 dark:text-brand-textPrimary font-semibold">${val} / 10</span>
           </div>
-          <div class="w-full bg-brand-surface h-1.5 rounded-full overflow-hidden">
-            <div class="bg-brand-primary h-full rounded-full" style="width: ${val * 10}%"></div>
+          <div class="w-full bg-slate-200 dark:bg-brand-surface h-1.5 rounded-full overflow-hidden">
+            <div class="bg-emerald-500 dark:bg-brand-primary h-full rounded-full" style="width: ${val * 10}%"></div>
           </div>
         </div>
       `).join('');
@@ -1278,7 +1289,7 @@
     // 复制项目摘要
     function copyCurrentProjectText() {
       if (!activeModalProject) return;
-      const text = `【搞钱实验室研报】${activeModalProject.title}\n推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n预估月现金流: ${activeModalProject.metrics?.est_monthly_profit}\n验证周期: ${activeModalProject.metrics?.cycle_time}\n商业逻辑: ${activeModalProject.summary}\n来源: m.ucncn.cn`;
+      const text = `【搞钱实验室研报】${activeModalProject.title}\n推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n预估月现金流: ${cleanFinancialText(activeModalProject.metrics?.est_monthly_profit)}\n验证周期: ${activeModalProject.metrics?.cycle_time}\n商业逻辑: ${activeModalProject.summary}\n来源: m.ucncn.cn`;
       navigator.clipboard.writeText(text).then(() => {
         showToast('研报摘要已复制到剪贴板');
       });
