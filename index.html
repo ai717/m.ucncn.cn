@@ -299,6 +299,63 @@
       color: #64748b !important;
     }
 
+    /* 亮色模式弹窗深度精修 (解决白底黑框脏乱与对比度缺陷) */
+    html:not(.dark) #modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.45) !important;
+      backdrop-filter: blur(4px);
+    }
+    html:not(.dark) #modal-panel {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+    }
+    html:not(.dark) #modal-panel > div:first-child {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) #modal-panel > div:last-child {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) .bg-brand-black {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .bg-brand-black\/70 {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .bg-brand-black\/80 {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) .bg-brand-black\/90 {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    html:not(.dark) #modal-workflow-steps > div {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) #modal-workflow-steps > div:hover {
+      border-color: #94a3b8 !important;
+    }
+    html:not(.dark) #modal-breakdown-bars > div {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .bg-red-950\/20 {
+      background-color: #fef2f2 !important;
+      border-color: #fecaca !important;
+      border-left-color: #ef4444 !important;
+    }
+    html:not(.dark) .text-red-400 {
+      color: #b91c1c !important;
+    }
+    html:not(.dark) .text-red-200\/80 {
+      color: #7f1d1d !important;
+    }
+
     /* 全局通用排版 */
     body {
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
