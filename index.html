@@ -202,24 +202,25 @@
 
     /* 研报卡片质感 */
     .memo-card {
-      background: #0f1115;
-      border: 1px solid #1e222b;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #0d0f14;
+      border: 1px solid #1a1e27;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .memo-card:hover {
-      background: #13161c;
-      border-color: #333a4a;
+      background: #11141b;
+      border-color: #2b3342;
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
     }
 
-    /* S级卓越评级边框质感 */
+    /* S级卓越评级边框质感 (带金石沉淀微光) */
     .memo-card-s {
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.02) 0%, rgba(13, 15, 20, 1) 100%);
     }
     .memo-card-s:hover {
-      border-color: rgba(245, 158, 11, 0.55);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 15px -3px rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(245, 158, 11, 0.08);
     }
 
     /* 提示 Toast */
@@ -799,7 +800,7 @@
       renderCards(filtered);
     }
 
-    // 渲染卡片 (专业研报质感，拒绝塑料感与蚂蚁字)
+    // 渲染卡片 (专业机构尽调质感，层级分明，呼吸透气)
     function renderCards(projects) {
       const grid = document.getElementById('cards-grid');
       const emptyState = document.getElementById('empty-state');
@@ -815,79 +816,85 @@
         const isS = p.rating_tier === 'S' || p.score >= 90;
         const cardClass = isS ? 'memo-card memo-card-s' : 'memo-card';
         const tierBadgeClass = isS 
-          ? 'bg-amber-950/40 text-brand-gold border-amber-800/60' 
+          ? 'bg-amber-950/30 text-amber-400 border-amber-800/50 shadow-sm' 
           : 'bg-brand-surface text-brand-textSecondary border-brand-border';
 
         const diffStars = p.metrics?.difficulty_stars || 2;
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
+        // 智能处理月现金流过长导致截断的问题
+        const profitRaw = p.metrics?.est_monthly_profit || '稳健可观';
+        const profitDisplay = profitRaw.replace(/\s*\/.*$/, ''); // 去掉冗余后缀只留核心数字区间
+
         return `
           <article 
             onclick="openProjectModal('${p.id}')"
-            class="${cardClass} rounded-xl p-6 cursor-pointer flex flex-col justify-between group"
+            class="${cardClass} rounded-2xl p-6 cursor-pointer flex flex-col justify-between group relative"
           >
             <div>
-              <!-- 顶部元信息：序号/赛道 + 评级 -->
-              <div class="flex items-center justify-between gap-2 mb-3.5 text-xs font-mono">
-                <div class="flex items-center space-x-2 text-brand-textMuted">
-                  <span class="font-semibold text-brand-textSecondary">${p.category || '综合赛道'}</span>
-                  <span>·</span>
-                  <span>REF #${String(index + 1).padStart(2, '0')}</span>
+              <!-- 顶部第一层：赛道分类标签 + 机构评分徽章 (左右对齐，干净利落) -->
+              <div class="flex items-center justify-between gap-2 mb-4 text-xs font-mono">
+                <div class="flex items-center space-x-2">
+                  <span class="px-2.5 py-0.5 rounded-md bg-brand-surface text-brand-textSecondary border border-brand-border font-medium">
+                    ${p.category || '综合赛道'}
+                  </span>
+                  <span class="text-brand-textMuted/60 text-[11px]">#${String(index + 1).padStart(2, '0')}</span>
                 </div>
                 
                 <!-- 评级徽章 -->
-                <div class="px-2 py-0.5 rounded border font-semibold ${tierBadgeClass}">
+                <div class="px-2.5 py-0.5 rounded-md border font-semibold tracking-wide ${tierBadgeClass}">
                   ${p.rating_tier || 'A'} 级 · ${p.score}分
                 </div>
               </div>
 
-              <!-- 大标题 (清晰醒目，字号舒适) -->
-              <h3 class="text-lg font-semibold text-brand-textPrimary group-hover:text-emerald-400 transition-colors leading-snug">
+              <!-- 顶部第二层：项目标题 (主视觉焦点，字重清晰，防拥挤) -->
+              <h3 class="text-[17px] font-bold text-brand-textPrimary group-hover:text-emerald-400 transition-colors leading-[1.4] tracking-tight">
                 ${p.title}
               </h3>
 
-              <!-- 变现模式与成本胶囊标签 (一眼看出怎么收钱) -->
-              <div class="flex items-center space-x-2 mt-2.5 text-xs font-mono text-brand-textMuted">
-                <span class="px-2 py-0.5 rounded bg-brand-black border border-brand-border text-brand-textSecondary font-medium">
+              <!-- 顶部第三层：商业模式与门槛标签 (弱化辅助，统一深色基底) -->
+              <div class="flex flex-wrap items-center gap-1.5 mt-3 text-[11px] font-mono text-brand-textMuted">
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-brand-textSecondary">
                   ${p.metrics?.revenue_model || '一次性/订阅'}
                 </span>
-                <span>·</span>
-                <span>启动成本: <strong class="text-brand-primary font-normal">${p.metrics?.initial_cost || '低'}</strong></span>
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-brand-textSecondary">
+                  启动成本: <span class="text-brand-primary">${p.metrics?.initial_cost || '极低'}</span>
+                </span>
               </div>
 
-              <!-- 深度商业摘要 (层次化排版：首句高亮提炼，后续细节展开) -->
-              <p class="text-sm text-brand-textSecondary mt-3 line-clamp-3 leading-relaxed">
+              <!-- 顶部第四层：商业逻辑摘要 (舒适行高，首句加白加粗提炼，细节弱化，易于扫读) -->
+              <p class="text-[13px] text-brand-textSecondary mt-3.5 line-clamp-3 leading-[1.65] font-sans">
                 ${formatSummaryText(p.summary)}
               </p>
             </div>
 
-            <!-- 底部财务与执行指标面板 -->
-            <div class="mt-6 pt-5 border-t border-brand-border/70 space-y-4">
+            <!-- 底部：独立财务与执行仪表盘 (卡片式深色下沉区) -->
+            <div class="mt-6 pt-4 border-t border-brand-border/60 space-y-3.5">
               
-              <!-- 收益与核心周期 (主角突出) -->
-              <div class="grid grid-cols-2 gap-3 bg-brand-black/60 p-3.5 rounded-lg border border-brand-border/50">
-                <div>
-                  <span class="text-xs font-mono text-brand-textMuted uppercase block">预估月现金流</span>
-                  <span class="text-base font-mono font-bold text-brand-primary mt-1 block truncate">
-                    ${p.metrics?.est_monthly_profit || '稳健可观'}
+              <!-- 核心指标栅格 (彻底解决截断与拥挤) -->
+              <div class="bg-brand-black/70 p-3 rounded-xl border border-brand-border/50 flex items-center justify-between">
+                <div class="space-y-0.5 pr-2 border-r border-brand-border/40 flex-1">
+                  <span class="text-[11px] font-mono text-brand-textMuted block">预估月现金流</span>
+                  <span class="text-[15px] font-mono font-bold text-emerald-400 block tracking-tight" title="${profitRaw}">
+                    ${profitDisplay}
                   </span>
                 </div>
-                <div>
-                  <span class="text-xs font-mono text-brand-textMuted uppercase block">验证周期 / 门槛</span>
-                  <div class="flex items-baseline justify-between mt-1">
-                    <span class="text-xs font-mono font-medium text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
-                    <span class="text-xs font-mono text-brand-gold">${starsText}</span>
+                <div class="space-y-0.5 pl-3.5 flex-1">
+                  <span class="text-[11px] font-mono text-brand-textMuted block">验证周期 / 门槛</span>
+                  <div class="flex items-baseline space-x-1.5">
+                    <span class="text-[12px] font-mono font-medium text-brand-textPrimary">${p.metrics?.cycle_time || '7天'}</span>
+                    <span class="text-[11px] font-mono text-amber-400/90 tracking-tighter">${starsText}</span>
                   </div>
                 </div>
               </div>
 
-              <!-- 标签与阅读链接 -->
-              <div class="flex items-center justify-between pt-1">
-                <div class="flex flex-wrap gap-1.5 max-w-[72%]">
+              <!-- 标签流与 CTA 操作提示 -->
+              <div class="flex items-center justify-between pt-0.5">
+                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
                   ${(p.tags || []).slice(0, 3).map(tag => `
                     <span 
                       onclick="handleTagClick(event, '${tag}')"
-                      class="text-xs font-mono px-2 py-0.5 rounded bg-brand-surface hover:bg-brand-surfaceHover text-brand-textMuted hover:text-brand-textPrimary border border-brand-border transition-colors"
+                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-brand-surface/80 hover:bg-brand-surfaceHover text-brand-textMuted hover:text-brand-textPrimary border border-brand-border/60 transition-colors"
                       title="点击筛选 #${tag}"
                     >
                       #${tag}
@@ -895,10 +902,10 @@
                   `).join('')}
                 </div>
 
-                <span class="text-xs font-medium text-brand-primary group-hover:translate-x-1 transition-transform flex items-center space-x-1">
-                  <span>拆解报告</span>
-                  <span class="font-mono">→</span>
-                </span>
+                <div class="text-[12px] font-medium text-brand-primary group-hover:translate-x-0.5 transition-transform flex items-center space-x-1 pl-2">
+                  <span>尽调拆解</span>
+                  <span class="font-mono text-xs">→</span>
+                </div>
               </div>
 
             </div>
