@@ -831,6 +831,10 @@
         const rawCost = p.metrics?.initial_cost || '零投入';
         const cleanCost = rawCost.replace(/\([^)]*\)/g, '').trim();
 
+        // 智能处理月现金流过长导致截断的问题
+        const profitRaw = p.metrics?.est_monthly_profit || '稳健可观';
+        const profitDisplay = profitRaw.replace(/\s*\/.*$/, ''); // 去掉冗余后缀只留核心数字区间
+
         return `
           <article 
             onclick="openProjectModal('${p.id}')"
