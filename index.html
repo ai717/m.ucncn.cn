@@ -866,10 +866,9 @@
           <span>复制研报摘要</span>
         </button>
 
-        <a id="modal-source-btn" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-brand-primary hover:bg-emerald-400 text-black font-semibold text-xs transition-colors flex items-center space-x-1">
-          <span>查看参考案例 / 一手信源</span>
-          <span class="font-mono">→</span>
-        </a>
+        <button id="modal-source-btn" type="button" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer">
+          <span>🔒 解锁核心信源与 AI 落地包</span>
+        </button>
       </div>
 
     </div>
@@ -1484,15 +1483,7 @@
         </span>
       `).join('');
 
-      // 外链
-      const sourceBtn = document.getElementById('modal-source-btn');
-      if (p.source_url) {
-        sourceBtn.href = p.source_url;
-        sourceBtn.classList.remove('hidden');
-      } else {
-        sourceBtn.classList.add('hidden');
-      }
-
+      // 交付状态与底栏按钮更新
       updateModalVipState(p);
       const modal = document.getElementById('detail-modal');
       modal.classList.remove('hidden');
@@ -1752,10 +1743,12 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
         const promptEl = document.getElementById('unlocked-prompt-text');
         if (promptEl) promptEl.innerText = promptTemplate;
 
-        // 弹窗底部操作按钮
+        // 弹窗底部操作按钮（已解锁：点击安全在新窗口打开一手信源）
         if (sourceBtn) {
-          sourceBtn.href = sourceUrl;
-          sourceBtn.onclick = null;
+          sourceBtn.onclick = (e) => {
+            e.preventDefault();
+            window.open(sourceUrl, '_blank', 'noopener,noreferrer');
+          };
           sourceBtn.innerHTML = '<span>打开参考案例 / 一手信源</span> <span class="font-mono">→</span>';
           sourceBtn.className = 'px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer';
         }
@@ -1763,10 +1756,12 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
         if (lockedBox) lockedBox.classList.remove('hidden');
         if (unlockedBox) unlockedBox.classList.add('hidden');
 
-        // 锁定态底栏：点击直接唤起收银台
+        // 锁定态底栏（未解锁：点击只在当前页面内唤起收银台，严禁触发新标签页）
         if (sourceBtn) {
-          sourceBtn.href = 'javascript:void(0)';
-          sourceBtn.onclick = () => openCheckoutModal();
+          sourceBtn.onclick = (e) => {
+            e.preventDefault();
+            openCheckoutModal();
+          };
           sourceBtn.innerHTML = '<span>🔒 解锁核心信源与 AI 落地包</span>';
           sourceBtn.className = 'px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer';
         }
