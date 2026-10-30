@@ -853,12 +853,12 @@
                 ${p.title}
               </h3>
 
-              <!-- 顶部第三层：商业模式与门槛标签 (弱化辅助，统一深色基底) -->
-              <div class="flex flex-wrap items-center gap-1.5 mt-3 text-[11px] font-mono text-brand-textMuted">
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400">
+              <!-- 顶部第三层：商业模式与门槛标签 (单行不换行，水平溢出自适应，保持绝对整齐) -->
+              <div class="flex items-center gap-1.5 mt-3 text-[11px] font-mono text-brand-textMuted overflow-hidden whitespace-nowrap">
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400 flex-shrink-0">
                   ${p.metrics?.revenue_model || '一次性/订阅'}
                 </span>
-                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400">
+                <span class="px-2 py-0.5 rounded bg-brand-black/80 border border-brand-border/70 text-slate-400 flex-shrink-0">
                   启动成本: <span class="text-brand-primary font-medium">${p.metrics?.initial_cost || '极低'}</span>
                 </span>
               </div>
@@ -897,13 +897,13 @@
 
               </div>
 
-              <!-- 标签流与 CTA 操作提示 -->
-              <div class="flex items-center justify-between pt-0.5">
-                <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+              <!-- 标签流与 CTA 操作提示 (单行严格锁定，标签单行超出隐藏或自适应，绝不换行破坏底栏高度) -->
+              <div class="flex items-center justify-between pt-1 gap-2">
+                <div class="flex items-center gap-1.5 overflow-hidden whitespace-nowrap flex-1 min-w-0">
                   ${(p.tags || []).slice(0, 3).map(tag => `
                     <span 
                       onclick="handleTagClick(event, '${tag}')"
-                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-brand-surface/80 hover:bg-brand-surfaceHover text-brand-textMuted hover:text-brand-textPrimary border border-brand-border/60 transition-colors"
+                      class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-brand-surface/80 hover:bg-brand-surfaceHover text-brand-textMuted hover:text-brand-textPrimary border border-brand-border/60 transition-colors flex-shrink-0 cursor-pointer"
                       title="点击筛选 #${tag}"
                     >
                       #${tag}
@@ -911,7 +911,7 @@
                   `).join('')}
                 </div>
 
-                <div class="text-[12px] font-medium text-brand-primary group-hover:translate-x-0.5 transition-transform flex items-center space-x-1 pl-2">
+                <div class="text-[12px] font-medium text-brand-primary group-hover:translate-x-0.5 transition-transform flex items-center space-x-1 pl-2 flex-shrink-0 whitespace-nowrap">
                   <span>尽调拆解</span>
                   <span class="font-mono text-xs">→</span>
                 </div>
