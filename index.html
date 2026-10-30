@@ -405,6 +405,8 @@
       transition: all 0.2s ease;
     }
   </style>
+  <!-- Supabase 官方客户端 SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="flex flex-col selection:bg-brand-primary selection:text-black font-sans">
 
@@ -454,9 +456,36 @@
           </svg>
         </button>
 
-        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors">
+        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors hidden sm:block">
           重置筛选
         </button>
+
+        <!-- 用户身份状态区 (Supabase Auth) -->
+        <div id="auth-nav-container" class="flex items-center pl-1 border-l border-slate-200 dark:border-brand-border">
+          <!-- 未登录按钮 -->
+          <button 
+            id="login-btn"
+            onclick="openAuthModal()"
+            class="text-xs font-mono font-medium px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center space-x-1.5 cursor-pointer shadow-sm"
+          >
+            <span>登录 / 会员</span>
+          </button>
+
+          <!-- 已登录状态胶囊 (初始隐藏) -->
+          <div id="user-profile-pill" class="hidden flex items-center space-x-2 bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border px-2.5 py-1 rounded-lg text-xs font-mono">
+            <div class="flex items-center space-x-1.5">
+              <span id="user-vip-badge" class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-brand-border text-slate-700 dark:text-brand-textSecondary">
+                FREE
+              </span>
+              <span id="user-email-display" class="text-slate-700 dark:text-brand-textPrimary truncate max-w-[110px]">
+                user@...
+              </span>
+            </div>
+            <button onclick="handleSignOut()" title="退出登录" class="text-slate-400 hover:text-rose-500 text-xs pl-1 border-l border-slate-200 dark:border-brand-border cursor-pointer">
+              ✕
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -988,6 +1017,17 @@
             </div>
           </div>
 
+          <!-- 支付前登录账号提示 -->
+          <div id="checkout-account-hint" class="p-2.5 rounded-lg bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border text-xs flex items-center justify-between">
+            <div class="flex items-center space-x-1.5 text-slate-600 dark:text-brand-textSecondary font-mono">
+              <span>当前绑定账号:</span>
+              <strong id="checkout-user-email" class="text-emerald-600">未登录</strong>
+            </div>
+            <button id="checkout-login-action" onclick="closeCheckoutModal(); openAuthModal();" class="text-emerald-600 hover:underline font-mono text-xs">
+              点击登录
+            </button>
+          </div>
+
           <!-- 立即支付按钮 -->
           <button 
             onclick="proceedToStripePayment()" 
@@ -1011,6 +1051,98 @@
     </div>
 
   </div>
+  <!-- 免密邮箱验证登录弹窗 (Supabase Auth Modal) -->
+  <div id="auth-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 select-none">
+    
+    <!-- 半透明背景遮罩 -->
+    <div onclick="closeAuthModal()" class="absolute inset-0 bg-slate-900/60 dark:bg-black/85 backdrop-blur-sm cursor-pointer"></div>
+
+    <!-- 弹窗面板 -->
+    <div class="relative w-full max-w-sm bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-borderHighlight rounded-2xl overflow-hidden shadow-2xl z-10 flex flex-col font-sans">
+      
+      <!-- 顶栏 -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-brand-border bg-slate-50 dark:bg-brand-black">
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span class="text-xs font-mono font-bold tracking-tight text-slate-900 dark:text-brand-textPrimary uppercase">
+            MONEYLAB · 会员身份认证
+          </span>
+        </div>
+        <button onclick="closeAuthModal()" class="w-7 h-7 rounded-lg bg-white hover:bg-slate-100 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textSecondary flex items-center justify-center transition-colors text-xs cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="p-6 space-y-4">
+        
+        <div class="space-y-1">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-brand-textPrimary tracking-tight">
+            免密验证登录
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-brand-textMuted">
+            输入邮箱接收验证链接/验证码 · 换设备数据永久不丢失
+          </p>
+        </div>
+
+        <!-- 步骤 1：输入邮箱 -->
+        <div id="auth-step-email" class="space-y-3">
+          <div>
+            <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary mb-1.5 font-medium">您的常用邮箱</label>
+            <input 
+              type="email" 
+              id="auth-email-input" 
+              placeholder="name@example.com"
+              class="w-full bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border rounded-lg px-3.5 py-2.5 text-xs text-slate-900 dark:text-brand-textPrimary focus:outline-none focus:border-emerald-500 font-mono transition-colors"
+            />
+          </div>
+
+          <button 
+            onclick="sendOtpCode()"
+            id="send-otp-btn"
+            class="w-full py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-1 cursor-pointer"
+          >
+            <span>发送登录验证码</span>
+            <span class="font-mono">→</span>
+          </button>
+        </div>
+
+        <!-- 步骤 2：输入 6 位验证码 (发送后显示) -->
+        <div id="auth-step-verify" class="hidden space-y-3">
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary font-medium">输入 6 位验证码</label>
+              <button onclick="resendOtp()" class="text-[11px] font-mono text-emerald-600 hover:underline">重新发送</button>
+            </div>
+            <input 
+              type="text" 
+              id="auth-otp-input" 
+              placeholder="123456"
+              maxlength="6"
+              class="w-full bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border rounded-lg px-3.5 py-2.5 text-center text-base tracking-widest text-slate-900 dark:text-brand-textPrimary focus:outline-none focus:border-emerald-500 font-mono transition-colors font-bold"
+            />
+          </div>
+
+          <button 
+            onclick="verifyOtpCode()"
+            id="verify-otp-btn"
+            class="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-1 cursor-pointer"
+          >
+            <span>确认验证并登录</span>
+            <span class="font-mono">✓</span>
+          </button>
+        </div>
+
+        <div class="pt-2 text-center text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">
+          登录即代表同意并绑定您的专属研报权益
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- 轻量通知 Toast -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 pointer-events-none px-4 py-2 rounded-lg bg-brand-surface border border-brand-borderHighlight text-brand-textPrimary font-mono text-xs shadow-xl flex items-center space-x-2">
     <span class="text-brand-primary">✓</span>
@@ -1166,6 +1298,7 @@
       }
 
       document.getElementById('loading-state').classList.add('hidden');
+      initSupabase();
       renderStats();
       renderCategoryTabs();
       applyFiltersAndRender();
@@ -1614,29 +1747,208 @@
     }
 
     // ==========================================
-    // Stripe 真实直接支付与全自动免密解锁引擎
+    // Supabase 真实身份与数据鉴权引擎
     // ==========================================
+    const SUPABASE_CONFIG = {
+      url: 'https://ewcboxybcwjyfuyzunhi.supabase.co',
+      anonKey: 'sb_publishable_009EjG4CB_2KF5wI-CCHtg_6qJErvA_'
+    };
+
     const STRIPE_CONFIG = {
-      // 年度 VIP 真实支付链接 (¥299.00 / 年)
       annual_link: 'https://buy.stripe.com/4gMeVd9HZ8du1QPdEKg7e01',
-      // 单篇深度买断真实支付链接 (¥9.90 / 篇)
       single_link: 'https://buy.stripe.com/28EbJ1dYf1P63YXfMSg7e02'
     };
 
-    let selectedPlan = 'annual'; // 默认推荐年度全站 VIP
+    // 初始化 Supabase Client
+    let supabaseClient = null;
+    let currentUser = null;
+    let currentUserProfile = null;
+    let selectedPlan = 'annual';
+
+    function initSupabase() {
+      try {
+        if (window.supabase) {
+          supabaseClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+          // 监听用户登录状态变动
+          supabaseClient.auth.onAuthStateChange(async (event, session) => {
+            if (session && session.user) {
+              currentUser = session.user;
+              await fetchUserProfile(currentUser.id, currentUser.email);
+            } else {
+              currentUser = null;
+              currentUserProfile = null;
+              renderUserNavState();
+            }
+            if (activeModalProject) updateModalVipState(activeModalProject);
+          });
+        }
+      } catch (err) {
+        console.warn('Supabase init notice:', err);
+      }
+    }
+
+    // 获取并同步用户会员权限
+    async function fetchUserProfile(userId, email) {
+      if (!supabaseClient) return;
+      try {
+        let { data, error } = await supabaseClient
+          .from('profiles')
+          .select('*')
+          .eq('id', userId)
+          .maybeSingle();
+
+        if (!data) {
+          // 如果 profile 尚未创建，补充插入一条
+          const { data: newProfile } = await supabaseClient
+            .from('profiles')
+            .upsert({ id: userId, email: email, is_annual_vip: false, unlocked_projects: [] })
+            .select()
+            .maybeSingle();
+          data = newProfile;
+        }
+
+        currentUserProfile = data || { is_annual_vip: false, unlocked_projects: [] };
+        renderUserNavState();
+        if (activeModalProject) updateModalVipState(activeModalProject);
+      } catch (e) {
+        console.error('Fetch profile err:', e);
+      }
+    }
+
+    // 渲染顶栏用户状态
+    function renderUserNavState() {
+      const loginBtn = document.getElementById('login-btn');
+      const profilePill = document.getElementById('user-profile-pill');
+      const emailDisplay = document.getElementById('user-email-display');
+      const vipBadge = document.getElementById('user-vip-badge');
+      const hintEmail = document.getElementById('checkout-user-email');
+      const hintAction = document.getElementById('checkout-login-action');
+
+      if (currentUser) {
+        if (loginBtn) loginBtn.classList.add('hidden');
+        if (profilePill) profilePill.classList.remove('hidden');
+        if (emailDisplay) emailDisplay.innerText = currentUser.email || '已登录';
+
+        const isVip = currentUserProfile?.is_annual_vip;
+        if (vipBadge) {
+          if (isVip) {
+            vipBadge.innerText = 'PRO VIP';
+            vipBadge.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20';
+          } else {
+            vipBadge.innerText = 'FREE';
+            vipBadge.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-brand-border text-slate-700 dark:text-brand-textSecondary';
+          }
+        }
+
+        if (hintEmail) hintEmail.innerText = currentUser.email;
+        if (hintAction) hintAction.classList.add('hidden');
+      } else {
+        if (loginBtn) loginBtn.classList.remove('hidden');
+        if (profilePill) profilePill.classList.add('hidden');
+        if (hintEmail) hintEmail.innerText = '未登录 (付款前建议先登录)';
+        if (hintAction) hintAction.classList.remove('hidden');
+      }
+    }
+
+    // 打开与关闭登录弹窗
+    function openAuthModal() {
+      document.getElementById('auth-modal').classList.remove('hidden');
+      document.getElementById('auth-step-email').classList.remove('hidden');
+      document.getElementById('auth-step-verify').classList.add('hidden');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    // 发送 6 位 OTP 验证码
+    async function sendOtpCode() {
+      const email = document.getElementById('auth-email-input').value.trim();
+      if (!email || !email.includes('@')) {
+        showToast('请输入有效的邮箱地址');
+        return;
+      }
+      const btn = document.getElementById('send-otp-btn');
+      btn.innerText = '正在发送验证码...';
+      btn.disabled = true;
+
+      try {
+        const { error } = await supabaseClient.auth.signInWithOtp({
+          email: email,
+          options: {
+            shouldCreateUser: true
+          }
+        });
+        if (error) throw error;
+        showToast('验证码已发送至您的邮箱，请查收！');
+        document.getElementById('auth-step-email').classList.add('hidden');
+        document.getElementById('auth-step-verify').classList.remove('hidden');
+      } catch (err) {
+        showToast('发送失败: ' + (err.message || '网络繁忙'));
+      } finally {
+        btn.innerText = '发送登录验证码 →';
+        btn.disabled = false;
+      }
+    }
+
+    function resendOtp() {
+      document.getElementById('auth-step-email').classList.remove('hidden');
+      document.getElementById('auth-step-verify').classList.add('hidden');
+    }
+
+    // 校验 6 位 OTP 验证码
+    async function verifyOtpCode() {
+      const email = document.getElementById('auth-email-input').value.trim();
+      const token = document.getElementById('auth-otp-input').value.trim();
+      if (!token || token.length < 6) {
+        showToast('请输入完整的 6 位验证码');
+        return;
+      }
+
+      const btn = document.getElementById('verify-otp-btn');
+      btn.innerText = '正在核验身份...';
+      btn.disabled = true;
+
+      try {
+        const { data, error } = await supabaseClient.auth.verifyOtp({
+          email,
+          token,
+          type: 'email'
+        });
+        if (error) throw error;
+        showToast('🎉 登录成功！欢迎回来');
+        closeAuthModal();
+      } catch (err) {
+        showToast('验证失败: ' + (err.message || '验证码错误或已失效'));
+      } finally {
+        btn.innerText = '确认验证并登录 ✓';
+        btn.disabled = false;
+      }
+    }
+
+    // 退出登录
+    async function handleSignOut() {
+      if (supabaseClient) {
+        await supabaseClient.auth.signOut();
+        currentUser = null;
+        currentUserProfile = null;
+        renderUserNavState();
+        showToast('已退出当前账号');
+        if (activeModalProject) updateModalVipState(activeModalProject);
+      }
+    }
 
     // 打开收银台
     function openCheckoutModal() {
       selectPlan('annual');
+      renderUserNavState();
       document.getElementById('checkout-modal').classList.remove('hidden');
     }
 
-    // 关闭收银台
     function closeCheckoutModal() {
       document.getElementById('checkout-modal').classList.add('hidden');
     }
 
-    // 选择方案
     function selectPlan(plan) {
       selectedPlan = plan;
       const cardSingle = document.getElementById('plan-card-single');
@@ -1664,44 +1976,33 @@
       }
     }
 
-    // 跳转至 Stripe 官方收银台直接付款
+    // 跳转至 Stripe 支付，携带用户真实身份凭据 client_reference_id
     function proceedToStripePayment() {
+      if (!currentUser) {
+        showToast('请先输入邮箱登录，以便永久保存您的专属研报权益');
+        closeCheckoutModal();
+        openAuthModal();
+        return;
+      }
+
+      const userRef = encodeURIComponent(currentUser.id);
+      const userEmail = encodeURIComponent(currentUser.email);
       const projectId = activeModalProject ? activeModalProject.id : '';
 
       if (selectedPlan === 'annual') {
-        window.location.href = STRIPE_CONFIG.annual_link;
+        window.location.href = `${STRIPE_CONFIG.annual_link}?client_reference_id=${userRef}&prefilled_email=${userEmail}`;
       } else {
-        if (projectId) {
-          localStorage.setItem('moneylab_pending_unlock_id', projectId);
-        }
-        window.location.href = STRIPE_CONFIG.single_link;
+        window.location.href = `${STRIPE_CONFIG.single_link}?client_reference_id=${userRef}__${projectId}&prefilled_email=${userEmail}`;
       }
     }
 
-    // 检查项目是否拥有查看权限 (年度 VIP 或 已单买该项目)
+    // 严谨校验项目是否真正解锁（优先看云端数据库 profiles，杜绝纯前端伪造）
     function isProjectUnlocked(projectId) {
-      if (localStorage.getItem('moneylab_annual_vip') === 'true') return true;
-      try {
-        const unlockedList = JSON.parse(localStorage.getItem('moneylab_unlocked_projects') || '[]');
-        return unlockedList.includes(projectId);
-      } catch (e) {
-        return false;
+      if (currentUserProfile) {
+        if (currentUserProfile.is_annual_vip) return true;
+        if (Array.isArray(currentUserProfile.unlocked_projects) && currentUserProfile.unlocked_projects.includes(projectId)) return true;
       }
-    }
-
-    // 将项目或年度 VIP 标记为已解锁
-    function markAsUnlocked(type, projectId) {
-      if (type === 'annual') {
-        localStorage.setItem('moneylab_annual_vip', 'true');
-      } else if (projectId) {
-        try {
-          const list = JSON.parse(localStorage.getItem('moneylab_unlocked_projects') || '[]');
-          if (!list.includes(projectId)) list.push(projectId);
-          localStorage.setItem('moneylab_unlocked_projects', JSON.stringify(list));
-        } catch (e) {
-          localStorage.setItem('moneylab_unlocked_projects', JSON.stringify([projectId]));
-        }
-      }
+      return false;
     }
 
     // 刷新弹窗内部的 VIP 锁区展示状态
@@ -1716,14 +2017,12 @@
         if (lockedBox) lockedBox.classList.add('hidden');
         if (unlockedBox) unlockedBox.classList.remove('hidden');
 
-        // 填充真实信源直链
         const sourceUrl = project.source_url || 'https://twitter.com';
         const urlEl = document.getElementById('unlocked-source-url');
         const linkEl = document.getElementById('unlocked-source-link');
         if (urlEl) urlEl.innerText = sourceUrl;
         if (linkEl) linkEl.href = sourceUrl;
 
-        // 填充 AI 工业级工程提示词
         const promptTemplate = `# Role: 搞钱实验室 (MoneyLab) 工业化落地专家
 # Target Project: ${project.title}
 # Category: ${project.category} | Expected MRR: ${cleanFinancialText(project.metrics?.est_monthly_profit)}
@@ -1743,7 +2042,6 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
         const promptEl = document.getElementById('unlocked-prompt-text');
         if (promptEl) promptEl.innerText = promptTemplate;
 
-        // 弹窗底部操作按钮（已解锁：点击安全在新窗口打开一手信源）
         if (sourceBtn) {
           sourceBtn.onclick = (e) => {
             e.preventDefault();
@@ -1756,7 +2054,6 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
         if (lockedBox) lockedBox.classList.remove('hidden');
         if (unlockedBox) unlockedBox.classList.add('hidden');
 
-        // 锁定态底栏（未解锁：点击只在当前页面内唤起收银台，严禁触发新标签页）
         if (sourceBtn) {
           sourceBtn.onclick = (e) => {
             e.preventDefault();
@@ -1768,61 +2065,12 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
       }
     }
 
-    // 复制 AI 提示词
     function copyAiPrompt() {
       const text = document.getElementById('unlocked-prompt-text').innerText;
       navigator.clipboard.writeText(text).then(() => {
         showToast('AI 工业级落地提示词已复制到剪贴板！');
       });
     }
-
-    // 模拟测试直接支付成功回调 (开发测试通道)
-    function simulateSuccessfulPayment() {
-      if (selectedPlan === 'annual') {
-        markAsUnlocked('annual');
-        showToast('🎉 年度 VIP 订阅成功！全站 150+ 方案已全部永久解锁');
-      } else {
-        const id = activeModalProject ? activeModalProject.id : 'ml-20261028-001';
-        markAsUnlocked('single', id);
-        showToast('🎉 单篇方案支付成功！核心信源与 AI 代码包已解锁');
-      }
-      closeCheckoutModal();
-      if (activeModalProject) updateModalVipState(activeModalProject);
-    }
-
-    // 检查 URL 中是否有 Stripe 支付成功重定向参数 (例如: ?stripe=success&plan=annual)
-    function checkStripeReturnParams() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const isSuccess = urlParams.get('stripe') === 'success' || urlParams.get('status') === 'success';
-      const plan = urlParams.get('plan') || urlParams.get('tier');
-      const projectId = urlParams.get('id') || urlParams.get('project');
-
-      if (isSuccess) {
-        if (plan === 'annual') {
-          markAsUnlocked('annual');
-          showToast('🎉 欢迎成为 MoneyLab 年度研究员！全站 150+ 方案已永久无限解锁');
-        } else {
-          // 单篇购买
-          const pendingId = localStorage.getItem('moneylab_pending_unlock_id');
-          const unlockTarget = projectId || pendingId;
-          if (unlockTarget) {
-            markAsUnlocked('single', unlockTarget);
-            showToast('🎉 支付成功！本篇一手信源与 AI 落地代码包已成功解锁');
-            setTimeout(() => {
-              openProjectModal(unlockTarget);
-            }, 600);
-          } else {
-            markAsUnlocked('annual');
-            showToast('🎉 支付成功！已为您开启畅读权限');
-          }
-        }
-        localStorage.removeItem('moneylab_pending_unlock_id');
-        // 清理 URL 参数，保持地址栏纯净
-        const cleanUrl = window.location.pathname;
-        window.history.replaceState({}, document.title, cleanUrl);
-      }
-    }
-
     window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
