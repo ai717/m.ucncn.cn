@@ -283,8 +283,49 @@
       border-color: #cbd5e1 !important;
       color: #0f172a !important;
     }
-    html:not(.dark) .bg-brand-surface {
+    /* 亮色模式下的分类 Tabs 与 快速筛选 Pills 状态控制 (杜绝出现黑底药丸与文字缺失) */
+    html:not(.dark) .cat-tab-active,
+    html:not(.dark) .active-pill {
+      background-color: #0f172a !important;
+      color: #ffffff !important;
+      border-color: #0f172a !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    html:not(.dark) .cat-tab-active span,
+    html:not(.dark) .active-pill span {
+      color: #ffffff !important;
+    }
+    html:not(.dark) .cat-tab-inactive,
+    html:not(.dark) .inactive-pill {
       background-color: #ffffff !important;
+      color: #475569 !important;
+      border-color: #cbd5e1 !important;
+    }
+    html:not(.dark) .cat-tab-inactive:hover,
+    html:not(.dark) .inactive-pill:hover {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+      border-color: #94a3b8 !important;
+    }
+
+    /* 暗色模式下的分类 Tabs 与 快速筛选 Pills 状态控制 */
+    html.dark .cat-tab-active,
+    html.dark .active-pill {
+      background-color: #1e222b !important;
+      color: #f8fafc !important;
+      border-color: #3b4252 !important;
+    }
+    html.dark .cat-tab-inactive,
+    html.dark .inactive-pill {
+      background-color: transparent !important;
+      color: #94a3b8 !important;
+      border-color: transparent !important;
+    }
+    html.dark .cat-tab-inactive:hover,
+    html.dark .inactive-pill:hover {
+      background-color: #0f1115 !important;
+      color: #f8fafc !important;
+      border-color: #1e222b !important;
     }
     html:not(.dark) .border-brand-border {
       border-color: #cbd5e1 !important;
@@ -925,15 +966,14 @@
 
       categories.forEach(cat => {
         const isAll = cat === 'ALL';
+        const isCurrent = cat === currentCategory;
         const count = isAll ? allProjects.length : allProjects.filter(p => p.category === cat).length;
         
         const btn = document.createElement('button');
-        btn.className = `cat-tab px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center space-x-1.5 ${
-          cat === currentCategory 
-            ? 'bg-brand-surfaceHover text-brand-textPrimary border border-brand-borderHighlight font-semibold shadow-sm' 
-            : 'text-brand-textSecondary hover:text-brand-textPrimary hover:bg-brand-surface'
+        btn.className = `cat-tab px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap flex items-center space-x-1.5 border ${
+          isCurrent ? 'cat-tab-active font-semibold' : 'cat-tab-inactive'
         }`;
-        btn.innerHTML = `<span>${isAll ? '全部赛道' : cat}</span> <span class="text-xs text-brand-textMuted font-mono">(${count})</span>`;
+        btn.innerHTML = `<span>${isAll ? '全部赛道' : cat}</span> <span class="text-xs font-mono opacity-70">(${count})</span>`;
         btn.onclick = () => {
           currentCategory = cat;
           renderCategoryTabs();
@@ -947,7 +987,7 @@
     function setQuickFilter(intent, targetEl) {
       currentIntent = intent;
       document.querySelectorAll('.pill-btn').forEach(btn => {
-        btn.className = 'pill-btn px-3 py-1 text-xs font-medium rounded-md text-brand-textSecondary hover:text-brand-textPrimary border border-transparent hover:border-brand-border transition-all font-mono';
+        btn.className = 'pill-btn inactive-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono';
       });
 
       if (!targetEl) {
@@ -958,7 +998,7 @@
       }
 
       if (targetEl) {
-        targetEl.className = 'pill-btn px-3 py-1 text-xs font-medium rounded-md transition-all active-pill bg-brand-surfaceHover text-brand-textPrimary border border-brand-borderHighlight font-mono';
+        targetEl.className = 'pill-btn active-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono font-semibold';
       }
       applyFiltersAndRender();
     }
