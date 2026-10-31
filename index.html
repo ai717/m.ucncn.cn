@@ -442,6 +442,17 @@
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
+    /* Hide scrollbars completely for sleek horizontal chips/tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
@@ -620,8 +631,8 @@
       
       <!-- 第一行：赛道分类标签 (左) + 排序规则 (右) -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-brand-border">
-        <!-- 分类按钮 (横向滑动) -->
-        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 sm:pb-0 custom-scrollbar flex-1 min-w-0" id="category-tabs">
+        <!-- 分类按钮 (横向滑动，隐藏原生突兀滚动条) -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar flex-1 min-w-0" id="category-tabs">
           <!-- 动态分类按钮 -->
         </div>
 
@@ -657,7 +668,7 @@
         </div>
 
         <!-- 场景快速筛选过滤器 (单行平铺，绝不折行成难看的多行) -->
-        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar flex-nowrap" id="intent-pills">
+        <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar flex-nowrap" id="intent-pills">
           <span class="text-xs text-brand-textMuted font-mono mr-1 shrink-0">快速筛选:</span>
           <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
             全部
@@ -1506,6 +1517,21 @@
       bindGlobalEvents();
       checkStripeReturnParams();
       checkDevEnvironment();
+      setupHorizontalScrolls();
+    }
+
+    // 启用鼠标滚轮平滑横向滚动 (分类 Tabs 和 快捷胶囊)，彻底去除难看滚动条
+    function setupHorizontalScrolls() {
+      ['category-tabs', 'intent-pills'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('wheel', (e) => {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            el.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      });
     }
 
     // 仅在本地开发环境 (localhost / 127.0.0.1) 或管理员携带 ?dev=1 / ?debug=true 时激活沙盒入口

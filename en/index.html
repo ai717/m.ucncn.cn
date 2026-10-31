@@ -363,7 +363,17 @@
       transform: translateY(0);
       opacity: 1;
     }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    /* Hide scrollbars completely for sleek horizontal chips/tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(148, 163, 184, 0.2); border-radius: 9999px; }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgba(148, 163, 184, 0.4); }
@@ -546,8 +556,8 @@
     
     <!-- Row 1: Full-Width Category Navigation Tabs (Left) + Sort Selector (Right) -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-brand-border">
-      <!-- Category Tabs (Horizontal Scroll) -->
-      <div class="flex items-center space-x-2 overflow-x-auto pb-1 sm:pb-0 custom-scrollbar flex-1 min-w-0" id="category-tabs">
+      <!-- Category Tabs (Horizontal Scroll, zero scrollbar clutter) -->
+      <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar flex-1 min-w-0" id="category-tabs">
         <!-- Rendered dynamically via JavaScript -->
       </div>
       
@@ -585,7 +595,7 @@
       </div>
 
       <!-- Quick Filter Pills: Clean single line with flex-nowrap & overflow-x-auto, no staggered 2-line clumping -->
-      <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar flex-nowrap" id="intent-pills">
+      <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar flex-nowrap" id="intent-pills">
         <span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono mr-1 shrink-0">Filter:</span>
         <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono font-bold shrink-0 cursor-pointer">
           All
@@ -1135,6 +1145,7 @@
       renderCategoryTabs();
       applyFiltersAndRender();
       checkDevEnvironment();
+      setupHorizontalScrolls();
 
       // Check URL Hash route (e.g. #reddit-leadgen-cold-email-bot)
       if (window.location.hash) {
@@ -1175,6 +1186,20 @@
       if (wrap && isDevEnvironment()) {
         wrap.classList.remove('hidden');
       }
+    }
+
+    // Enable smooth mouse wheel horizontal scrolling for chips and category tabs
+    function setupHorizontalScrolls() {
+      ['category-tabs', 'intent-pills'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('wheel', (e) => {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            el.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      });
     }
 
     // Theme Management
