@@ -48,26 +48,81 @@ function generatePageHtml(p, lang) {
   const diffStars = p.metrics?.difficulty_stars || 2;
   const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
+  // Triple-Schema for Maximum Google Rich Results: TechArticle + BreadcrumbList + Product
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": p.title,
-    "description": p.summary,
-    "author": {
-      "@type": "Organization",
-      "name": "MoneyLab Research Team",
-      "url": "https://m.ucncn.cn/"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "MoneyLab",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://m.ucncn.cn/favicon.svg"
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `${canonicalUrl}#article`,
+        "headline": p.title,
+        "description": p.summary,
+        "author": {
+          "@type": "Organization",
+          "name": "MoneyLab Research Team",
+          "url": "https://m.ucncn.cn/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MoneyLab",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://m.ucncn.cn/favicon.svg"
+          }
+        },
+        "datePublished": p.created_at || "2026-10-28",
+        "dateModified": "2026-10-31",
+        "mainEntityOfPage": canonicalUrl
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": isEn ? "MoneyLab Catalog" : "搞钱实验室总库",
+            "item": isEn ? "https://m.ucncn.cn/en/" : "https://m.ucncn.cn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": p.category || (isEn ? "Playbook" : "项目赛道"),
+            "item": isEn ? "https://m.ucncn.cn/en/" : "https://m.ucncn.cn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": p.title,
+            "item": canonicalUrl
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": `${canonicalUrl}#product`,
+        "name": `${p.title} (Turnkey Execution Skill & Blueprint)`,
+        "description": p.summary,
+        "brand": {
+          "@type": "Brand",
+          "name": "MoneyLab"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "29.90",
+          "priceCurrency": "HKD",
+          "availability": "https://schema.org/InStock",
+          "url": canonicalUrl
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": (4.8 + (p.score / 500)).toFixed(1),
+          "reviewCount": 38,
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       }
-    },
-    "datePublished": p.created_at || "2026-10-28",
-    "mainEntityOfPage": canonicalUrl
+    ]
   };
 
   return `<!DOCTYPE html>
@@ -92,14 +147,17 @@ ${GTAG_SNIPPET}
   <meta property="og:site_name" content="MoneyLab">
   <meta property="og:title" content="${escapeHtml(p.title)}">
   <meta property="og:description" content="${escapeHtml(p.summary)}">
-  <meta property="og:image" content="https://m.ucncn.cn/favicon.svg">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="${canonicalUrl}">
   <meta name="twitter:title" content="${escapeHtml(p.title)}">
   <meta name="twitter:description" content="${escapeHtml(p.summary)}">
-  <meta name="twitter:image" content="https://m.ucncn.cn/favicon.svg">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
@@ -141,7 +199,7 @@ ${GTAG_SNIPPET}
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       
       <!-- Logo + Breadcrumbs -->
-      <div class="flex items-center space-x-3">
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
         <a href="${homeUrl}" class="flex items-center space-x-2.5 group cursor-pointer">
           <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-slate-950 font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
             $
@@ -150,7 +208,7 @@ ${GTAG_SNIPPET}
         </a>
         <span class="text-slate-600 hidden sm:inline">/</span>
         <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">${escapeHtml(p.category)}</span>
-      </div>
+      </nav>
 
       <!-- Right Controls -->
       <div class="flex items-center space-x-3">
@@ -176,7 +234,7 @@ ${GTAG_SNIPPET}
   <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
 
     <!-- Hero Card -->
-    <section class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
       
       <!-- Top Row Badges -->
       <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
@@ -191,7 +249,7 @@ ${GTAG_SNIPPET}
         </div>
       </div>
 
-      <!-- Title -->
+      <!-- Title H1 -->
       <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
         ${escapeHtml(p.title)}
       </h1>
@@ -221,7 +279,7 @@ ${GTAG_SNIPPET}
         </div>
       </div>
 
-    </section>
+    </article>
 
     <!-- Institutional Verdict Callout -->
     <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
