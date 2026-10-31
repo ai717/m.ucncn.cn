@@ -1000,144 +1000,191 @@
   </div>
 
   <!-- Stripe 直接支付收银台 (Stripe Dual-Rail Checkout Modal) -->
-  <div id="checkout-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 select-none">
+  <div id="checkout-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 select-none animate-fadeIn">
     
-    <!-- 半透明背景遮罩 -->
-    <div onclick="closeCheckoutModal()" class="absolute inset-0 bg-slate-900/60 dark:bg-black/85 backdrop-blur-sm cursor-pointer"></div>
+    <!-- 半透明背景毛玻璃遮罩 -->
+    <div onclick="closeCheckoutModal()" class="absolute inset-0 bg-slate-950/75 backdrop-blur-md cursor-pointer transition-opacity"></div>
 
     <!-- 收银台面板 -->
-    <div class="relative w-full max-w-lg bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-borderHighlight rounded-2xl overflow-hidden shadow-2xl z-10 flex flex-col font-sans">
+    <div class="relative w-full max-w-xl bg-white dark:bg-[#0c0d12] border border-slate-200/90 dark:border-[#222734] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col font-sans ring-1 ring-black/5 dark:ring-white/10">
       
-      <!-- 顶栏 -->
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-brand-border bg-slate-50 dark:bg-brand-black">
-        <div class="flex items-center space-x-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <!-- 顶部高光品牌条 -->
+      <div class="h-1.5 w-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600"></div>
+
+      <!-- 顶栏 Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-brand-border bg-slate-50/70 dark:bg-brand-black/50">
+        <div class="flex items-center space-x-2.5">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
           <span class="text-xs font-mono font-bold tracking-tight text-slate-900 dark:text-brand-textPrimary uppercase">
             MONEYLAB PRO · 官方安全收银台
           </span>
+          <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            SSL 256-Bit
+          </span>
         </div>
-        <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-lg bg-white hover:bg-slate-100 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textSecondary flex items-center justify-center transition-colors text-sm cursor-pointer">
+        <button onclick="closeCheckoutModal()" aria-label="关闭收银台" class="w-8 h-8 rounded-lg bg-white hover:bg-slate-100 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-500 hover:text-slate-800 dark:text-brand-textSecondary dark:hover:text-white flex items-center justify-center transition-all text-sm cursor-pointer shadow-xs">
           ✕
         </button>
       </div>
 
       <!-- 正文选择区 -->
-      <div class="p-6 space-y-5">
+      <div class="p-5 sm:p-7 space-y-5">
         
-        <div class="text-center space-y-1">
-          <h3 class="text-xl font-bold text-slate-900 dark:text-brand-textPrimary tracking-tight">
-            选择解锁方案
+        <!-- 标题与价值承诺 -->
+        <div class="text-center space-y-1.5">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            选择您的解锁与投资方案
           </h3>
           <p class="text-xs text-slate-500 dark:text-brand-textMuted">
-            支持 Apple Pay、Google Pay、中国银联卡及全球信用卡直接付款 · 秒级免密解锁
+            一手商业情报 · 工业级 AI 源码包 · 秒级到账永久留存
           </p>
         </div>
 
         <!-- 双轨方案卡片 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
           
           <!-- 选项 1：单篇买断 -->
           <div 
             onclick="selectPlan('single')" 
             id="plan-card-single"
-            class="p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group"
+            class="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight bg-white dark:bg-brand-surface cursor-pointer transition-all space-y-3 relative group"
           >
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-medium text-slate-500 dark:text-brand-textMuted">单篇深度买断</span>
-              <span id="radio-single" class="w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center"></span>
+              <span class="text-xs font-mono font-medium text-slate-500 dark:text-brand-textMuted uppercase tracking-wider">单篇买断</span>
+              <span id="radio-single" class="w-5 h-5 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center transition-all"></span>
             </div>
             <div>
-              <div class="text-2xl font-bold font-mono text-slate-900 dark:text-brand-textPrimary">HK$9.90</div>
-              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">约合 ¥9.1 · 一次性买断当前项目</div>
+              <div class="text-2xl sm:text-3xl font-black font-mono tracking-tight text-slate-900 dark:text-white">HK$9.90</div>
+              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono mt-0.5">约合 ¥9.1 · 仅买断当前单篇</div>
             </div>
-            <ul class="text-[11px] text-slate-600 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
+            <ul class="text-[11px] text-slate-600 dark:text-brand-textSecondary space-y-2 pt-1 font-sans border-t border-slate-100 dark:border-brand-border/60">
               <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-500">✓</span>
+                <span class="text-emerald-500 font-bold">✓</span>
                 <span>当前项目一手信源原帖直达</span>
               </li>
               <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-500">✓</span>
-                <span>当前项目全套 AI 落地 Prompt</span>
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>当前项目工业级 AI 落地 Prompt</span>
               </li>
-              <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-500">✓</span>
-                <span>永久本地授权生效</span>
+              <li class="flex items-center space-x-1.5 text-slate-400 dark:text-slate-500">
+                <span class="opacity-60">✕</span>
+                <span>无后续更新与全站其它项目授权</span>
               </li>
             </ul>
           </div>
 
-          <!-- 选项 2：年度 VIP (高性价比推荐) -->
+          <!-- 选项 2：年度 VIP (高性价比推荐 Hero Card) -->
           <div 
             onclick="selectPlan('annual')" 
             id="plan-card-annual"
-            class="p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group"
+            class="p-4 sm:p-5 rounded-2xl border-2 border-emerald-500 bg-gradient-to-b from-emerald-500/[0.07] to-transparent dark:from-emerald-500/[0.12] dark:to-transparent ring-2 ring-emerald-500/20 cursor-pointer transition-all space-y-3 relative group shadow-lg shadow-emerald-500/10"
           >
-            <div class="absolute -top-2.5 right-3 px-2 py-0.5 rounded-full bg-emerald-600 text-white font-mono text-[10px] font-bold tracking-wider uppercase shadow-sm">
-              超值 80% 选择
+            <!-- 推荐标签 Badge -->
+            <div class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-mono text-[10px] font-black tracking-wider uppercase shadow-md shadow-emerald-500/20 flex items-center space-x-1">
+              <span>★ 80% 读者首选</span>
             </div>
+
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">年度全站 VIP</span>
-              <span id="radio-annual" class="w-4 h-4 rounded-full bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]">✓</span>
+              <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">年度全站 VIP</span>
+              <span id="radio-annual" class="w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 flex items-center justify-center text-slate-950 text-[11px] font-bold shadow-xs">✓</span>
             </div>
+
             <div>
-              <div class="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">HK$299.00 <span class="text-xs font-sans text-slate-400 font-normal">/ 年</span></div>
-              <div class="text-[11px] text-slate-500 dark:text-brand-textMuted font-mono">约合 ¥275/年 · 全年 150+ 方案无限全解</div>
+              <div class="flex items-baseline space-x-1">
+                <span class="text-2xl sm:text-3xl font-black font-mono tracking-tight text-emerald-600 dark:text-emerald-400">HK$299.00</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500 font-normal">/ 年</span>
+              </div>
+              <div class="inline-flex items-center px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-mono font-bold mt-0.5">
+                约 ¥275/年 · 折合仅 ¥0.75/天
+              </div>
             </div>
-            <ul class="text-[11px] text-slate-700 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
-              <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-600 font-bold">✓</span>
-                <span class="font-medium">全站历史与未来项目无限畅读</span>
+
+            <ul class="text-[11px] text-slate-700 dark:text-brand-textPrimary space-y-2 pt-1 font-sans border-t border-emerald-500/20">
+              <li class="flex items-center space-x-1.5 font-medium">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>全站 150+ 方案与未来 365 天无限畅读</span>
               </li>
               <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-600 font-bold">✓</span>
+                <span class="text-emerald-500 font-bold">✓</span>
                 <span>独家未公开海外一手监控雷达</span>
               </li>
               <li class="flex items-center space-x-1.5">
-                <span class="text-emerald-600 font-bold">✓</span>
-                <span>全年 AI Prompt 工程代码库更新</span>
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>全年工业级 AI Prompt 代码库更新</span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        <!-- 支付通道与安全性徽章 -->
-        <div class="pt-1 border-t border-slate-100 dark:border-brand-border space-y-3">
+        <!-- 支付通道与安全信任背书条 (重构为正规官方支付网关一览) -->
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-brand-black/60 border border-slate-200/80 dark:border-brand-border space-y-2.5">
           <div class="flex items-center justify-between text-xs text-slate-500 dark:text-brand-textMuted font-mono">
-            <span>支付方式 (Stripe 安全收单):</span>
-            <div class="flex items-center space-x-1.5">
-              <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold">银联 UnionPay</span>
-              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">Apple Pay</span>
-              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">Google Pay</span>
-              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">信用卡</span>
-            </div>
+            <span class="flex items-center space-x-1.5 text-slate-700 dark:text-brand-textSecondary font-semibold">
+              <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path></svg>
+              <span>Stripe 官方安全收单通道</span>
+            </span>
+            <span class="text-[11px] text-slate-400 dark:text-brand-textMuted">自动汇率折算 · 免密秒付</span>
           </div>
-
-          <!-- 支付前登录账号提示 -->
-          <div id="checkout-account-hint" class="p-2.5 rounded-lg bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border text-xs flex items-center justify-between">
-            <div class="flex items-center space-x-1.5 text-slate-600 dark:text-brand-textSecondary font-mono">
-              <span>当前绑定账号:</span>
-              <strong id="checkout-user-email" class="text-emerald-600">未登录</strong>
-            </div>
-            <button id="checkout-login-action" onclick="closeCheckoutModal(); openAuthModal();" class="text-emerald-600 hover:underline font-mono text-xs">
-              点击登录
-            </button>
+          <div class="flex flex-wrap items-center gap-1.5">
+            <!-- 银联 -->
+            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>中国银联 UnionPay
+            </span>
+            <!-- Apple Pay -->
+            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+               Apple Pay
+            </span>
+            <!-- Google Pay -->
+            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              Google Pay
+            </span>
+            <!-- 全球信用卡 -->
+            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              Visa / Mastercard / JCB
+            </span>
           </div>
+        </div>
 
-          <!-- 立即支付按钮 -->
-          <button 
-            onclick="proceedToStripePayment()" 
-            id="stripe-checkout-btn"
-            class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-bold text-sm transition-all shadow-md flex items-center justify-center space-x-2 cursor-pointer"
-          >
-            <span>直接支付 HK$299.00 (年度 VIP · 全站畅读)</span>
-            <span class="font-mono">→</span>
+        <!-- 支付前登录账号绑定栏 -->
+        <div id="checkout-account-hint" class="px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-brand-black/60 border border-slate-200/80 dark:border-brand-border flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center space-x-2 truncate">
+            <span class="relative flex h-2 w-2 shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-slate-500 dark:text-brand-textMuted shrink-0">权益绑定账户:</span>
+            <strong id="checkout-user-email" class="text-slate-900 dark:text-brand-textPrimary font-bold truncate">未登录</strong>
+          </div>
+          <button id="checkout-login-action" onclick="closeCheckoutModal(); openAuthModal();" class="shrink-0 text-emerald-600 dark:text-emerald-400 hover:underline font-bold text-xs ml-2 cursor-pointer">
+            点击登录
           </button>
+        </div>
 
-          <!-- 快捷模拟支付演示通道 (方便您在配置正式 Stripe 前体验付完秒级自动解锁逻辑) -->
-          <div class="text-center pt-1">
-            <button onclick="simulateSuccessfulPayment()" class="text-[11px] font-mono text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 underline">
-              [开发测试] 模拟直接支付成功回调 (无卡密秒级解锁)
+        <!-- 高转化主支付按钮 -->
+        <button 
+          onclick="proceedToStripePayment()" 
+          id="stripe-checkout-btn"
+          class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm tracking-wide transition-all shadow-lg shadow-emerald-500/25 active:scale-[0.99] flex items-center justify-center space-x-2 cursor-pointer group"
+        >
+          <span class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+            <span>立即支付 HK$299.00 · 解锁年度 VIP 全站畅读</span>
+            <span class="font-mono text-base group-hover:translate-x-1 transition-transform">→</span>
+          </span>
+        </button>
+
+        <!-- 安全保障微注脚与沙盒调试入口 -->
+        <div class="text-center space-y-1.5 pt-1">
+          <p class="text-[11px] text-slate-400 dark:text-brand-textMuted flex items-center justify-center space-x-1">
+            <span>🔒 256 位 SSL 银行级加密 · Stripe 官方合规收单 · 支付后秒级授权</span>
+          </p>
+          <div>
+            <button onclick="simulateSuccessfulPayment()" class="text-[10px] font-mono text-slate-400 hover:text-emerald-500 dark:text-slate-600 dark:hover:text-emerald-400 underline cursor-pointer">
+              [开发调试] 模拟支付成功回调 (无卡秒级解锁)
             </button>
           </div>
         </div>
@@ -2042,21 +2089,29 @@
       const payBtn = document.getElementById('stripe-checkout-btn');
 
       if (plan === 'annual') {
-        cardAnnual.className = 'p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group';
-        cardSingle.className = 'p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group';
-        radioAnnual.className = 'w-4 h-4 rounded-full bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]';
-        radioAnnual.innerText = '✓';
-        radioSingle.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
-        radioSingle.innerText = '';
-        payBtn.innerHTML = '<span>直接支付 HK$299.00 (年度 VIP · 全站畅读)</span> <span class="font-mono">→</span>';
+        // 年度 VIP 选中态 (Hero Card)
+        cardAnnual.className = 'p-4 sm:p-5 rounded-2xl border-2 border-emerald-500 bg-gradient-to-b from-emerald-500/[0.08] to-transparent dark:from-emerald-500/[0.14] dark:to-transparent ring-2 ring-emerald-500/20 cursor-pointer transition-all space-y-3 relative group shadow-lg shadow-emerald-500/10';
+        cardSingle.className = 'p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight bg-white dark:bg-brand-surface cursor-pointer transition-all space-y-3 relative group opacity-90 hover:opacity-100';
+        
+        radioAnnual.className = 'w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 flex items-center justify-center text-slate-950 text-[11px] font-bold shadow-xs transition-all';
+        radioAnnual.innerHTML = '✓';
+        
+        radioSingle.className = 'w-5 h-5 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center transition-all';
+        radioSingle.innerHTML = '';
+        
+        payBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg><span>立即支付 HK$299.00 · 解锁年度 VIP 全站畅读</span><span class="font-mono text-base group-hover:translate-x-1 transition-transform">→</span></span>';
       } else {
-        cardSingle.className = 'p-4 rounded-xl border-2 border-slate-900 dark:border-emerald-500 bg-slate-50/50 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group';
-        cardAnnual.className = 'p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group';
-        radioSingle.className = 'w-4 h-4 rounded-full bg-slate-900 dark:bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]';
-        radioSingle.innerText = '✓';
-        radioAnnual.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
-        radioAnnual.innerText = '';
-        payBtn.innerHTML = '<span>直接支付 HK$9.90 (仅解锁本篇)</span> <span class="font-mono">→</span>';
+        // 单篇买断选中态
+        cardSingle.className = 'p-4 sm:p-5 rounded-2xl border-2 border-slate-800 dark:border-slate-400 bg-slate-100/60 dark:bg-white/[0.04] ring-2 ring-slate-800/20 dark:ring-white/20 cursor-pointer transition-all space-y-3 relative group shadow-md';
+        cardAnnual.className = 'p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight bg-white dark:bg-brand-surface cursor-pointer transition-all space-y-3 relative group opacity-90 hover:opacity-100';
+        
+        radioSingle.className = 'w-5 h-5 rounded-full bg-slate-900 dark:bg-slate-200 border-2 border-white dark:border-slate-900 flex items-center justify-center text-white dark:text-slate-900 text-[11px] font-bold shadow-xs transition-all';
+        radioSingle.innerHTML = '✓';
+        
+        radioAnnual.className = 'w-5 h-5 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center transition-all';
+        radioAnnual.innerHTML = '';
+        
+        payBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg><span>立即支付 HK$9.90 · 仅买断当前单篇方案</span><span class="font-mono text-base group-hover:translate-x-1 transition-transform">→</span></span>';
       }
     }
 
