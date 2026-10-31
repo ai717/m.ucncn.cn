@@ -944,8 +944,10 @@
           <span>复制研报摘要</span>
         </button>
 
-        <button id="modal-source-btn" type="button" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer">
-          <span>🔒 解锁核心信源与 AI 落地包</span>
+        <button id="modal-source-btn" type="button" class="btn-unlock-pulse px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-tight transition-all shadow-md flex items-center space-x-2 cursor-pointer">
+          <span class="text-sm">🔒</span>
+          <span>解锁核心信源与 AI 落地包</span>
+          <span class="font-mono text-xs opacity-90">→</span>
         </button>
       </div>
 
@@ -2097,8 +2099,8 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
             e.preventDefault();
             openCheckoutModal();
           };
-          sourceBtn.innerHTML = '<span>🔒 解锁核心信源与 AI 落地包</span>';
-          sourceBtn.className = 'px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-colors flex items-center space-x-1 cursor-pointer';
+          sourceBtn.innerHTML = '<span class="text-sm">🔒</span><span>解锁核心信源与 AI 落地包</span><span class="font-mono text-xs opacity-90 group-hover:translate-x-0.5 transition-transform">→</span>';
+          sourceBtn.className = 'btn-unlock-pulse px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-tight transition-all shadow-md hover:shadow-lg flex items-center space-x-2 cursor-pointer group';
         }
       }
     }
