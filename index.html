@@ -816,15 +816,16 @@
             <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div class="flex items-center space-x-2 text-xs text-slate-500 dark:text-brand-textMuted font-mono">
                 <span>支持支付方式:</span>
-                <span class="px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200 font-semibold text-[10px]">支付宝 Alipay</span>
+                <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold text-[10px]">银联 UnionPay</span>
                 <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[10px]">Apple Pay</span>
-                <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[10px]">信用卡</span>
+                <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[10px]">Google Pay</span>
+                <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-[10px]">Visa/Master</span>
               </div>
               <button 
                 onclick="openCheckoutModal()" 
                 class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-2 cursor-pointer"
               >
-                <span>⚡ 直接支付解锁 (单篇 ¥9.9 / 年度 VIP ¥299)</span>
+                <span>⚡ 直接支付解锁 (单篇 HK$9.9 / 年度 VIP HK$299)</span>
                 <span class="font-mono">→</span>
               </button>
             </div>
@@ -934,7 +935,7 @@
             选择解锁方案
           </h3>
           <p class="text-xs text-slate-500 dark:text-brand-textMuted">
-            支持支付宝、Apple Pay、全球信用卡直接付款 · 付款后自动秒级解锁
+            支持 Apple Pay、Google Pay、中国银联卡及全球信用卡直接付款 · 秒级免密解锁
           </p>
         </div>
 
@@ -952,8 +953,8 @@
               <span id="radio-single" class="w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center"></span>
             </div>
             <div>
-              <div class="text-2xl font-bold font-mono text-slate-900 dark:text-brand-textPrimary">¥9.90</div>
-              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">一次性买断 · 仅解锁当前项目</div>
+              <div class="text-2xl font-bold font-mono text-slate-900 dark:text-brand-textPrimary">HK$9.90</div>
+              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">约合 ¥9.1 · 一次性买断当前项目</div>
             </div>
             <ul class="text-[11px] text-slate-600 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
               <li class="flex items-center space-x-1.5">
@@ -985,8 +986,8 @@
               <span id="radio-annual" class="w-4 h-4 rounded-full bg-emerald-600 border-2 border-white dark:border-brand-black flex items-center justify-center text-white text-[9px]">✓</span>
             </div>
             <div>
-              <div class="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">¥299.00 <span class="text-xs font-sans text-slate-400 font-normal">/ 年</span></div>
-              <div class="text-[11px] text-slate-500 dark:text-brand-textMuted font-mono">全年 150+ 方案无限全解 · 每日持续对齐</div>
+              <div class="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">HK$299.00 <span class="text-xs font-sans text-slate-400 font-normal">/ 年</span></div>
+              <div class="text-[11px] text-slate-500 dark:text-brand-textMuted font-mono">约合 ¥275/年 · 全年 150+ 方案无限全解</div>
             </div>
             <ul class="text-[11px] text-slate-700 dark:text-brand-textSecondary space-y-1 pt-1 font-sans">
               <li class="flex items-center space-x-1.5">
@@ -1011,9 +1012,10 @@
           <div class="flex items-center justify-between text-xs text-slate-500 dark:text-brand-textMuted font-mono">
             <span>支付方式 (Stripe 安全收单):</span>
             <div class="flex items-center space-x-1.5">
-              <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 text-[11px] font-bold">支付宝 Alipay</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold">银联 UnionPay</span>
               <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">Apple Pay</span>
-              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">Visa/Master</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">Google Pay</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 text-[11px] font-bold">信用卡</span>
             </div>
           </div>
 
@@ -1034,7 +1036,7 @@
             id="stripe-checkout-btn"
             class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-bold text-sm transition-all shadow-md flex items-center justify-center space-x-2 cursor-pointer"
           >
-            <span>直接支付 ¥299.00 (年度 VIP · 全站畅读)</span>
+            <span>直接支付 HK$299.00 (年度 VIP · 全站畅读)</span>
             <span class="font-mono">→</span>
           </button>
 
@@ -1754,8 +1756,10 @@
     };
 
     const STRIPE_CONFIG = {
-      annual_link: 'https://buy.stripe.com/4gMeVd9HZ8du1QPdEKg7e01',
-      single_link: 'https://buy.stripe.com/28EbJ1dYf1P63YXfMSg7e02'
+      // 年度 VIP 真实支付链接 (HK$299.00 / 年)
+      annual_link: 'https://buy.stripe.com/9B67sL9HZbpGeDB7gmg7e03',
+      // 单篇深度买断真实支付链接 (HK$9.90 / 篇)
+      single_link: 'https://buy.stripe.com/eVq00j07pdxOfHF7gmg7e04'
     };
 
     // 初始化 Supabase Client
@@ -1943,7 +1947,7 @@
         radioAnnual.innerText = '✓';
         radioSingle.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
         radioSingle.innerText = '';
-        payBtn.innerHTML = '<span>直接支付 ¥299.00 (年度 VIP · 全站畅读)</span> <span class="font-mono">→</span>';
+        payBtn.innerHTML = '<span>直接支付 HK$299.00 (年度 VIP · 全站畅读)</span> <span class="font-mono">→</span>';
       } else {
         cardSingle.className = 'p-4 rounded-xl border-2 border-slate-900 dark:border-emerald-500 bg-slate-50/50 dark:bg-emerald-950/10 cursor-pointer transition-all space-y-3 relative group';
         cardAnnual.className = 'p-4 rounded-xl border border-slate-200 dark:border-brand-border hover:border-slate-300 dark:hover:border-brand-borderHighlight cursor-pointer transition-all space-y-3 relative group';
@@ -1951,7 +1955,7 @@
         radioSingle.innerText = '✓';
         radioAnnual.className = 'w-4 h-4 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center';
         radioAnnual.innerText = '';
-        payBtn.innerHTML = '<span>直接支付 ¥9.90 (仅解锁本篇)</span> <span class="font-mono">→</span>';
+        payBtn.innerHTML = '<span>直接支付 HK$9.90 (仅解锁本篇)</span> <span class="font-mono">→</span>';
       }
     }
 
