@@ -9,6 +9,9 @@
   <meta name="author" content="MoneyLab Researcher">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://m.ucncn.cn/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/">
 
   <!-- Open Graph / 社交媒体卡片 -->
   <meta property="og:type" content="website">
@@ -438,6 +441,16 @@
         <div class="text-xs font-mono text-brand-textSecondary">
           已解剖 <span id="nav-count" class="text-brand-textPrimary font-semibold">0</span> 份商业样本
         </div>
+
+        <!-- 国际化语言切换 (English 独立站入口) -->
+        <a 
+          href="./en/" 
+          title="Switch to Global English Edition" 
+          class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐</span>
+          <span>EN</span>
+        </a>
 
         <!-- 亮暗模式切换开关 -->
         <button 
@@ -1112,7 +1125,7 @@
           <div class="grid grid-cols-4 gap-2">
             <!-- 银联 (官方三色卡标矢量 SVG) -->
             <div class="flex items-center justify-center py-2 px-1 rounded-lg bg-white dark:bg-[#151821] border border-slate-200/90 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              <svg class="h-3.5 w-auto mr-1.5 shrink-0" viewBox="0 0 45 30" fill="none">
+              <svg class="h-3.5 w-[21px] mr-1.5 shrink-0" viewBox="0 0 45 30" fill="none">
                 <path d="M15 3H5.5L1 27h9.5L15 3z" fill="#D81E06"/>
                 <path d="M24.5 3H15l-4.5 24h9.5L24.5 3z" fill="#0B346E"/>
                 <path d="M34 3H24.5L20 27h9.5L34 3z" fill="#00843D"/>
@@ -1122,7 +1135,7 @@
 
             <!-- Apple Pay (官方 Apple 咬一口矢量 SVG, 完美兼容 Windows/Mac/Android) -->
             <div class="flex items-center justify-center py-2 px-1 rounded-lg bg-white dark:bg-[#151821] border border-slate-200/90 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              <svg class="h-3.5 w-auto mr-1 fill-current shrink-0 text-slate-900 dark:text-white" viewBox="0 0 170 170">
+              <svg class="w-3.5 h-3.5 mr-1 fill-current shrink-0 text-slate-900 dark:text-white" width="14" height="14" viewBox="0 0 170 170">
                 <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.77-11.66-14.19-6.97-10.9-12.08-23.78-15.34-38.64-3.26-14.86-3.26-28.7 0-41.52 3.26-12.82 8.6-23.46 16.03-31.91 7.42-8.46 16.27-12.77 26.54-12.94 5.35 0 11.16 1.41 17.43 4.23 6.27 2.82 10.15 4.3 11.64 4.45 1.83-.2 5.8-1.74 11.91-4.63 6.11-2.88 11.83-4.22 17.16-4.01 12.63.74 22.84 5.67 30.63 14.8-10.97 6.64-16.32 15.74-16.05 27.31.27 10.14 4.11 18.57 11.53 25.29 7.41 6.72 16.29 10.51 26.63 11.37-2.17 6.46-4.78 13.06-7.83 19.8zm-29.28-111.4c0 7.44-2.73 14.46-8.19 21.05-5.46 6.59-12.21 10.65-20.25 12.18-.32-1.39-.48-2.71-.48-3.96 0-7.23 2.84-14.28 8.52-21.14 5.68-6.86 12.48-10.87 20.4-12.03z"/>
               </svg>
               <span>Pay</span>
@@ -1130,7 +1143,7 @@
 
             <!-- Google Pay (官方四色 G 标矢量 SVG) -->
             <div class="flex items-center justify-center py-2 px-1 rounded-lg bg-white dark:bg-[#151821] border border-slate-200/90 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              <svg class="h-3.5 w-auto mr-1 shrink-0" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5 mr-1 shrink-0" width="14" height="14" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
                 <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
                 <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.97 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
@@ -1141,7 +1154,7 @@
 
             <!-- Visa / Mastercard (官方红橙双圈矢量 SVG) -->
             <div class="flex items-center justify-center py-2 px-1 rounded-lg bg-white dark:bg-[#151821] border border-slate-200/90 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              <svg class="h-3 w-auto mr-1.5 shrink-0" viewBox="0 0 36 24">
+              <svg class="h-3 w-[18px] mr-1.5 shrink-0" viewBox="0 0 36 24">
                 <circle cx="12" cy="12" r="10" fill="#EB001B"/>
                 <circle cx="24" cy="12" r="10" fill="#F79E1B" fill-opacity="0.9"/>
               </svg>
