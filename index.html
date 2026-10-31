@@ -603,6 +603,9 @@
           <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             高回报
           </button>
+          <button id="filter-my-unlocked" onclick="setQuickFilter('MY_UNLOCKED', this)" class="hidden pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+            ★ 我的已购
+          </button>
         </div>
 
         <!-- 排序方式 (最右侧) -->
@@ -1097,32 +1100,36 @@
 
         </div>
 
-        <!-- 支付通道与安全信任背书条 (重构为正规官方支付网关一览) -->
+        <!-- 支付通道与安全信任背书条 (严格单行 4 等分布局，带品牌 Icon 与简写，绝不折行) -->
         <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-brand-black/60 border border-slate-200/80 dark:border-brand-border space-y-2.5">
           <div class="flex items-center justify-between text-xs text-slate-500 dark:text-brand-textMuted font-mono">
             <span class="flex items-center space-x-1.5 text-slate-700 dark:text-brand-textSecondary font-semibold">
-              <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path></svg>
-              <span>Stripe 官方安全收单通道</span>
+              <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path></svg>
+              <span>Stripe 官方安全收单</span>
             </span>
-            <span class="text-[11px] text-slate-400 dark:text-brand-textMuted">自动汇率折算 · 免密秒付</span>
+            <span class="text-[11px] text-slate-400 dark:text-brand-textMuted">汇率自动折算 · 免密秒付</span>
           </div>
-          <div class="flex flex-wrap items-center gap-1.5">
+          <div class="grid grid-cols-4 gap-2">
             <!-- 银联 -->
-            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>中国银联 UnionPay
-            </span>
+            <div class="flex items-center justify-center py-1.5 px-1 rounded-lg bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-red-500 mr-1.5 shrink-0"></span>
+              <span>银联</span>
+            </div>
             <!-- Apple Pay -->
-            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-               Apple Pay
-            </span>
+            <div class="flex items-center justify-center py-1.5 px-1 rounded-lg bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <span class="text-sm mr-1 shrink-0 leading-none"></span>
+              <span>Pay</span>
+            </div>
             <!-- Google Pay -->
-            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              Google Pay
-            </span>
-            <!-- 全球信用卡 -->
-            <span class="inline-flex items-center px-2 py-1 rounded-md bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
-              Visa / Mastercard / JCB
-            </span>
+            <div class="flex items-center justify-center py-1.5 px-1 rounded-lg bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <span class="text-emerald-500 font-bold mr-1 shrink-0">G</span>
+              <span>Pay</span>
+            </div>
+            <!-- Visa / Mastercard -->
+            <div class="flex items-center justify-center py-1.5 px-1 rounded-lg bg-white dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <svg class="w-3.5 h-3.5 mr-1 text-slate-500 dark:text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+              <span>Visa/MC</span>
+            </div>
           </div>
         </div>
 
@@ -1477,7 +1484,7 @@
 
       if (!targetEl) {
         const pillButtons = Array.from(document.querySelectorAll('.pill-btn'));
-        const intentMap = { 'ALL': 0, 'S_TIER': 1, 'FAST': 2, 'ZERO_COST': 3, 'HIGH_RETURN': 4 };
+        const intentMap = { 'ALL': 0, 'S_TIER': 1, 'FAST': 2, 'ZERO_COST': 3, 'HIGH_RETURN': 4, 'MY_UNLOCKED': 5 };
         const idx = intentMap[intent] ?? 0;
         targetEl = pillButtons[idx];
       }
@@ -1508,6 +1515,9 @@
           const profit = p.metrics?.est_monthly_profit || '';
           const hasBigNum = profit.includes('6000') || profit.includes('12000') || profit.includes('40000') || profit.includes('25000');
           if (ceiling < 8.5 && !hasBigNum) return false;
+        }
+        if (currentIntent === 'MY_UNLOCKED') {
+          if (!isProjectUnlocked(p.id)) return false;
         }
 
         if (searchQuery.trim()) {
@@ -1548,6 +1558,7 @@
 
       grid.innerHTML = projects.map((p, index) => {
         const isS = p.rating_tier === 'S' || p.score >= 90;
+        const isUnlocked = isProjectUnlocked(p.id);
         const cardClass = isS ? 'memo-card memo-card-s' : 'memo-card';
         const tierBadgeClass = isS 
           ? 'tier-badge-s' 
@@ -1583,9 +1594,12 @@
                   <span class="text-slate-400 dark:text-brand-textMuted/60 text-xs font-mono">#${String(index + 1).padStart(2, '0')}</span>
                 </div>
                 
-                <!-- 评级徽章 -->
-                <div class="px-2.5 py-0.5 rounded-md border text-xs font-semibold tracking-wide ${tierBadgeClass}">
-                  ${p.rating_tier || 'A'} 级 · ${p.score}分
+                <!-- 评级徽章与已拥有标志 -->
+                <div class="flex items-center space-x-1.5">
+                  ${isUnlocked ? '<span class="px-2 py-0.5 rounded-md font-mono text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center space-x-1 shadow-2xs"><span>✓</span><span>已拥有</span></span>' : ''}
+                  <div class="px-2.5 py-0.5 rounded-md border text-xs font-semibold tracking-wide ${tierBadgeClass}">
+                    ${p.rating_tier || 'A'} 级 · ${p.score}分
+                  </div>
                 </div>
               </div>
 
@@ -1982,6 +1996,22 @@
         if (hintEmail) hintEmail.innerText = '未登录 (付款前建议先登录)';
         if (hintAction) hintAction.classList.remove('hidden');
       }
+
+      // 动态更新快速筛选栏中的“我的已购”快捷入口
+      const myUnlockedBtn = document.getElementById('filter-my-unlocked');
+      const unlockedCount = (currentUserProfile?.unlocked_projects || []).length;
+      if (myUnlockedBtn) {
+        if (currentUserProfile?.is_annual_vip) {
+          myUnlockedBtn.classList.remove('hidden');
+          myUnlockedBtn.innerText = '★ 全站已解密 (VIP)';
+        } else if (unlockedCount > 0) {
+          myUnlockedBtn.classList.remove('hidden');
+          myUnlockedBtn.innerText = `★ 我的已购 (${unlockedCount})`;
+        } else {
+          myUnlockedBtn.classList.add('hidden');
+        }
+      }
+      applyFiltersAndRender();
     }
 
     // 打开与关闭登录弹窗
