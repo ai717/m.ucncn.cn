@@ -2397,6 +2397,18 @@ ${workflowList}
         const promptEl = document.getElementById('unlocked-prompt-text');
         if (promptEl) promptEl.innerText = fullSkillText;
 
+        // 若存在官方落盘高精度定制专属技能，自动无缝升级替换为高精度母体文件
+        if (project.slug) {
+          fetch(`/skills/${project.slug}/SKILL.md`)
+            .then(res => res.ok ? res.text() : null)
+            .then(customSkill => {
+              if (customSkill && promptEl && activeModalProject && activeModalProject.id === project.id) {
+                promptEl.innerText = customSkill;
+              }
+            })
+            .catch(() => {});
+        }
+
         if (sourceBtn) {
           sourceBtn.onclick = (e) => {
             e.preventDefault();

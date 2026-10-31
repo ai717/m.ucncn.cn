@@ -1667,7 +1667,20 @@
         linkEl.href = p.source_url || 'https://reddit.com';
         linkEl.textContent = p.source_url || 'https://reddit.com';
 
-        document.getElementById('unlocked-skill-box').textContent = generateSkillMd(p);
+        const skillBox = document.getElementById('unlocked-skill-box');
+        skillBox.textContent = generateSkillMd(p);
+
+        // Auto-upgrade to curated master skill if available
+        if (p.slug) {
+          fetch(`/skills/${p.slug}/SKILL-EN.md`)
+            .then(res => res.ok ? res.text() : fetch(`/skills/${p.slug}/SKILL.md`).then(r => r.ok ? r.text() : null))
+            .then(curated => {
+              if (curated && skillBox && activeModalProject && activeModalProject.id === p.id) {
+                skillBox.textContent = curated;
+              }
+            })
+            .catch(() => {});
+        }
       } else {
         lockedBox.classList.remove('hidden');
         unlockedBox.classList.add('hidden');
