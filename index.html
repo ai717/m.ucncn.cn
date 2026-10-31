@@ -600,6 +600,9 @@
           <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
             低成本
           </button>
+          <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
+            高回报
+          </button>
         </div>
 
         <!-- 排序方式 (最右侧) -->
@@ -1359,7 +1362,7 @@
 
       if (!targetEl) {
         const pillButtons = Array.from(document.querySelectorAll('.pill-btn'));
-        const intentMap = { 'ALL': 0, 'S_TIER': 1, 'FAST': 2, 'ZERO_COST': 3 };
+        const intentMap = { 'ALL': 0, 'S_TIER': 1, 'FAST': 2, 'ZERO_COST': 3, 'HIGH_RETURN': 4 };
         const idx = intentMap[intent] ?? 0;
         targetEl = pillButtons[idx];
       }
@@ -1383,6 +1386,13 @@
         if (currentIntent === 'ZERO_COST') {
           const cost = (p.metrics?.initial_cost || '');
           if (!cost.includes('0') && !cost.includes('5') && !cost.includes('10') && !cost.includes('低')) return false;
+        }
+        if (currentIntent === 'HIGH_RETURN') {
+          // 收益天花板评分为高阶 (>= 8.5) 或 单月/单笔上限达到 $5000+ / ¥30000+
+          const ceiling = p.score_breakdown?.ceiling || 0;
+          const profit = p.metrics?.est_monthly_profit || '';
+          const hasBigNum = profit.includes('6000') || profit.includes('12000') || profit.includes('40000') || profit.includes('25000');
+          if (ceiling < 8.5 && !hasBigNum) return false;
         }
 
         if (searchQuery.trim()) {
@@ -1700,7 +1710,7 @@
 
       if (currentCategory !== 'ALL') conditions.push(`赛道: ${currentCategory}`);
       if (currentIntent !== 'ALL') {
-        const intentMap = { S_TIER: 'S级', FAST: '快速见效', ZERO_COST: '低成本' };
+        const intentMap = { S_TIER: 'S级', FAST: '快速见效', ZERO_COST: '低成本', HIGH_RETURN: '高回报' };
         conditions.push(`条件: ${intentMap[currentIntent] || currentIntent}`);
       }
       if (searchQuery.trim()) conditions.push(`关键词: "${searchQuery}"`);
