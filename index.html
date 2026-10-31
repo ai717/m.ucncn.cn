@@ -1236,12 +1236,12 @@
           </span>
         </button>
 
-        <!-- 安全保障微注脚与沙盒调试入口 -->
+        <!-- 安全保障微注脚与沙盒调试入口 (线上默认隐藏，仅 localhost 或携带 ?dev=1 时显示) -->
         <div class="text-center space-y-1.5 pt-1">
           <p class="text-[11px] text-slate-400 dark:text-brand-textMuted flex items-center justify-center space-x-1">
             <span>🔒 256 位 SSL 银行级加密 · Stripe 官方合规收单 · 支付后秒级授权</span>
           </p>
-          <div>
+          <div id="dev-sandbox-btn-wrap" class="hidden">
             <button onclick="simulateSuccessfulPayment()" class="text-[10px] font-mono text-slate-400 hover:text-emerald-500 dark:text-slate-600 dark:hover:text-emerald-400 underline cursor-pointer">
               [开发调试] 模拟支付成功回调 (无卡秒级解锁)
             </button>
@@ -1505,6 +1505,21 @@
       applyFiltersAndRender();
       bindGlobalEvents();
       checkStripeReturnParams();
+      checkDevEnvironment();
+    }
+
+    // 仅在本地开发环境 (localhost / 127.0.0.1) 或管理员携带 ?dev=1 / ?debug=true 时激活沙盒入口
+    function isDevEnvironment() {
+      const host = window.location.hostname;
+      const search = window.location.search;
+      return host === 'localhost' || host === '127.0.0.1' || search.includes('dev=1') || search.includes('debug=true');
+    }
+
+    function checkDevEnvironment() {
+      const wrap = document.getElementById('dev-sandbox-btn-wrap');
+      if (wrap && isDevEnvironment()) {
+        wrap.classList.remove('hidden');
+      }
     }
 
     // 统计面板
@@ -2378,8 +2393,12 @@ ${workflowList}
       copySkillMd();
     }
 
-    // [开发调试] 模拟支付成功回调与权限同步 (沙盒无卡测试)
+    // [开发调试] 模拟支付成功回调与权限同步 (沙盒无卡测试，生产环境硬拦截)
     async function simulateSuccessfulPayment() {
+      if (!isDevEnvironment()) {
+        showToast('⚠️ 生产环境已禁用沙盒模拟，请使用真实官方通道');
+        return;
+      }
       if (!currentUser) {
         showToast('⚠️ 测试提示：请先点击右上角登录邮箱，以便测试权限落盘与多端同步');
         closeCheckoutModal();

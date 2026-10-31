@@ -1021,13 +1021,15 @@
           <span>➔</span>
         </a>
 
-        <!-- Dev Sandbox Tester -->
-        <button 
-          onclick="simulateSuccessfulPayment()" 
-          class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textMuted text-xs font-mono transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
-        >
-          <span>⚡ [Dev Sandbox] Simulate Instant Unlock</span>
-        </button>
+        <!-- Dev Sandbox Tester (Hidden by default in production, only visible on localhost or with ?dev=1) -->
+        <div id="dev-sandbox-btn-wrap" class="hidden">
+          <button 
+            onclick="simulateSuccessfulPayment()" 
+            class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textMuted text-xs font-mono transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
+          >
+            <span>⚡ [Dev Sandbox] Simulate Instant Unlock</span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -1132,6 +1134,7 @@
       renderStats();
       renderCategoryTabs();
       applyFiltersAndRender();
+      checkDevEnvironment();
 
       // Check URL Hash route (e.g. #reddit-leadgen-cold-email-bot)
       if (window.location.hash) {
@@ -1158,6 +1161,20 @@
       localStorage.setItem('moneylab_lang', 'en');
       const banner = document.getElementById('zh-suggest-banner');
       if (banner) banner.classList.add('hidden');
+    }
+
+    // Dev environment check: Only show sandbox on localhost or with ?dev=1 / ?debug=true
+    function isDevEnvironment() {
+      const host = window.location.hostname;
+      const search = window.location.search;
+      return host === 'localhost' || host === '127.0.0.1' || search.includes('dev=1') || search.includes('debug=true');
+    }
+
+    function checkDevEnvironment() {
+      const wrap = document.getElementById('dev-sandbox-btn-wrap');
+      if (wrap && isDevEnvironment()) {
+        wrap.classList.remove('hidden');
+      }
     }
 
     // Theme Management
@@ -1763,8 +1780,12 @@ Focus strictly on high-converting value proposition, zero-friction checkout, and
       showToast('Signed out', '👋');
     }
 
-    // Dev Sandbox Simulator (Instant Unlock)
+    // Dev Sandbox Simulator (Instant Unlock with production guard)
     function simulateSuccessfulPayment() {
+      if (!isDevEnvironment()) {
+        showToast('⚠️ Dev Sandbox is disabled in production.');
+        return;
+      }
       const pId = activeModalProject ? activeModalProject.id : (allProjects[0]?.id || 'p1');
       if (selectedPlan === 'annual') {
         currentUserProfile.is_annual_vip = true;
