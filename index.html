@@ -1078,14 +1078,14 @@
         
         <div class="space-y-1">
           <h3 class="text-lg font-bold text-slate-900 dark:text-brand-textPrimary tracking-tight">
-            免密验证登录
+            免密一键登录
           </h3>
           <p class="text-xs text-slate-500 dark:text-brand-textMuted">
-            接收 6 位验证码或直接点击邮件中链接登录 · 跨设备数据永久同步
+            输入邮箱直接查收确认邮件 · 无需记忆密码 · 跨设备数据永久同步
           </p>
         </div>
 
-        <!-- 步骤 1：输入邮箱 -->
+        <!-- 状态 1：输入邮箱界面 -->
         <div id="auth-step-email" class="space-y-3">
           <div>
             <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary mb-1.5 font-medium">您的常用邮箱</label>
@@ -1102,42 +1102,38 @@
             id="send-otp-btn"
             class="w-full py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-black font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-1 cursor-pointer"
           >
-            <span>发送登录验证码</span>
+            <span>发送登录确认邮件</span>
             <span class="font-mono">→</span>
           </button>
         </div>
 
-        <!-- 步骤 2：输入 6 位验证码 (发送后显示) -->
-        <div id="auth-step-verify" class="hidden space-y-3">
-          <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="space-y-1">
-              <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary font-medium">输入邮件中的 6 位验证码</label>
-              <p class="text-[11px] text-slate-400 dark:text-brand-textMuted font-sans">（您也可以直接在邮箱内点击登录链接完成验证）</p>
-            </div>
-              <button onclick="resendOtp()" class="text-[11px] font-mono text-emerald-600 hover:underline">重新发送</button>
-            </div>
-            <input 
-              type="text" 
-              id="auth-otp-input" 
-              placeholder="123456"
-              maxlength="6"
-              class="w-full bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border rounded-lg px-3.5 py-2.5 text-center text-base tracking-widest text-slate-900 dark:text-brand-textPrimary focus:outline-none focus:border-emerald-500 font-mono transition-colors font-bold"
-            />
+        <!-- 状态 2：邮件已发送，指引前往邮箱点击确认（彻底解决验证码矛盾） -->
+        <div id="auth-step-verify" class="hidden p-4 rounded-xl bg-slate-50 dark:bg-brand-black border border-slate-200 dark:border-brand-border space-y-3 text-center">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center mx-auto text-lg">
+            ✉️
           </div>
-
-          <button 
-            onclick="verifyOtpCode()"
-            id="verify-otp-btn"
-            class="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-sm flex items-center justify-center space-x-1 cursor-pointer"
-          >
-            <span>确认验证并登录</span>
-            <span class="font-mono">✓</span>
-          </button>
+          <div class="space-y-1">
+            <h4 class="text-sm font-bold text-slate-900 dark:text-brand-textPrimary">确认邮件已发出</h4>
+            <p class="text-xs text-slate-500 dark:text-brand-textMuted">
+              已发送至: <strong id="sent-email-target" class="text-emerald-600 font-mono">user@...</strong>
+            </p>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-brand-textSecondary leading-relaxed font-sans bg-white dark:bg-brand-surface p-3 rounded-lg border border-slate-200/80 dark:border-brand-border">
+            请打开您的邮箱，点击邮件中的 <strong>「Log In / Confirm」</strong> 蓝色按钮，点击后将直接为您完成登录并自动跳转回本站。
+          </p>
+          <div class="pt-1 flex items-center justify-center space-x-3 text-xs font-mono">
+            <button onclick="resendOtp()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline">
+              更换邮箱
+            </button>
+            <span class="text-slate-300 dark:text-brand-border">·</span>
+            <button onclick="sendOtpCode()" class="text-emerald-600 hover:underline">
+              重新发送邮件
+            </button>
+          </div>
         </div>
 
         <div class="pt-2 text-center text-[11px] text-slate-400 dark:text-brand-textMuted font-mono">
-          登录即代表同意并绑定您的专属研报权益
+          登录即代表同意并永久绑定您的专属研报权限
         </div>
 
       </div>
@@ -1890,7 +1886,8 @@
           }
         });
         if (error) throw error;
-        showToast('验证码已发送至您的邮箱，请查收！');
+        showToast('确认邮件已发送，请前往邮箱点击链接登录！');
+        document.getElementById('sent-email-target').innerText = email;
         document.getElementById('auth-step-email').classList.add('hidden');
         document.getElementById('auth-step-verify').classList.remove('hidden');
       } catch (err) {
@@ -1906,35 +1903,7 @@
       document.getElementById('auth-step-verify').classList.add('hidden');
     }
 
-    // 校验 6 位 OTP 验证码
-    async function verifyOtpCode() {
-      const email = document.getElementById('auth-email-input').value.trim();
-      const token = document.getElementById('auth-otp-input').value.trim();
-      if (!token || token.length < 6) {
-        showToast('请输入完整的 6 位验证码');
-        return;
-      }
 
-      const btn = document.getElementById('verify-otp-btn');
-      btn.innerText = '正在核验身份...';
-      btn.disabled = true;
-
-      try {
-        const { data, error } = await supabaseClient.auth.verifyOtp({
-          email,
-          token,
-          type: 'email'
-        });
-        if (error) throw error;
-        showToast('🎉 登录成功！欢迎回来');
-        closeAuthModal();
-      } catch (err) {
-        showToast('验证失败: ' + (err.message || '验证码错误或已失效'));
-      } finally {
-        btn.innerText = '确认验证并登录 ✓';
-        btn.disabled = false;
-      }
-    }
 
     // 退出登录
     async function handleSignOut() {
