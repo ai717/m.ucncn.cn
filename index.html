@@ -592,13 +592,13 @@
             全部
           </button>
           <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            S 级精选
+            S级
           </button>
           <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            快速见效 (&lt;14天)
+            快速见效
           </button>
           <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            低成本启动
+            低成本
           </button>
         </div>
 
@@ -1700,7 +1700,7 @@
 
       if (currentCategory !== 'ALL') conditions.push(`赛道: ${currentCategory}`);
       if (currentIntent !== 'ALL') {
-        const intentMap = { S_TIER: 'S 级精选', FAST: '快速见效 (<14天)', ZERO_COST: '低成本启动' };
+        const intentMap = { S_TIER: 'S级', FAST: '快速见效', ZERO_COST: '低成本' };
         conditions.push(`条件: ${intentMap[currentIntent] || currentIntent}`);
       }
       if (searchQuery.trim()) conditions.push(`关键词: "${searchQuery}"`);
