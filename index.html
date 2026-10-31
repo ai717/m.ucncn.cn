@@ -2319,6 +2319,61 @@ ${workflowList}
     function copyAiPrompt() {
       copySkillMd();
     }
+
+    // [开发调试] 模拟支付成功回调与权限同步 (沙盒无卡测试)
+    async function simulateSuccessfulPayment() {
+      if (!currentUser) {
+        showToast('⚠️ 测试提示：请先点击右上角登录邮箱，以便测试权限落盘与多端同步');
+        closeCheckoutModal();
+        openAuthModal();
+        return;
+      }
+
+      const projectId = activeModalProject ? activeModalProject.id : null;
+      showToast('🔄 正在模拟 Stripe Webhook 验签与写入权限...');
+
+      try {
+        if (selectedPlan === 'annual') {
+          // 模拟开通年度 VIP
+          if (supabaseClient) {
+            await supabaseClient.from('profiles').update({ is_annual_vip: true }).eq('id', currentUser.id);
+          }
+          if (currentUserProfile) currentUserProfile.is_annual_vip = true;
+          showToast('🎉 [测试成功] 已激活「年度全站 VIP」！全站 1500+ 项目已全部解密');
+        } else if (projectId) {
+          // 模拟单篇买断
+          const currentList = Array.isArray(currentUserProfile?.unlocked_projects) ? [...currentUserProfile.unlocked_projects] : [];
+          if (!currentList.includes(projectId)) {
+            currentList.push(projectId);
+          }
+          if (supabaseClient) {
+            await supabaseClient.from('profiles').update({ unlocked_projects: currentList }).eq('id', currentUser.id);
+          }
+          if (currentUserProfile) currentUserProfile.unlocked_projects = currentList;
+          showToast(`🎉 [测试成功] 当前项目【${activeModalProject.title}】已成功买断解密！`);
+        }
+
+        // 关闭收银台并刷新页面所有状态
+        closeCheckoutModal();
+        renderUserNavState();
+        if (activeModalProject) updateModalVipState(activeModalProject);
+      } catch (err) {
+        console.error('Simulate payment error:', err);
+        // 本地降级生效
+        if (selectedPlan === 'annual') {
+          if (currentUserProfile) currentUserProfile.is_annual_vip = true;
+        } else if (projectId) {
+          if (currentUserProfile) {
+            if (!currentUserProfile.unlocked_projects) currentUserProfile.unlocked_projects = [];
+            currentUserProfile.unlocked_projects.push(projectId);
+          }
+        }
+        closeCheckoutModal();
+        renderUserNavState();
+        if (activeModalProject) updateModalVipState(activeModalProject);
+        showToast('🎉 [本地沙盒] 权限已激活，研报已解密！');
+      }
+    }
     window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
