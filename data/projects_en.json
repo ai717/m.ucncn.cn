@@ -23,9 +23,10 @@
     "metrics": {
       "difficulty_stars": 2,
       "cycle_time": "5-7 Days",
-      "initial_cost": " (Free-tier APIs)",
-      "revenue_model": "Monthly SaaS (/mo) or Pay-Per-Lead (.50/lead)",
-      "est_monthly_profit": ",200 - ,800 / mo"
+      "initial_cost": "$0 (Free-tier APIs)",
+      "revenue_model": "Monthly SaaS ($29/mo) or Pay-Per-Lead ($1.50/lead)",
+      "est_monthly_profit": "$1,200 - $3,800 / mo",
+      "clean_model": "Monthly SaaS / Pay-Per-Lead"
     },
     "deep_dive": {
       "opportunity": "B2B teams waste hours manually sifting through Reddit for relevant buyers. Existing social listening tools cost +/mo and fail to filter low-intent noise. A lightweight, AI-scored alert bot delivers immediate, high-converting pipeline.",
@@ -51,7 +52,7 @@
     "id": "ml-20261028-006",
     "title": "E-Commerce Store Localization App Powered by Cost-Effective LLM APIs",
     "slug": "deepseek-crossborder-localization-tool",
-    "category": "E-Commerce & Shopify",
+    "category": "Shopify Apps & AI",
     "tags": [
       "Shopify App",
       "DeepSeek",
@@ -72,9 +73,10 @@
     "metrics": {
       "difficulty_stars": 2,
       "cycle_time": "7-10 Days",
-      "initial_cost": "",
-      "revenue_model": "Tiered Subscription (-/mo) + Token Overages",
-      "est_monthly_profit": ",000 - ,000 / mo"
+      "initial_cost": "$20 (Starter Credit)",
+      "revenue_model": "Tiered Subscription ($19-$49/mo) + Token Overages",
+      "est_monthly_profit": "$2,000 - $6,000 / mo",
+      "clean_model": "Subscription + Token Overages"
     },
     "deep_dive": {
       "opportunity": "Standard Google Translate produces robotic product descriptions that scare away international buyers. LLMs excel at localized marketing slang and currency nuance. Merchants gladly pay recurring subscriptions for measurable conversion bumps.",
@@ -99,7 +101,7 @@
     "id": "ml-20261028-001",
     "title": "Niche Workflow Chrome Extension with Automated Merchant-of-Record Billing",
     "slug": "niche-chrome-extension-monetization",
-    "category": "Micro-SaaS & Automation",
+    "category": "Chrome Extensions",
     "tags": [
       "Chrome Extension",
       "LemonSqueezy",
@@ -119,9 +121,10 @@
     "metrics": {
       "difficulty_stars": 1,
       "cycle_time": "3-5 Days",
-      "initial_cost": " (Chrome Web Store registration)",
-      "revenue_model": "Freemium Subscription (/mo) or Lifetime License ()",
-      "est_monthly_profit": " - ,500 / mo"
+      "initial_cost": "$5 (Store Fee)",
+      "revenue_model": "Freemium Subscription ($4.99/mo) or Lifetime License ($29)",
+      "est_monthly_profit": "$1,200 - $4,500 / mo",
+      "clean_model": "Freemium SaaS & Lifetime Pass"
     },
     "deep_dive": {
       "opportunity": "Users are willing to pay micro-subscriptions for tools that shave 15 minutes off their daily browser routine. Browser extensions run on client hardware, yielding near-zero hosting costs.",
@@ -146,7 +149,7 @@
     "id": "ml-20261028-002",
     "title": "Micro-SaaS Incubator & Fast-Exit Flipping Pipeline via Acquire.com",
     "slug": "acquire-micro-saas-flipping",
-    "category": "Micro-SaaS & Automation",
+    "category": "Micro-SaaS Acquisition",
     "tags": [
       "Micro-SaaS",
       "Acquire.com",
@@ -166,9 +169,10 @@
     "metrics": {
       "difficulty_stars": 3,
       "cycle_time": "14-21 Days",
-      "initial_cost": " (Domain & basic hosting)",
-      "revenue_model": "Lump-Sum Acquisition Exit (,000 - ,000 per deal)",
-      "est_monthly_profit": ",000 - ,000 / exit"
+      "initial_cost": "$45 (Domain & Host)",
+      "revenue_model": "Lump-Sum Acquisition Exit ($5,000 - $25,000 per deal)",
+      "est_monthly_profit": "$3,000 - $12,000 / exit",
+      "clean_model": "Cash Flow + Exit Multiple"
     },
     "deep_dive": {
       "opportunity": "Buyers on Acquire.com and Microns actively hunt for verified, cash-flowing micro-assets. Building lean tools with clean metrics creates immediate acquisition appetite.",
@@ -194,7 +198,7 @@
     "id": "ml-20261028-003",
     "title": "AI Emotional Care & Interactive Journaling Micro-Tools on Gumroad",
     "slug": "rednote-emotional-healing-bot",
-    "category": "Digital Products & Arbitrage",
+    "category": "Digital Products",
     "tags": [
       "Gumroad",
       "Digital Products",
@@ -214,9 +218,10 @@
     "metrics": {
       "difficulty_stars": 1,
       "cycle_time": "3 Days",
-      "initial_cost": "",
-      "revenue_model": "Direct Digital Sales (.90 - .90 per pack)",
-      "est_monthly_profit": ",500 - ,200 / mo"
+      "initial_cost": "$0 (Zero Capital)",
+      "revenue_model": "Direct Digital Sales ($4.90 - $19.90 per pack)",
+      "est_monthly_profit": "$900 - $3,200 / mo",
+      "clean_model": "Instant Digital Downloads"
     },
     "deep_dive": {
       "opportunity": "Mental health and mindfulness content has exploded on short-form video platforms. Pairing viral quotes with instant digital downloads creates frictionless impulse checkout.",
@@ -242,7 +247,7 @@
     "id": "ml-20261028-004",
     "title": "Private Enterprise RAG Knowledge Assistant & Lead Qualifier for SMBs",
     "slug": "local-rag-agent-consulting",
-    "category": "B2B Services & Leads",
+    "category": "B2B Services & AI",
     "tags": [
       "RAG Agent",
       "B2B Retainer",
@@ -262,9 +267,10 @@
     "metrics": {
       "difficulty_stars": 3,
       "cycle_time": "7-14 Days",
-      "initial_cost": "",
-      "revenue_model": "Setup Fee () + Monthly Maintenance Retainer (/mo)",
-      "est_monthly_profit": ",500 - ,500 / mo"
+      "initial_cost": "$75 (Demo Cloud Server)",
+      "revenue_model": "Setup Fee ($800) + Monthly Maintenance Retainer ($300/mo)",
+      "est_monthly_profit": "$2,500 - $6,500 / mo",
+      "clean_model": "Setup Retainer + Maintenance"
     },
     "deep_dive": {
       "opportunity": "Traditional SMB websites lose 80% of inbound leads due to slow human response times. A specialized RAG agent trained on company FAQs, pricing, and case studies books sales calls directly into Calendly.",
@@ -290,7 +296,7 @@
     "id": "ml-20261028-005",
     "title": "Aesthetic Notion Life & Financial Operating Systems on Etsy / Gumroad",
     "slug": "etsy-notion-template-digital-downloads",
-    "category": "Digital Products & Arbitrage",
+    "category": "Notion & Digital Assets",
     "tags": [
       "Etsy",
       "Notion Systems",
@@ -310,9 +316,10 @@
     "metrics": {
       "difficulty_stars": 1,
       "cycle_time": "4 Days",
-      "initial_cost": "",
-      "revenue_model": "Digital Download Bundles ( -  each)",
-      "est_monthly_profit": ",800 - ,000 / mo"
+      "initial_cost": "$20 (Listing Fees)",
+      "revenue_model": "Digital Download Bundles ($9.90 - $29.90 each)",
+      "est_monthly_profit": "$800 - $3,500 / mo",
+      "clean_model": "Digital Systems & Bundles"
     },
     "deep_dive": {
       "opportunity": "Consumers actively search Etsy for productivity systems to conquer financial anxiety and ADHD clutter. Professional, minimalist aesthetics command premium price points.",
