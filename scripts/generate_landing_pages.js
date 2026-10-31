@@ -221,9 +221,10 @@ ${GTAG_SNIPPET}
         </a>
         <a 
           href="${homeUrl}" 
-          class="px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
         >
-          ${isEn ? '← All Playbooks' : '← 返回项目库'}
+          <span class="hidden sm:inline">${isEn ? '← All Playbooks' : '← 返回项目库'}</span>
+          <span class="sm:hidden">${isEn ? '← Back' : '← 返回'}</span>
         </a>
       </div>
 
@@ -363,7 +364,7 @@ ${GTAG_SNIPPET}
       <div class="pt-2">
         <a 
           href="${targetSpaUrl}" 
-          class="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
         >
           <span>${isEn ? '⚡ View Full Teardown & Unlock on MoneyLab' : '⚡ 前往实验室主站解锁完整项目'}</span>
           <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
