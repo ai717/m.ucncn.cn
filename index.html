@@ -13,6 +13,49 @@
   <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/">
   <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/">
 
+  <!-- 国际化自动化语言探测与路由分发 (SEO 爬虫安全) -->
+  <script>
+    (function() {
+      try {
+        // 1. 爬虫规避：禁止对搜索引擎爬虫重定向，保障 Googlebot / Bingbot / 百度完整索引
+        var ua = (navigator.userAgent || '').toLowerCase();
+        var isBot = /bot|spider|crawl|slurp|facebookexternalhit|whatsapp|preview/i.test(ua);
+        if (isBot) return;
+
+        // 2. URL 查询参数优先 (?lang=zh 或 ?lang=en)
+        var params = new URLSearchParams(window.location.search);
+        var queryLang = params.get('lang');
+        if (queryLang === 'en') {
+          localStorage.setItem('moneylab_lang', 'en');
+          window.location.replace('./en/' + window.location.search + window.location.hash);
+          return;
+        } else if (queryLang === 'zh') {
+          localStorage.setItem('moneylab_lang', 'zh');
+          return;
+        }
+
+        // 3. 用户历史手动偏好优先（若用户曾手动选择，严格保持选择）
+        var savedLang = localStorage.getItem('moneylab_lang');
+        if (savedLang === 'en') {
+          window.location.replace('./en/' + window.location.search + window.location.hash);
+          return;
+        } else if (savedLang === 'zh') {
+          return;
+        }
+
+        // 4. 新用户智能自动探测：首次访问且无缓存
+        var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+        // 若操作系统或浏览器首选语言不是中文（例如 en, en-US, ja, de, fr, es 等）
+        if (navLang && !navLang.startsWith('zh')) {
+          localStorage.setItem('moneylab_lang', 'en');
+          window.location.replace('./en/' + window.location.search + window.location.hash);
+        }
+      } catch (e) {
+        console.warn('Auto i18n redirect error:', e);
+      }
+    })();
+  </script>
+
   <!-- Open Graph / 社交媒体卡片 -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://m.ucncn.cn/">
@@ -445,6 +488,7 @@
         <!-- 国际化语言切换 (English 独立站入口) -->
         <a 
           href="./en/" 
+          onclick="localStorage.setItem('moneylab_lang', 'en')"
           title="Switch to Global English Edition" 
           class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
         >

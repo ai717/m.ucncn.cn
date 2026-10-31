@@ -13,6 +13,36 @@
   <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/">
   <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/">
 
+  <!-- Auto-language routing & preference detection (SEO-safe) -->
+  <script>
+    (function() {
+      try {
+        var ua = (navigator.userAgent || '').toLowerCase();
+        var isBot = /bot|spider|crawl|slurp|facebookexternalhit|whatsapp|preview/i.test(ua);
+        if (isBot) return;
+
+        var params = new URLSearchParams(window.location.search);
+        var queryLang = params.get('lang');
+        if (queryLang === 'zh') {
+          localStorage.setItem('moneylab_lang', 'zh');
+          window.location.replace('../' + window.location.search + window.location.hash);
+          return;
+        } else if (queryLang === 'en') {
+          localStorage.setItem('moneylab_lang', 'en');
+          return;
+        }
+
+        var savedLang = localStorage.getItem('moneylab_lang');
+        if (savedLang === 'zh') {
+          window.location.replace('../' + window.location.search + window.location.hash);
+          return;
+        }
+      } catch (e) {
+        console.warn('Auto i18n check error:', e);
+      }
+    })();
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://m.ucncn.cn/en/">
@@ -286,6 +316,31 @@
     <span id="toast-message">Copied to clipboard</span>
   </div>
 
+  <!-- Chinese Visitor Intelligent Suggestion Banner -->
+  <aside id="zh-suggest-banner" class="hidden bg-emerald-500/10 dark:bg-emerald-500/15 border-b border-emerald-500/25 px-4 py-2.5 text-xs font-mono text-emerald-900 dark:text-emerald-300 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center space-x-2">
+        <span>🌐</span>
+        <span>检测到您的系统首选语言为中文，是否前往 MoneyLab 中文主站？</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a 
+          href="../" 
+          onclick="localStorage.setItem('moneylab_lang', 'zh')" 
+          class="px-2.5 py-1 rounded-md bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-colors cursor-pointer"
+        >
+          前往中文版 ➔
+        </a>
+        <button 
+          onclick="dismissZhBanner()" 
+          class="px-2 py-1 rounded-md border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 transition-colors cursor-pointer"
+        >
+          Stay in English
+        </button>
+      </div>
+    </div>
+  </aside>
+
   <!-- Header -->
   <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/90 dark:bg-brand-black/90 border-b border-slate-200 dark:border-brand-border transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -321,6 +376,7 @@
         <!-- Language Switcher back to Chinese -->
         <a 
           href="../" 
+          onclick="localStorage.setItem('moneylab_lang', 'zh')"
           title="Switch to Simplified Chinese Edition" 
           class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 shadow-2xs"
         >
@@ -873,6 +929,7 @@
     async function init() {
       initTheme();
       loadLocalUserState();
+      checkZhVisitorBanner();
       
       // Attempt to fetch latest projects_en.json
       try {
@@ -896,6 +953,25 @@
         const target = allProjects.find(p => p.slug === hashSlug);
         if (target) openModal(target.id);
       }
+    }
+
+    // Chinese Visitor Suggestion Banner
+    function checkZhVisitorBanner() {
+      try {
+        const saved = localStorage.getItem('moneylab_lang');
+        if (saved) return;
+        const navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+        if (navLang.startsWith('zh')) {
+          const banner = document.getElementById('zh-suggest-banner');
+          if (banner) banner.classList.remove('hidden');
+        }
+      } catch (e) {}
+    }
+
+    function dismissZhBanner() {
+      localStorage.setItem('moneylab_lang', 'en');
+      const banner = document.getElementById('zh-suggest-banner');
+      if (banner) banner.classList.add('hidden');
     }
 
     // Theme Management
