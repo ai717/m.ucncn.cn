@@ -1081,7 +1081,7 @@
             免密验证登录
           </h3>
           <p class="text-xs text-slate-500 dark:text-brand-textMuted">
-            输入邮箱接收验证链接/验证码 · 换设备数据永久不丢失
+            接收 6 位验证码或直接点击邮件中链接登录 · 跨设备数据永久同步
           </p>
         </div>
 
@@ -1111,7 +1111,10 @@
         <div id="auth-step-verify" class="hidden space-y-3">
           <div>
             <div class="flex items-center justify-between mb-1.5">
-              <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary font-medium">输入 6 位验证码</label>
+              <div class="space-y-1">
+              <label class="block text-xs font-mono text-slate-600 dark:text-brand-textSecondary font-medium">输入邮件中的 6 位验证码</label>
+              <p class="text-[11px] text-slate-400 dark:text-brand-textMuted font-sans">（您也可以直接在邮箱内点击登录链接完成验证）</p>
+            </div>
               <button onclick="resendOtp()" class="text-[11px] font-mono text-emerald-600 hover:underline">重新发送</button>
             </div>
             <input 
@@ -1771,10 +1774,16 @@
           supabaseClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
           // 监听用户登录状态变动
           supabaseClient.auth.onAuthStateChange(async (event, session) => {
-            if (session && session.user) {
+            if (event === 'SIGNED_IN' || (session && session.user)) {
               currentUser = session.user;
               await fetchUserProfile(currentUser.id, currentUser.email);
-            } else {
+              closeAuthModal();
+              // 如果是通过邮件点击链接跳回来的，提示登录成功并净化 URL
+              if (window.location.hash.includes('access_token')) {
+                showToast('🎉 邮箱验证成功，已为您自动登录！');
+                window.history.replaceState({}, document.title, window.location.pathname);
+              }
+            } else if (event === 'SIGNED_OUT') {
               currentUser = null;
               currentUserProfile = null;
               renderUserNavState();
@@ -1876,7 +1885,8 @@
         const { error } = await supabaseClient.auth.signInWithOtp({
           email: email,
           options: {
-            shouldCreateUser: true
+            shouldCreateUser: true,
+            emailRedirectTo: window.location.origin + window.location.pathname
           }
         });
         if (error) throw error;
