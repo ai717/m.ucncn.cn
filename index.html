@@ -615,58 +615,18 @@
 
     </section>
 
-    <!-- 控制中枢：分类 Tabs 与 搜索排序 (结构清晰整齐) -->
+    <!-- 控制中枢：分类 Tabs 与 搜索排序 (舒展大气双层排版，告别多行堆叠与拥挤) -->
     <section class="space-y-4">
       
-      <!-- 第一行：赛道分类标签 (全宽横向滚动，留足未来扩展空间) -->
-      <div class="pb-2 border-b border-brand-border">
-        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 scrollbar-none w-full" id="category-tabs">
+      <!-- 第一行：赛道分类标签 (左) + 排序规则 (右) -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-brand-border">
+        <!-- 分类按钮 (横向滑动) -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 sm:pb-0 custom-scrollbar flex-1 min-w-0" id="category-tabs">
           <!-- 动态分类按钮 -->
         </div>
-      </div>
 
-      <!-- 第二行：搜索框 (左) + 快速筛选 (中) + 排序规则 (右) -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-        
-        <!-- 实时搜索输入框 -->
-        <div class="relative flex-1 max-w-sm">
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="搜索项目、模式、标签或痛点..." 
-            class="w-full bg-brand-surface border border-brand-border rounded-lg pl-9 pr-8 py-2 text-sm text-brand-textPrimary placeholder-brand-textMuted focus:outline-none focus:border-brand-borderHighlight transition-all font-sans"
-          >
-          <svg class="w-4 h-4 text-brand-textMuted absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-2.5 top-2.5 text-xs text-brand-textMuted hover:text-brand-textPrimary">✕</button>
-        </div>
-
-        <!-- 场景快速筛选过滤器 (放置在排序左侧) -->
-        <div class="flex items-center flex-wrap gap-1.5" id="intent-pills">
-          <span class="text-xs text-brand-textMuted font-mono mr-1">快速筛选:</span>
-          <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            全部
-          </button>
-          <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            S级
-          </button>
-          <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            快速见效
-          </button>
-          <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            低成本
-          </button>
-          <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono">
-            高回报
-          </button>
-          <button id="filter-my-unlocked" onclick="setQuickFilter('MY_UNLOCKED', this)" class="hidden pill-btn inactive-pill px-2.5 py-1 text-xs font-medium rounded-md transition-all font-mono text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-            ★ 我的已购
-          </button>
-        </div>
-
-        <!-- 排序方式 (最右侧) -->
-        <div class="flex items-center space-x-2 flex-shrink-0">
+        <!-- 排序方式 (最右侧，与赛道标签平级呼应) -->
+        <div class="flex items-center space-x-2 shrink-0 self-end sm:self-center">
           <span class="text-xs text-brand-textMuted font-mono">排序规则:</span>
           <select 
             id="sort-select" 
@@ -676,6 +636,47 @@
             <option value="date-desc">最近收录优先</option>
             <option value="difficulty-asc">门槛最低优先</option>
           </select>
+        </div>
+      </div>
+
+      <!-- 第二行：实时搜索框 (左) + 快捷筛选胶囊 (右，单行平铺不换行) -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- 实时搜索输入框 -->
+        <div class="relative w-full md:w-80 shrink-0">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="搜索项目、模式、标签或痛点..." 
+            class="w-full bg-brand-surface border border-brand-border rounded-lg pl-9 pr-8 py-2 text-xs font-mono text-brand-textPrimary placeholder-brand-textMuted focus:outline-none focus:border-brand-borderHighlight transition-all font-sans"
+          >
+          <svg class="w-4 h-4 text-brand-textMuted absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-2.5 top-2.5 text-xs text-brand-textMuted hover:text-brand-textPrimary cursor-pointer">✕</button>
+        </div>
+
+        <!-- 场景快速筛选过滤器 (单行平铺，绝不折行成难看的多行) -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar flex-nowrap" id="intent-pills">
+          <span class="text-xs text-brand-textMuted font-mono mr-1 shrink-0">快速筛选:</span>
+          <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+            全部
+          </button>
+          <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+            S级
+          </button>
+          <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+            快速见效
+          </button>
+          <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+            低成本
+          </button>
+          <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+            高回报
+          </button>
+          <button id="filter-my-unlocked" onclick="setQuickFilter('MY_UNLOCKED', this)" class="hidden pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono font-bold shrink-0 cursor-pointer">
+            ★ 我的已购
+          </button>
         </div>
 
       </div>

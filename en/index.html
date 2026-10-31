@@ -541,26 +541,41 @@
     </div>
   </section>
 
-  <!-- Control Center: Two-Tier Clean Architecture (Tabs on Top, Search & Filters on Bottom) -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 space-y-4">
+  <!-- Control Center: Spacious Two-Tier Architecture (Row 1: Categories + Sort; Row 2: Search + Single-Line Filters) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-5 space-y-4">
     
-    <!-- Row 1: Full-Width Category Navigation Tabs -->
-    <div class="pb-2 border-b border-slate-200 dark:border-brand-border">
-      <div class="flex items-center space-x-2 overflow-x-auto pb-1 custom-scrollbar w-full" id="category-tabs">
+    <!-- Row 1: Full-Width Category Navigation Tabs (Left) + Sort Selector (Right) -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-brand-border">
+      <!-- Category Tabs (Horizontal Scroll) -->
+      <div class="flex items-center space-x-2 overflow-x-auto pb-1 sm:pb-0 custom-scrollbar flex-1 min-w-0" id="category-tabs">
         <!-- Rendered dynamically via JavaScript -->
+      </div>
+      
+      <!-- Sort Selector (Right, balanced against category tabs) -->
+      <div class="flex items-center space-x-2 shrink-0 self-end sm:self-center">
+        <span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono">Sort:</span>
+        <select 
+          id="sort-select" 
+          onchange="handleSortChange(this.value)" 
+          class="bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border rounded-lg px-3 py-1.5 text-xs font-mono text-slate-700 dark:text-brand-textSecondary focus:outline-none focus:border-emerald-500 cursor-pointer"
+        >
+          <option value="score-desc">Highest Feasibility</option>
+          <option value="date-desc">Newest Ingestion</option>
+          <option value="difficulty-asc">Lowest Effort</option>
+        </select>
       </div>
     </div>
 
-    <!-- Row 2: Search Input (Left) + Quick Filter Pills (Center) + Sort Selector (Right) -->
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+    <!-- Row 2: Search Input (Left) + Quick Filter Pills (Right, Strictly Single-Line, Never Crowded) -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
       
-      <!-- Search Input with Search Icon and Clear Button -->
-      <div class="relative w-full lg:w-80 shrink-0">
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72 shrink-0">
         <input 
           type="text" 
           id="search-input" 
           oninput="handleSearch(this.value)" 
-          placeholder="Search by tech, MRR, Reddit, Shopify..." 
+          placeholder="Search playbooks, tech, MRR..." 
           class="w-full bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border rounded-lg pl-9 pr-8 py-2 text-xs font-mono text-slate-900 dark:text-brand-textPrimary placeholder-slate-400 dark:placeholder-brand-textMuted focus:outline-none focus:border-emerald-500 transition-all"
         >
         <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -569,41 +584,27 @@
         <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-2.5 top-2.5 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer">✕</button>
       </div>
 
-      <!-- Quick Filter Pills -->
-      <div class="flex items-center flex-wrap gap-1.5" id="intent-pills">
-        <span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono mr-1">Quick Filters:</span>
-        <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono font-semibold cursor-pointer">
+      <!-- Quick Filter Pills: Clean single line with flex-nowrap & overflow-x-auto, no staggered 2-line clumping -->
+      <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar flex-nowrap" id="intent-pills">
+        <span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono mr-1 shrink-0">Filter:</span>
+        <button onclick="setQuickFilter('ALL', this)" class="pill-btn active-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono font-bold shrink-0 cursor-pointer">
           All
         </button>
-        <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono cursor-pointer">
-          Tier S (≥90)
+        <button onclick="setQuickFilter('S_TIER', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+          Tier S
         </button>
-        <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono cursor-pointer">
-          Rapid Launch (&lt;14d)
+        <button onclick="setQuickFilter('FAST', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+          &lt;14d Launch
         </button>
-        <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono cursor-pointer">
-          Zero Capital (&lt;$100)
+        <button onclick="setQuickFilter('ZERO_COST', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
+          &lt;$100 Capital
         </button>
-        <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-3 py-1 text-xs font-medium rounded-md border transition-all font-mono cursor-pointer">
+        <button onclick="setQuickFilter('HIGH_RETURN', this)" class="pill-btn inactive-pill px-3 py-1.5 text-xs font-medium rounded-lg border transition-all font-mono shrink-0 cursor-pointer">
           High Margin
         </button>
-        <button onclick="setQuickFilter('MY_UNLOCKED', this)" id="filter-purchased-btn" class="pill-btn hidden px-3 py-1 text-xs font-medium rounded-md border border-amber-500/40 text-amber-500 bg-amber-500/10 hover:bg-amber-500/20 transition-all font-mono font-bold cursor-pointer">
-          ★ My Unlocked (<span id="unlocked-count-badge">0</span>)
+        <button onclick="setQuickFilter('MY_UNLOCKED', this)" id="filter-purchased-btn" class="pill-btn hidden px-3 py-1.5 text-xs font-medium rounded-lg border border-amber-500/40 text-amber-500 bg-amber-500/10 hover:bg-amber-500/20 transition-all font-mono font-bold shrink-0 cursor-pointer">
+          ★ Unlocked (<span id="unlocked-count-badge">0</span>)
         </button>
-      </div>
-
-      <!-- Sort Selector Dropdown -->
-      <div class="flex items-center space-x-2 shrink-0">
-        <span class="text-xs text-slate-400 dark:text-brand-textMuted font-mono">Sort:</span>
-        <select 
-          id="sort-select" 
-          onchange="handleSortChange(this.value)" 
-          class="bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border rounded-lg px-2.5 py-1.5 text-xs font-mono text-slate-700 dark:text-brand-textSecondary focus:outline-none focus:border-emerald-500 cursor-pointer"
-        >
-          <option value="score-desc">Highest Feasibility</option>
-          <option value="date-desc">Newest Ingestion</option>
-          <option value="difficulty-asc">Lowest Effort</option>
-        </select>
       </div>
 
     </div>
