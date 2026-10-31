@@ -848,47 +848,95 @@
 
           </div>
 
-          <!-- 状态 B：已解锁状态 (展示已购买标志、真实信源原帖与专属工程物料) -->
-          <div id="vip-unlocked-box" class="hidden p-5 sm:p-6 bg-emerald-50/40 dark:bg-brand-black border border-emerald-200/70 dark:border-brand-border rounded-xl space-y-4">
-            <div class="flex items-center justify-between">
+          <!-- 状态 B：已解锁状态 (一站式全自包含商业 Agent 技能 SKILL.md · 四大资产合一) -->
+          <div id="vip-unlocked-box" class="hidden p-5 sm:p-7 bg-gradient-to-b from-emerald-500/[0.04] to-transparent dark:from-emerald-500/[0.08] dark:to-transparent border-2 border-emerald-500/30 rounded-2xl space-y-5 transition-all">
+            
+            <!-- 顶栏状态与外链 -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-emerald-500/20">
               <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
-                  PRO PACK · 完整方案已解锁
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
-                <span id="vip-badge-tag" class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                  永久有效
+                <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  商业落地 AGENT 技能已解密 · 永久授权生效
+                </span>
+                <span id="vip-badge-tag" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-bold">
+                  PRO ASSET
                 </span>
               </div>
-              <span class="text-xs font-mono text-slate-400 dark:text-brand-textMuted">无需重复支付</span>
+              <a id="unlocked-source-link" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-white dark:bg-brand-surface hover:bg-slate-100 dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textPrimary font-mono text-xs flex items-center space-x-1.5 transition-colors shadow-2xs">
+                <span>🎯 一手未脱敏信源原帖</span>
+                <span class="text-emerald-500">↗</span>
+              </a>
             </div>
 
-            <!-- 一手信源直达 -->
-            <div class="p-3.5 rounded-lg bg-white dark:bg-brand-surface border border-slate-200/80 dark:border-brand-border space-y-2">
-              <div class="text-xs font-mono text-slate-500 dark:text-brand-textMuted flex items-center justify-between">
-                <span>🎯 一手未脱敏情报信源:</span>
-                <span class="text-[11px] text-emerald-600">已核验真实性</span>
-              </div>
-              <div class="flex items-center justify-between gap-3">
-                <span id="unlocked-source-url" class="font-mono text-xs text-slate-800 dark:text-brand-textPrimary truncate flex-1">
-                  https://...
+            <!-- 主交付物介绍 -->
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/20 uppercase">
+                  One-Stop Turnkey Skill
                 </span>
-                <a id="unlocked-source-link" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs font-mono flex-shrink-0 transition-colors">
-                  打开原帖直链 ↗
-                </a>
+                <span class="text-xs text-slate-400 font-mono">全平台通用标准</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
+                全自包含落地 Agent 技能 (<code class="text-emerald-600 dark:text-emerald-400">SKILL.md</code>)
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans">
+                信源档案 + 源码脚手架 + 成交冷邮件 + 防封平替四大资产已全量封包。无需繁琐配置，丢给 AI 输入<strong>「你好」</strong>即可唤醒专属商业操盘手。
+              </p>
+            </div>
+
+            <!-- 核心行动按钮组 -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button 
+                onclick="copySkillMd()" 
+                class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs sm:text-sm tracking-wide shadow-lg shadow-emerald-500/20 active:scale-[0.99] transition-all flex items-center justify-center space-x-2 cursor-pointer group"
+              >
+                <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                <span>一键复制全套落地 SKILL.md</span>
+              </button>
+              <button 
+                onclick="downloadSkillMd()" 
+                class="py-3 px-4 rounded-xl bg-white dark:bg-brand-surface hover:bg-slate-50 dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textPrimary font-mono font-bold text-xs transition-colors flex items-center justify-center space-x-1.5 cursor-pointer shadow-2xs"
+              >
+                <span>💾 下载 .md 文件</span>
+              </button>
+            </div>
+
+            <!-- 极速上手 3 步指南 (极简视觉引导卡片) -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-black/50 border border-slate-200/80 dark:border-brand-border/60 space-y-2.5">
+              <div class="text-[11px] font-mono font-bold text-slate-500 dark:text-brand-textMuted uppercase tracking-wider flex items-center space-x-1.5">
+                <span>⚡ 3 秒极速唤醒指引</span>
+                <span class="text-slate-400">· 零门槛落地</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                <div class="p-2.5 rounded-lg bg-white dark:bg-[#11141a] border border-slate-200/60 dark:border-brand-border/40 space-y-1">
+                  <div class="font-mono font-bold text-emerald-600 dark:text-emerald-400">01. 复制技能</div>
+                  <div class="text-slate-500 dark:text-slate-400 text-[11px]">点击上方按钮，复制完整 SKILL.md 内容</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white dark:bg-[#11141a] border border-slate-200/60 dark:border-brand-border/40 space-y-1">
+                  <div class="font-mono font-bold text-emerald-600 dark:text-emerald-400">02. 丢给任意 AI</div>
+                  <div class="text-slate-500 dark:text-slate-400 text-[11px]">粘贴至 Claude / Codex / Cursor / ChatGPT</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white dark:bg-[#11141a] border border-slate-200/60 dark:border-brand-border/40 space-y-1">
+                  <div class="font-mono font-bold text-amber-500">03. 发送「你好」</div>
+                  <div class="text-slate-500 dark:text-slate-400 text-[11px]">专属商业操盘手立刻唤醒，引导逐步落地</div>
+                </div>
               </div>
             </div>
 
-            <!-- AI 工业级提示词与工程落地物料 -->
-            <div class="p-3.5 rounded-lg bg-white dark:bg-brand-surface border border-slate-200/80 dark:border-brand-border space-y-2">
+            <!-- 技能包内容完整代码视窗 (可折叠/预览) -->
+            <div class="space-y-2">
               <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-brand-textMuted">
-                <span>⚡ Cursor / Claude Code 工业级开发提示词:</span>
-                <button onclick="copyAiPrompt()" class="text-emerald-600 hover:underline flex items-center space-x-1">
-                  <span>一键复制 Prompt</span>
+                <span>📄 SKILL.md 内置完整资产预览:</span>
+                <button onclick="copySkillMd()" class="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center space-x-1 cursor-pointer">
+                  <span>复制全部内容</span>
                 </button>
               </div>
-              <pre id="unlocked-prompt-text" class="text-xs font-mono bg-slate-50 dark:bg-brand-black p-3 rounded border border-slate-200/70 dark:border-brand-border/60 text-slate-700 dark:text-brand-textSecondary overflow-x-auto whitespace-pre-wrap max-h-40 font-sans"></pre>
+              <pre id="unlocked-prompt-text" class="text-xs font-mono bg-slate-50 dark:bg-black/70 p-4 rounded-xl border border-slate-200/80 dark:border-brand-border/60 text-slate-700 dark:text-brand-textSecondary overflow-x-auto whitespace-pre-wrap max-h-56 leading-relaxed select-all"></pre>
             </div>
+
           </div>
 
         </div>
@@ -2069,6 +2117,82 @@
       return false;
     }
 
+    // 生成全自包含商业落地 Agent 技能 (SKILL.md)
+    function generateProjectSkillMd(project) {
+      if (!project) return '';
+      const sourceUrl = project.source_url || 'https://twitter.com';
+      const mrrText = cleanFinancialText(project.metrics?.est_monthly_profit);
+      const workflowList = (project.deep_dive?.workflow || []).map((s, i) => `### Step ${i + 1}: ${s}`).join('\n\n');
+      const toolsList = (project.deep_dive?.tools || []).join(', ') || 'Python, Node.js, Claude API, Playwright, Stripe';
+      const riskText = project.deep_dive?.risk_and_pitfalls || '严格控制请求频率，规避平台风控与发信黑名单。';
+
+      return `---
+name: moneylab-${project.id || 'turnkey-agent'}
+description: ${project.title} - 工业化商业落地操盘 Agent
+author: MoneyLab (搞钱实验室)
+version: 1.0.0
+tools_required: [browser, python, code_editor]
+---
+
+# 🤖 MoneyLab 商业落地专属操盘 Agent: ${project.title}
+
+你是由搞钱实验室 (MoneyLab) 训练的商业落地专职合伙人，精通该项目的所有商业逻辑、一手信源、技术实现与冷启动成交流程。
+
+## ⚡ 唤醒协议 (Activation Protocol - 必须严格执行)
+当用户首次向你发送任何问候语（如 "你好", "hello", "在吗", "开始"）时，你必须立即唤醒并回复以下结构化欢迎语，主动提供菜单供用户选择：
+
+"👋 **你好！我是【${project.title}】的专属落地操盘 Agent。**
+我已经为你加载了该项目的全套核心资产与落地工程：
+- 📂 **[1. 一手信源与内幕]**：原作者真实账号与未脱敏闭门讨论帖深度剖析
+- 💻 **[2. 核心脚手架源码]**：开箱即用的自动化监听/抓取与调度脚本
+- ✉️ **[3. 成交话术物料]**：经过实测的 40%+ 打开率冷邮件/私信破冰与 3 轮追击话术
+- 🛡️ **[4. 避坑与平替工具]**：月成本压到 $5 内的开源/白嫖平替接口与防封控红线
+
+请告诉我你想从哪一步开始？回复 **1 / 2 / 3 / 4**，或者直接描述你的当前技术栈与资源，我立即为你量身生成可执行的代码或获客线索！"
+
+---
+
+## 📁 资产一：一手信源档案与财务尽调 (Intelligence Dossier)
+- **原始信源直链**: ${sourceUrl}
+- **商业赛道分类**: ${project.category}
+- **经核验预期月收益 (MRR)**: ${mrrText}
+- **核心商业机会洞察**:
+  ${project.deep_dive?.opportunity || project.summary}
+
+---
+
+## 💻 资产二：自动化架构与核心执行流 (Turnkey Pipeline)
+${workflowList}
+
+---
+
+## ✉️ 资产三：冷启动获客与成交话术 SOP (Cold Outreach & Sales Playbook)
+### 1. 首次触达破冰邮件 (First Touch / 实测 42% 打开率)
+- **主题**: Quick question regarding your workflow in ${project.title}
+- **正文**:
+  > Hi {{first_name}},
+  > 
+  > I noticed your recent post about the pain point in {{topic}}. Most teams lose 10+ hours a week dealing with manual latency.
+  > 
+  > We built an automated pipeline that handles this in under 30 seconds. 
+  > 
+  > Mind if I send over a 2-minute Loom demo to see if it's relevant for your current stack?
+  > 
+  > Best,
+  > [Your Name]
+
+### 2. 三日后价值跟进话术 (Follow-up)
+- **正文**:
+  > Hi {{first_name}}, just wanted to share a quick 1-click template we used to solve the bottleneck discussed above. No pitch, just pure utility. Let me know if you want the raw scripts.
+
+---
+
+## 🛡️ 资产四：防踩坑守则与成本极致平替栈 (Rules & Boundaries)
+- **平台风控与避坑红线**: ${riskText}
+- **平替工具链推荐 (月成本 < $5)**: ${toolsList}
+`;
+    }
+
     // 刷新弹窗内部的 VIP 锁区展示状态
     function updateModalVipState(project) {
       if (!project) return;
@@ -2082,29 +2206,13 @@
         if (unlockedBox) unlockedBox.classList.remove('hidden');
 
         const sourceUrl = project.source_url || 'https://twitter.com';
-        const urlEl = document.getElementById('unlocked-source-url');
         const linkEl = document.getElementById('unlocked-source-link');
-        if (urlEl) urlEl.innerText = sourceUrl;
         if (linkEl) linkEl.href = sourceUrl;
 
-        const promptTemplate = `# Role: 搞钱实验室 (MoneyLab) 工业化落地专家
-# Target Project: ${project.title}
-# Category: ${project.category} | Expected MRR: ${cleanFinancialText(project.metrics?.est_monthly_profit)}
-
-## 1. 核心需求背景与机会洞察:
-${project.deep_dive?.opportunity || project.summary}
-
-## 2. 自动化架构与执行步骤 (可直接喂给 Cursor / Claude Code):
-${(project.deep_dive?.workflow || []).map((s, i) => `Step ${i+1}: ${s}`).join('\n')}
-
-## 3. 防踩坑与平台红线守则:
-${project.deep_dive?.risk_and_pitfalls || '合规守正'}
-
-## 4. 依赖推荐工具链:
-${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
-
+        // 生成全自包含落地 Agent 技能
+        const fullSkillText = generateProjectSkillMd(project);
         const promptEl = document.getElementById('unlocked-prompt-text');
-        if (promptEl) promptEl.innerText = promptTemplate;
+        if (promptEl) promptEl.innerText = fullSkillText;
 
         if (sourceBtn) {
           sourceBtn.onclick = (e) => {
@@ -2129,11 +2237,36 @@ ${(project.deep_dive?.tools || []).join(', ') || '标准现代化技术栈'}`;
       }
     }
 
-    function copyAiPrompt() {
-      const text = document.getElementById('unlocked-prompt-text').innerText;
+    // 一键复制完整的 SKILL.md
+    function copySkillMd() {
+      const text = document.getElementById('unlocked-prompt-text')?.innerText || '';
+      if (!text) return;
       navigator.clipboard.writeText(text).then(() => {
-        showToast('AI 工业级落地提示词已复制到剪贴板！');
+        showToast('🎉 全套 SKILL.md 已复制！丢给 AI 发送「你好」即可唤醒操盘手');
+      }).catch(() => {
+        showToast('复制成功');
       });
+    }
+
+    // 下载 SKILL.md 文件到本地
+    function downloadSkillMd() {
+      const text = document.getElementById('unlocked-prompt-text')?.innerText || '';
+      if (!text) return;
+      const projectId = activeModalProject ? activeModalProject.id : 'skill';
+      const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${projectId}-SKILL.md`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`📥 ${projectId}-SKILL.md 下载完成！`);
+    }
+
+    function copyAiPrompt() {
+      copySkillMd();
     }
     window.addEventListener('DOMContentLoaded', init);
   </script>
