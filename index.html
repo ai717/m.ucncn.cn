@@ -827,7 +827,7 @@
 
               <!-- 价格锚点对比胶囊 -->
               <div class="inline-flex items-center gap-2.5 px-4 py-1.5 my-1 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs sm:text-sm font-mono shadow-inner">
-                <span class="text-emerald-400 font-bold">单篇买断 HK$9.9 (约 ¥9.1)</span>
+                <span class="text-emerald-400 font-bold">单篇买断 HK$29.9 (约 ¥27.5)</span>
                 <span class="text-slate-600">|</span>
                 <span class="text-amber-400 font-bold">年度 VIP HK$299 全年无限畅读</span>
               </div>
@@ -1037,8 +1037,8 @@
               <span id="radio-single" class="w-5 h-5 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center transition-all"></span>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-black font-mono tracking-tight text-slate-900 dark:text-white">HK$9.90</div>
-              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono mt-0.5">约合 ¥9.1 · 仅买断当前单篇</div>
+              <div class="text-2xl sm:text-3xl font-black font-mono tracking-tight text-slate-900 dark:text-white">HK$29.90</div>
+              <div class="text-[11px] text-slate-400 dark:text-brand-textMuted font-mono mt-0.5">约合 ¥27.5 · 仅买断当前单篇</div>
             </div>
             <ul class="text-[11px] text-slate-600 dark:text-brand-textSecondary space-y-2 pt-1 font-sans border-t border-slate-100 dark:border-brand-border/60">
               <li class="flex items-center space-x-1.5">
@@ -1897,8 +1897,8 @@
     const STRIPE_CONFIG = {
       // 年度 VIP 真实支付链接 (HK$299.00 / 年)
       annual_link: 'https://buy.stripe.com/9B67sL9HZbpGeDB7gmg7e03',
-      // 单篇深度买断真实支付链接 (HK$9.90 / 篇)
-      single_link: 'https://buy.stripe.com/eVq00j07pdxOfHF7gmg7e04'
+      // 单篇深度买断真实支付链接 (HK$29.90 / 篇)
+      single_link: 'https://buy.stripe.com/8x2cN52fx0L28fdgQWg7e05'
     };
 
     // 初始化 Supabase Client
@@ -2118,7 +2118,7 @@
         radioAnnual.className = 'w-5 h-5 rounded-full border border-slate-300 dark:border-brand-border flex items-center justify-center transition-all';
         radioAnnual.innerHTML = '';
         
-        payBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg><span>立即支付 HK$9.90 · 仅买断当前单篇方案</span><span class="font-mono text-base group-hover:translate-x-1 transition-transform">→</span></span>';
+        payBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg><span>立即支付 HK$29.90 · 仅买断当前单篇方案</span><span class="font-mono text-base group-hover:translate-x-1 transition-transform">→</span></span>';
       }
     }
 
