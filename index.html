@@ -1612,6 +1612,10 @@
       return false;
     }
 
+    function isDevEnvironment() {
+      return isDesignatedAccount();
+    }
+
     function checkDevEnvironment() {
       const isDes = isDesignatedAccount();
       const wrap = document.getElementById('dev-sandbox-btn-wrap');
@@ -2434,10 +2438,10 @@
       }
     }
 
-    // 严谨校验项目是否真正解锁（优先看云端数据库 profiles，本地开发环境支持沙盒免支付测试）
+    // 严谨校验项目是否真正解锁（优先看云端数据库 profiles，指定账号支持沙盒免支付测试）
     function isProjectUnlocked(projectId) {
-      // 1. 本地免支付测试支持 (仅限 localhost / 127.0.0.1 或带 ?dev=1)
-      if (isDevEnvironment()) {
+      // 1. 指定账号免支付测试支持 (白名单账号 / 本地开发 / 携带管理参数)
+      if (isDesignatedAccount()) {
         if (localStorage.getItem('moneylab_dev_all_vip') === 'true') return true;
         try {
           const localUnlocked = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]');

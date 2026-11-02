@@ -1228,6 +1228,10 @@
       return false;
     }
 
+    function isDevEnvironment() {
+      return isDesignatedAccount();
+    }
+
     function checkDevEnvironment() {
       const isDes = isDesignatedAccount();
       const wrap = document.getElementById('dev-sandbox-btn-wrap');
