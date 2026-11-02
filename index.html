@@ -943,21 +943,24 @@
                 <span class="text-emerald-400">付款后即刻自动解密</span>
               </p>
 
-              <!-- 免付费测试通道 (一键免卡模拟解锁，方便随时验证交付物与原帖) -->
-              <div id="modal-dev-bar" class="w-full p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-3">
+              <!-- 指定账号专属测试与权限管理 (仅指定白名单账号可见，普通访客严格隐藏) -->
+              <div id="modal-dev-bar" class="hidden w-full p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-3">
                 <div class="flex items-center justify-between text-amber-600 dark:text-amber-400 font-bold">
-                  <span>🧪 免付费测试通道 (一键免卡模拟解锁)</span>
-                  <span class="text-[10px] text-slate-400 font-normal">测试/调试可用</span>
+                  <span class="flex items-center space-x-1.5">
+                    <span>👑 指定账号专属操作</span>
+                    <span id="dev-account-email-label" class="text-[10px] text-slate-400 font-normal"></span>
+                  </span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 font-bold">TEST MODE</span>
                 </div>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <button type="button" onclick="devUnlockCurrentProject()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold cursor-pointer text-xs shadow-xs">
-                    ⚡ 一键模拟解锁此项目
+                    ⚡ 解锁单篇 (当前项目)
                   </button>
                   <button type="button" onclick="devUnlockAllProjects()" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold cursor-pointer text-xs shadow-xs">
-                    👑 一键模拟开通全站 VIP
+                    👑 解锁全年 VIP (全站畅读)
                   </button>
                   <button type="button" onclick="devResetPermissions()" class="px-2.5 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 cursor-pointer text-xs">
-                    🔄 重置锁定状态
+                    🔄 重置锁定
                   </button>
                 </div>
               </div>
@@ -1295,14 +1298,14 @@
           </span>
         </button>
 
-        <!-- 安全保障微注脚与沙盒调试入口 -->
+        <!-- 安全保障微注脚与指定账号调试入口 (仅指定账号可见) -->
         <div class="text-center space-y-2 pt-1">
           <p class="text-[11px] text-slate-400 dark:text-brand-textMuted flex items-center justify-center space-x-1">
             <span>🔒 256 位 SSL 银行级加密 · Stripe 官方合规收单 · 支付后秒级授权</span>
           </p>
-          <div id="dev-sandbox-btn-wrap" class="pt-1">
+          <div id="dev-sandbox-btn-wrap" class="hidden pt-1">
             <button onclick="simulateSuccessfulPayment()" class="text-xs font-mono text-emerald-600 hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300 underline cursor-pointer py-1 px-3 rounded-lg bg-emerald-500/10 border border-emerald-500/25 font-bold">
-              🧪 [免付费测试] 模拟支付成功 (无卡秒级解锁)
+              👑 [指定账号专享] 模拟支付回调 (无卡秒级解锁)
             </button>
           </div>
         </div>
@@ -1582,62 +1585,134 @@
       });
     }
 
-    // 仅在本地开发环境 (localhost / 127.0.0.1) 或管理员携带 ?dev=1 / ?debug=true 时激活沙盒入口
-    function isDevEnvironment() {
+    // 指定测试与管理员账号白名单 (仅这些账号登录后可见专属解锁/VIP调试操作，普通用户严格隐藏)
+    const DESIGNATED_ACCOUNTS = [
+      'threemoyu@gmail.com', // 默认指定管理员账号
+      // 可在代码中随时添加更多，或在控制台执行 moneylab.addAdmin('your@email.com')
+    ];
+
+    function isDesignatedAccount() {
+      const currentEmail = (currentUser?.email || '').toLowerCase().trim();
+      let localAdmins = [];
+      try {
+        localAdmins = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]').map(e => (e || '').toLowerCase().trim());
+      } catch(e) {}
+      const allAdmins = [...DESIGNATED_ACCOUNTS.map(e => e.toLowerCase().trim()), ...localAdmins];
+
+      // 1. 若当前登录账号在白名单列表中
+      if (currentEmail && allAdmins.includes(currentEmail)) return true;
+      // 2. 本地纯开发环境 (localhost / 127.0.0.1)
       const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') return true;
+      // 3. 携带管理员安全参数 (如 ?admin=1 或 ?test=1)
       const search = window.location.search;
-      return host === 'localhost' || host === '127.0.0.1' || search.includes('dev=1') || search.includes('debug=true');
+      if (search.includes('admin=1') || search.includes('dev=1') || search.includes('test=1')) return true;
+      // 4. 手动开启了指定管理模式
+      if (localStorage.getItem('moneylab_dev_mode') === 'true') return true;
+      return false;
     }
 
     function checkDevEnvironment() {
-      if (isDevEnvironment()) {
-        const wrap = document.getElementById('dev-sandbox-btn-wrap');
-        if (wrap) wrap.classList.remove('hidden');
-        const modalDev = document.getElementById('modal-dev-bar');
-        if (modalDev) modalDev.classList.remove('hidden');
-        const unlockedDev = document.getElementById('unlocked-dev-bar');
-        if (unlockedDev) unlockedDev.classList.remove('hidden');
+      const isDes = isDesignatedAccount();
+      const wrap = document.getElementById('dev-sandbox-btn-wrap');
+      if (wrap) wrap.classList.toggle('hidden', !isDes);
+      const modalDev = document.getElementById('modal-dev-bar');
+      if (modalDev) modalDev.classList.toggle('hidden', !isDes);
+      const unlockedDev = document.getElementById('unlocked-dev-bar');
+      if (unlockedDev) unlockedDev.classList.toggle('hidden', !isDes);
 
-        // 支持 URL 快捷测试参数 (?test_vip=1 或 ?dev_vip=1)
-        const search = window.location.search;
-        if (search.includes('test_vip=1') || search.includes('dev_vip=1')) {
-          localStorage.setItem('moneylab_dev_all_vip', 'true');
+      const emailLabel = document.getElementById('dev-account-email-label');
+      if (emailLabel) {
+        if (currentUser?.email) {
+          emailLabel.innerText = `(${currentUser.email})`;
+        } else if (window.location.hostname === 'localhost') {
+          emailLabel.innerText = '(开发环境)';
+        } else {
+          emailLabel.innerText = '';
         }
-
-        // 挂载到浏览器控制台全局对象方便直接测试
-        window.moneylab = {
-          unlockAll: devUnlockAllProjects,
-          unlock: devUnlockCurrentProject,
-          reset: devResetPermissions
-        };
       }
+
+      // 挂载到浏览器控制台全局对象方便直接测试与管理
+      window.moneylab = {
+        unlockAll: devUnlockAllProjects,
+        unlock: devUnlockCurrentProject,
+        reset: devResetPermissions,
+        addAdmin: function(email) {
+          if (!email) return;
+          let list = [];
+          try { list = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]'); } catch(e){}
+          if (!list.includes(email)) list.push(email);
+          localStorage.setItem('moneylab_admin_accounts', JSON.stringify(list));
+          localStorage.setItem('moneylab_dev_mode', 'true');
+          showToast(`已添加指定账号: ${email}`);
+          checkDevEnvironment();
+          if (activeModalProject) updateModalVipState(activeModalProject);
+        }
+      };
     }
 
-    // 免支付测试函数 (随时一键免卡模拟解锁)
-    function devUnlockCurrentProject() {
+    // 解锁单篇 (当前项目) - 指定账号专属
+    async function devUnlockCurrentProject() {
       if (!activeModalProject) return;
+      const pId = activeModalProject.id;
       let list = [];
       try { list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
-      if (!list.includes(activeModalProject.id)) list.push(activeModalProject.id);
+      if (!list.includes(pId)) list.push(pId);
       localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(list));
-      showToast(`🎉 [免付费测试] 项目【${activeModalProject.title}】已免支付解锁！`);
+
+      // 若当前已登录，同步更新云端数据库 profiles
+      if (currentUser && supabaseClient && currentUser.id !== 'dev-mock-user') {
+        const cloudList = Array.isArray(currentUserProfile?.unlocked_projects) ? [...currentUserProfile.unlocked_projects] : [];
+        if (!cloudList.includes(pId)) cloudList.push(pId);
+        if (currentUserProfile) currentUserProfile.unlocked_projects = cloudList;
+        try {
+          await supabaseClient.from('profiles').update({ unlocked_projects: cloudList }).eq('id', currentUser.id);
+        } catch(e) { console.error('Cloud unlock err:', e); }
+      }
+
+      showToast(`🎉 [指定账号操作成功] 项目【${activeModalProject.title}】单篇已成功解锁！`);
       updateModalVipState(activeModalProject);
       renderProjectGrid();
     }
 
-    function devUnlockAllProjects() {
+    // 解锁全年 VIP (全站畅读) - 指定账号专属
+    async function devUnlockAllProjects() {
       localStorage.setItem('moneylab_dev_all_vip', 'true');
-      showToast('👑 [免付费测试] 全站年度 VIP 已模拟激活！所有项目均已解锁');
+      if (currentUserProfile) currentUserProfile.is_annual_vip = true;
+
+      // 若当前已登录，同步更新云端数据库 profiles
+      if (currentUser && supabaseClient && currentUser.id !== 'dev-mock-user') {
+        try {
+          await supabaseClient.from('profiles').update({ is_annual_vip: true }).eq('id', currentUser.id);
+        } catch(e) { console.error('Cloud VIP err:', e); }
+      }
+
+      showToast('👑 [指定账号操作成功] 全站年度 VIP 已成功激活！所有项目均已解锁');
       if (activeModalProject) updateModalVipState(activeModalProject);
       renderProjectGrid();
+      renderUserNavState();
     }
 
-    function devResetPermissions() {
+    // 重置锁定状态 - 指定账号专属
+    async function devResetPermissions() {
       localStorage.removeItem('moneylab_dev_all_vip');
       localStorage.removeItem('moneylab_dev_unlocked');
-      showToast('🔄 [免付费测试] 已清空测试授权，恢复锁定状态');
+      if (currentUserProfile) {
+        currentUserProfile.is_annual_vip = false;
+        currentUserProfile.unlocked_projects = [];
+      }
+
+      // 若当前已登录，同步重置云端数据库 profiles
+      if (currentUser && supabaseClient && currentUser.id !== 'dev-mock-user') {
+        try {
+          await supabaseClient.from('profiles').update({ is_annual_vip: false, unlocked_projects: [] }).eq('id', currentUser.id);
+        } catch(e) { console.error('Cloud reset err:', e); }
+      }
+
+      showToast('🔄 [指定账号操作成功] 已清空该账号的解锁权限，恢复未购买状态');
       if (activeModalProject) updateModalVipState(activeModalProject);
       renderProjectGrid();
+      renderUserNavState();
     }
 
     // 统计面板
@@ -2227,6 +2302,7 @@
         }
       }
       applyFiltersAndRender();
+      checkDevEnvironment();
     }
 
     // 打开与关闭登录弹窗
@@ -2295,6 +2371,7 @@
     function openCheckoutModal() {
       selectPlan('annual');
       renderUserNavState();
+      checkDevEnvironment();
       document.getElementById('checkout-modal').classList.remove('hidden');
     }
 
@@ -2506,6 +2583,7 @@ ${workflowList}
           sourceBtn.className = 'btn-unlock-pulse px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-tight transition-all shadow-md hover:shadow-lg flex items-center space-x-2 cursor-pointer group';
         }
       }
+      checkDevEnvironment();
     }
 
     // 一键复制完整的 SKILL.md

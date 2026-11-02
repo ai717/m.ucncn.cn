@@ -851,18 +851,21 @@
                 <span class="text-emerald-400">Instant Decryption</span>
               </p>
 
-              <!-- Dev Sandbox Bar -->
-              <div id="modal-dev-bar" class="w-full p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-3">
+              <!-- Designated Account Sandbox Bar (Hidden from normal public) -->
+              <div id="modal-dev-bar" class="hidden w-full p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-3">
                 <div class="flex items-center justify-between text-amber-500 font-bold">
-                  <span>🧪 Local Sandbox Test Tools (One-Click Mock Unlock)</span>
-                  <span class="text-[10px] text-slate-400">test mode</span>
+                  <span class="flex items-center space-x-1.5">
+                    <span>👑 Designated Tester Tools</span>
+                    <span id="dev-account-email-label" class="text-[10px] text-slate-400 font-normal"></span>
+                  </span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">TEST MODE</span>
                 </div>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <button type="button" onclick="devUnlockCurrentProject()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold cursor-pointer text-xs shadow-xs">
-                    ⚡ Mock Unlock This Blueprint
+                    ⚡ Unlock Single Blueprint
                   </button>
                   <button type="button" onclick="devUnlockAllProjects()" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold cursor-pointer text-xs shadow-xs">
-                    👑 Mock All-Access VIP
+                    👑 Unlock Annual VIP (All Access)
                   </button>
                   <button type="button" onclick="devResetPermissions()" class="px-2.5 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 cursor-pointer text-xs">
                     🔄 Reset Lock
@@ -1059,13 +1062,13 @@
           <span>➔</span>
         </a>
 
-        <!-- Dev Sandbox Tester -->
-        <div id="dev-sandbox-btn-wrap" class="pt-2">
+        <!-- Designated Account Sandbox Tester (Hidden from normal public) -->
+        <div id="dev-sandbox-btn-wrap" class="hidden pt-2">
           <button 
             onclick="simulateSuccessfulPayment()" 
             class="w-full py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
           >
-            <span>⚡ [Dev Sandbox] Simulate Instant Unlock (No Card Required)</span>
+            <span>👑 [Designated Account] Simulate Instant Unlock</span>
           </button>
         </div>
       </div>
@@ -1202,59 +1205,107 @@
       if (banner) banner.classList.add('hidden');
     }
 
-    // Dev environment check: Only show sandbox on localhost or with ?dev=1 / ?debug=true
-    function isDevEnvironment() {
+    // Designated Accounts Whitelist for Test/Admin Operations
+    const DESIGNATED_ACCOUNTS = [
+      'threemoyu@gmail.com'
+    ];
+
+    function isDesignatedAccount() {
+      const currentEmail = (currentUser?.email || '').toLowerCase().trim();
+      let localAdmins = [];
+      try {
+        localAdmins = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]').map(e => (e || '').toLowerCase().trim());
+      } catch(e) {}
+      const allAdmins = [...DESIGNATED_ACCOUNTS.map(e => e.toLowerCase().trim()), ...localAdmins];
+
+      if (currentEmail && allAdmins.includes(currentEmail)) return true;
       const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') return true;
       const search = window.location.search;
-      return host === 'localhost' || host === '127.0.0.1' || search.includes('dev=1') || search.includes('debug=true');
+      if (search.includes('admin=1') || search.includes('dev=1') || search.includes('test=1')) return true;
+      if (localStorage.getItem('moneylab_dev_mode') === 'true') return true;
+      return false;
     }
 
     function checkDevEnvironment() {
-      if (isDevEnvironment()) {
-        const wrap = document.getElementById('dev-sandbox-btn-wrap');
-        if (wrap) wrap.classList.remove('hidden');
-        const modalDev = document.getElementById('modal-dev-bar');
-        if (modalDev) modalDev.classList.remove('hidden');
+      const isDes = isDesignatedAccount();
+      const wrap = document.getElementById('dev-sandbox-btn-wrap');
+      if (wrap) wrap.classList.toggle('hidden', !isDes);
+      const modalDev = document.getElementById('modal-dev-bar');
+      if (modalDev) modalDev.classList.toggle('hidden', !isDes);
 
-        // URL query parameter quick test (?test_vip=1 or ?dev_vip=1)
-        const search = window.location.search;
-        if (search.includes('test_vip=1') || search.includes('dev_vip=1')) {
-          localStorage.setItem('moneylab_dev_all_vip', 'true');
+      const emailLabel = document.getElementById('dev-account-email-label');
+      if (emailLabel) {
+        if (currentUser?.email) {
+          emailLabel.innerText = `(${currentUser.email})`;
+        } else if (window.location.hostname === 'localhost') {
+          emailLabel.innerText = '(localhost)';
+        } else {
+          emailLabel.innerText = '';
         }
-
-        // Global console testing object
-        window.moneylab = {
-          unlockAll: devUnlockAllProjects,
-          unlock: devUnlockCurrentProject,
-          reset: devResetPermissions
-        };
       }
+
+      window.moneylab = {
+        unlockAll: devUnlockAllProjects,
+        unlock: devUnlockCurrentProject,
+        reset: devResetPermissions,
+        addAdmin: function(email) {
+          if (!email) return;
+          let list = [];
+          try { list = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]'); } catch(e){}
+          if (!list.includes(email)) list.push(email);
+          localStorage.setItem('moneylab_admin_accounts', JSON.stringify(list));
+          localStorage.setItem('moneylab_dev_mode', 'true');
+          showToast(`Admin account added: ${email}`);
+          checkDevEnvironment();
+          if (activeModalProject) updateModalVipState(activeModalProject);
+        }
+      };
     }
 
     function devUnlockCurrentProject() {
       if (!activeModalProject) return;
+      const pId = activeModalProject.id;
       let list = [];
       try { list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
-      if (!list.includes(activeModalProject.id)) list.push(activeModalProject.id);
+      if (!list.includes(pId)) list.push(pId);
       localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(list));
-      showToast(`🎉 [Sandbox] Blueprint [${activeModalProject.title}] unlocked!`);
+
+      if (currentUser && currentUserProfile) {
+        if (!currentUserProfile.unlocked_projects) currentUserProfile.unlocked_projects = [];
+        if (!currentUserProfile.unlocked_projects.includes(pId)) currentUserProfile.unlocked_projects.push(pId);
+        saveProfileState();
+      }
+
+      showToast(`🎉 [Designated Account] Blueprint [${activeModalProject.title}] unlocked!`);
       updateModalVipState(activeModalProject);
       applyFiltersAndRender();
     }
 
     function devUnlockAllProjects() {
       localStorage.setItem('moneylab_dev_all_vip', 'true');
-      showToast('👑 [Sandbox] Founder Annual VIP activated! All blueprints decrypted.');
+      if (currentUserProfile) currentUserProfile.is_annual_vip = true;
+      saveProfileState();
+
+      showToast('👑 [Designated Account] Founder Annual VIP unlocked! All blueprints decrypted.');
       if (activeModalProject) updateModalVipState(activeModalProject);
       applyFiltersAndRender();
+      renderUserNavState();
     }
 
     function devResetPermissions() {
       localStorage.removeItem('moneylab_dev_all_vip');
       localStorage.removeItem('moneylab_dev_unlocked');
-      showToast('🔄 [Sandbox] Reset local unlock state.');
+      if (currentUserProfile) {
+        currentUserProfile.is_annual_vip = false;
+        currentUserProfile.unlocked_projects = [];
+      }
+      saveProfileState();
+
+      showToast('🔄 [Designated Account] Reset unlock state for this account.');
       if (activeModalProject) updateModalVipState(activeModalProject);
       applyFiltersAndRender();
+      renderUserNavState();
     }
 
     // Enable smooth mouse wheel horizontal scrolling for chips and category tabs
@@ -1749,6 +1800,7 @@
         lockedBox.classList.remove('hidden');
         unlockedBox.classList.add('hidden');
       }
+      checkDevEnvironment();
     }
 
     // Turnkey Universal SKILL.md Generator
@@ -1801,6 +1853,7 @@ Focus strictly on high-converting value proposition, zero-friction checkout, and
 
     // Stripe Checkout Operations
     function openCheckoutModal() {
+      checkDevEnvironment();
       document.getElementById('checkout-modal').classList.remove('hidden');
       updateCheckoutButton();
     }
