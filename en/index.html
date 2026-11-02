@@ -1212,20 +1212,17 @@
     ];
 
     function isDesignatedAccount() {
-      const currentEmail = (currentUser?.email || '').toLowerCase().trim();
+      // Must be logged in, and email must be in designated whitelist
+      if (!currentUser || !currentUser.email) return false;
+
+      const currentEmail = currentUser.email.toLowerCase().trim();
       let localAdmins = [];
       try {
         localAdmins = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]').map(e => (e || '').toLowerCase().trim());
       } catch(e) {}
       const allAdmins = [...DESIGNATED_ACCOUNTS.map(e => e.toLowerCase().trim()), ...localAdmins];
 
-      if (currentEmail && allAdmins.includes(currentEmail)) return true;
-      const host = window.location.hostname;
-      if (host === 'localhost' || host === '127.0.0.1') return true;
-      const search = window.location.search;
-      if (search.includes('admin=1') || search.includes('dev=1') || search.includes('test=1')) return true;
-      if (localStorage.getItem('moneylab_dev_mode') === 'true') return true;
-      return false;
+      return allAdmins.includes(currentEmail);
     }
 
     function isDevEnvironment() {
@@ -1954,8 +1951,14 @@ Focus strictly on high-converting value proposition, zero-friction checkout, and
 
     function signOut() {
       currentUser = null;
+      currentUserProfile = null;
       localStorage.removeItem('moneylab_user');
+      localStorage.removeItem('moneylab_dev_all_vip');
+      localStorage.removeItem('moneylab_dev_unlocked');
       renderUserNavState();
+      checkDevEnvironment();
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      applyFiltersAndRender();
       showToast('Signed out', '👋');
     }
 

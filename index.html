@@ -1592,24 +1592,17 @@
     ];
 
     function isDesignatedAccount() {
-      const currentEmail = (currentUser?.email || '').toLowerCase().trim();
+      // 必须严格处于登录状态，且登录邮箱属于指定白名单
+      if (!currentUser || !currentUser.email) return false;
+
+      const currentEmail = currentUser.email.toLowerCase().trim();
       let localAdmins = [];
       try {
         localAdmins = JSON.parse(localStorage.getItem('moneylab_admin_accounts') || '[]').map(e => (e || '').toLowerCase().trim());
       } catch(e) {}
       const allAdmins = [...DESIGNATED_ACCOUNTS.map(e => e.toLowerCase().trim()), ...localAdmins];
 
-      // 1. 若当前登录账号在白名单列表中
-      if (currentEmail && allAdmins.includes(currentEmail)) return true;
-      // 2. 本地纯开发环境 (localhost / 127.0.0.1)
-      const host = window.location.hostname;
-      if (host === 'localhost' || host === '127.0.0.1') return true;
-      // 3. 携带管理员安全参数 (如 ?admin=1 或 ?test=1)
-      const search = window.location.search;
-      if (search.includes('admin=1') || search.includes('dev=1') || search.includes('test=1')) return true;
-      // 4. 手动开启了指定管理模式
-      if (localStorage.getItem('moneylab_dev_mode') === 'true') return true;
-      return false;
+      return allAdmins.includes(currentEmail);
     }
 
     function isDevEnvironment() {
@@ -2363,12 +2356,16 @@
     async function handleSignOut() {
       if (supabaseClient) {
         await supabaseClient.auth.signOut();
-        currentUser = null;
-        currentUserProfile = null;
-        renderUserNavState();
-        showToast('已退出当前账号');
-        if (activeModalProject) updateModalVipState(activeModalProject);
       }
+      currentUser = null;
+      currentUserProfile = null;
+      localStorage.removeItem('moneylab_dev_all_vip');
+      localStorage.removeItem('moneylab_dev_unlocked');
+      renderUserNavState();
+      checkDevEnvironment();
+      showToast('已安全退出当前账号');
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      applyFiltersAndRender();
     }
 
     // 打开收银台
