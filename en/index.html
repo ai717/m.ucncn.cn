@@ -851,6 +851,25 @@
                 <span class="text-emerald-400">Instant Decryption</span>
               </p>
 
+              <!-- Dev Sandbox Bar (Localhost Only) -->
+              <div id="modal-dev-bar" class="hidden w-full p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-2">
+                <div class="flex items-center justify-between text-amber-500 font-bold">
+                  <span>🧪 Local Sandbox Test Tools (localhost only)</span>
+                  <span class="text-[10px] text-slate-400">dev</span>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <button type="button" onclick="devUnlockCurrentProject()" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold cursor-pointer text-[11px] shadow-2xs">
+                    ⚡ Mock Unlock This Blueprint
+                  </button>
+                  <button type="button" onclick="devUnlockAllProjects()" class="px-2.5 py-1 rounded bg-amber-600 hover:bg-amber-500 text-white font-bold cursor-pointer text-[11px] shadow-2xs">
+                    👑 Mock All-Access VIP
+                  </button>
+                  <button type="button" onclick="devResetPermissions()" class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 cursor-pointer text-[11px]">
+                    🔄 Reset Lock
+                  </button>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -1191,10 +1210,54 @@
     }
 
     function checkDevEnvironment() {
-      const wrap = document.getElementById('dev-sandbox-btn-wrap');
-      if (wrap && isDevEnvironment()) {
-        wrap.classList.remove('hidden');
+      if (isDevEnvironment()) {
+        const wrap = document.getElementById('dev-sandbox-btn-wrap');
+        if (wrap) wrap.classList.remove('hidden');
+        const modalDev = document.getElementById('modal-dev-bar');
+        if (modalDev) modalDev.classList.remove('hidden');
+
+        // URL query parameter quick test (?test_vip=1 or ?dev_vip=1)
+        const search = window.location.search;
+        if (search.includes('test_vip=1') || search.includes('dev_vip=1')) {
+          localStorage.setItem('moneylab_dev_all_vip', 'true');
+        }
+
+        // Global console testing object
+        window.moneylab = {
+          unlockAll: devUnlockAllProjects,
+          unlock: devUnlockCurrentProject,
+          reset: devResetPermissions
+        };
       }
+    }
+
+    function devUnlockCurrentProject() {
+      if (!isDevEnvironment()) return;
+      if (!activeModalProject) return;
+      let list = [];
+      try { list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
+      if (!list.includes(activeModalProject.id)) list.push(activeModalProject.id);
+      localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(list));
+      showToast(`🎉 [Sandbox] Blueprint [${activeModalProject.title}] unlocked!`);
+      updateModalVipState(activeModalProject);
+      applyFiltersAndRender();
+    }
+
+    function devUnlockAllProjects() {
+      if (!isDevEnvironment()) return;
+      localStorage.setItem('moneylab_dev_all_vip', 'true');
+      showToast('👑 [Sandbox] Founder Annual VIP activated! All blueprints decrypted.');
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      applyFiltersAndRender();
+    }
+
+    function devResetPermissions() {
+      if (!isDevEnvironment()) return;
+      localStorage.removeItem('moneylab_dev_all_vip');
+      localStorage.removeItem('moneylab_dev_unlocked');
+      showToast('🔄 [Sandbox] Reset local unlock state.');
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      applyFiltersAndRender();
     }
 
     // Enable smooth mouse wheel horizontal scrolling for chips and category tabs
@@ -1349,6 +1412,13 @@
     }
 
     function isProjectUnlocked(id) {
+      if (isDevEnvironment()) {
+        if (localStorage.getItem('moneylab_dev_all_vip') === 'true') return true;
+        try {
+          const list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]');
+          if (Array.isArray(list) && list.includes(id)) return true;
+        } catch(e) {}
+      }
       if (currentUserProfile.is_annual_vip) return true;
       return Array.isArray(currentUserProfile.unlocked_projects) && currentUserProfile.unlocked_projects.includes(id);
     }

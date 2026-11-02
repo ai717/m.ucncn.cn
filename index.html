@@ -943,6 +943,25 @@
                 <span class="text-emerald-400">付款后即刻自动解密</span>
               </p>
 
+              <!-- 本地开发沙盒调试栏 (仅 localhost / 127.0.0.1 或携带 ?dev=1 时显示，生产环境严格隐藏) -->
+              <div id="modal-dev-bar" class="hidden w-full p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs font-mono space-y-2 text-left mt-2">
+                <div class="flex items-center justify-between text-amber-600 dark:text-amber-400 font-bold">
+                  <span>🧪 本地免支付测试工具 (仅本地开发可见)</span>
+                  <span class="text-[10px] text-slate-400">localhost</span>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <button type="button" onclick="devUnlockCurrentProject()" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold cursor-pointer text-[11px] shadow-2xs">
+                    ⚡ 一键模拟解锁此项目
+                  </button>
+                  <button type="button" onclick="devUnlockAllProjects()" class="px-2.5 py-1 rounded bg-amber-600 hover:bg-amber-500 text-white font-bold cursor-pointer text-[11px] shadow-2xs">
+                    👑 一键模拟开通全站 VIP
+                  </button>
+                  <button type="button" onclick="devResetPermissions()" class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 cursor-pointer text-[11px]">
+                    🔄 重置锁定状态
+                  </button>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -963,6 +982,12 @@
                 <span id="vip-badge-tag" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-bold">
                   PRO ASSET
                 </span>
+                <div id="unlocked-dev-bar" class="hidden inline-flex items-center space-x-1.5 text-[10px] font-mono text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+                  <span>🧪 本地测试生效中</span>
+                  <button type="button" onclick="devResetPermissions()" class="text-slate-400 hover:text-rose-400 underline cursor-pointer ml-1">
+                    重置锁定
+                  </button>
+                </div>
               </div>
               <a id="unlocked-source-link" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-white dark:bg-brand-surface hover:bg-slate-100 dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textPrimary font-mono text-xs flex items-center space-x-1.5 transition-colors shadow-2xs">
                 <span>🎯 一手未脱敏信源原帖</span>
@@ -1565,10 +1590,57 @@
     }
 
     function checkDevEnvironment() {
-      const wrap = document.getElementById('dev-sandbox-btn-wrap');
-      if (wrap && isDevEnvironment()) {
-        wrap.classList.remove('hidden');
+      if (isDevEnvironment()) {
+        const wrap = document.getElementById('dev-sandbox-btn-wrap');
+        if (wrap) wrap.classList.remove('hidden');
+        const modalDev = document.getElementById('modal-dev-bar');
+        if (modalDev) modalDev.classList.remove('hidden');
+        const unlockedDev = document.getElementById('unlocked-dev-bar');
+        if (unlockedDev) unlockedDev.classList.remove('hidden');
+
+        // 支持 URL 快捷测试参数 (?test_vip=1 或 ?dev_vip=1)
+        const search = window.location.search;
+        if (search.includes('test_vip=1') || search.includes('dev_vip=1')) {
+          localStorage.setItem('moneylab_dev_all_vip', 'true');
+        }
+
+        // 挂载到浏览器控制台全局对象方便直接测试
+        window.moneylab = {
+          unlockAll: devUnlockAllProjects,
+          unlock: devUnlockCurrentProject,
+          reset: devResetPermissions
+        };
       }
+    }
+
+    // 本地免支付测试函数 (仅在开发环境生效)
+    function devUnlockCurrentProject() {
+      if (!isDevEnvironment()) return;
+      if (!activeModalProject) return;
+      let list = [];
+      try { list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
+      if (!list.includes(activeModalProject.id)) list.push(activeModalProject.id);
+      localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(list));
+      showToast(`🎉 [本地测试] 项目【${activeModalProject.title}】已免支付解锁！`);
+      updateModalVipState(activeModalProject);
+      renderProjectGrid();
+    }
+
+    function devUnlockAllProjects() {
+      if (!isDevEnvironment()) return;
+      localStorage.setItem('moneylab_dev_all_vip', 'true');
+      showToast('👑 [本地测试] 全站年度 VIP 已模拟激活！所有项目均已解锁');
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      renderProjectGrid();
+    }
+
+    function devResetPermissions() {
+      if (!isDevEnvironment()) return;
+      localStorage.removeItem('moneylab_dev_all_vip');
+      localStorage.removeItem('moneylab_dev_unlocked');
+      showToast('🔄 [本地测试] 已清空本地测试授权，恢复锁定状态');
+      if (activeModalProject) updateModalVipState(activeModalProject);
+      renderProjectGrid();
     }
 
     // 统计面板
@@ -2288,8 +2360,18 @@
       }
     }
 
-    // 严谨校验项目是否真正解锁（优先看云端数据库 profiles，杜绝纯前端伪造）
+    // 严谨校验项目是否真正解锁（优先看云端数据库 profiles，本地开发环境支持沙盒免支付测试）
     function isProjectUnlocked(projectId) {
+      // 1. 本地免支付测试支持 (仅限 localhost / 127.0.0.1 或带 ?dev=1)
+      if (isDevEnvironment()) {
+        if (localStorage.getItem('moneylab_dev_all_vip') === 'true') return true;
+        try {
+          const localUnlocked = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]');
+          if (Array.isArray(localUnlocked) && localUnlocked.includes(projectId)) return true;
+        } catch(e) {}
+      }
+
+      // 2. 真实云端数据库账户校验
       if (currentUserProfile) {
         if (currentUserProfile.is_annual_vip) return true;
         if (Array.isArray(currentUserProfile.unlocked_projects) && currentUserProfile.unlocked_projects.includes(projectId)) return true;
@@ -2467,34 +2549,35 @@ ${workflowList}
         showToast('⚠️ 生产环境已禁用沙盒模拟，请使用真实官方通道');
         return;
       }
+      
+      // 本地测试环境下，若未登录，自动模拟开发者身份，无需强制邮箱收发邮件
       if (!currentUser) {
-        showToast('⚠️ 测试提示：请先点击右上角登录邮箱，以便测试权限落盘与多端同步');
-        closeCheckoutModal();
-        openAuthModal();
-        return;
+        currentUser = { id: 'dev-mock-user', email: 'dev@moneylab.local' };
+        currentUserProfile = { id: 'dev-mock-user', email: 'dev@moneylab.local', is_annual_vip: false, unlocked_projects: [] };
       }
 
       const projectId = activeModalProject ? activeModalProject.id : null;
-      showToast('🔄 正在模拟 Stripe Webhook 验签与写入权限...');
+      showToast('🔄 正在模拟支付验签与本地权限授予...');
 
       try {
         if (selectedPlan === 'annual') {
           // 模拟开通年度 VIP
-          if (supabaseClient) {
+          localStorage.setItem('moneylab_dev_all_vip', 'true');
+          if (supabaseClient && currentUser.id !== 'dev-mock-user') {
             await supabaseClient.from('profiles').update({ is_annual_vip: true }).eq('id', currentUser.id);
           }
           if (currentUserProfile) currentUserProfile.is_annual_vip = true;
-          showToast('🎉 [测试成功] 已激活「年度全站 VIP」！全站 1500+ 项目已全部解密');
+          showToast('🎉 [测试成功] 已激活「年度全站 VIP」！全站所有项目已全部解密');
         } else if (projectId) {
           // 模拟单篇买断
-          const currentList = Array.isArray(currentUserProfile?.unlocked_projects) ? [...currentUserProfile.unlocked_projects] : [];
-          if (!currentList.includes(projectId)) {
-            currentList.push(projectId);
-          }
-          if (supabaseClient) {
+          let currentList = [];
+          try { currentList = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
+          if (!currentList.includes(projectId)) currentList.push(projectId);
+          localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(currentList));
+          if (currentUserProfile) currentUserProfile.unlocked_projects = currentList;
+          if (supabaseClient && currentUser.id !== 'dev-mock-user') {
             await supabaseClient.from('profiles').update({ unlocked_projects: currentList }).eq('id', currentUser.id);
           }
-          if (currentUserProfile) currentUserProfile.unlocked_projects = currentList;
           showToast(`🎉 [测试成功] 当前项目【${activeModalProject.title}】已成功买断解密！`);
         }
 
@@ -2502,20 +2585,23 @@ ${workflowList}
         closeCheckoutModal();
         renderUserNavState();
         if (activeModalProject) updateModalVipState(activeModalProject);
+        renderProjectGrid();
       } catch (err) {
         console.error('Simulate payment error:', err);
         // 本地降级生效
         if (selectedPlan === 'annual') {
+          localStorage.setItem('moneylab_dev_all_vip', 'true');
           if (currentUserProfile) currentUserProfile.is_annual_vip = true;
         } else if (projectId) {
-          if (currentUserProfile) {
-            if (!currentUserProfile.unlocked_projects) currentUserProfile.unlocked_projects = [];
-            currentUserProfile.unlocked_projects.push(projectId);
-          }
+          let list = [];
+          try { list = JSON.parse(localStorage.getItem('moneylab_dev_unlocked') || '[]'); } catch(e){}
+          if (!list.includes(projectId)) list.push(projectId);
+          localStorage.setItem('moneylab_dev_unlocked', JSON.stringify(list));
         }
         closeCheckoutModal();
         renderUserNavState();
         if (activeModalProject) updateModalVipState(activeModalProject);
+        renderProjectGrid();
         showToast('🎉 [本地沙盒] 权限已激活，研报已解密！');
       }
     }
