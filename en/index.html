@@ -753,10 +753,11 @@
           </div>
         </div>
 
-        <!-- Four-Dimensional Quantitative Audit Model -->
-        <div>
-          <div class="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-brand-textMuted mb-3 font-semibold">
-            QUANTITATIVE AUDIT MODEL · 4-DIMENSIONAL BENCHMARK
+        <!-- Four-Dimensional Quantitative Audit Model (with breathing border) -->
+        <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800/80 space-y-3">
+          <div class="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-brand-textMuted font-semibold flex items-center justify-between">
+            <span>QUANTITATIVE AUDIT MODEL · 4-DIMENSIONAL BENCHMARK</span>
+            <span class="text-[11px] font-normal text-slate-400">Scale 0~10</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="modal-breakdown-bars">
             <!-- Progress Bars -->
@@ -764,11 +765,11 @@
         </div>
 
         <!-- Critical Risks & Platform Warning Box -->
-        <div class="bg-rose-50 dark:bg-red-950/20 border border-rose-200 dark:border-red-900/40 border-l-4 border-l-rose-500 p-5 rounded-r-xl rounded-l-sm space-y-2">
-          <div class="text-xs font-mono font-bold uppercase tracking-wider text-rose-500">
-            CRITICAL RISKS & PLATFORM PITFALLS
+        <div class="bg-rose-500/[0.04] dark:bg-red-950/20 border border-rose-500/25 dark:border-red-900/40 border-l-4 border-l-rose-500 p-4 sm:p-5 rounded-r-xl rounded-l-sm space-y-2">
+          <div class="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 flex items-center space-x-1.5">
+            <span>⚠️ CRITICAL RISKS & PLATFORM PITFALLS</span>
           </div>
-          <p id="modal-pitfalls" class="text-sm text-rose-800 dark:text-red-200/90 leading-relaxed font-sans"></p>
+          <p id="modal-pitfalls" class="text-xs sm:text-sm text-slate-700 dark:text-red-200/90 leading-relaxed font-sans"></p>
         </div>
 
         <!-- Production Stack Badges -->
@@ -1669,7 +1670,7 @@
       }).join('');
     }
 
-    // Structured 3-Layer Thesis Architecture (Market Friction + Leverage Wedge + Financial Strip)
+    // Structured 3-Layer Thesis Architecture (Market Friction + Leverage Wedge + Monetization Snapshot)
     function renderCoreThesisEn(opportunity, p) {
       if (!opportunity) return '';
       
@@ -1696,10 +1697,7 @@
       }
 
       const metrics = p?.metrics || {};
-      const cycle = metrics.cycle_time || '5-10 Days';
-      const cost = metrics.initial_cost || '$0 Capital';
-      const profit = metrics.est_monthly_profit || 'Predictable MRR';
-      const model = metrics.clean_model || metrics.revenue_model || 'Subscription / Pass';
+      const model = metrics.clean_model || metrics.revenue_model || 'Subscription / Lifetime Pass';
 
       return `
         <div class="space-y-3.5">
@@ -1725,30 +1723,24 @@
           </div>
           ` : ''}
 
-          <!-- Layer 3: Financial Benchmarks Strip -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[11px]">
-            <div class="px-3 py-2 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-0.5">
-              <span class="text-slate-400 block text-[10px]">Time to Validation</span>
-              <span class="font-bold text-slate-900 dark:text-slate-100">${cycle}</span>
+          <!-- Layer 3: Monetization & Operating Model Snapshot (No duplication with top financial matrix) -->
+          <div class="p-3 rounded-xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2.5 text-xs font-mono">
+            <div class="flex items-center space-x-2">
+              <span class="text-emerald-600 dark:text-emerald-400 font-bold">💳 Monetization Model:</span>
+              <span class="text-slate-800 dark:text-slate-200 font-medium">${model}</span>
             </div>
-            <div class="px-3 py-2 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-0.5">
-              <span class="text-slate-400 block text-[10px]">Capital Outlay</span>
-              <span class="font-bold text-emerald-600 dark:text-emerald-400">${cost}</span>
-            </div>
-            <div class="px-3 py-2 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-0.5">
-              <span class="text-slate-400 block text-[10px]">Monetization Model</span>
-              <span class="font-bold text-slate-900 dark:text-slate-100 truncate block">${model}</span>
-            </div>
-            <div class="px-3 py-2 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-0.5">
-              <span class="text-slate-400 block text-[10px]">Est. Monthly Cash Flow</span>
-              <span class="font-bold text-amber-500 truncate block">${profit}</span>
+            <div class="flex items-center space-x-2 text-[11px] text-slate-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Marginal Cost: <strong class="text-slate-700 dark:text-slate-300 font-normal">Near Zero</strong></span>
+              <span>·</span>
+              <span>Execution: <strong class="text-slate-700 dark:text-slate-300 font-normal">Lean MVP Sprint</strong></span>
             </div>
           </div>
         </div>
       `;
     }
 
-    // Connected Pipeline SOP Timeline with Milestone Badges
+    // Connected Pipeline SOP Timeline with Milestone Badges & Exact Connections
     function renderWorkflowStepsEn(steps) {
       if (!steps || steps.length === 0) return '<div class="text-sm text-brand-textMuted">No steps recorded</div>';
       
@@ -1758,13 +1750,10 @@
         '💳 Core Output: Automated Checkout & License Verification',
         '🚀 Core Output: High-Intent Distribution & Seed Customers'
       ];
-      const defaultTags = ['Reverse-Engineering', 'Rapid Sprint', 'Monetization', 'Distribution'];
+      const defaultStageBadges = ['Reverse-Engineering', 'Rapid Sprint', 'Monetization', 'Distribution'];
 
       return `
-        <div class="relative pl-6 sm:pl-8 space-y-4">
-          <!-- Connected Pipeline Spine -->
-          <div class="absolute left-3.5 top-4 bottom-4 w-0.5 bg-gradient-to-b from-emerald-500/60 via-slate-300 dark:via-slate-700 to-emerald-500/20"></div>
-
+        <div class="relative pl-7 sm:pl-9 space-y-4">
           ${steps.map((step, idx) => {
             let phaseTitle = `Phase 0${idx + 1}`;
             let stepContent = step;
@@ -1782,29 +1771,35 @@
             }
 
             const deliverable = defaultDeliverables[idx] || '✓ Milestone Output Verified';
-            const stageTag = defaultTags[idx] || `PHASE 0${idx + 1}`;
+            const stageBadge = defaultStageBadges[idx] || `Phase 0${idx + 1}`;
+            const isLast = idx === steps.length - 1;
 
             return `
               <div class="relative group">
-                <!-- Step Node with Glow -->
-                <div class="absolute -left-6 sm:-left-8 top-3.5 w-7 h-7 rounded-lg bg-slate-50 dark:bg-slate-900 border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-black flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                  0${idx + 1}
+                <!-- Precision Timeline Spine: Exact node-to-node connection with zero dangling ends -->
+                ${!isLast ? `
+                <div class="absolute -left-[19px] sm:-left-[23px] top-6 bottom-[-22px] w-0.5 bg-gradient-to-b from-emerald-500/70 to-emerald-500/30 dark:from-emerald-500/60 dark:to-slate-800"></div>
+                ` : ''}
+
+                <!-- Glowing Step Node -->
+                <div class="absolute -left-7 sm:-left-9 top-3.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-emerald-500 text-emerald-400 font-mono text-[11px] font-black flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.3)] z-10">
+                  ${idx + 1}
                 </div>
 
                 <!-- Step Card -->
                 <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-emerald-500/40 hover:shadow-md transition-all space-y-2.5">
                   
-                  <div class="flex items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-2">
-                    <div class="flex items-center space-x-2">
-                      <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                        PHASE 0${idx + 1}
+                  <div class="flex items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800/80 pb-2.5">
+                    <div class="flex items-center space-x-2 min-w-0">
+                      <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0">
+                        ${stageBadge}
                       </span>
-                      <h4 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white tracking-tight">
+                      <h4 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white tracking-tight truncate">
                         ${phaseTitle}
                       </h4>
                     </div>
-                    <span class="text-[11px] font-mono text-slate-400 shrink-0">
-                      ${stageTag}
+                    <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 shrink-0 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">
+                      Step ${idx + 1}/4
                     </span>
                   </div>
 
@@ -1812,11 +1807,11 @@
                     ${stepContent}
                   </div>
 
-                  <div class="pt-1.5 flex items-center justify-between text-[11px] font-mono border-t border-slate-100 dark:border-slate-800/60">
-                    <span class="flex items-center space-x-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
+                  <div class="pt-2 flex items-center justify-between text-xs font-mono border-t border-slate-100 dark:border-slate-800/60">
+                    <span class="flex items-center space-x-1.5 text-emerald-600 dark:text-emerald-400 font-semibold text-[11px]">
                       ${deliverable}
                     </span>
-                    <span class="text-slate-400 text-[10px]">Turnkey SOP</span>
+                    <span class="text-[10px] text-slate-400 font-sans">Proceed to next step →</span>
                   </div>
 
                 </div>
