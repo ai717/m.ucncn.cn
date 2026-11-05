@@ -156,10 +156,15 @@
       <!-- Logo + Breadcrumbs -->
       <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
         <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-slate-950 font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
-            $
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
           </div>
-          <span class="font-black tracking-tight text-white text-base">MoneyLab</span>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
         </a>
         <span class="text-slate-600 hidden sm:inline">/</span>
         <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">Micro-SaaS &amp; Automation</span>

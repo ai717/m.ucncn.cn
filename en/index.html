@@ -450,8 +450,13 @@
       
       <!-- Brand Logo & Positioning -->
       <a href="./" class="flex items-center space-x-3 cursor-pointer group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-slate-950 font-black text-lg shadow-sm shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-          $
+        <div class="relative flex items-center justify-center shrink-0">
+          <img 
+            src="../favicon.svg" 
+            alt="MoneyLab Logo" 
+            class="w-9 h-9 rounded-xl shadow-lg shadow-emerald-500/15 group-hover:scale-105 group-hover:shadow-emerald-500/30 transition-all duration-300"
+          />
+          <span class="absolute inset-0 rounded-xl bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
         </div>
         <div>
           <div class="flex items-center space-x-2">
@@ -469,9 +474,9 @@
       </a>
 
       <!-- Right Action Toolbar -->
-      <div class="flex items-center space-x-2 sm:space-x-3">
+      <div class="flex items-center space-x-2 sm:space-x-2.5">
         <!-- Live Research Counter -->
-        <div class="hidden md:flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono text-slate-600 dark:text-brand-textMuted shadow-2xs">
+        <div class="hidden md:flex items-center h-8 px-3 rounded-full bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-xs font-mono text-slate-600 dark:text-brand-textMuted shadow-2xs">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
           <span><span id="nav-count" class="text-slate-900 dark:text-brand-textPrimary font-bold">7</span> Audited Plays</span>
         </div>
@@ -481,7 +486,7 @@
           href="../" 
           onclick="localStorage.setItem('moneylab_lang', 'zh')"
           title="Switch to Chinese Edition (ZH)" 
-          class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 shadow-2xs"
+          class="h-8 px-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 shadow-2xs"
         >
           <span>🌐</span>
           <span>ZH</span>
@@ -491,10 +496,17 @@
         <button 
           id="theme-toggle-btn" 
           onclick="toggleTheme()" 
-          title="Toggle Dark/Light Mode"
-          class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-600 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors shadow-2xs cursor-pointer"
+          title="Toggle Dark / Light Mode"
+          class="h-8 w-8 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer shadow-2xs"
         >
-          <span id="theme-toggle-icon">☀️</span>
+          <!-- Sun Icon (shown in dark mode, click for light) -->
+          <svg id="theme-icon-sun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (shown in light mode, click for dark) -->
+          <svg id="theme-icon-moon" class="w-4 h-4 text-slate-600 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
         </button>
 
         <!-- User Authentication & Membership State -->
@@ -502,7 +514,7 @@
           <button 
             id="auth-btn" 
             onclick="openAuthModal()" 
-            class="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold transition-all shadow-sm shadow-emerald-500/20 active:scale-95 flex items-center space-x-1.5 cursor-pointer"
+            class="h-8 px-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold transition-all shadow-sm shadow-emerald-500/20 active:scale-95 flex items-center space-x-1.5 cursor-pointer"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             <span>Sign In</span>
@@ -1830,22 +1842,39 @@
       });
     }
 
-    // Theme Management
+    // Theme Management with Persistence & Fluid SVG State Sync
     function initTheme() {
-      const saved = localStorage.getItem('moneylab_theme');
-      if (saved === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.getElementById('theme-toggle-icon').textContent = '🌙';
+      const savedTheme = localStorage.getItem('moneylab_theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
       } else {
-        document.documentElement.classList.add('dark');
-        document.getElementById('theme-toggle-icon').textContent = '☀️';
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'dark');
       }
     }
 
     function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('moneylab_theme', isDark ? 'dark' : 'light');
-      document.getElementById('theme-toggle-icon').textContent = isDark ? '☀️' : '🌙';
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('moneylab_theme', newTheme);
+      showToast(newTheme === 'dark' ? 'Switched to Obsidian Dark Mode' : 'Switched to Clean Light Mode');
+    }
+
+    function applyTheme(theme) {
+      const htmlEl = document.documentElement;
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+
+      if (theme === 'dark') {
+        htmlEl.classList.add('dark');
+        if (sunIcon) sunIcon.classList.remove('hidden');
+        if (moonIcon) moonIcon.classList.add('hidden');
+      } else {
+        htmlEl.classList.remove('dark');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+      }
     }
 
     // Toast Notification Helper

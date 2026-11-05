@@ -503,19 +503,28 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo 与 产品定位 -->
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="resetAllFilters()">
-        <img src="./favicon.svg" alt="MoneyLab Logo" class="w-8 h-8 rounded-lg border border-brand-borderHighlight shadow-sm" />
+      <div class="flex items-center space-x-3 cursor-pointer group" onclick="resetAllFilters()">
+        <div class="relative flex items-center justify-center shrink-0">
+          <img 
+            src="./favicon.svg" 
+            alt="MoneyLab Logo" 
+            class="w-9 h-9 rounded-xl shadow-lg shadow-emerald-500/15 group-hover:scale-105 group-hover:shadow-emerald-500/30 transition-all duration-300"
+          />
+          <span class="absolute inset-0 rounded-xl bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+        </div>
         <div>
           <div class="flex items-center space-x-2">
-            <span class="text-base font-semibold tracking-tight text-brand-textPrimary">MONEYLAB</span>
-            <span class="text-xs text-brand-textMuted font-mono font-normal">/ 搞钱实验室</span>
+            <span class="text-base font-extrabold tracking-tight text-slate-900 dark:text-brand-textPrimary font-mono group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">MONEYLAB</span>
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              PRO
+            </span>
           </div>
-          <p class="text-xs text-brand-textMuted hidden sm:block">前沿微型商业资产与变现情报研报</p>
+          <p class="text-xs text-slate-500 dark:text-brand-textMuted hidden sm:block">前沿微型商业资产与变现情报研报</p>
         </div>
       </div>
 
       <!-- 右侧元信息与状态 -->
-      <div class="flex items-center space-x-2 sm:space-x-3">
+      <div class="flex items-center space-x-2 sm:space-x-2.5">
         <div class="hidden md:flex items-center space-x-2 text-xs font-mono text-brand-textMuted border-r border-brand-border pr-3">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
@@ -532,7 +541,7 @@
           href="./en/" 
           onclick="localStorage.setItem('moneylab_lang', 'en')"
           title="Switch to Global English Edition" 
-          class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+          class="h-8 px-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono font-bold text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 shadow-2xs"
         >
           <span>🌐</span>
           <span>EN</span>
@@ -543,7 +552,7 @@
           id="theme-toggle-btn" 
           onclick="toggleTheme()" 
           title="切换明亮 / 暗色模式"
-          class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer"
+          class="h-8 w-8 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors flex items-center justify-center cursor-pointer shadow-2xs"
         >
           <!-- 太阳图标 (暗模式下显示，点击切亮) -->
           <svg id="theme-icon-sun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -555,7 +564,7 @@
           </svg>
         </button>
 
-        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="text-xs font-medium px-2.5 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors hidden sm:block">
+        <button onclick="resetAllFilters()" title="重置全部筛选条件" class="h-8 text-xs font-medium px-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary hover:text-slate-900 dark:hover:text-brand-textPrimary transition-colors hidden sm:flex items-center">
           重置筛选
         </button>
 
@@ -565,7 +574,7 @@
           <button 
             id="login-btn"
             onclick="openAuthModal()"
-            class="text-xs font-mono font-medium px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center space-x-1.5 cursor-pointer shadow-sm"
+            class="h-8 text-xs font-mono font-medium px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center space-x-1.5 cursor-pointer shadow-sm"
           >
             <span>登录 / 会员</span>
           </button>
