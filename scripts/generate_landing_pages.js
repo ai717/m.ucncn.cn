@@ -5,6 +5,55 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const zhProjects = require('../data/projects.json');
 const enProjects = require('../data/projects_en.json');
 
+// ==========================================
+// 0. 构建时硬核查重与数据完整性门禁 (Dedup & Integrity Gatekeeper)
+// ==========================================
+function validateAndDedupProjects(projects, lang) {
+  const seenIds = new Set();
+  const seenSlugs = new Set();
+  const duplicates = [];
+
+  projects.forEach((p, index) => {
+    if (!p.id) duplicates.push(`[${lang}] Index ${index} 缺少必填字段 id`);
+    if (!p.slug) duplicates.push(`[${lang}] Index ${index} 缺少必填字段 slug`);
+
+    if (seenIds.has(p.id)) {
+      duplicates.push(`[${lang}] 致命错误：发现重复的项目 ID "${p.id}"`);
+    } else {
+      seenIds.add(p.id);
+    }
+
+    if (seenSlugs.has(p.slug)) {
+      duplicates.push(`[${lang}] 致命错误：发现重复的 URL Slug "${p.slug}" (会导致路由覆盖与SEO自残)`);
+    } else {
+      seenSlugs.add(p.slug);
+    }
+  });
+
+  return duplicates;
+}
+
+const zhErrors = validateAndDedupProjects(zhProjects, 'ZH');
+const enErrors = validateAndDedupProjects(enProjects, 'EN');
+const allErrors = [...zhErrors, ...enErrors];
+
+if (allErrors.length > 0) {
+  console.error('\n❌ 【构建中断】检测到项目数据存在重复或格式冲突：');
+  allErrors.forEach(err => console.error('  - ' + err));
+  process.exit(1);
+}
+
+// 检查中英双语 Slug 是否 1:1 对齐
+const zhSlugs = new Set(zhProjects.map(p => p.slug));
+const enSlugs = new Set(enProjects.map(p => p.slug));
+zhSlugs.forEach(slug => {
+  if (!enSlugs.has(slug)) {
+    console.warn(`⚠️ [警告] 中文项目 "${slug}" 缺少对应的英文版本`);
+  }
+});
+
+console.log(`✓ 查重与数据完整性校验通过：中文 ${zhProjects.length} 篇 / 英文 ${enProjects.length} 篇，0 冲突，0 重复`);
+
 const GTAG_SNIPPET = `  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
   <script>
