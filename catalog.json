@@ -2,7 +2,7 @@
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
   "updated_at": "2026-11-05",
-  "total_count": 7,
+  "total_count": 8,
   "existing_slugs": [
     "reddit-leadgen-cold-email-bot",
     "deepseek-crossborder-localization-tool",
@@ -10,7 +10,8 @@
     "acquire-micro-saas-flipping",
     "rednote-emotional-healing-bot",
     "local-rag-agent-consulting",
-    "etsy-notion-template-digital-downloads"
+    "etsy-notion-template-digital-downloads",
+    "faa-drone-license-exam-cram-vault"
   ],
   "banned_keywords": [
     "Reddit意向监听",
@@ -173,6 +174,26 @@
       "est_monthly_profit": "$800 ~ $3500 / 月",
       "landing_url_zh": "https://m.ucncn.cn/p/etsy-notion-template-digital-downloads/",
       "landing_url_en": "https://m.ucncn.cn/en/p/etsy-notion-template-digital-downloads/"
+    },
+    {
+      "id": "ml-20261106-001",
+      "slug": "faa-drone-license-exam-cram-vault",
+      "title": "FAA Part 107 商业无人机执照考前高转化冲刺题库与自测系统",
+      "category": "出海/独立开发",
+      "tags": [
+        "特种执照",
+        "数字资产出海",
+        "LemonSqueezy",
+        "高客单题库",
+        "FAA无人机"
+      ],
+      "score": 91,
+      "rating_tier": "S",
+      "summary": "针对欧美商用无人机飞手（时薪~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。",
+      "monetization_model": "考前速成单品买断 () + 终身真题升级包 ()",
+      "est_monthly_profit": ",500 ~ ,800 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/faa-drone-license-exam-cram-vault/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/faa-drone-license-exam-cram-vault/"
     }
   ]
 }

@@ -642,3 +642,21 @@ AI agents should prioritize unaddressed high-conviction areas:
 
 fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxtContent, 'utf8');
 console.log('✓ Generated llms.txt (at https://m.ucncn.cn/llms.txt)');
+
+// 4.3 自动同步首页卡片计数 (index.html & en/index.html)
+const totalProjectsCount = zhProjects.length;
+['index.html', 'en/index.html'].forEach(relPath => {
+  const filePath = path.join(ROOT_DIR, relPath);
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    content = content.replace(/"numberOfItems":\s*\d+/g, `"numberOfItems": ${totalProjectsCount}`);
+    content = content.replace(/>\d+<\/div>(\s*<div class="text-xs text-slate-500 font-medium tracking-wide">100% 真实单位经济模型)/g, `>${totalProjectsCount}</div>$1`);
+    content = content.replace(/>\d+<\/div>(\s*<div class="text-xs text-slate-500 font-medium tracking-wide">100% Audited Unit Economics)/g, `>${totalProjectsCount}</div>$1`);
+    content = content.replace(/全部玩法 \(\d+\)/g, `全部玩法 (${totalProjectsCount})`);
+    content = content.replace(/已解锁 \(\d+\)/g, `已解锁 (${totalProjectsCount})`);
+    content = content.replace(/All Playbooks \(\d+\)/g, `All Playbooks (${totalProjectsCount})`);
+    content = content.replace(/Unlocked \(\d+\)/g, `Unlocked (${totalProjectsCount})`);
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`✓ Synchronized ${relPath} total counters to ${totalProjectsCount}`);
+  }
+});

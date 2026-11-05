@@ -339,5 +339,54 @@
     },
     "source_url": "https://etsy.com",
     "created_at": "2026-10-24"
+  },
+  {
+    "id": "ml-20261106-001",
+    "title": "FAA Part 107 Commercial Drone Exam Cram Vault & Interactive Diagnostic Simulator",
+    "slug": "faa-drone-license-exam-cram-vault",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Specialized Certs",
+      "Digital Assets",
+      "LemonSqueezy",
+      "High-AOV Products",
+      "FAA Drone License"
+    ],
+    "summary": "Targeting commercial drone pilots (-/hr) who need to pass the FAA Part 107 exam within 72 hours. Features 400 high-frequency verified exam items, interactive METAR decoder, and sectional chart flashcards monetized via LemonSqueezy (-).",
+    "score": 91,
+    "rating_tier": "S",
+    "verdict": "Bypasses low-ticket commoditized templates by capitalizing on high-stakes professional qualification requirements. High AOV ( average), sub-1.5% refund rate, zero incremental fulfillment cost.",
+    "score_breakdown": {
+      "feasibility": 9,
+      "velocity": 9,
+      "ceiling": 8,
+      "reliability": 10
+    },
+    "metrics": {
+      "difficulty_stars": 1,
+      "cycle_time": "3-5 Days",
+      "initial_cost": "",
+      "revenue_model": "Standard Pass Pass () + Lifetime Master Vault ()",
+      "est_monthly_profit": ",500 - ,800 / mo",
+      "clean_model": "One-Time Digital Purchase"
+    },
+    "deep_dive": {
+      "opportunity": "Commercial drone pilots in real estate, mapping, and inspection must hold an FAA Part 107 remote pilot certificate. The test costs  per attempt, and failing incurs significant delays and lost income. While formal ground schools cost -, self-studying candidates overwhelmingly prefer concentrated, high-yield practice questions and chart decoding tips.",
+      "workflow": [
+        "1. Airman Certification Standards (ACS) Extraction: Map out 400 verified test items covering Airspace, METAR/TAF weather reports, weight/balance, and FAA regulations.",
+        "2. Lightweight Client-Side Simulator: Build a zero-dependency HTML5/Tailwind diagnostic app or pre-configured Anki decks allowing offline practice and instant score tracking.",
+        "3. Automated Merchant-of-Record Checkout: Integrate LemonSqueezy/Stripe for frictionless Apple Pay/Credit Card checkouts with automated digital delivery.",
+        "4. Community-Driven Value Seeding: Share free 1-page visual guides on Reddit r/drones and YouTube aviation channels, converting warm search intent into direct sales."
+      ],
+      "risk_and_pitfalls": "Always display prominent legal disclaimers clarifying non-affiliation with the FAA. Regularly update questions when FAA regulations (such as Remote ID and Ops Over People) evolve.",
+      "tools": [
+        "FAA ACS Framework",
+        "Claude 3.7",
+        "LemonSqueezy",
+        "Vercel / GitHub Pages"
+      ]
+    },
+    "source_url": "https://www.reddit.com/r/drones/",
+    "created_at": "2026-11-06"
   }
 ]

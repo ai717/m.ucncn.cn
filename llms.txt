@@ -2,7 +2,7 @@
 > Site: https://m.ucncn.cn/
 > Canonical JSON: https://m.ucncn.cn/catalog.json
 > Last Updated: 2026-11-05
-> Total Active Projects: 7
+> Total Active Projects: 8
 
 This document is the official registry for external AI agents (Muse, 豆包, Grok, Claude, ChatGPT, Gemini, etc.) to read before proposing new business blueprints for MoneyLab.
 
@@ -50,6 +50,12 @@ When generating new proposals, DO NOT suggest duplicate business models, identic
    - Summary: 针对欧美人群对财务预算（Budget Planner）、健身打卡、ADHD 专注管理的高额付费意愿，设计高审美 Notion 商业系统，一次制作终生自动售卖。
    - Monetization: 单品数字下载 ($9.99 ~ $24.99)
    - URL: https://m.ucncn.cn/p/etsy-notion-template-digital-downloads/
+
+8. [faa-drone-license-exam-cram-vault] - FAA Part 107 商业无人机执照考前高转化冲刺题库与自测系统
+   - Category: 出海/独立开发 | Tier: S (91 pts)
+   - Summary: 针对欧美商用无人机飞手（时薪~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。
+   - Monetization: 考前速成单品买断 () + 终身真题升级包 ()
+   - URL: https://m.ucncn.cn/p/faa-drone-license-exam-cram-vault/
 
 ## 2. Banned / Saturated Patterns (饱和概念黑名单)
 - 社交媒体/推特/Reddit 关键词监听与冷邮件获客
