@@ -5,8 +5,8 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 
 # ⚡ 搞钱实验室全域商业情报与专属技能工坊 (MoneyLab Collector v4.0 · Agent-Native)
 
-> 全局技能定义位于：`C:\Users\everg\.gemini\config\skills\moneylab-collector\SKILL.md`  
-> 详细单项目元技能架构指导参见：[`money/docs/PROJECT_SKILL_META_GUIDE.md`](file:///g:/work/code/website/ucncn/money/docs/PROJECT_SKILL_META_GUIDE.md)
+> 全局主技能定义位于：`C:\Users\everg\.gemini\config\skills\moneylab-collector\SKILL.md`  
+> 详细单项目元技能架构指导总纲参见：[`money/docs/PROJECT_SKILL_META_GUIDE.md`](file:///g:/work/code/website/ucncn/money/docs/PROJECT_SKILL_META_GUIDE.md)
 
 ---
 
@@ -19,4 +19,26 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 5. **模型能力最大化路由**：Grok 专攻推特实名晒单并过滤炒作、Gemini 专攻多语言开源与微型并购、Muse/豆包 专攻本土真实生态落地、Claude/Cursor 专攻落地代码工程；
 6. **双轨交付输出 (Dual-Rail)**：
    - **轨道一（数据 JSON）**：包含 3 层 `core_thesis`（痛点 + 商业套利切口）与带属性和交付物的 `workflow_steps`；
-   - **轨道二（专属落地 SKILL.md）**：基于五大商业原型白手定制高密度代码、Prompt 链与变现物料，并在用户发送「你好」时以首席操盘手身份确定性唤醒，彻底杜绝千篇一律套版。
+   - **轨道二（专属落地 SKILL.md）**：必须遵循【五模块金标准架构】，白手编写真实代码与专属变现物料，严禁使用 `// TODO` 占位符或缩水代码！
+
+---
+
+## 🏛️ 单项目 SKILL.md 强制五模块标准架构 (The 5-Module Standard)
+
+- **模块一：操盘手人格与全维主动问诊协议 (Diagnostic Protocol)**：包含 [模式 A：极速工程落地]、[模式 B：选品与痛点诊断]、[模式 C：合规与安全防线]、[模式 D：商业转化与冷启动] 四维专属菜单；
+- **模块二：绝密一手尽调档案与真实单位经济模型 (Unit Economics)**：以 Markdown 表格呈现真实漏斗转化率、客单价、月度流失与净利润率；
+- **模块三：生产级极简核心工程源码 / 数据库架构**：必须提供可直接复制运行的真实代码（严禁伪代码）；
+- **模块四：行业特化型 Prompt 编排链或商务备忘录**：提供针对该商业原型的专业物料；
+- **模块五：安全合规、防封防踩坑与冷启闭环 SOP**：平台风控底线与首批种子客户获取通道。
+
+---
+
+## 💡 全站 7 大原型黄金标杆参考切片（存放在 `money/skills/`）
+
+- **浏览器插件原型** ➔ 参考 [`niche-chrome-extension-monetization/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/niche-chrome-extension-monetization/SKILL.md)
+- **企业级 AI 封装** ➔ 参考 [`deepseek-crossborder-localization-tool/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/deepseek-crossborder-localization-tool/SKILL.md)
+- **数字化资产模板** ➔ 参考 [`etsy-notion-template-digital-downloads/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/etsy-notion-template-digital-downloads/SKILL.md)
+- **虚拟电商与情绪消费** ➔ 参考 [`rednote-emotional-healing-bot/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/rednote-emotional-healing-bot/SKILL.md)
+- **微型并购快速退出** ➔ 参考 [`acquire-micro-saas-flipping/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/acquire-micro-saas-flipping/SKILL.md)
+- **本地企业知识库咨询** ➔ 参考 [`local-rag-agent-consulting/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/local-rag-agent-consulting/SKILL.md)
+- **B2B 意向获客引擎** ➔ 参考 [`reddit-leadgen-cold-email-bot/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/reddit-leadgen-cold-email-bot/SKILL.md)
