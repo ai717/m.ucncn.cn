@@ -191,6 +191,15 @@ ${GTAG_SNIPPET}
   <script type="application/ld+json">
   ${JSON.stringify(jsonLd, null, 2)}
   </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
 </head>
 <body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
 

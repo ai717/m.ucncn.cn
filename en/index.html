@@ -230,9 +230,16 @@
     }
   </script>
   <style>
-    /* Dark Mode */
+    /* Dark Mode (Obsidian Terminal with Subtle Grid) */
     html.dark { color-scheme: dark; }
-    html.dark body { background-color: #08090b; color: #94a3b8; }
+    html.dark body { 
+      background-color: #08090b; 
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: #94a3b8; 
+    }
     html.dark .memo-card, html.dark .memo-card-s {
       background-color: #0d0f14;
       border: 1px solid #1a1e27;
@@ -250,7 +257,7 @@
     }
     html.dark .memo-card-s:hover {
       background-color: #12151c;
-      border-color: rgba(245, 158, 11, 0.55);
+      border-color: rgba(255, 255, 255, 0.55);
       transform: translateY(-2px);
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -8px rgba(245, 158, 11, 0.15);
     }
@@ -265,10 +272,20 @@
       border: 1px solid #1e222b;
     }
 
-    /* Light Mode */
+    /* Light Mode (Engineering Blueprint Grid Paper - Anti-Glare & Eye-Comfort) */
     html:not(.dark) { color-scheme: light; }
-    html:not(.dark) body { background-color: #f8fafc; color: #1e293b; }
-    html:not(.dark) header { background-color: rgba(255, 255, 255, 0.95) !important; border-color: #e2e8f0 !important; }
+    html:not(.dark) body { 
+      background-color: #f6f8fa; 
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: #1e293b; 
+    }
+    html:not(.dark) header { 
+      background-color: rgba(246, 248, 250, 0.9) !important; 
+      border-color: #e2e8f0 !important; 
+    }
     html:not(.dark) .memo-card, html:not(.dark) .memo-card-s {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
