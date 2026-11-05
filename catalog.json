@@ -1,0 +1,178 @@
+{
+  "name": "MoneyLab Verified Blueprints Catalog",
+  "site_url": "https://m.ucncn.cn/",
+  "updated_at": "2026-11-05",
+  "total_count": 7,
+  "existing_slugs": [
+    "reddit-leadgen-cold-email-bot",
+    "deepseek-crossborder-localization-tool",
+    "niche-chrome-extension-monetization",
+    "acquire-micro-saas-flipping",
+    "rednote-emotional-healing-bot",
+    "local-rag-agent-consulting",
+    "etsy-notion-template-digital-downloads"
+  ],
+  "banned_keywords": [
+    "Reddit意向监听",
+    "推特获客监控",
+    "冷发邮件机器人",
+    "独立站商品翻译",
+    "跨境电商文案润色",
+    "电商小语种转换",
+    "浏览器效率插件买断销售",
+    "CWS插件套皮",
+    "离线许可鉴权扩展",
+    "Acquire微型SaaS倒卖",
+    "低估值代码翻新",
+    "SaaS资产快速转手",
+    "中小企业本地知识库代建",
+    "Dify/FastGPT代搭咨询",
+    "企业客服私有化",
+    "小红书解忧杂货铺",
+    "情绪树洞收费",
+    "虚拟树洞陪聊",
+    "Notion模板出海销售",
+    "Gumroad数字发卡套版",
+    "无代码模板资产"
+  ],
+  "projects": [
+    {
+      "id": "ml-cloud-test-001",
+      "slug": "reddit-leadgen-cold-email-bot",
+      "title": "海外 Reddit 痛点自动化监听与冷邮件线索生成器",
+      "category": "出海/独立开发",
+      "tags": [
+        "Reddit营销",
+        "线索挖掘",
+        "冷邮件",
+        "B2B获客"
+      ],
+      "score": 91,
+      "rating_tier": "S",
+      "summary": "监听 Reddit 上高意向求购与求助贴，利用 AI 自动生成高情商破冰回复与销售线索，按线索条数或月费变现。",
+      "monetization_model": "月度订阅 ($29/月) 或 单条线索购买",
+      "est_monthly_profit": "$1000 ~ $3500 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/reddit-leadgen-cold-email-bot/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/reddit-leadgen-cold-email-bot/"
+    },
+    {
+      "id": "ml-20261028-006",
+      "slug": "deepseek-crossborder-localization-tool",
+      "title": "基于开源 DeepSeek 打造冷门小语种跨境电商独立站本地化翻译插件",
+      "category": "出海/独立开发",
+      "tags": [
+        "DeepSeek",
+        "Shopify",
+        "跨境电商",
+        "小语种",
+        "B2B插件"
+      ],
+      "score": 90,
+      "rating_tier": "S",
+      "summary": "深挖独立站卖家在西语、阿语、泰语等小语种机器翻译质量差的痛点，用 DeepSeek 高性价比 API 定制 Shopify / WooCommerce 自动本地化插件，按月收取高毛利订阅费。",
+      "monetization_model": "基础订阅 ($19/月) + 超额 Token 计费",
+      "est_monthly_profit": "$2000 ~ $6000 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/deepseek-crossborder-localization-tool/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/deepseek-crossborder-localization-tool/"
+    },
+    {
+      "id": "ml-20261028-001",
+      "slug": "niche-chrome-extension-monetization",
+      "title": "垂直领域 Chrome 插件 + LemonSqueezy 自动化订阅出海",
+      "category": "出海/独立开发",
+      "tags": [
+        "AI编程",
+        "Chrome插件",
+        "出海变现",
+        "一人公司",
+        "被动收入"
+      ],
+      "score": 93,
+      "rating_tier": "S",
+      "summary": "深挖海外 Reddit / ProductHunt 高频痛点，利用 AI 编程全自动开发长尾单功能插件，接入 LemonSqueezy 实行按月订阅与永久买断混合制变现。",
+      "monetization_model": "月度订阅 ($4.99) + 终身买断 ($29)",
+      "est_monthly_profit": "$1200 ~ $4500 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/niche-chrome-extension-monetization/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/niche-chrome-extension-monetization/"
+    },
+    {
+      "id": "ml-20261028-002",
+      "slug": "acquire-micro-saas-flipping",
+      "title": "海外 Micro-SaaS 痛点定制与自动化接单转手（Acquire 模式）",
+      "category": "出海/独立开发",
+      "tags": [
+        "Micro-SaaS",
+        "微型收购",
+        "代码转让",
+        "现金流资产"
+      ],
+      "score": 89,
+      "rating_tier": "A",
+      "summary": "基于开源 Boilerplate 快速孵化具有现金流的超微型 SaaS 工具，运营至 MRR $300~$800 后，直接挂载至 Acquire.com 或 Microns 进行 20~30 倍月倍数快速退出。",
+      "monetization_model": "MRR 现金流 + 一次性资产转手出售",
+      "est_monthly_profit": "$3000 ~ $12000 / 单",
+      "landing_url_zh": "https://m.ucncn.cn/p/acquire-micro-saas-flipping/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/acquire-micro-saas-flipping/"
+    },
+    {
+      "id": "ml-20261028-003",
+      "slug": "rednote-emotional-healing-bot",
+      "title": "小红书‘情绪树洞与虚拟解忧杂货铺’自动发卡变现",
+      "category": "国内虚拟电商",
+      "tags": [
+        "小红书",
+        "虚拟商品",
+        "自动发卡",
+        "情绪消费",
+        "轻资产"
+      ],
+      "score": 91,
+      "rating_tier": "S",
+      "summary": "抓住当下青年人心理按摩与情绪宣泄刚需，利用 AI 生成高审美治愈卡片/性格分析报告，通过私域引流或自动化发卡系统实现 9.9~29.9 元高频复购。",
+      "monetization_model": "虚拟内容单笔购买 (9.9~39.9元)",
+      "est_monthly_profit": "¥6000 ~ ¥25000 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/rednote-emotional-healing-bot/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/rednote-emotional-healing-bot/"
+    },
+    {
+      "id": "ml-20261028-004",
+      "slug": "local-rag-agent-consulting",
+      "title": "垂直自媒体知识库自动化 RAG 问答机器人定制（本地 B 端）",
+      "category": "AI应用与服务",
+      "tags": [
+        "AI落地",
+        "企业内训",
+        "知识库",
+        "技术服务",
+        "高客单"
+      ],
+      "score": 86,
+      "rating_tier": "A",
+      "summary": "面向中小企业、考研培训机构或法律自媒体，基于开源框架（如 Dify / FastGPT）为其搭建专属数字助理与销售线索转化客服，收取初始搭建费+月度运维费。",
+      "monetization_model": "项目实施费 (¥3k~¥1w) + 月度维护费 (¥800/月)",
+      "est_monthly_profit": "¥15000 ~ ¥40000 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/local-rag-agent-consulting/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/local-rag-agent-consulting/"
+    },
+    {
+      "id": "ml-20261028-005",
+      "slug": "etsy-notion-template-digital-downloads",
+      "title": "海外 Etsy / Gumroad 数字化 Notion 模板与预算账本出海",
+      "category": "出海/独立开发",
+      "tags": [
+        "Etsy",
+        "Notion模板",
+        "无货源出海",
+        "数字资产",
+        "被动收入"
+      ],
+      "score": 88,
+      "rating_tier": "A",
+      "summary": "针对欧美人群对财务预算（Budget Planner）、健身打卡、ADHD 专注管理的高额付费意愿，设计高审美 Notion 商业系统，一次制作终生自动售卖。",
+      "monetization_model": "单品数字下载 ($9.99 ~ $24.99)",
+      "est_monthly_profit": "$800 ~ $3500 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/etsy-notion-template-digital-downloads/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/etsy-notion-template-digital-downloads/"
+    }
+  ]
+}

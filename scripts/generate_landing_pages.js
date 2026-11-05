@@ -563,3 +563,82 @@ ${sitemapEntries.join('\n')}
 
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
 console.log('✓ Generated sitemap.xml with ' + sitemapEntries.length + ' URLs!');
+
+// ==========================================
+// 4. 生成 AI 专用动态查重与索引资产 (catalog.json & llms.txt)
+// 方便外部独立大模型 (Muse, 豆包, Grok, Claude, ChatGPT) 联网读取并自动去重
+// ==========================================
+
+// 4.1 生成根目录 catalog.json
+const catalogData = {
+  name: "MoneyLab Verified Blueprints Catalog",
+  site_url: "https://m.ucncn.cn/",
+  updated_at: today,
+  total_count: zhProjects.length,
+  existing_slugs: zhProjects.map(p => p.slug),
+  banned_keywords: [
+    "Reddit意向监听", "推特获客监控", "冷发邮件机器人",
+    "独立站商品翻译", "跨境电商文案润色", "电商小语种转换",
+    "浏览器效率插件买断销售", "CWS插件套皮", "离线许可鉴权扩展",
+    "Acquire微型SaaS倒卖", "低估值代码翻新", "SaaS资产快速转手",
+    "中小企业本地知识库代建", "Dify/FastGPT代搭咨询", "企业客服私有化",
+    "小红书解忧杂货铺", "情绪树洞收费", "虚拟树洞陪聊",
+    "Notion模板出海销售", "Gumroad数字发卡套版", "无代码模板资产"
+  ],
+  projects: zhProjects.map(p => ({
+    id: p.id,
+    slug: p.slug,
+    title: p.title,
+    category: p.category,
+    tags: p.tags,
+    score: p.score,
+    rating_tier: p.rating_tier,
+    summary: p.summary,
+    monetization_model: p.metrics ? (p.metrics.revenue_model || p.monetization_model || 'N/A') : 'N/A',
+    est_monthly_profit: p.metrics ? p.metrics.est_monthly_profit : null,
+    landing_url_zh: `https://m.ucncn.cn/p/${p.slug}/`,
+    landing_url_en: `https://m.ucncn.cn/en/p/${p.slug}/`
+  }))
+};
+
+fs.writeFileSync(path.join(ROOT_DIR, 'catalog.json'), JSON.stringify(catalogData, null, 2), 'utf8');
+console.log('✓ Generated AI-readable catalog.json (at https://m.ucncn.cn/catalog.json)');
+
+// 4.2 生成根目录 llms.txt (符合新兴 AI Agent 统一发现与查重标准)
+const llmsTxtContent = `# MoneyLab (搞钱实验室) - AI Agent Catalog & Deduplication Registry
+> Site: https://m.ucncn.cn/
+> Canonical JSON: https://m.ucncn.cn/catalog.json
+> Last Updated: ${today}
+> Total Active Projects: ${zhProjects.length}
+
+This document is the official registry for external AI agents (Muse, 豆包, Grok, Claude, ChatGPT, Gemini, etc.) to read before proposing new business blueprints for MoneyLab.
+
+## 1. Existing Projects & Slugs (已收录清单 · 严禁同质化重复立项)
+When generating new proposals, DO NOT suggest duplicate business models, identical target communities, or cloned tools:
+
+${zhProjects.map((p, i) => `${i + 1}. [${p.slug}] - ${p.title}
+   - Category: ${p.category} | Tier: ${p.rating_tier} (${p.score} pts)
+   - Summary: ${p.summary}
+   - Monetization: ${p.metrics ? (p.metrics.revenue_model || p.monetization_model || 'N/A') : 'N/A'}
+   - URL: https://m.ucncn.cn/p/${p.slug}/`).join('\n\n')}
+
+## 2. Banned / Saturated Patterns (饱和概念黑名单)
+- 社交媒体/推特/Reddit 关键词监听与冷邮件获客
+- 独立站商品多语言翻译与出海文案润色
+- 浏览器插件买断销售与离线许可鉴权
+- Acquire.com 微型 SaaS 收购翻新转手
+- 本地中小企业 RAG 知识库与客服代搭建
+- 小红书虚拟情绪树洞与付费解忧
+- Notion 生产力模板数字化资产出海销售
+
+## 3. Recommended Blue-Ocean Sectors (空白蓝海赛道推荐)
+AI agents should prioritize unaddressed high-conviction areas:
+- 🏭 Physical + Digital & Light Manufacturing (3D printing parts, niche acrylic mods, CNC gear)
+- 📍 High-Ticket Local Service Digitization (local appliance repair/luxury cleaning lead generation arbitrage)
+- 📚 Niche Professional Licensing & High-Ticket Exam Prep (US/EU specialized cert question banks)
+- ⚡ Headless Micro-API Utilities (developer-facing single-purpose subscription APIs)
+- 🧩 B2B High-Barrier Digital Compliance & Industrial Templates
+`;
+
+fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxtContent, 'utf8');
+console.log('✓ Generated llms.txt (at https://m.ucncn.cn/llms.txt)');
