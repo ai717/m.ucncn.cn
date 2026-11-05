@@ -301,6 +301,11 @@
       background-color: rgba(246, 248, 250, 0.96) !important; 
       border-color: #e2e8f0 !important; 
     }
+    html:not(.dark) footer { 
+      background-color: transparent !important; 
+      border-color: #e2e8f0 !important; 
+      color: #64748b !important; 
+    }
     html:not(.dark) .memo-card, html:not(.dark) .memo-card-s {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
@@ -672,8 +677,8 @@
     </div>
   </aside>
 
-  <!-- Hero Section with Institutional Research Metrics -->
-  <section class="relative border-b border-slate-200 dark:border-brand-border bg-gradient-to-b from-slate-50 to-white dark:from-brand-surface/40 dark:to-transparent pt-12 pb-10 transition-colors">
+  <!-- Hero Section with Institutional Research Metrics (Transparent to let blueprint grid flow seamlessly) -->
+  <section class="relative border-b border-slate-200 dark:border-brand-border pt-12 pb-10 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       
       <!-- Top Announcement Pill -->
@@ -1320,7 +1325,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 dark:border-brand-border bg-white dark:bg-brand-black/90 py-12 mt-16 text-xs font-mono text-slate-500">
+  <footer class="border-t border-slate-200 dark:border-brand-border py-12 mt-16 text-xs font-mono text-slate-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="font-bold text-slate-800 dark:text-slate-300">MoneyLab</span>
