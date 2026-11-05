@@ -613,8 +613,9 @@ const llmsTxtContent = `# MoneyLab (搞钱实验室) - AI Agent Catalog & Dedupl
 
 This document is the official registry for external AI agents (Muse, 豆包, Grok, Claude, ChatGPT, Gemini, etc.) to read before proposing new business blueprints for MoneyLab.
 
-## 1. Existing Projects & Slugs (已收录清单 · 严禁同质化重复立项)
-When generating new proposals, DO NOT suggest duplicate business models, identical target communities, or cloned tools:
+## 1. Existing Projects & Slugs (已收录清单 · 细分差异化准入)
+When proposing new ideas, DO NOT pitch identical clones (same product, same exact audience, same target community).
+However, proven business models (e.g. Chrome extensions, specialized certification prep, B2B lead gen, digital templates) CAN be reused if the vertical niche, specific problem, or target audience is distinct!
 
 ${zhProjects.map((p, i) => `${i + 1}. [${p.slug}] - ${p.title}
    - Category: ${p.category} | Tier: ${p.rating_tier} (${p.score} pts)
@@ -622,22 +623,13 @@ ${zhProjects.map((p, i) => `${i + 1}. [${p.slug}] - ${p.title}
    - Monetization: ${p.metrics ? (p.metrics.revenue_model || p.monetization_model || 'N/A') : 'N/A'}
    - URL: https://m.ucncn.cn/p/${p.slug}/`).join('\n\n')}
 
-## 2. Banned / Saturated Patterns (饱和概念黑名单)
-- 社交媒体/推特/Reddit 关键词监听与冷邮件获客
-- 独立站商品多语言翻译与出海文案润色
-- 浏览器插件买断销售与离线许可鉴权
-- Acquire.com 微型 SaaS 收购翻新转手
-- 本地中小企业 RAG 知识库与客服代搭建
-- 小红书虚拟情绪树洞与付费解忧
-- Notion 生产力模板数字化资产出海销售
-
-## 3. Recommended Blue-Ocean Sectors (空白蓝海赛道推荐)
-AI agents should prioritize unaddressed high-conviction areas:
-- 🏭 Physical + Digital & Light Manufacturing (3D printing parts, niche acrylic mods, CNC gear)
-- 📍 High-Ticket Local Service Digitization (local appliance repair/luxury cleaning lead generation arbitrage)
-- 📚 Niche Professional Licensing & High-Ticket Exam Prep (US/EU specialized cert question banks)
-- ⚡ Headless Micro-API Utilities (developer-facing single-purpose subscription APIs)
-- 🧩 B2B High-Barrier Digital Compliance & Industrial Templates
+## 2. Deduplication Principle (去重甄别原则)
+- ❌ **坚决排除「完全同款」**：不要提报与已收录项目产品形态、痛点与受众完全一致的克隆产品（例如已有 FAA 无人机题库，不要再报一模一样的 FAA 无人机题库）。
+- ✅ **坚决欢迎「同模式不同细分垂直切口」**：
+  - 同样做 Chrome 插件：已有一个工具插件，依然欢迎针对 Etsy 卖家、亚马逊差评分析或 LinkedIn 招聘的插件；
+  - 同样做特种考试题库：已有无人机执照，依然欢迎 EPA 608 制冷工、CDL 商业卡车司照等高薪准入考试；
+  - 同样做意向监听：已有 Reddit SaaS 论坛监听，依然欢迎 Twitter/X 跨境出海摄影师/红人线索监听。
+- 🌟 **优先鼓励开辟全新赛道**：软硬结合轻制造 (3D打印/小众外设)、同城高客单服务数字化代搭、微型 API 聚合工具等。
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxtContent, 'utf8');
