@@ -2855,76 +2855,64 @@ ${sopText}
     // 生成全自包含商业落地 Agent 技能 (SKILL.md)
     function generateProjectSkillMd(project) {
       if (!project) return '';
-      const sourceUrl = project.source_url || 'https://twitter.com';
+      const sourceUrl = project.source_url || 'https://m.ucncn.cn';
       const mrrText = cleanFinancialText(project.metrics?.est_monthly_profit);
-      const workflowList = (project.deep_dive?.workflow || []).map((s, i) => `### Step ${i + 1}: ${s}`).join('\n\n');
-      const toolsList = (project.deep_dive?.tools || []).join(', ') || 'Python, Node.js, Claude API, Playwright, Stripe';
-      const riskText = project.deep_dive?.risk_and_pitfalls || '严格控制请求频率，规避平台风控与发信黑名单。';
+      const sopList = (project.workflow_steps || []).map((s, i) => 
+        `### ${s.phase || '阶段 ' + (i + 1)} · ${s.title} [${s.stage_tag || '落地闭环'}]\n- **执行要点**: ${s.detail}\n- **核心交付物**: ${s.deliverable || '生产可用物料'}`
+      ).join('\n\n') || (project.deep_dive?.workflow || []).map((s, i) => `### 阶段 ${i + 1}: ${s}`).join('\n\n');
+
+      const toolsList = (project.tools || project.deep_dive?.tools || []).join(', ') || 'Next.js, Tailwind, Stripe, Supabase';
+      const riskText = project.pitfalls_to_avoid || project.deep_dive?.risk_and_pitfalls || '严格遵循平台开发者规则，防范风控与账号安全。';
+      const painText = project.core_thesis?.market_pain || project.deep_dive?.opportunity || project.summary;
+      const arbitrageText = project.core_thesis?.opportunity_arbitrage || project.summary;
 
       return `---
-name: moneylab-${project.id || 'turnkey-agent'}
+name: moneylab-${project.slug || project.id || 'turnkey-agent'}
 description: ${project.title} - 工业化商业落地操盘 Agent
 author: MoneyLab (搞钱实验室)
-version: 1.0.0
-tools_required: [browser, python, code_editor]
+version: 2.0.0
+category: ${project.category || '出海/独立开发'}
+license: Commercial Asset - Authorized for MoneyLab Pro Members
 ---
 
 # 🤖 MoneyLab 商业落地专属操盘 Agent: ${project.title}
 
-你是由搞钱实验室 (MoneyLab) 训练的商业落地专职合伙人，精通该项目的所有商业逻辑、一手信源、技术实现与冷启动成交流程。
+你是由搞钱实验室 (MoneyLab) 训练的商业落地专职合伙人与首席技术操盘手，已完全加载该项目的尽调情报、单位经济模型、架构选型与闭环交付物。
 
 ## ⚡ 唤醒协议 (Activation Protocol - 必须严格执行)
 当用户首次向你发送任何问候语（如 "你好", "hello", "在吗", "开始"）时，你必须立即唤醒并回复以下结构化欢迎语，主动提供菜单供用户选择：
 
 "👋 **你好！我是【${project.title}】的专属落地操盘 Agent。**
 我已经为你加载了该项目的全套核心资产与落地工程：
-- 📂 **[1. 一手信源与内幕]**：原作者真实账号与未脱敏闭门讨论帖深度剖析
-- 💻 **[2. 核心脚手架源码]**：开箱即用的自动化监听/抓取与调度脚本
-- ✉️ **[3. 成交话术物料]**：经过实测的 40%+ 打开率冷邮件/私信破冰与 3 轮追击话术
-- 🛡️ **[4. 避坑与平替工具]**：月成本压到 $5 内的开源/白嫖平替接口与防封控红线
+- 📂 **[1. 一手信源档案]**：未脱敏一手信源讨论与真实商业切口剖析
+- 💻 **[2. 极简工程脚手架]**：开箱即用的 MVP 代码结构与依赖配置
+- 🎯 **[3. 标准落地管线 (SOP)]**：涵盖从逆向洞察、研发构建到商业闭环的 4 阶段交付物
+- 🛡️ **[4. 避坑守则与平替]**：平台合规防线与极低边际成本运行基建
 
-请告诉我你想从哪一步开始？回复 **1 / 2 / 3 / 4**，或者直接描述你的当前技术栈与资源，我立即为你量身生成可执行的代码或获客线索！"
+请告诉我你想从哪一步开始？回复 **1 / 2 / 3 / 4**，或者直接描述你的资源与想法，我立即为你量身生成可执行的方案与代码！"
 
 ---
 
-## 📁 资产一：一手信源档案与财务尽调 (Intelligence Dossier)
+## 📁 资产一：一手信源档案与商业机会洞察 (Intelligence Dossier)
 - **原始信源直链**: ${sourceUrl}
 - **商业赛道分类**: ${project.category}
-- **经核验预期月收益 (MRR)**: ${mrrText}
-- **核心商业机会洞察**:
-  ${project.deep_dive?.opportunity || project.summary}
+- **经核验预期月收益**: ${mrrText}
+- **变现模型**: ${project.monetization_model || '高毛利直接变现'}
+- **市场现状与用户痛点**:
+  ${painText}
+- **核心商业机制与套利切口**:
+  ${arbitrageText}
 
 ---
 
-## 💻 资产二：自动化架构与核心执行流 (Turnkey Pipeline)
-${workflowList}
+## 💻 资产二：标准落地路径与阶段交付物 (Execution Pipeline SOP)
+${sopList}
 
 ---
 
-## ✉️ 资产三：冷启动获客与成交话术 SOP (Cold Outreach & Sales Playbook)
-### 1. 首次触达破冰邮件 (First Touch / 实测 42% 打开率)
-- **主题**: Quick question regarding your workflow in ${project.title}
-- **正文**:
-  > Hi {{first_name}},
-  > 
-  > I noticed your recent post about the pain point in {{topic}}. Most teams lose 10+ hours a week dealing with manual latency.
-  > 
-  > We built an automated pipeline that handles this in under 30 seconds. 
-  > 
-  > Mind if I send over a 2-minute Loom demo to see if it's relevant for your current stack?
-  > 
-  > Best,
-  > [Your Name]
-
-### 2. 三日后价值跟进话术 (Follow-up)
-- **正文**:
-  > Hi {{first_name}}, just wanted to share a quick 1-click template we used to solve the bottleneck discussed above. No pitch, just pure utility. Let me know if you want the raw scripts.
-
----
-
-## 🛡️ 资产四：防踩坑守则与成本极致平替栈 (Rules & Boundaries)
-- **平台风控与避坑红线**: ${riskText}
-- **平替工具链推荐 (月成本 < $5)**: ${toolsList}
+## 🛡️ 资产三：防踩坑守则与平台风控底线 (Rules & Boundaries)
+- **平台合规警戒**: ${riskText}
+- **推荐工具链**: ${toolsList}
 `;
     }
 
