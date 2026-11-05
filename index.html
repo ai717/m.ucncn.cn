@@ -473,6 +473,25 @@
     #toast {
       transition: all 0.2s ease;
     }
+
+    /* 金融级 Live Ticker 走势走马灯 */
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      will-change: transform;
+      animation: tickerScroll 48s linear infinite;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .mask-fade {
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    }
   </style>
   <!-- Supabase 官方客户端 SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -570,6 +589,117 @@
 
     </div>
   </header>
+
+  <!-- 金融级实时商业异动走马灯 (Live Revenue & Valuation Pulse Ticker) -->
+  <aside aria-label="实时商业营收走马灯" class="border-b border-slate-200/90 dark:border-brand-border bg-slate-50/95 dark:bg-[#07090e]/95 backdrop-blur-md text-xs py-2 px-3 sm:px-6 overflow-hidden flex items-center select-none z-30">
+    <div class="max-w-7xl mx-auto w-full flex items-center">
+      <!-- 固定左侧标签 (不滚动) -->
+      <div class="shrink-0 flex items-center space-x-2 pr-3 sm:pr-4 mr-2 sm:mr-3 border-r border-slate-200 dark:border-brand-border text-slate-800 dark:text-slate-200 font-mono text-[11px] font-bold">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="hidden sm:inline">实时商业异动</span>
+        <span class="sm:hidden">异动</span>
+        <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] uppercase font-mono">LIVE</span>
+      </div>
+
+      <!-- 走马灯滚动视窗 -->
+      <div class="overflow-hidden relative w-full flex-1 mask-fade">
+        <div class="ticker-track space-x-6 sm:space-x-8 text-xs font-mono">
+          <!-- 组 1 -->
+          <div class="inline-flex items-center space-x-6 sm:space-x-8">
+            <span onclick="openDetail('niche-chrome-extension-monetization')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Chrome 插件订阅出海</span>
+              <span class="text-slate-500">MRR $1,200~$4,500</span>
+              <span class="text-emerald-500 font-bold">▲ +34%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('reddit-leadgen-cold-email-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Reddit 获客冷邮件引擎</span>
+              <span class="text-slate-500">MRR $3,800</span>
+              <span class="text-emerald-500 font-bold">▲ +45%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('deepseek-crossborder-localization-tool')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">DeepSeek 小语种翻译插件</span>
+              <span class="text-slate-500">MRR $6,200</span>
+              <span class="text-emerald-500 font-bold">▲ +28%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('rednote-emotional-healing-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">小红书情绪解忧 Agent</span>
+              <span class="text-slate-500">月入 ¥18,000</span>
+              <span class="text-emerald-500 font-bold">▲ +62%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('etsy-notion-template-digital-downloads')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Notion 预算账本数字资产</span>
+              <span class="text-slate-500">月入 $2,500</span>
+              <span class="text-emerald-500 font-bold">▲ +18%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('acquire-micro-saas-flipping')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Micro-SaaS 快速孵化转手</span>
+              <span class="text-slate-500">退出估值 $15,000+</span>
+              <span class="text-emerald-500 font-bold">▲ 24x Exit</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('local-rag-agent-consulting')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">本地企业 RAG 咨询</span>
+              <span class="text-slate-500">单客客单 ¥8k~¥2.5w</span>
+              <span class="text-emerald-500 font-bold">▲ 高毛利</span>
+            </span>
+          </div>
+
+          <!-- 组 2 (无缝连续滚动) -->
+          <div class="inline-flex items-center space-x-6 sm:space-x-8">
+            <span onclick="openDetail('niche-chrome-extension-monetization')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Chrome 插件订阅出海</span>
+              <span class="text-slate-500">MRR $1,200~$4,500</span>
+              <span class="text-emerald-500 font-bold">▲ +34%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('reddit-leadgen-cold-email-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Reddit 获客冷邮件引擎</span>
+              <span class="text-slate-500">MRR $3,800</span>
+              <span class="text-emerald-500 font-bold">▲ +45%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('deepseek-crossborder-localization-tool')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">DeepSeek 小语种翻译插件</span>
+              <span class="text-slate-500">MRR $6,200</span>
+              <span class="text-emerald-500 font-bold">▲ +28%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('rednote-emotional-healing-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">小红书情绪解忧 Agent</span>
+              <span class="text-slate-500">月入 ¥18,000</span>
+              <span class="text-emerald-500 font-bold">▲ +62%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('etsy-notion-template-digital-downloads')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Notion 预算账本数字资产</span>
+              <span class="text-slate-500">月入 $2,500</span>
+              <span class="text-emerald-500 font-bold">▲ +18%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('acquire-micro-saas-flipping')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Micro-SaaS 快速孵化转手</span>
+              <span class="text-slate-500">退出估值 $15,000+</span>
+              <span class="text-emerald-500 font-bold">▲ 24x Exit</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openDetail('local-rag-agent-consulting')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">本地企业 RAG 咨询</span>
+              <span class="text-slate-500">单客客单 ¥8k~¥2.5w</span>
+              <span class="text-emerald-500 font-bold">▲ 高毛利</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <!-- 主体内容区域 -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
@@ -934,6 +1064,15 @@
                 <span class="text-amber-400 font-bold">年度 VIP HK$299 全年无限畅读</span>
               </div>
 
+              <!-- 对标海外研报比价提示 (强化性价比优势) -->
+              <div class="text-[11px] font-mono text-slate-400 flex flex-wrap items-center justify-center gap-1.5 pt-0.5">
+                <span class="text-amber-400 font-bold">💡 对标海外商业情报库</span>
+                <span class="text-slate-600 hidden sm:inline">·</span>
+                <span class="hidden sm:inline">BizPeel / Exploding Topics 年费 $300~$1,000+</span>
+                <span class="text-slate-600 hidden sm:inline">·</span>
+                <span class="text-emerald-400 font-semibold">MoneyLab 单篇仅零头，附带全套源码与 Agent 落地技能包</span>
+              </div>
+
               <!-- 核心行动大按钮 (高能翡翠绿发光微动效) -->
               <div class="pt-1 w-full sm:w-auto">
                 <button 
@@ -1093,10 +1232,16 @@
       </div>
 
       <!-- 弹窗底栏操作区 -->
-      <div class="px-6 py-4 border-t border-brand-border bg-brand-black/90 flex items-center justify-between">
-        <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono text-slate-700 hover:text-slate-900 dark:text-brand-textSecondary dark:hover:text-brand-textPrimary transition-colors flex items-center space-x-1.5 cursor-pointer">
-          <span>复制研报摘要</span>
-        </button>
+      <div class="px-6 py-4 border-t border-brand-border bg-brand-black/90 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-2">
+          <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-brand-surface dark:hover:bg-brand-surfaceHover border border-slate-200 dark:border-brand-border text-xs font-mono text-slate-700 hover:text-slate-900 dark:text-brand-textSecondary dark:hover:text-brand-textPrimary transition-colors flex items-center space-x-1.5 cursor-pointer">
+            <span>复制研报摘要</span>
+          </button>
+          <button id="modal-agent-btn" onclick="copyPromptForAgent()" title="复制为开箱即用的 AI 操盘系统指令 (Cursor / Claude Code / ChatGPT 直接可用)" class="px-3.5 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold transition-all flex items-center space-x-1.5 cursor-pointer shadow-2xs group">
+            <span class="group-hover:scale-110 transition-transform">🤖</span>
+            <span>复制给我的 Agent</span>
+          </button>
+        </div>
 
         <button id="modal-source-btn" type="button" class="btn-unlock-pulse px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-tight transition-all shadow-md flex items-center space-x-2 cursor-pointer">
           <span class="text-sm">🔒</span>
@@ -1151,6 +1296,14 @@
           <p class="text-xs text-slate-500 dark:text-brand-textMuted">
             一手商业情报 · 工业级 AI 源码包 · 秒级到账永久留存
           </p>
+        </div>
+
+        <!-- 对标海外商业情报库的性价比锚点条 -->
+        <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-start space-x-2.5 text-xs font-mono text-amber-700 dark:text-amber-300">
+          <span class="text-base shrink-0">💡</span>
+          <div class="leading-relaxed">
+            <span class="font-bold">极具性价比的商业情报投资：</span>对比海外商业情报库 (BizPeel / Exploding Topics 年费 $300~$1,000+)，MoneyLab VIP 仅需零头 HK$299 (¥275) 买断全年，且独家交付开箱即用的工业级 AI Agent 操盘技能包。
+          </div>
         </div>
 
         <!-- 双轨方案卡片 -->
@@ -2206,6 +2359,54 @@
       const text = `【搞钱实验室研报】${activeModalProject.title}\n推荐指数: ${activeModalProject.score}分 (${activeModalProject.rating_tier}级)\n预估月现金流: ${cleanFinancialText(activeModalProject.metrics?.est_monthly_profit)}\n验证周期: ${activeModalProject.metrics?.cycle_time}\n商业逻辑: ${activeModalProject.summary}\n来源: m.ucncn.cn`;
       navigator.clipboard.writeText(text).then(() => {
         showToast('研报摘要已复制到剪贴板');
+      });
+    }
+
+    // 复制专属 AI Agent 操盘提示词 (直接粘贴至 Cursor / Claude Code / ChatGPT)
+    function copyPromptForAgent() {
+      if (!activeModalProject) return;
+      const p = activeModalProject;
+      const sopText = (p.workflow_steps || []).map((s, idx) => 
+        `阶段 0${idx + 1} · ${s.title}\n  - 执行要点: ${s.detail}\n  - 交付成果: ${s.deliverable || '落地闭环'}`
+      ).join('\n\n');
+
+      const thesisPain = p.core_thesis?.market_pain || p.summary;
+      const thesisArbitrage = p.core_thesis?.opportunity_arbitrage || '';
+
+      const agentPrompt = `# Role: 商业落地首席操盘架构师 (基于 MoneyLab 商业尽调报告)
+# Target Project: 【${p.title}】
+# Goal: 启动 72 小时 MVP 极速落地验证
+
+你现在是此项目的全栈商业操盘手与技术落地专家。请严格基于以下经过客观尽调与量化验证的商业情报，为我拆解执行计划并编写核心工程物料：
+
+## 1. 商业机会本质与套利切口
+- 痛点现状: ${thesisPain}
+- 核心商业机制与套利切口: ${thesisArbitrage}
+- 变现模式: ${p.monetization_model || cleanFinancialText(p.metrics?.est_monthly_profit) || '高毛利直接交付'}
+
+## 2. 官方标准落地路径 (SOP)
+${sopText}
+
+## 3. 落地约束参数与合规底线
+- 启动技术门槛: ${p.metrics?.tech_barrier || '2/5'}
+- 首单验证周期: ${p.metrics?.cycle_time || '5~10 天'}
+- 启动资金需求: ${p.metrics?.startup_cost || '$0'}
+- 预估月现金流: ${cleanFinancialText(p.metrics?.est_monthly_profit)}
+- ⚠️ 致命避坑与红线警戒: ${p.pitfalls_to_avoid || '严格遵循平台合规，切勿滥用权限'}
+
+---
+## 【当前行动指令】
+请直接开始协助我执行，无需任何客套寒暄，按以下步骤输出：
+1. 拆解第一阶段（48~72 小时内）最小可行性原型 (MVP) 的极简技术架构选型与核心目录结构；
+2. 给出 1 份针对目标用户最痛需求的即插即用破冰话术/冷邮件成交模板；
+3. 列出需要我今天拍板定案的 3 个关键决策项。
+
+(注: 完整全自包含落地 SKILL.md 与未脱敏一手信源原帖可在 MoneyLab 解锁获取: https://m.ucncn.cn/p/${p.slug}/)`;
+
+      navigator.clipboard.writeText(agentPrompt).then(() => {
+        showToast('🤖 已复制专属 Agent 操盘指令！可直接粘贴至 Cursor / Claude / ChatGPT 立即开工');
+      }).catch(() => {
+        showToast('复制失败，请手动选择');
       });
     }
 

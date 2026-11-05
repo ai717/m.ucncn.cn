@@ -389,6 +389,25 @@
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(148, 163, 184, 0.2); border-radius: 9999px; }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgba(148, 163, 184, 0.4); }
+
+    /* Live MRR & Valuation Pulse Ticker */
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      will-change: transform;
+      animation: tickerScroll 48s linear infinite;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .mask-fade {
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -493,6 +512,117 @@
 
     </div>
   </header>
+
+  <!-- Live MRR & Valuation Pulse Ticker (Terminal Style) -->
+  <aside aria-label="Real-time Revenue Pulse" class="border-b border-slate-200/90 dark:border-brand-border bg-slate-50/95 dark:bg-[#07090e]/95 backdrop-blur-md text-xs py-2 px-3 sm:px-6 overflow-hidden flex items-center select-none z-30">
+    <div class="max-w-7xl mx-auto w-full flex items-center">
+      <!-- Fixed Left Live Badge -->
+      <div class="shrink-0 flex items-center space-x-2 pr-3 sm:pr-4 mr-2 sm:mr-3 border-r border-slate-200 dark:border-brand-border text-slate-800 dark:text-slate-200 font-mono text-[11px] font-bold">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="hidden sm:inline">LIVE REVENUE PULSE</span>
+        <span class="sm:hidden">PULSE</span>
+        <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] uppercase font-mono">24/7</span>
+      </div>
+
+      <!-- Marquee Ticker Track -->
+      <div class="overflow-hidden relative w-full flex-1 mask-fade">
+        <div class="ticker-track space-x-6 sm:space-x-8 text-xs font-mono">
+          <!-- Set 1 -->
+          <div class="inline-flex items-center space-x-6 sm:space-x-8">
+            <span onclick="openProjectModal('niche-chrome-extension-monetization')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Niche Chrome Extension</span>
+              <span class="text-slate-500">MRR $1,200~$4,500</span>
+              <span class="text-emerald-500 font-bold">▲ +34%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('reddit-leadgen-cold-email-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Reddit Cold Email Bot</span>
+              <span class="text-slate-500">MRR $3,800</span>
+              <span class="text-emerald-500 font-bold">▲ +45%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('deepseek-crossborder-localization-tool')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">DeepSeek Localization Tool</span>
+              <span class="text-slate-500">MRR $6,200</span>
+              <span class="text-emerald-500 font-bold">▲ +28%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('rednote-emotional-healing-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Emotional Companion Bot</span>
+              <span class="text-slate-500">Run Rate $2,600/mo</span>
+              <span class="text-emerald-500 font-bold">▲ +62%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('etsy-notion-template-digital-downloads')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Etsy Notion Assets</span>
+              <span class="text-slate-500">Run Rate $2,500/mo</span>
+              <span class="text-emerald-500 font-bold">▲ +18%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('acquire-micro-saas-flipping')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Micro-SaaS Flipping</span>
+              <span class="text-slate-500">Exit Value $15,000+</span>
+              <span class="text-emerald-500 font-bold">▲ 24x Exit</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('local-rag-agent-consulting')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Enterprise RAG Consulting</span>
+              <span class="text-slate-500">$1.2k~$3.5k/client</span>
+              <span class="text-emerald-500 font-bold">▲ High Margin</span>
+            </span>
+          </div>
+
+          <!-- Set 2 (Seamless loop) -->
+          <div class="inline-flex items-center space-x-6 sm:space-x-8">
+            <span onclick="openProjectModal('niche-chrome-extension-monetization')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Niche Chrome Extension</span>
+              <span class="text-slate-500">MRR $1,200~$4,500</span>
+              <span class="text-emerald-500 font-bold">▲ +34%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('reddit-leadgen-cold-email-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Reddit Cold Email Bot</span>
+              <span class="text-slate-500">MRR $3,800</span>
+              <span class="text-emerald-500 font-bold">▲ +45%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('deepseek-crossborder-localization-tool')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">DeepSeek Localization Tool</span>
+              <span class="text-slate-500">MRR $6,200</span>
+              <span class="text-emerald-500 font-bold">▲ +28%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('rednote-emotional-healing-bot')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Emotional Companion Bot</span>
+              <span class="text-slate-500">Run Rate $2,600/mo</span>
+              <span class="text-emerald-500 font-bold">▲ +62%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('etsy-notion-template-digital-downloads')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Etsy Notion Assets</span>
+              <span class="text-slate-500">Run Rate $2,500/mo</span>
+              <span class="text-emerald-500 font-bold">▲ +18%</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('acquire-micro-saas-flipping')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Micro-SaaS Flipping</span>
+              <span class="text-slate-500">Exit Value $15,000+</span>
+              <span class="text-emerald-500 font-bold">▲ 24x Exit</span>
+            </span>
+            <span class="text-slate-300 dark:text-slate-700">·</span>
+            <span onclick="openProjectModal('local-rag-agent-consulting')" class="hover:text-emerald-500 cursor-pointer inline-flex items-center space-x-1.5 transition-colors">
+              <span class="font-bold text-slate-800 dark:text-white">Enterprise RAG Consulting</span>
+              <span class="text-slate-500">$1.2k~$3.5k/client</span>
+              <span class="text-emerald-500 font-bold">▲ High Margin</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <!-- Hero Section with Institutional Research Metrics -->
   <section class="relative border-b border-slate-200 dark:border-brand-border bg-gradient-to-b from-slate-50 to-white dark:from-brand-surface/40 dark:to-transparent pt-12 pb-10 transition-colors">
@@ -842,6 +972,15 @@
                 <span class="text-amber-400 font-bold">Annual VIP HK$299 (~$38.00) Unlimited</span>
               </div>
 
+              <!-- Benchmark vs Global Market Research -->
+              <div class="text-[11px] font-mono text-slate-400 flex flex-wrap items-center justify-center gap-1.5 pt-0.5">
+                <span class="text-amber-400 font-bold">💡 Benchmark vs US Intel</span>
+                <span class="text-slate-600 hidden sm:inline">·</span>
+                <span class="hidden sm:inline">BizPeel / Exploding Topics $300~$1,000/yr</span>
+                <span class="text-slate-600 hidden sm:inline">·</span>
+                <span class="text-emerald-400 font-semibold">MoneyLab is a fraction of the cost, complete with turnkey Agent skills</span>
+              </div>
+
               <!-- High-Energy Glowing Emerald CTA Button -->
               <div class="pt-1 w-full sm:w-auto">
                 <button 
@@ -947,9 +1086,17 @@
       </div>
 
       <!-- Modal Footer -->
-      <div class="px-6 py-4 border-t border-slate-200 dark:border-brand-border bg-slate-50 dark:bg-brand-black flex items-center justify-between text-xs font-mono text-slate-500">
-        <span>MoneyLab Institutional Solopreneur Intelligence</span>
-        <button onclick="closeProjectModal()" class="px-4 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-mono text-xs font-bold transition-colors cursor-pointer">
+      <div class="px-6 py-4 border-t border-slate-200 dark:border-brand-border bg-slate-50 dark:bg-brand-black flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <button id="modal-copy-btn" onclick="copyCurrentProjectText()" class="px-3 py-2 rounded-lg bg-slate-200 dark:bg-brand-surface hover:bg-slate-300 dark:hover:bg-brand-surfaceHover border border-slate-300 dark:border-brand-border text-slate-800 dark:text-brand-textPrimary font-bold transition-colors flex items-center space-x-1.5 cursor-pointer">
+            <span>Copy Brief</span>
+          </button>
+          <button id="modal-agent-btn" onclick="copyPromptForAgent()" title="Copy turnkey AI system instructions for Cursor, Claude Code, or ChatGPT" class="px-3.5 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-bold transition-all flex items-center space-x-1.5 cursor-pointer shadow-2xs group">
+            <span class="group-hover:scale-110 transition-transform">🤖</span>
+            <span>Copy for AI Agent</span>
+          </button>
+        </div>
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-mono text-xs font-bold transition-colors cursor-pointer">
           Close
         </button>
       </div>
@@ -974,6 +1121,14 @@
         <button onclick="closeCheckoutModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-brand-surface cursor-pointer">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
+      </div>
+
+      <!-- High-ROI Benchmark Comparison Banner -->
+      <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-start space-x-2.5 text-xs font-mono text-amber-700 dark:text-amber-300">
+        <span class="text-base shrink-0">💡</span>
+        <div class="leading-relaxed">
+          <span class="font-bold">Exceptional Intel Value:</span> Compared to $300-$1,000/yr memberships (BizPeel, Exploding Topics), MoneyLab VIP is just HK$299 (~$38) for full annual access, complete with turnkey AI Agent skills and raw unredacted code.
+        </div>
       </div>
 
       <!-- Plan Selector Cards -->
@@ -1994,6 +2149,62 @@ Focus strictly on high-converting value proposition, zero-friction checkout, and
         showToast('Turnkey SKILL.md copied to clipboard!', '🤖');
       }).catch(() => {
         showToast('Please select and copy manually', '⚠️');
+      });
+    }
+
+    function copyCurrentProjectText() {
+      if (!activeModalProject) return;
+      const p = activeModalProject;
+      const text = `[MoneyLab Solopreneur Blueprint] ${p.title}\nFeasibility Score: ${p.score}/100 (${p.rating_tier}-Tier)\nEst. Monthly Run Rate: ${p.metrics?.est_monthly_profit || 'High'}\nValidation Cycle: ${p.metrics?.cycle_time || '7 Days'}\nCore Concept: ${p.summary}\nSource: m.ucncn.cn/en/`;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Brief summary copied to clipboard!', '📋');
+      });
+    }
+
+    function copyPromptForAgent() {
+      if (!activeModalProject) return;
+      const p = activeModalProject;
+      const sopText = (p.workflow_steps || []).map((s, idx) => 
+        `Stage 0${idx + 1} · ${s.title}\n  - Action: ${s.detail}\n  - Deliverable: ${s.deliverable || 'Production ready'}`
+      ).join('\n\n');
+
+      const thesisPain = p.core_thesis?.market_pain || p.summary;
+      const thesisArbitrage = p.core_thesis?.opportunity_arbitrage || '';
+
+      const agentPrompt = `# Role: Lead Commercial Execution Architect & AI Solo Founder
+# Target Project: [${p.title}]
+# Goal: 72-Hour Rapid MVP Sprint & Monetization Execution
+
+You are the full-stack commercial execution lead and technical architect for this venture. Based strictly on the audited research intelligence from MoneyLab below, deconstruct the launch roadmap and build the core production assets:
+
+## 1. Commercial Core Thesis & Arbitrage Wedge
+- Market Context & Founder Pain: ${thesisPain}
+- Core Monetization Arbitrage: ${thesisArbitrage}
+- Revenue Engine: ${p.monetization_model || p.metrics?.est_monthly_profit || 'Direct Subscription'}
+
+## 2. Standard Operational Execution Pipeline (SOP)
+${sopText}
+
+## 3. Financial & Feasibility Parameters
+- Technical Barrier: ${p.metrics?.tech_barrier || '2/5'}
+- Time to First Dollar: ${p.metrics?.cycle_time || '5~10 Days'}
+- Upfront Capital: ${p.metrics?.startup_cost || '$0'}
+- Est. Monthly Run Rate: ${p.metrics?.est_monthly_profit || 'Predictable'}
+- ⚠️ Critical Pitfalls & Platform Red Lines: ${p.pitfalls_to_avoid || 'Comply strictly with platform developer terms'}
+
+---
+## [Immediate Action Directive]
+Start immediately by providing the following Phase 1 deliverables without generic boilerplate:
+1. Deconstruct the minimal viable technical architecture & clean file directory tree for the 48-72h MVP;
+2. Generate 1 high-converting cold outreach / community launch hook tailored to target customer pain points;
+3. List 3 key business decisions I need to finalize today to hit first-dollar validation.
+
+(Note: Full turnkey SKILL.md file and unredacted raw founder threads can be unlocked at MoneyLab: https://m.ucncn.cn/en/p/${p.slug}/)`;
+
+      navigator.clipboard.writeText(agentPrompt).then(() => {
+        showToast('🤖 Turnkey Agent prompt copied! Ready to paste into Cursor / Claude Code / ChatGPT.', '🤖');
+      }).catch(() => {
+        showToast('Please copy manually', '⚠️');
       });
     }
 

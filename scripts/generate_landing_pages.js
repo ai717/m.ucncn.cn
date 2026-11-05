@@ -371,8 +371,17 @@ ${GTAG_SNIPPET}
         </a>
       </div>
 
-      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-2">
-        <span>${isEn ? 'Single Pass: HK$29.90 (~$3.80)' : '单篇买断：HK$29.90'}</span>
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">${isEn ? '💡 Benchmark vs Overseas Intel' : '💡 对标海外商业情报库'}</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">${isEn ? 'BizPeel / Exploding Topics $300~$1,000/yr' : 'BizPeel / Exploding Topics 年费 $300~$1,000+'}</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">${isEn ? 'MoneyLab VIP is only HK$299 (~$38) lifetime' : 'MoneyLab VIP 仅零头 HK$299 买断全年'}</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>${isEn ? 'Single Pass: HK$29.90 (~$3.80)' : '单篇买断：HK$29.90 (约 ¥27.5)'}</span>
         <span>·</span>
         <span>${isEn ? 'Annual VIP: HK$299 (~$38.00)' : '年度 VIP：HK$299 全库畅享'}</span>
       </div>
