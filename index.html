@@ -242,18 +242,31 @@
     }
   </script>
   <style>
-    /* 暗色模式（黑曜石机构研报风，纯色平整，高级克制，微极客坐标网格） */
+    /* 暗色模式（黑曜石机构研报风，纯色平整，高级克制） */
     html.dark {
       color-scheme: dark;
     }
     html.dark body {
       background-color: #08090b;
+      color: #94a3b8;
+    }
+    /* 独立硬件加速网格层：固定定位 + translateZ(0) 隔离为独立 Composite Layer，零重绘负担 */
+    .grid-blueprint-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -10;
+      transform: translateZ(0);
+      contain: strict;
+    }
+    html.dark .grid-blueprint-bg {
+      background-color: #08090b;
       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       background-size: 32px 32px;
-      color: #94a3b8;
     }
+
     /* 卡片纯色无渐变 */
     html.dark .memo-card,
     html.dark .memo-card-s {
@@ -295,19 +308,27 @@
     }
     html:not(.dark) body {
       background-color: #f6f8fa;
+      color: #1e293b;
+    }
+    html:not(.dark) .grid-blueprint-bg {
+      background-color: #f6f8fa;
       background-image: 
         linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
       background-size: 32px 32px;
-      color: #1e293b;
     }
     html:not(.dark) header {
-      background-color: rgba(246, 248, 250, 0.9) !important;
+      background-color: rgba(246, 248, 250, 0.96) !important;
       border-color: #e2e8f0 !important;
     }
     /* 卡片纯白平整，浮于工程网格纸上方，微阴影托底，清晰护眼 */
     html:not(.dark) .memo-card,
     html:not(.dark) .memo-card-s {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
       box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
@@ -504,10 +525,12 @@
   <!-- Supabase 官方客户端 SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="flex flex-col selection:bg-brand-primary selection:text-black font-sans">
+<body class="flex flex-col selection:bg-brand-primary selection:text-black font-sans relative">
+  <!-- 独立硬件加速工程网格背景层 (零 CPU/GPU 模糊开销) -->
+  <div class="grid-blueprint-bg"></div>
 
   <!-- 顶部极简品牌导航条 -->
-  <header class="sticky top-0 z-40 border-b border-brand-border bg-brand-black/95 backdrop-blur-md">
+  <header class="sticky top-0 z-40 border-b border-brand-border bg-white/95 dark:bg-brand-black/95 backdrop-blur-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo 与 产品定位 -->
@@ -607,8 +630,8 @@
     </div>
   </header>
 
-  <!-- 金融级实时商业异动走马灯 (Live Revenue & Valuation Pulse Ticker) -->
-  <aside aria-label="实时商业营收走马灯" class="border-b border-slate-200/90 dark:border-brand-border bg-slate-50/95 dark:bg-[#07090e]/95 backdrop-blur-md text-xs py-2 px-3 sm:px-6 overflow-hidden flex items-center select-none z-30">
+  <!-- 金融级实时商业异动走马灯 (Live Revenue & Valuation Pulse Ticker) - 纯硬件加速，零模糊开销 -->
+  <aside aria-label="实时商业营收走马灯" class="border-b border-slate-200/90 dark:border-brand-border bg-slate-50 dark:bg-[#07090e] text-xs py-2 px-3 sm:px-6 overflow-hidden flex items-center select-none z-30">
     <div class="max-w-7xl mx-auto w-full flex items-center">
       <!-- 固定左侧标签 (不滚动) -->
       <div class="shrink-0 flex items-center space-x-2 pr-3 sm:pr-4 mr-2 sm:mr-3 border-r border-slate-200 dark:border-brand-border text-slate-800 dark:text-slate-200 font-mono text-[11px] font-bold">
@@ -621,8 +644,10 @@
         <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] uppercase font-mono">LIVE</span>
       </div>
 
-      <!-- 走马灯滚动视窗 -->
-      <div class="overflow-hidden relative w-full flex-1 mask-fade">
+      <!-- 走马灯滚动视窗 (零 CPU 负担：左右微渐变贴图覆盖) -->
+      <div class="overflow-hidden relative w-full flex-1">
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-r from-slate-50 dark:from-[#07090e] to-transparent z-10"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-l from-slate-50 dark:from-[#07090e] to-transparent z-10"></div>
         <div class="ticker-track space-x-6 sm:space-x-8 text-xs font-mono">
           <!-- 组 1 -->
           <div class="inline-flex items-center space-x-6 sm:space-x-8">
