@@ -1,13 +1,13 @@
 ---
 name: moneylab-collector
-description: 「搞钱实验室」全域商业情报深度采集、客观尽调与【单项目个性化落地 SKILL.md 资产自动生成】二合一超级工坊。专为 Grok、Gemini、Claude、Muse/豆包 与本地 Agent 打造。融合 BizPeel 的 Agent-Native 商业资产标准与 MoneyLab 真实购买力校准法则。输入巡航指令或粗略线索，端到端产出：①符合最新前端契约的标准项目 JSON（含 3 层 Core Thesis、带交付物的 SOP 阶段管线、量化打分）；②100% 依据五大商业原型（B2B获客监听/浏览器插件/企业AI封装/数字化资产/微型资产并购）白手定制的单项目专属生产级 SKILL.md 技能包。彻底杜绝千篇一律套版，直接为付费用户交付真材实料源码、Prompt 与变现物料。触发词：搞钱采集、搞钱实验室、moneylab、项目采集、商业入库、生成项目skill、采集搞钱项目。
+description: 「搞钱实验室」全域商业情报深度采集、客观尽调与【单项目个性化落地 SKILL.md 资产自动生成】二合一超级工坊。专为 Grok、Gemini、Claude、Muse/豆包 与本地 Agent 打造。融合 BizPeel 的 Agent-Native 商业资产标准与 MoneyLab 真实购买力校准法则。输入巡航指令或粗略线索，端到端产出：①符合最新前端契约的标准项目 JSON（含 core_thesis 真实痛点与商业套利两段式剖析、带交付物的 SOP 阶段管线、量化打分）；②100% 依据六大商业原型（B2B获客监听/浏览器插件/企业AI封装/数字化资产/微型资产并购/软硬结合轻制造）白手定制的单项目专属生产级 SKILL.md 技能包。彻底杜绝千篇一律套版，直接为付费用户交付真材实料源码、Prompt 与变现物料。触发词：搞钱采集、搞钱实验室、moneylab、项目采集、商业入库、生成项目skill、采集搞钱项目。
 ---
 
 # ⚡ 搞钱实验室全域商业情报与专属技能工坊 (MoneyLab Collector v4.0 · Agent-Native)
 
 本技能专为**「搞钱实验室 (m.ucncn.cn)」**打造，承载两大核心使命：
 > **1. 严肃客观商业尽调**：以“数字化杠杆与真实正向现金流”为核心，深入全域真实商业信源，打破“唯纯软件/纯互联网”思维。严守【真实客观、严禁夸大失真】铁律，以真实客单价与转化率严谨测算，杜绝一切营销泡沫；
-> **2. Agent-Native 专属资产交付**：借鉴 BizPeel 核心心法，商业情报不仅给人看，更是**给 AI Agent 执行的生产级资产**。彻底打破“千篇一律套用模板”的陋习，根据五大商业原型（获客监听/插件/企业AI/虚拟电商/微型收购），为每个项目白手定制独一无二、高密度的 `SKILL.md` 落地包！
+> **2. Agent-Native 专属资产交付**：借鉴 BizPeel 核心心法，商业情报不仅给人看，更是**给 AI Agent 执行的生产级资产**。彻底打破“千篇一律套用模板”的陋习，根据六大商业原型（获客监听/插件/企业AI/虚拟电商/微型收购/软硬结合轻制造），为每个项目白手定制独一无二、高密度的 `SKILL.md` 落地包！
 
 ---
 
@@ -36,7 +36,7 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 每次采集或撰写新商业案例前，必须严格通过以下三道去重漏斗：
 
 ### 1. 第一级：采前硬查重（Pre-Ingestion Dedup · 强制前置条件）
-- **必须先检索**：在动笔编写任何代码或 JSON 前，必须检查已有项目库 [`money/data/projects.json`](file:///g:/work/code/website/ucncn/money/data/projects.json)（或当前环境中的已入库项目列表）；
+- **必须先检索**：在动笔编写任何代码或 JSON 前，必须通过 MoneyLab 实时去重索引（在线读取 `https://m.ucncn.cn/llms.txt` 或 `catalog.json`，或检查本地已收录项目库）进行前置查重；
 - **查重靶标**：比对【竞品/产品名】、【官网或 GitHub URL】以及【计划分配的 URL Slug】；
 - **处置机制**：
   - 若库内已存在该项目的剖析（例如已有同名 Chrome 插件或 Reddit 获客 Bot），**立即终止编写，杜绝 1 个 Token 的无效消耗**；
@@ -74,7 +74,7 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 
 ---
 
-## 一、 五大商业原型自适应路由（杜绝模板化套用的核心机制）
+## 一、 六大核心商业原型自适应路由（杜绝模板化套用的核心机制）
 
 每次尽调新项目时，**必须首先判定其商业原型**，并白手定制该原型专属的落地资产。**严禁把单一项目的物料（如 Reddit 监听代码、冷发邮件模板）生搬硬套到其他不同形态的商业项目中**：
 
@@ -103,6 +103,12 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 5. **原型 E：微型资产并购、翻新与转手 (Micro-SaaS Flipping & Acquire.com)**
    - 核心机制：收购或快速开发具有微弱正现金流 ($300~$800 MRR) 的半成品工具，优化关键指标后按 20~30 倍月倍数快速退出；
    - 专属落地资产：Acquire.com 挂牌转让 Memorandum 简报 + 降低 Churn 流失率的挽留机制 + 资产交割审查清单 (Due Diligence Checklist)。
+6. **原型 F：软硬结合、小众配件与个性化轻制造 (Physical + Digital POD & 3D-Printing)**
+   - 核心机制：切入原厂停产/冷门维修的窄口子（如老车绝版件、复古外设、工业卡扣），以“指定车型/指定设备/指定件”的原创设计避开通用爆款内卷，靠垂直车友群与 Etsy/eBay 高毛利变现；
+   - 专属落地资产：原创 CAD 建模与装车实测规范 + 耐热工程耗材（PETG/ABS）切片与打印机小时数精算 + 真实车友群非广告真诚交流与发货退换 SOP。
+7. **原型 G：冷门垂直执业资格认证高客单题库与冲刺包 (Niche Certifications & Exam Cram Vaults)**
+   - 核心机制：欧美特种行业从业考证刚需（如 FAA Part 107 无人机、EPA 608 制冷剂、海事特种操作），自建静态题库自测站，高意向流量通过 Stripe/Gumroad 买断即走；
+   - 专属落地资产：题库去重与自测脚本 + 考点高频记忆闪卡 Prompt + 静态答题评分引擎 + 考前 72 小时冲刺包落地页。
 
 ---
 
@@ -173,9 +179,10 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 | **#05** | `local-rag-agent-consulting` | 原型 C (垂直服务落地) | 面向本地中小企业的私有化 RAG 知识库与客服搭设咨询 | 企业本地知识库代搭建、FastGPT/Dify私有化咨询交付 |
 | **#06** | `rednote-emotional-healing-bot` | 原型 D (虚拟情绪资产) | 小红书青年情绪治愈树洞 + 心理陪伴虚拟履约 + 微信私域转化 | 小红书解忧杂货铺、虚拟树洞情绪收费、私域虚拟咨询 |
 | **#07** | `etsy-notion-template-digital-downloads` | 原型 D (数字化模板) | Etsy/Gumroad 欧美高客单 Notion 生产力模板 + 自动化交付 | Notion 模板出海销售、Gumroad 数字发卡、无代码模板资产 |
+| **#08** | `faa-drone-license-exam-cram-vault` | 原型 G (垂直高转化题库) | FAA Part 107 商业无人机执照极速冲刺自测题库与考点记忆卡 | 无人机执照题库、FAA Part 107真题、特种执业考试冲刺卡 |
 
 👉 **Muse / 豆包 的避坑与创新策略**：
-1. **严禁撞车**：只要你构思的商业模式本质与上述 7 项重叠（例如“推特获客监听插件”、“又一个 Notion 财务模板”），必须立刻推翻重选！
+1. **严禁撞车**：只要你构思的商业模式本质与上述 8 项重叠（当前官网收录总数 8 条；如“推特获客监听插件”、“又一个 Notion 财务模板”、“同款 FAA 题库”），必须立刻推翻重选！
 2. **开拓空白高价值赛道**：优先开拓全站尚未覆盖的蓝海高价值原型，包括但不限于：
    - 🏭 **软硬结合与轻制造**：3D 打印定制件、CNC 亚克力小众外设、Printables 飙升榜商业化；
    - 📍 **线下同城高客单引流数字化**：高客单家政/冷门维修/摄影棚同城搜索截流与外包抽佣；
@@ -427,14 +434,15 @@ license: Commercial Asset - Authorized for MoneyLab Pro Members
 明确指出平台政策红线、API 代理防逆向要求，以及获取前 10~50 个种子付费用户的低成本实操通道。
 ```
 
-> 💡 **全站 7 大原型黄金标杆参考切片（存放在 `money/skills/`）：**
-> - 浏览器插件原型 ➔ 参考 [`niche-chrome-extension-monetization/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/niche-chrome-extension-monetization/SKILL.md)
-> - 企业级 AI 封装 ➔ 参考 [`deepseek-crossborder-localization-tool/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/deepseek-crossborder-localization-tool/SKILL.md)
-> - 数字化资产模板 ➔ 参考 [`etsy-notion-template-digital-downloads/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/etsy-notion-template-digital-downloads/SKILL.md)
-> - 虚拟电商与情绪消费 ➔ 参考 [`rednote-emotional-healing-bot/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/rednote-emotional-healing-bot/SKILL.md)
-> - 微型并购快速退出 ➔ 参考 [`acquire-micro-saas-flipping/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/acquire-micro-saas-flipping/SKILL.md)
-> - 本地企业知识库咨询 ➔ 参考 [`local-rag-agent-consulting/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/local-rag-agent-consulting/SKILL.md)
-> - B2B 意向获客引擎 ➔ 参考 [`reddit-leadgen-cold-email-bot/SKILL.md`](file:///g:/work/code/website/ucncn/money/skills/reddit-leadgen-cold-email-bot/SKILL.md)
+> 💡 **全站核心商业原型黄金标杆参考切片（存放在仓库 `skills/` 目录下，外部模型可在线访问）：**
+> - 浏览器插件原型 ➔ 参考 [niche-chrome-extension-monetization](https://github.com/ai717/m.ucncn.cn/tree/main/skills/niche-chrome-extension-monetization/SKILL.md) (本地相对路径: `skills/niche-chrome-extension-monetization/SKILL.md`)
+> - 企业级 AI 封装 ➔ 参考 [deepseek-crossborder-localization-tool](https://github.com/ai717/m.ucncn.cn/tree/main/skills/deepseek-crossborder-localization-tool/SKILL.md) (本地相对路径: `skills/deepseek-crossborder-localization-tool/SKILL.md`)
+> - 数字化资产模板 ➔ 参考 [etsy-notion-template-digital-downloads](https://github.com/ai717/m.ucncn.cn/tree/main/skills/etsy-notion-template-digital-downloads/SKILL.md) (本地相对路径: `skills/etsy-notion-template-digital-downloads/SKILL.md`)
+> - 虚拟电商与情绪消费 ➔ 参考 [rednote-emotional-healing-bot](https://github.com/ai717/m.ucncn.cn/tree/main/skills/rednote-emotional-healing-bot/SKILL.md) (本地相对路径: `skills/rednote-emotional-healing-bot/SKILL.md`)
+> - 微型并购快速退出 ➔ 参考 [acquire-micro-saas-flipping](https://github.com/ai717/m.ucncn.cn/tree/main/skills/acquire-micro-saas-flipping/SKILL.md) (本地相对路径: `skills/acquire-micro-saas-flipping/SKILL.md`)
+> - 本地企业知识库咨询 ➔ 参考 [local-rag-agent-consulting](https://github.com/ai717/m.ucncn.cn/tree/main/skills/local-rag-agent-consulting/SKILL.md) (本地相对路径: `skills/local-rag-agent-consulting/SKILL.md`)
+> - B2B 意向获客引擎 ➔ 参考 [reddit-leadgen-cold-email-bot](https://github.com/ai717/m.ucncn.cn/tree/main/skills/reddit-leadgen-cold-email-bot/SKILL.md) (本地相对路径: `skills/reddit-leadgen-cold-email-bot/SKILL.md`)
+> - 垂直高转化题库原型 ➔ 参考 [faa-drone-license-exam-cram-vault](https://github.com/ai717/m.ucncn.cn/tree/main/skills/faa-drone-license-exam-cram-vault/SKILL.md) (本地相对路径: `skills/faa-drone-license-exam-cram-vault/SKILL.md`)
 
 ---
 
@@ -452,8 +460,8 @@ license: Commercial Asset - Authorized for MoneyLab Pro Members
 【双轨输出任务】：
 挖掘出 2~3 个具有强真实可行性、无夸大失真的优质项目。
 对每个项目：
-1. 输出完全对齐 MoneyLab v4.0 契约的标准 JSON（含 3 层 core_thesis、带 deliverable 的 4 阶段 workflow_steps，并附带极简的 title_en 与 summary_en 供出海独立站双语自动收录）；
-2. 根据其商业原型（获客监听/插件/企业AI/虚拟电商/微型收购），为其中最卓越的一个项目输出专属的完整落地 SKILL.md 文件（包含真实的工程源码与变现物料，杜绝千篇一律套版）。
+1. 输出完全对齐 MoneyLab v4.0 契约的标准 JSON（含 core_thesis 真实痛点与商业套利两段式剖析、带 deliverable 的 4 阶段 workflow_steps，并附带极简的 title_en 与 summary_en 供出海独立站双语自动收录）；
+2. 根据其商业原型（获客监听/插件/企业AI/虚拟电商与数字模板/微型收购/软硬结合轻制造/垂直题库），为其中最卓越的一个项目输出专属的完整落地 SKILL.md 文件（包含真实的工程源码与变现物料，杜绝千篇一律套版）。
 ```
 
 ### 2. 【Gemini 专用版】（全球多语种深度检索 + 严谨财务测算）
@@ -469,7 +477,7 @@ license: Commercial Asset - Authorized for MoneyLab Pro Members
 挖掘 2~3 个具有真实商业价值与落地路径的项目。
 对每个项目：
 1. 输出完全符合 MoneyLab v4.0 契约的标准 JSON 代码块（包含完整的 core_thesis、带标签与交付物的 workflow_steps，并附带极简的 title_en 与 summary_en 供出海独立站双语自动收录）；
-2. 依据五大商业原型，为排位第 1 的项目白手定制一套高密度的单项目专属落地 SKILL.md 资产（包含可直接执行的代码、配置与变现物料）。
+2. 依据商业原型，为排位第 1 的项目白手定制一套高密度的单项目专属落地 SKILL.md 资产（包含可直接执行的代码、配置与变现物料）。
 ```
 
 ### 3. 【Muse / 豆包 / 国内模型专用版】（中国市场本土化实证 + 严禁撞车与失真画饼）
