@@ -674,6 +674,13 @@ ${zhProjects.map((p, i) => `${i + 1}. [${p.slug}] - ${p.title}
   - 同样做特种考试题库：已有无人机执照，依然欢迎 EPA 608 制冷工、CDL 商业卡车司照等高薪准入考试；
   - 同样做意向监听：已有 Reddit SaaS 论坛监听，依然欢迎 Twitter/X 跨境出海摄影师/红人线索监听。
 - 🌟 **优先鼓励开辟全新赛道**：软硬结合轻制造 (3D打印/小众外设)、同城高客单服务数字化代搭、微型 API 聚合工具等。
+
+## 3. Elastic Schema Note (弹性数据包容规范)
+MoneyLab uses an elastic, adaptive rendering engine. AI agents do not need to stress over rigid syntactic keys:
+- Market Opportunity: Both \`core_thesis: { market_pain, opportunity_arbitrage }\` and \`deep_dive: { opportunity }\` are natively parsed.
+- SOP Steps: Both structured \`workflow_steps\` (with stage_tag / deliverable) and string array \`workflow\` are supported.
+- Pitfalls & Tools: Both \`pitfalls_to_avoid\` / \`risk_and_pitfalls\` and top-level \`tools\` are supported.
+Focus 100% on deep business teardown, real unit economics, and actionable deliverables!
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxtContent, 'utf8');
