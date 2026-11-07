@@ -172,6 +172,60 @@ if (totalAdded === 0 && totalUpdated === 0) {
 fs.writeFileSync(DB_PATH, JSON.stringify(existing, null, 2), 'utf8');
 console.log(`\n🎉 数据合并完成！当前实验室总项目数: ${existing.length} 条 (本次新增: ${totalAdded}, 更新: ${totalUpdated})`);
 
+// 自动同步英文出海数据库 (data/projects_en.json)
+const DB_PATH_EN = path.resolve(__dirname, '../data/projects_en.json');
+let enExisting = [];
+if (fs.existsSync(DB_PATH_EN)) {
+  try { enExisting = JSON.parse(fs.readFileSync(DB_PATH_EN, 'utf8')); } catch (e) { enExisting = []; }
+}
+
+const categoryEnMap = {
+  '出海/独立开发': 'Micro-SaaS & Automation',
+  '软硬结合/轻制造': 'Physical + Digital POD',
+  '线下数字化线索': 'Local Lead-Gen & Arbitrage',
+  '国内虚拟电商': 'Pure Digital Assets',
+  'AI应用与服务': 'AI Wrappers & B2B Solutions',
+  '跨境与电商': 'Cross-Border & E-Commerce'
+};
+
+let enAdded = 0;
+existing.forEach(item => {
+  const matchIdx = enExisting.findIndex(e => (e.slug && e.slug === item.slug) || (e.id && e.id === item.id));
+  if (matchIdx < 0) {
+    const enEntry = {
+      id: item.id,
+      title: item.title_en || item.title,
+      slug: item.slug,
+      category: item.category_en || categoryEnMap[item.category] || 'Micro-SaaS & Automation',
+      tags: item.tags || [],
+      summary: item.summary_en || item.summary,
+      score: item.score,
+      rating_tier: item.rating_tier,
+      verdict: item.verdict_en || item.verdict,
+      score_breakdown: item.score_breakdown,
+      metrics: {
+        ...item.metrics,
+        clean_model: item.metrics?.clean_model || item.metrics?.revenue_model || 'Subscription / License'
+      },
+      deep_dive: item.deep_dive || {
+        opportunity: item.core_thesis?.opportunity_arbitrage || item.summary,
+        workflow: (item.workflow_steps || []).map(s => `${s.phase || 'Phase'}: ${s.title || ''} - ${s.detail || ''}`),
+        risk_and_pitfalls: item.pitfalls_to_avoid || 'Maintain strict operational discipline.',
+        tools: item.tools || []
+      },
+      source_url: item.source_url,
+      created_at: item.created_at
+    };
+    enExisting.unshift(enEntry);
+    enAdded++;
+    console.log(`  🌐 自动为项目 [${item.slug}] 派生并对齐英文出海版！`);
+  }
+});
+fs.writeFileSync(DB_PATH_EN, JSON.stringify(enExisting, null, 2), 'utf8');
+if (enAdded > 0) {
+  console.log(`✓ 英文出海数据库同步更新: 新增 ${enAdded} 条双语对齐记录`);
+}
+
 // 自动同步刷新 index.html 的 JSON-LD 结构化微数据与 sitemap.xml
 try {
   const htmlPath = path.resolve(__dirname, '../index.html');

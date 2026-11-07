@@ -25,7 +25,7 @@ description: 「搞钱实验室」全域商业情报深度采集、客观尽调�
 4. **四维客观量化打分**：AI 测算门槛友好度、见效速度、收益天花板与抗风险稳定性，按权重输出 0~100 综合推荐指数与 S/A/B 评级；
 5. **模型能力最大化路由**：Grok 专攻推特实名晒单并过滤炒作、Gemini 专攻多语言开源与微型并购、Muse/豆包 专攻本土真实生态落地、Claude/Cursor 专攻落地代码工程；
 6. **双轨交付输出与弹性自适应规范 (Dual-Rail & Elastic Schema)**：
-   - **轨道一（弹性自适应数据 JSON）**：全面兼容 `core_thesis` 与 `deep_dive`，步骤兼容 `workflow_steps` 与 `workflow`，指标兼容 `tech_barrier` / `difficulty_stars` 与 `startup_cost` / `initial_cost`，系统全自动智能归一化排版；
+   - **轨道一（弹性自适应数据 JSON）**：全面兼容 `core_thesis` 与 `deep_dive`，步骤兼容 `workflow_steps` 与 `workflow`，指标兼容 `tech_barrier` / `difficulty_stars` 与 `startup_cost` / `initial_cost`，顺带附带极简 `title_en` 与 `summary_en` 供独立站双语自动收录；
    - **轨道二（专属落地 SKILL.md）**：必须遵循【五模块金标准架构】，白手编写真实代码与专属变现物料，严禁使用 `// TODO` 占位符或缩水代码！
 
 ---
