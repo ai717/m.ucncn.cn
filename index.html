@@ -1681,29 +1681,34 @@
 
     // 渲染深度商业本质 (CORE THESIS)：背景痛点层 + 核心套利破局层 + 变现模型快照 (杜绝与上方财务卡片重复)
     function renderCoreThesis(opportunity, p) {
-      if (!opportunity) return '';
-      
       let partProblem = '';
       let partArbitrage = '';
-      
-      const zhSplit = '核心机会点与商业套利空间：';
-      const enSplit = 'Core Thesis & Value Arbitrage:';
-      
-      if (opportunity.includes(zhSplit)) {
-        const parts = opportunity.split(zhSplit);
-        partProblem = parts[0].trim();
-        partArbitrage = parts[1].trim();
-      } else if (opportunity.includes(enSplit)) {
-        const parts = opportunity.split(enSplit);
-        partProblem = parts[0].trim();
-        partArbitrage = parts[1].trim();
-      } else if (opportunity.includes('\n\n')) {
-        const parts = opportunity.split('\n\n');
-        partProblem = parts[0].trim();
-        partArbitrage = parts.slice(1).join('\n\n').trim();
-      } else {
-        partProblem = opportunity;
+
+      if (p?.core_thesis?.market_pain || p?.core_thesis?.opportunity_arbitrage) {
+        partProblem = p.core_thesis.market_pain || '';
+        partArbitrage = p.core_thesis.opportunity_arbitrage || '';
+      } else if (opportunity) {
+        const zhSplit = '核心机会点与商业套利空间：';
+        const enSplit = 'Core Thesis & Value Arbitrage:';
+        
+        if (opportunity.includes(zhSplit)) {
+          const parts = opportunity.split(zhSplit);
+          partProblem = parts[0].trim();
+          partArbitrage = parts[1].trim();
+        } else if (opportunity.includes(enSplit)) {
+          const parts = opportunity.split(enSplit);
+          partProblem = parts[0].trim();
+          partArbitrage = parts[1].trim();
+        } else if (opportunity.includes('\n\n')) {
+          const parts = opportunity.split('\n\n');
+          partProblem = parts[0].trim();
+          partArbitrage = parts.slice(1).join('\n\n').trim();
+        } else {
+          partProblem = opportunity;
+        }
       }
+
+      if (!partProblem && !partArbitrage) return '';
 
       const metrics = p?.metrics || {};
       const model = metrics.clean_model || metrics.revenue_model || '微型订阅/买断';
@@ -1765,18 +1770,27 @@
         <div class="relative pl-7 sm:pl-9 space-y-4">
           ${steps.map((step, idx) => {
             let phaseTitle = `阶段 0${idx + 1}`;
-            let stepContent = step;
+            let stepContent = '';
+            let deliverable = defaultDeliverables[idx] || '✓ 阶段关键里程碑落地';
+            let stageBadge = defaultStageBadges[idx] || `阶段 0${idx + 1}`;
 
-            const colonIdx = step.indexOf('：');
-            const altColonIdx = step.indexOf(':');
-            const splitPos = colonIdx !== -1 ? colonIdx : altColonIdx;
+            if (typeof step === 'object' && step !== null) {
+              phaseTitle = step.title || step.phase || `阶段 0${idx + 1}`;
+              stepContent = step.detail || '';
+              if (step.stage_tag) stageBadge = step.stage_tag;
+              if (step.deliverable) deliverable = `🏁 交付物: ${step.deliverable}`;
+            } else if (typeof step === 'string') {
+              const colonIdx = step.indexOf('：');
+              const altColonIdx = step.indexOf(':');
+              const splitPos = colonIdx !== -1 ? colonIdx : altColonIdx;
 
-            if (splitPos !== -1 && splitPos < 45) {
-              const rawTitle = step.slice(0, splitPos).trim();
-              stepContent = step.slice(splitPos + 1).trim();
-              phaseTitle = rawTitle.replace(/^[0-9.、\s阶段Phase]+[·\-\s]*/i, '').trim() || rawTitle;
-            } else {
-              stepContent = step.replace(/^[0-9.、\s阶段Phase]+[·\-\s]*/i, '').trim();
+              if (splitPos !== -1 && splitPos < 45) {
+                const rawTitle = step.slice(0, splitPos).trim();
+                stepContent = step.slice(splitPos + 1).trim();
+                phaseTitle = rawTitle.replace(/^[0-9.、\s阶段Phase]+[·\-\s]*/i, '').trim() || rawTitle;
+              } else {
+                stepContent = step.replace(/^[0-9.、\s阶段Phase]+[·\-\s]*/i, '').trim();
+              }
             }
 
             const deliverable = defaultDeliverables[idx] || '✓ 阶段关键里程碑落地';
@@ -2366,17 +2380,20 @@
       // 核心商业机会点 (三层立体结构化分层)
       document.getElementById('modal-opportunity').innerHTML = renderCoreThesis(p.deep_dive?.opportunity || p.summary, p);
 
-      // 实操步骤 (流水线步进卡片渲染)
+      // 实操步骤 (流水线步进卡片渲染，支持 workflow_steps 或 deep_dive.workflow)
       const workflowContainer = document.getElementById('modal-workflow-steps');
-      workflowContainer.innerHTML = renderWorkflowSteps(p.deep_dive?.workflow);
+      const steps = (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0)
+        ? p.workflow_steps
+        : (p.deep_dive?.workflow || []);
+      workflowContainer.innerHTML = renderWorkflowSteps(steps);
 
-      // 避坑与警戒
-      const pitfallText = p.deep_dive?.risk_and_pitfalls || '注意控制试错时间成本，小步快跑，单周验证不出正向反馈即迅速复盘。';
+      // 避坑与警戒 (支持 pitfalls_to_avoid 或 deep_dive.risk_and_pitfalls)
+      const pitfallText = p.pitfalls_to_avoid || p.deep_dive?.risk_and_pitfalls || '注意控制试错时间成本，小步快跑，单周验证不出正向反馈即迅速复盘。';
       document.getElementById('modal-pitfalls').innerHTML = formatSummaryText(pitfallText);
 
-      // 工具链
+      // 工具链 (支持 tools 顶层或 deep_dive.tools)
       const toolsContainer = document.getElementById('modal-tools-list');
-      const tools = p.deep_dive?.tools || [];
+      const tools = p.tools || p.deep_dive?.tools || [];
       toolsContainer.innerHTML = tools.map(tool => `
         <span class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border">
           ${tool}

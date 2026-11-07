@@ -94,8 +94,59 @@ function generatePageHtml(p, lang) {
     ? `Deconstructed teardown of ${p.title}. Est. Monthly Run Rate: ${p.metrics?.est_monthly_profit || 'High'}. Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.`
     : `搞钱实验室对【${p.title}】的深度商业模式尽调。预期月利：${p.metrics?.est_monthly_profit || '高'}。包含真实商业逻辑、4步落地SOP、避坑防线与开箱即用 AI Prompt / SKILL.md。`;
 
-  const diffStars = p.metrics?.difficulty_stars || 2;
+  let diffStars = 2;
+  if (typeof p.metrics?.difficulty_stars === 'number') {
+    diffStars = p.metrics.difficulty_stars;
+  } else if (typeof p.metrics?.tech_barrier === 'string') {
+    const match = p.metrics.tech_barrier.match(/(\d)\/5/);
+    if (match) diffStars = parseInt(match[1], 10);
+    else diffStars = (p.metrics.tech_barrier.match(/★/g) || []).length || 2;
+  }
   const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
+
+  // 智能自适应数据解析 (Elastic Data Adapter)
+  // 1. 痛点与商机分析 (支持 core_thesis 对象、deep_dive.opportunity 文本、或 summary 兜底)
+  let opportunityHtml = '';
+  if (p.core_thesis && (p.core_thesis.market_pain || p.core_thesis.opportunity_arbitrage)) {
+    const pain = p.core_thesis.market_pain ? `<div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-400 font-mono block mb-1">【${isEn ? 'Market Pain & Gap' : '真实市场痛点与供需断层'}】</strong>${escapeHtml(p.core_thesis.market_pain)}</div>` : '';
+    const arb = p.core_thesis.opportunity_arbitrage ? `<div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-teal-400 font-mono block mb-1">【${isEn ? 'Opportunity & Arbitrage' : '破局机制与商业套利切口'}】</strong>${escapeHtml(p.core_thesis.opportunity_arbitrage)}</div>` : '';
+    opportunityHtml = `<div class="space-y-3">${pain}${arb}</div>`;
+  } else {
+    opportunityHtml = `<p class="text-sm text-slate-300 leading-relaxed font-sans">${escapeHtml(p.deep_dive?.opportunity || p.summary || '')}</p>`;
+  }
+
+  // 2. SOP 步骤 (支持 workflow_steps 对象数组 或 deep_dive.workflow 字符串数组)
+  let workflowHtml = '';
+  if (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0) {
+    workflowHtml = p.workflow_steps.map((step, idx) => {
+      const phase = step.phase || `${isEn ? 'Phase' : '阶段'} 0${idx + 1}`;
+      const tag = step.stage_tag ? `<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">${escapeHtml(step.stage_tag)}</span>` : '';
+      const deliverable = step.deliverable ? `<div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 ${isEn ? 'Deliverable:' : '阶段交付物:'}</span><span>${escapeHtml(step.deliverable)}</span></div>` : '';
+      return `
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">${escapeHtml(phase)} · ${escapeHtml(step.title || '')}</span>
+            ${tag}
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">${escapeHtml(step.detail || '')}</p>
+          ${deliverable}
+        </div>
+      `;
+    }).join('');
+  } else if (Array.isArray(p.deep_dive?.workflow) && p.deep_dive.workflow.length > 0) {
+    workflowHtml = p.deep_dive.workflow.map(step => `
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>${escapeHtml(step)}</span>
+      </div>
+    `).join('');
+  }
+
+  // 3. 避坑防线 (支持 pitfalls_to_avoid 或 deep_dive.risk_and_pitfalls)
+  const pitfallText = p.pitfalls_to_avoid || p.deep_dive?.risk_and_pitfalls || (isEn ? 'Keep iteration cycles tight and risk controlled.' : '注意控制试错时间成本，小步快跑，单周验证不出正向反馈即迅速复盘。');
+
+  // 4. 工具链 (支持 tools 数组 或 deep_dive.tools)
+  const toolsList = p.tools || p.deep_dive?.tools || ['Claude Code', 'Stripe', 'Tailwind'];
 
   // Triple-Schema for Maximum Google Rich Results: TechArticle + BreadcrumbList + Product
   const jsonLd = {
@@ -375,9 +426,7 @@ ${GTAG_SNIPPET}
         <span>🔍</span>
         <span>${isEn ? 'Market Opportunity & Founder Bottlenecks' : '市场痛点剖析与商机本质'}</span>
       </h2>
-      <p class="text-sm text-slate-300 leading-relaxed font-sans">
-        ${escapeHtml(p.deep_dive?.opportunity)}
-      </p>
+      ${opportunityHtml}
     </section>
 
     <!-- 4-Step Execution Workflow (SOP) -->
@@ -387,12 +436,7 @@ ${GTAG_SNIPPET}
         <span>${isEn ? '4-Step Operational Blueprint (SOP)' : '4 阶段落地实施 SOP'}</span>
       </h2>
       <div class="space-y-3">
-        ${(p.deep_dive?.workflow || []).map(step => `
-          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
-            <span class="text-emerald-400 font-bold shrink-0">➔</span>
-            <span>${escapeHtml(step)}</span>
-          </div>
-        `).join('')}
+        ${workflowHtml}
       </div>
     </section>
 
@@ -403,7 +447,7 @@ ${GTAG_SNIPPET}
         <span>${isEn ? 'Pitfalls & Risk Warning' : '避坑警戒与防范底线'}</span>
       </h2>
       <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
-        ${escapeHtml(p.deep_dive?.risk_and_pitfalls)}
+        ${escapeHtml(pitfallText)}
       </p>
     </section>
 
@@ -414,7 +458,7 @@ ${GTAG_SNIPPET}
         <span>${isEn ? 'Weaponry & Infrastructure Stack' : '推荐工程与武器库工具链'}</span>
       </h2>
       <div class="flex flex-wrap gap-2">
-        ${(p.deep_dive?.tools || []).map(tool => `
+        ${toolsList.map(tool => `
           <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
             # ${escapeHtml(tool)}
           </span>

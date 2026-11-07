@@ -2248,29 +2248,34 @@
 
     // Structured 3-Layer Thesis Architecture (Market Friction + Leverage Wedge + Monetization Snapshot)
     function renderCoreThesisEn(opportunity, p) {
-      if (!opportunity) return '';
-      
       let partProblem = '';
       let partArbitrage = '';
-      
-      const enSplit = 'Core Thesis & Value Arbitrage:';
-      const zhSplit = '核心机会点与商业套利空间：';
-      
-      if (opportunity.includes(enSplit)) {
-        const parts = opportunity.split(enSplit);
-        partProblem = parts[0].trim();
-        partArbitrage = parts[1].trim();
-      } else if (opportunity.includes(zhSplit)) {
-        const parts = opportunity.split(zhSplit);
-        partProblem = parts[0].trim();
-        partArbitrage = parts[1].trim();
-      } else if (opportunity.includes('\n\n')) {
-        const parts = opportunity.split('\n\n');
-        partProblem = parts[0].trim();
-        partArbitrage = parts.slice(1).join('\n\n').trim();
-      } else {
-        partProblem = opportunity;
+
+      if (p?.core_thesis?.market_pain || p?.core_thesis?.opportunity_arbitrage) {
+        partProblem = p.core_thesis.market_pain || '';
+        partArbitrage = p.core_thesis.opportunity_arbitrage || '';
+      } else if (opportunity) {
+        const enSplit = 'Core Thesis & Value Arbitrage:';
+        const zhSplit = '核心机会点与商业套利空间：';
+        
+        if (opportunity.includes(enSplit)) {
+          const parts = opportunity.split(enSplit);
+          partProblem = parts[0].trim();
+          partArbitrage = parts[1].trim();
+        } else if (opportunity.includes(zhSplit)) {
+          const parts = opportunity.split(zhSplit);
+          partProblem = parts[0].trim();
+          partArbitrage = parts[1].trim();
+        } else if (opportunity.includes('\n\n')) {
+          const parts = opportunity.split('\n\n');
+          partProblem = parts[0].trim();
+          partArbitrage = parts.slice(1).join('\n\n').trim();
+        } else {
+          partProblem = opportunity;
+        }
       }
+
+      if (!partProblem && !partArbitrage) return '';
 
       const metrics = p?.metrics || {};
       const model = metrics.clean_model || metrics.revenue_model || 'Subscription / Lifetime Pass';
@@ -2332,17 +2337,28 @@
         <div class="relative pl-7 sm:pl-9 space-y-4">
           ${steps.map((step, idx) => {
             let phaseTitle = `Phase 0${idx + 1}`;
-            let stepContent = step;
+            let stepContent = '';
+            let deliverable = defaultDeliverables[idx] || '✓ Key Milestone Delivered';
+            let stageBadge = defaultStageBadges[idx] || `Phase 0${idx + 1}`;
 
-            const colonIdx = step.indexOf(':');
-            const altColonIdx = step.indexOf('·');
-            const splitPos = colonIdx !== -1 ? colonIdx : altColonIdx;
+            if (typeof step === 'object' && step !== null) {
+              phaseTitle = step.title || step.phase || `Phase 0${idx + 1}`;
+              stepContent = step.detail || '';
+              if (step.stage_tag) stageBadge = step.stage_tag;
+              if (step.deliverable) deliverable = `🏁 Deliverable: ${step.deliverable}`;
+            } else if (typeof step === 'string') {
+              const colonIdx = step.indexOf(':');
+              const altColonIdx = step.indexOf('·');
+              const splitPos = colonIdx !== -1 ? colonIdx : altColonIdx;
 
-            if (splitPos !== -1 && splitPos < 45) {
-              const rawTitle = step.slice(0, splitPos).trim();
-              stepContent = step.slice(splitPos + 1).trim();
-              phaseTitle = rawTitle.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim() || rawTitle;
-            } else {
+              if (splitPos !== -1 && splitPos < 45) {
+                const rawTitle = step.slice(0, splitPos).trim();
+                stepContent = step.slice(splitPos + 1).trim();
+                phaseTitle = rawTitle.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim() || rawTitle;
+              } else {
+                stepContent = step.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim();
+              }
+            }
               stepContent = step.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim();
             }
 
@@ -2451,16 +2467,19 @@
       // Core Thesis (Structured 3-layer architecture)
       document.getElementById('modal-opportunity').innerHTML = renderCoreThesisEn(p.deep_dive?.opportunity || p.summary, p);
 
-      // Sequential SOP Step Cards (Connected pipeline timeline with milestone deliverables)
+      // Sequential SOP Step Cards (Connected pipeline timeline with milestone deliverables, elastic support)
       const workflowContainer = document.getElementById('modal-workflow-steps');
-      workflowContainer.innerHTML = renderWorkflowStepsEn(p.deep_dive?.workflow);
+      const steps = (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0)
+        ? p.workflow_steps
+        : (p.deep_dive?.workflow || []);
+      workflowContainer.innerHTML = renderWorkflowStepsEn(steps);
 
-      // Pitfalls
-      document.getElementById('modal-pitfalls').innerText = p.deep_dive?.risk_and_pitfalls || 'Execute with tight scope control; test rapidly before committing custom infrastructure.';
+      // Pitfalls (supports pitfalls_to_avoid or deep_dive.risk_and_pitfalls)
+      document.getElementById('modal-pitfalls').innerText = p.pitfalls_to_avoid || p.deep_dive?.risk_and_pitfalls || 'Execute with tight scope control; test rapidly before committing custom infrastructure.';
 
-      // Tools Stack Badges
+      // Tools Stack Badges (supports tools or deep_dive.tools)
       const toolsContainer = document.getElementById('modal-tools-list');
-      const tools = p.deep_dive?.tools || [];
+      const tools = p.tools || p.deep_dive?.tools || [];
       toolsContainer.innerHTML = tools.map(tool => `
         <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border">
           ${tool}
