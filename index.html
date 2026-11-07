@@ -2142,6 +2142,17 @@
       applyFiltersAndRender();
     }
 
+    function getDiffStars(p) {
+      if (typeof p?.metrics?.difficulty_stars === 'number') return p.metrics.difficulty_stars;
+      if (typeof p?.metrics?.tech_barrier === 'string') {
+        const m = p.metrics.tech_barrier.match(/(\d)\/5/);
+        if (m) return parseInt(m[1], 10);
+        const stars = (p.metrics.tech_barrier.match(/★/g) || []).length;
+        if (stars > 0) return stars;
+      }
+      return 2;
+    }
+
     // 筛选与排序引擎
     function applyFiltersAndRender() {
       let filtered = allProjects.filter(p => {
@@ -2153,8 +2164,8 @@
           if (!cycle.includes('3') && !cycle.includes('5') && !cycle.includes('7') && !cycle.includes('10')) return false;
         }
         if (currentIntent === 'ZERO_COST') {
-          const cost = (p.metrics?.initial_cost || '');
-          if (!cost.includes('0') && !cost.includes('5') && !cost.includes('10') && !cost.includes('低')) return false;
+          const cost = ((p.metrics?.initial_cost || p.metrics?.startup_cost || '') + '').toLowerCase();
+          if (!cost.includes('0') && !cost.includes('5') && !cost.includes('10') && !cost.includes('低') && !cost.includes('free')) return false;
         }
         if (currentIntent === 'HIGH_RETURN') {
           // 收益天花板评分为高阶 (>= 8.5) 或 单月/单笔上限达到 $5000+ / ¥30000+
@@ -2173,7 +2184,7 @@
           const matchSummary = (p.summary || '').toLowerCase().includes(q);
           const matchTags = (p.tags || []).some(t => t.toLowerCase().includes(q));
           const matchCat = (p.category || '').toLowerCase().includes(q);
-          const matchTools = (p.deep_dive?.tools || []).some(t => t.toLowerCase().includes(q));
+          const matchTools = (p.tools || p.deep_dive?.tools || []).some(t => t.toLowerCase().includes(q));
           if (!matchTitle && !matchSummary && !matchTags && !matchCat && !matchTools) return false;
         }
         return true;
@@ -2184,7 +2195,7 @@
       } else if (currentSort === 'date-desc') {
         filtered.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
       } else if (currentSort === 'difficulty-asc') {
-        filtered.sort((a, b) => ((a.metrics?.difficulty_stars) || 3) - ((b.metrics?.difficulty_stars) || 3));
+        filtered.sort((a, b) => getDiffStars(a) - getDiffStars(b));
       }
 
       updateActiveFilterBar();
@@ -2211,15 +2222,15 @@
           ? 'tier-badge-s' 
           : 'tier-badge-normal';
 
-        const diffStars = p.metrics?.difficulty_stars || 2;
+        const diffStars = getDiffStars(p);
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
         // 精炼商业模式：剥离具体价格杂音，只保留纯粹的变现形态（如“月度订阅 + 终身买断”）
-        const rawModel = p.metrics?.revenue_model || '订阅 / 买断';
+        const rawModel = p.metrics?.clean_model || p.monetization_model || p.metrics?.revenue_model || '订阅 / 买断';
         const cleanModel = rawModel.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
 
         // 精炼启动成本：剥离括号解释，只保留最核心的成本结论
-        const rawCost = p.metrics?.initial_cost || '零投入';
+        const rawCost = p.metrics?.initial_cost || p.metrics?.startup_cost || '零投入';
         const cleanCost = rawCost.replace(/\([^)]*\)/g, '').trim();
 
         // 尊重信源原生计价表达：海外项目原生美元计价，国内项目原生人民币计价，不搞多余的人工换算杂音，不使用逗号
@@ -2350,10 +2361,10 @@
         ? 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-brand-gold dark:border-amber-800/60' 
         : 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200 dark:bg-brand-surface dark:text-brand-textSecondary dark:border-brand-border';
 
-      const diffStars = p.metrics?.difficulty_stars || 2;
+      const diffStars = getDiffStars(p);
       document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5)`;
       document.getElementById('modal-cycle-time').innerText = p.metrics?.cycle_time || '7~14 天';
-      document.getElementById('modal-initial-cost').innerText = cleanFinancialText(p.metrics?.initial_cost) || '零投入';
+      document.getElementById('modal-initial-cost').innerText = cleanFinancialText(p.metrics?.initial_cost || p.metrics?.startup_cost) || '零投入';
       document.getElementById('modal-profit-est').innerText = cleanFinancialText(p.metrics?.est_monthly_profit) || '稳健可观';
 
       // 四维雷达条

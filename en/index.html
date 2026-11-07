@@ -2059,6 +2059,17 @@
       return Array.isArray(currentUserProfile.unlocked_projects) && currentUserProfile.unlocked_projects.includes(id);
     }
 
+    function getDiffStars(p) {
+      if (typeof p?.metrics?.difficulty_stars === 'number') return p.metrics.difficulty_stars;
+      if (typeof p?.metrics?.tech_barrier === 'string') {
+        const m = p.metrics.tech_barrier.match(/(\d)\/5/);
+        if (m) return parseInt(m[1], 10);
+        const stars = (p.metrics.tech_barrier.match(/★/g) || []).length;
+        if (stars > 0) return stars;
+      }
+      return 2;
+    }
+
     // Filter & Sort Engine
     function applyFiltersAndRender() {
       let filtered = allProjects.filter(p => {
@@ -2070,7 +2081,7 @@
           if (!cycle.includes('3') && !cycle.includes('5') && !cycle.includes('7') && !cycle.includes('10')) return false;
         }
         if (currentIntent === 'ZERO_COST') {
-          const cost = (p.metrics?.initial_cost || '').toLowerCase();
+          const cost = ((p.metrics?.initial_cost || p.metrics?.startup_cost || '') + '').toLowerCase();
           if (!cost.includes('0') && !cost.includes('free') && !cost.includes('5') && !cost.includes('10')) return false;
         }
         if (currentIntent === 'HIGH_RETURN') {
@@ -2088,7 +2099,7 @@
           const matchSummary = (p.summary || '').toLowerCase().includes(q);
           const matchTags = (p.tags || []).some(t => t.toLowerCase().includes(q));
           const matchCat = (p.category || '').toLowerCase().includes(q);
-          const matchTools = (p.deep_dive?.tools || []).some(t => t.toLowerCase().includes(q));
+          const matchTools = (p.tools || p.deep_dive?.tools || []).some(t => t.toLowerCase().includes(q));
           if (!matchTitle && !matchSummary && !matchTags && !matchCat && !matchTools) return false;
         }
 
@@ -2100,7 +2111,7 @@
       } else if (currentSort === 'date-desc') {
         filtered.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
       } else if (currentSort === 'difficulty-asc') {
-        filtered.sort((a, b) => ((a.metrics?.difficulty_stars) || 3) - ((b.metrics?.difficulty_stars) || 3));
+        filtered.sort((a, b) => getDiffStars(a) - getDiffStars(b));
       }
 
       updateActiveFilterBar();
@@ -2142,12 +2153,12 @@
         const cardClass = isS ? 'memo-card memo-card-s' : 'memo-card';
         const tierBadgeClass = isS ? 'tier-badge-s' : 'tier-badge-normal';
 
-        const diffStars = p.metrics?.difficulty_stars || 2;
+        const diffStars = getDiffStars(p);
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
-        // Clean revenue model & initial cost
-        const cleanModel = p.metrics?.clean_model || (p.metrics?.revenue_model || 'Subscription').replace(/\([^)]*\)/g, '').trim();
-        const cleanCost = (p.metrics?.initial_cost || '$0 Free Tier').replace(/\([^)]*\)/g, '').trim() || '$0';
+        // Clean revenue model & initial cost (elastic fallback)
+        const cleanModel = p.metrics?.clean_model || p.monetization_model || (p.metrics?.revenue_model || 'Subscription').replace(/\([^)]*\)/g, '').trim();
+        const cleanCost = (p.metrics?.initial_cost || p.metrics?.startup_cost || '$0 Free Tier').replace(/\([^)]*\)/g, '').trim() || '$0';
         const profitRaw = p.metrics?.est_monthly_profit || 'Predictable';
 
         return `
@@ -2437,10 +2448,10 @@
         ? 'text-xs font-mono px-2.5 py-0.5 rounded-md font-bold bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-amber-400 dark:border-amber-800/60' 
         : 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200 dark:bg-brand-surface dark:text-brand-textSecondary dark:border-brand-border';
 
-      const diffStars = p.metrics?.difficulty_stars || 2;
+      const diffStars = getDiffStars(p);
       document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5)`;
       document.getElementById('modal-cycle-time').innerText = p.metrics?.cycle_time || '7-14 Days';
-      document.getElementById('modal-initial-cost').innerText = p.metrics?.initial_cost || '$0 Free Tier';
+      document.getElementById('modal-initial-cost').innerText = p.metrics?.initial_cost || p.metrics?.startup_cost || '$0 Free Tier';
       document.getElementById('modal-profit-est').innerText = p.metrics?.est_monthly_profit || 'Predictable';
 
       // 4-Dimensional Audit Progress Bars

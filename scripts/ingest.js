@@ -113,6 +113,32 @@ for (const filePath of filesToProcess) {
         item.rating_tier = item.score >= 90 ? 'S' : (item.score >= 80 ? 'A' : 'B');
       }
 
+      // 弹性字段智能自适应与标准化 (Elastic Schema Normalizer)
+      if (item.metrics) {
+        // 1. 难度星级自适应 (数字 difficulty_stars 与 字符串 tech_barrier 互通)
+        if (typeof item.metrics.difficulty_stars !== 'number' && typeof item.metrics.tech_barrier === 'string') {
+          const m = item.metrics.tech_barrier.match(/(\d)\/5/);
+          if (m) item.metrics.difficulty_stars = parseInt(m[1], 10);
+          else item.metrics.difficulty_stars = (item.metrics.tech_barrier.match(/★/g) || []).length || 2;
+        } else if (typeof item.metrics.difficulty_stars === 'number' && !item.metrics.tech_barrier) {
+          item.metrics.tech_barrier = '★'.repeat(item.metrics.difficulty_stars) + '☆'.repeat(5 - item.metrics.difficulty_stars) + ` (${item.metrics.difficulty_stars}/5)`;
+        }
+        
+        // 2. 启动资金自适应 (initial_cost 与 startup_cost 互通)
+        if (!item.metrics.initial_cost && item.metrics.startup_cost) {
+          item.metrics.initial_cost = item.metrics.startup_cost;
+        } else if (!item.metrics.startup_cost && item.metrics.initial_cost) {
+          item.metrics.startup_cost = item.metrics.initial_cost;
+        }
+
+        // 3. 变现模式自适应 (revenue_model 与 monetization_model 互通)
+        if (!item.metrics.revenue_model && item.monetization_model) {
+          item.metrics.revenue_model = item.monetization_model;
+        } else if (!item.monetization_model && item.metrics.revenue_model) {
+          item.monetization_model = item.metrics.revenue_model;
+        }
+      }
+
       const matchIdx = existing.findIndex(e => 
         (e.id && e.id === item.id) || 
         (e.slug && e.slug === item.slug) || 
