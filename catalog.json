@@ -2,8 +2,11 @@
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
   "updated_at": "2026-11-07",
-  "total_count": 8,
+  "total_count": 11,
   "existing_slugs": [
+    "vintage-truck-3d-printed-parts",
+    "plainmail-multi-domain-email",
+    "skillry-agent-skills-library",
     "reddit-leadgen-cold-email-bot",
     "deepseek-crossborder-localization-tool",
     "niche-chrome-extension-monetization",
@@ -37,6 +40,66 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261107-003",
+      "slug": "vintage-truck-3d-printed-parts",
+      "title": "停产老车 3D 打印件：一个车型一个件的 Etsy 窄口",
+      "category": "软硬结合/轻制造",
+      "tags": [
+        "3D打印",
+        "Etsy",
+        "老车配件",
+        "轻制造",
+        "小众电商"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "专挑原厂停产的老车小塑料件：一个车型、一个年份、一个零件，精确贴合才保得住价。$25 卖打印件赚约 $20，$150 卖整机赚约 $60~65，卖家一年 683 单、$30,062（卖家自报，未审计）。",
+      "monetization_model": "实物电商（$25/件 或 $150 整机）",
+      "est_monthly_profit": "$500 ~ $1,500 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/vintage-truck-3d-printed-parts/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/vintage-truck-3d-printed-parts/"
+    },
+    {
+      "id": "ml-20261107-002",
+      "slug": "plainmail-multi-domain-email",
+      "title": "Plainmail：所有域名一个价的真实邮箱",
+      "category": "出海/独立开发",
+      "tags": [
+        "邮箱服务",
+        "域名",
+        "MCP",
+        "SES",
+        "独立开发"
+      ],
+      "score": 73,
+      "rating_tier": "B",
+      "summary": "每个副项目买的域名都没有邮箱：Plainmail 一句指令或一条命令就自动写好 DNS、建好真实 IMAP/SMTP 邮箱、经 Amazon SES 发信，$5/月包 50 个域名 100 个邮箱，2026-11-05 上线 Product Hunt。",
+      "monetization_model": "月度订阅 ($5/月)",
+      "est_monthly_profit": "$340 ~ $1,090 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/plainmail-multi-domain-email/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/plainmail-multi-domain-email/"
+    },
+    {
+      "id": "ml-20261107-001",
+      "slug": "skillry-agent-skills-library",
+      "title": "Skillry：给 AI Agent 用的设计品味技能库",
+      "category": "出海/独立开发",
+      "tags": [
+        "Agent Skills",
+        "Claude Code",
+        "设计模板",
+        "订阅制",
+        "独立开发"
+      ],
+      "score": 73,
+      "rating_tier": "B",
+      "summary": "先亲手做出漂亮的成品，再把做法写成 Skill 卖出去：475 条 Opus 5.5 爆款视频的原片、复刻与完整提示词全部免费引流，付费订阅解锁全部技能包，Stripe 已验证 29 天收入 $10,913。",
+      "monetization_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30",
+      "est_monthly_profit": "$800 ~ $1,500 / 月",
+      "landing_url_zh": "https://m.ucncn.cn/p/skillry-agent-skills-library/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/skillry-agent-skills-library/"
+    },
     {
       "id": "ml-cloud-test-001",
       "slug": "reddit-leadgen-cold-email-bot",

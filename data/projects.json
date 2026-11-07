@@ -1,5 +1,245 @@
 [
   {
+    "category": "软硬结合/轻制造",
+    "core_thesis": {
+      "market_pain": "老车车主想要一个原厂早已停产的小塑料件，如仪表盘支架、烟灰缸盖或杯架。经销商没库存，二手件难找，车主只能自己想办法。而通用 3D 打印爆款已卷到白菜价，从约 14 英镑跌到约 4.5 英镑。",
+      "opportunity_arbitrage": "只有窄口子保得住价：一个具体车型、一个具体年份、一个具体零件，尺寸精确贴合。去 Facebook 车主群听车主反复问的那个件，把它做出来，实车装车测试，再挂 Etsy。打印机工时是上限，想放大就加一台打印机，或只卖 STL 文件，不靠一个爆款吃一年。"
+    },
+    "created_at": "2026-11-07",
+    "id": "ml-20261107-003",
+    "metrics": {
+      "cycle_time": "7~14 天",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$500 ~ $1,500 / 月",
+      "initial_cost": "$400+（封闭式耐热打印机）",
+      "revenue_model": "实物电商（$25/件 或 $150 整机）",
+      "startup_cost": "$400+（封闭式耐热打印机）",
+      "tech_barrier": "★★★☆☆ (3/5)"
+    },
+    "monetization_model": "实物电商（$25/件 或 $150 整机）",
+    "pitfalls_to_avoid": "注意四点：第一，2025 年 6 月起 Etsy 要求 3D 打印件为卖家原创设计，打印他人 STL 文件转卖会被下架；第二，车内不要用不耐热、不耐紫外线的 PLA；第三，不要碰安全件，不要用品牌商标；第四，年 $30,062 是卖家自报的 Reddit 截图转述，未审计，国内复刻的可行性也未验证。",
+    "prototype": "F",
+    "rating_tier": "B",
+    "score": 70,
+    "score_breakdown": {
+      "ceiling": 7,
+      "feasibility": 7,
+      "reliability": 7,
+      "velocity": 7
+    },
+    "slug": "vintage-truck-3d-printed-parts",
+    "source_url": "https://ebizfacts.com/3d-printed-vintage-truck-parts-etsy-30k-first-year/",
+    "summary": "专挑原厂停产的老车小塑料件：一个车型、一个年份、一个零件，精确贴合才保得住价。$25 卖打印件赚约 $20，$150 卖整机赚约 $60~65，卖家一年 683 单、$30,062（卖家自报，未审计）。",
+    "summary_en": "Pick one discontinued plastic part for one old truck model: one model, one year, one part, and exact fitment is what holds the price. $25 per printed part earns about $20, $150 per fully wired unit earns about $60-65; the seller reports 683 orders and $30,062 in a year (seller-reported, unaudited).",
+    "tags": [
+      "3D打印",
+      "Etsy",
+      "老车配件",
+      "轻制造",
+      "小众电商"
+    ],
+    "title": "停产老车 3D 打印件：一个车型一个件的 Etsy 窄口",
+    "title_en": "Vintage Truck 3D-Printed Parts: One Model, One Part, One Etsy Niche",
+    "tools": [
+      "Fusion 360",
+      "Bambu Lab P1S",
+      "PETG/ABS 耗材",
+      "Etsy",
+      "eBay Motors"
+    ],
+    "verdict": "窄口子才有价：通用 3D 打印爆款已从约 14 英镑跌到约 4.5 英镑，只有“指定车型、指定年份、指定件”保得住毛利；但打印机工时就是天花板，想放大得加机器或只卖 STL 文件。",
+    "workflow_steps": [
+      {
+        "deliverable": "1 个车型 + 1 个零件 + 10 张车主群求购截图",
+        "detail": "不要做“Etsy 上卖 3D 打印”这种泛生意。挑一个停产多年、车主基数大、社群活跃的老车型，如 1973~1987 年的 Squarebody 雪佛兰。进它的 Facebook 车主群，找到车主反复问的那个件——杯架、烟灰缸面板或仪表盘卡扣——只做这一个。",
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定一个车型与一个零件"
+      },
+      {
+        "deliverable": "1 份原创 CAD 文件 + 装车测试照片或视频",
+        "detail": "在 YouTube 上学 CAD，自己画原创内饰件。不要抄原厂件，不要碰刹车等安全件，不要用品牌商标。用耐热 PETG 打印，实车装上验证贴合，反复改到严丝合缝。2025 年 6 月起 Etsy 要求 3D 打印 listing 必须是卖家原创设计，打印别人的 STL 文件拿来卖会被下架。",
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "自己画 CAD，实车装车测试再上架"
+      },
+      {
+        "deliverable": "Etsy 上架 + 前 10 单 + 退换流程",
+        "detail": "只卖打印件 $25，约赚 $20；卖带屏幕与线束的整机 $150，约赚 $60~65。Etsy 费用约 11~15%，耗材每个件 $0.5~3。1~2 台打印机的稳健新手，6~12 个月后约 $500~1,500/月。先把退换流程跑顺，再考虑加打印机。",
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "打印件引流，整机赚钱"
+      },
+      {
+        "deliverable": "每周约 10 单且有复购",
+        "detail": "原卖家一年零广告，只在指定 Facebook 群组发帖，平均每周约 10 单。照抄：每周在群里发一次装车测试与车主反馈，不要刷屏。eBay 也挂，但不要指望它当主力。想放大先加一台打印机，再考虑只卖 STL 文件。",
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "只在车主群发帖，不买广告"
+      }
+    ]
+  },
+  {
+    "category": "出海/独立开发",
+    "core_thesis": {
+      "market_pain": "独立开发者每个副项目都买域名，但没有一个域名有邮箱。Google Workspace 按邮箱收费，每月 $7 一个，100 个邮箱就是 $700/月。DNS 记录（MX、SPF、DKIM、DMARC）是人人想拖的一步，转发到 Gmail 能收信却不能用域名回信。",
+      "opportunity_arbitrage": "破局点是把“写 DNS + 建邮箱 + 发信”压成一句话：告诉 Agent 或跑一条命令，Cloudflare / Vercel / Porkbun 的记录自动写好，真实 IMAP/SMTP 邮箱建好，邮件经 Amazon SES 发出。$5 包月对 $700/月的按邮箱计价，价格本身就是广告。"
+    },
+    "created_at": "2026-11-07",
+    "id": "ml-20261107-002",
+    "metrics": {
+      "cycle_time": "5~10 天",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$340 ~ $1,090 / 月",
+      "initial_cost": "$50~$200",
+      "revenue_model": "月度订阅 ($5/月)",
+      "startup_cost": "$50~$200",
+      "tech_barrier": "★★★☆☆ (3/5)"
+    },
+    "monetization_model": "月度订阅 ($5/月)",
+    "pitfalls_to_avoid": "注意三点：第一，FranklyMail $9/年无限邮箱域名，价格只有 Plainmail 的约 1/7，天花板压得很低；第二，新账号每天限发 50 封，定位是人与人之间的邮件，不是群发与冷邮件，别跑偏；第三，目前没有任何收入实证，$340~$1,090/月是按用户数算的模型，不是实测。",
+    "prototype": "B",
+    "rating_tier": "B",
+    "score": 73,
+    "score_breakdown": {
+      "ceiling": 6,
+      "feasibility": 8,
+      "reliability": 7,
+      "velocity": 8
+    },
+    "slug": "plainmail-multi-domain-email",
+    "source_url": "https://www.producthunt.com/products/plainmail",
+    "summary": "每个副项目买的域名都没有邮箱：Plainmail 一句指令或一条命令就自动写好 DNS、建好真实 IMAP/SMTP 邮箱、经 Amazon SES 发信，$5/月包 50 个域名 100 个邮箱，2026-11-05 上线 Product Hunt。",
+    "summary_en": "Every domain bought for a side project ends up with no email: Plainmail writes DNS, creates a real IMAP/SMTP mailbox and sends via Amazon SES from one sentence or one command, $5/month for 50 domains and 100 mailboxes. Live on Product Hunt since 2026-11-05.",
+    "tags": [
+      "邮箱服务",
+      "域名",
+      "MCP",
+      "SES",
+      "独立开发"
+    ],
+    "title": "Plainmail：所有域名一个价的真实邮箱",
+    "title_en": "Plainmail: Real Email on Every Domain for $5 Flat",
+    "tools": [
+      "Amazon SES",
+      "Cloudflare",
+      "Vercel",
+      "Porkbun",
+      "MCP"
+    ],
+    "verdict": "定价本身就是广告：按邮箱收费的对手每月 $700 才够 100 个邮箱，它 $5 全包；但还没有收入实证，且有 $9/年的廉价对手在压天花板。",
+    "workflow_steps": [
+      {
+        "deliverable": "3 家服务商的 DNS 实测记录 + 1 页买家画像",
+        "detail": "去 Product Hunt 评论与 X 上找“每个域名都没有邮箱”的抱怨，确认买家是手里有 3 个以上域名的人，不是只有一个域名的用户。在 Cloudflare、Vercel、Porkbun 各测一个域名，从建邮箱到收到第一封回信全程跑通。",
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先验证自动写 DNS 再卖"
+      },
+      {
+        "deliverable": "可用的邮箱服务 + CLI/MCP 入口 + 每日 50 封上限",
+        "detail": "最小版本只做三件事：自动写 DNS、建 IMAP/SMTP 邮箱、经 SES 发信。不要做群发与冷邮件。新账号每天限发 50 封防滥用。提供 CLI 与 MCP 入口，让 Agent 能替用户跑“plainmail add hello@域名”。",
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "只做收信、发信与 DNS 三件事"
+      },
+      {
+        "deliverable": "Stripe $5/月订阅与首单",
+        "detail": "只卖一个价：$5/月包 50 个域名、100 个邮箱、25GB。GitHub 注册，随时取消。扣掉约 5% 的 Stripe 手续费与每月约 $30 的托管与 SES 成本，80 个用户净赚约 $340/月，240 个用户约 $1,090/月。不要学按邮箱收费，那正是你要打败的对手。",
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "一个价，Stripe 收第一笔钱"
+      },
+      {
+        "deliverable": "Product Hunt 上线 + 80 个付费用户目标",
+        "detail": "在 Product Hunt 上线，标题就写价格与套餐。去独立开发者社区问大家手里有几个域名、现在怎么收信。盯紧 FranklyMail（$9/年、无限邮箱与域名，约 Plainmail 价格的 1/7）：你的卖点必须是更稳的 SES 送达率、MCP/Claude 集成与持续维护，不是价格。",
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "Product Hunt 上线，盯紧廉价对手"
+      }
+    ]
+  },
+  {
+    "category": "出海/独立开发",
+    "core_thesis": {
+      "market_pain": "用 Claude Code、Codex、Cursor 的开发者能做出能跑的功能，但产出的网站、幻灯片、图片和视频普遍不好看，自己手写 Skill 也解决不了审美问题。Anthropic 官方 Skill 库免费且有 186k 星，但杂乱无筛选，拿来没法直接用。",
+      "opportunity_arbitrage": "破局点是“以成品选品”：团队先亲手做一个漂亮成品（网站、幻灯片、视频），再把模板、脚本与操作说明打包成 SKILL.md。475 条 Opus 5.5 爆款视频的原片、复刻与完整提示词免费开放引流，付费墙只拦完整技能包与更新，边际成本几乎为零。"
+    },
+    "created_at": "2026-11-07",
+    "id": "ml-20261107-001",
+    "metrics": {
+      "cycle_time": "7~14 天",
+      "difficulty_stars": 2,
+      "est_monthly_profit": "$800 ~ $1,500 / 月",
+      "initial_cost": "$0~$200",
+      "revenue_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30",
+      "startup_cost": "$0~$200",
+      "tech_barrier": "★★☆☆☆ (2/5)"
+    },
+    "monetization_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)",
+    "pitfalls_to_avoid": "警惕三点：第一，近 7 天日均约 $288，比 9 月 29 日那周约 $503 跌超 40%，不要拿峰值周算月入；第二，Marc Lou 点名带来的主要是开发者围观，创始人自己承认没带来付费转化；第三，官方免费 Skill 库与竞品 SkillGild 都在，卖点是筛选与成品质量，不是数量。",
+    "prototype": "D",
+    "rating_tier": "B",
+    "score": 73,
+    "score_breakdown": {
+      "ceiling": 7,
+      "feasibility": 8,
+      "reliability": 6,
+      "velocity": 8
+    },
+    "slug": "skillry-agent-skills-library",
+    "source_url": "https://bizpeel.com/project/skillry",
+    "summary": "先亲手做出漂亮的成品，再把做法写成 Skill 卖出去：475 条 Opus 5.5 爆款视频的原片、复刻与完整提示词全部免费引流，付费订阅解锁全部技能包，Stripe 已验证 29 天收入 $10,913。",
+    "summary_en": "Hand-craft beautiful finished work first, then sell the method as a Skill: 475 viral Opus 5.5 videos with originals, remakes and full prompts free to attract traffic, while a subscription unlocks the full Skill library. Stripe-verified revenue: $10,913 in 29 days.",
+    "tags": [
+      "Agent Skills",
+      "Claude Code",
+      "设计模板",
+      "订阅制",
+      "独立开发"
+    ],
+    "title": "Skillry：给 AI Agent 用的设计品味技能库",
+    "title_en": "Skillry: Design-Taste Agent Skills Library",
+    "tools": [
+      "Claude Code",
+      "Stripe",
+      "公开收入数据",
+      "X (Twitter)",
+      "AI 工具导航站"
+    ],
+    "verdict": "卖的不是代码，是“成品先行”的筛选品味：免费库拉流量、订阅收钱，单人可跑，但近 7 天日均收入已从峰值跌超 40%，不能按爆发周外推。",
+    "workflow_steps": [
+      {
+        "deliverable": "1 个垂直方向 + 5 个成品 + 1 份竞品定价表",
+        "detail": "不要一上来就搭全目录。选一个自己最懂的垂直方向，如 OG 图、落地页或发布视频。拆解近 30 天 X / YouTube 上该方向最好的作品，先亲手做 5 个成品，再谈卖 Skill。",
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "选一个垂直方向，先做 5 个成品"
+      },
+      {
+        "deliverable": "5 个可安装的 SKILL.md 包 + 每份成品对比页",
+        "detail": "每个 Skill 用固定结构：先放成品图或视频，再给模板、脚本与分步说明，最后写清怎么改颜色、文案与版式而不翻车。每个 Skill 必须用 Claude Code 从零跑一遍，产出与原作并排对比，差太多就改 Skill，不要改截图。",
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "把成品写成 SKILL.md 并全程跑通"
+      },
+      {
+        "deliverable": "免费视频库上线 + Stripe 订阅 + 分销页与首单",
+        "detail": "爆款视频库（原片、复刻与提示词）完全免费，放主导航。单个 Skill 可免费试用，不用绑卡、不限试用期；全部技能库、更新与新 Skill 走订阅：$19.90/月、$158/年、$249 终身。Stripe 收款，分销给 40% 佣金 12 个月，先找 AI 工具导航站站长。",
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "免费库引流，付费墙只拦完整包"
+      },
+      {
+        "deliverable": "首批 10~50 个付费订阅用户 + 每周收入复盘表",
+        "detail": "用创始人个人 X 账号发布，带干货帖，品牌号只做辅助。把产品挂到 10~15 个中英文 AI 工具导航站。每周用自家 Skill 复刻一个热点产品，明确标注非官方概念。每周按日均收入复盘，不拿爆发周外推。",
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "创始人个人号冷启动 + 导航站铺量"
+      }
+    ]
+  },
+  {
     "category": "出海/独立开发",
     "created_at": "2026-10-28",
     "deep_dive": {
