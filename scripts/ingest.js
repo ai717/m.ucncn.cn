@@ -228,11 +228,19 @@ for (const src of processedFiles) {
 }
 console.log(`📦 已处理文件已自动移动到 inbox/archive/ 归档备份。`);
 
+// 自动编译落地页与刷新多语言索引
+try {
+  console.log('\n🔨 正在重新编译多语言独立落地页、Sitemap 与 AI 索引...');
+  execSync('node scripts/generate_landing_pages.js', { stdio: 'inherit' });
+} catch (buildErr) {
+  console.warn('⚠️ 编译落地页时提示:', buildErr.message);
+}
+
 // 自动发布（附带重试防撞机制）
 if (shouldPush) {
   try {
     console.log('\n🚀 正在推送到 GitHub，GitHub Pages 将全自动构建生效...');
-    execSync('git add data/projects.json inbox index.html sitemap.xml', { stdio: 'inherit' });
+    execSync('git add data/projects.json inbox index.html en sitemap.xml catalog.json llms.txt p', { stdio: 'inherit' });
     execSync(`git commit -m "chore: auto-ingest ${totalAdded} projects via inbox"`, { stdio: 'inherit' });
     
     try {
