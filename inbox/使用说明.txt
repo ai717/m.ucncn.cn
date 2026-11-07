@@ -1,4 +1,14 @@
-【使用说明】
-1. 把从 Grok、Gemini、邮件或下载的 JSON 文件直接拖放到这个文件夹里（支持任意文件名，如 new.json、data.json 等）。
-2. 返回上一层目录，鼠标双击【一键入库并发布.bat】。
-3. 系统会自动将数据合并到主数据库，自动把旧文件移入 archive 备份，并自动提交发布到 https://ucncn.cn/money。
+【MoneyLab Inbox 一键归集收件箱使用说明】
+
+你可以把从 Muse、Grok、Gemini、Claude 生成的任何交付物直接丢进本文件夹：
+1. 商业项目数据（.json）：
+   - 支持中文版数据（如 projects.json、batch1.json）；
+   - 支持纯英文版出海数据（文件名含 -en 或 _en，或纯英文字段，如 moneylab-en.json）；
+   - 系统会自动合并、查重、标准化，并刷新双语微数据。
+2. 单项目专属技能包（.md）：
+   - 支持任意命名的技能文件（如 skillry-SKILL.md、plainmail.md）；
+   - 系统会自动解析其中的项目 slug，将其自动安装到 money/skills/<slug>/SKILL.md。
+3. 运行入库：
+   - 在终端运行：node scripts/ingest.js
+   - 或让 Antigravity 自动为你执行合并发布！
+4. 处理完成后，系统会自动将 inbox 内的已处理源文件移动到 archive/ 备份，保持 inbox 目录干净整洁。

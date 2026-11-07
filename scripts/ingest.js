@@ -26,6 +26,7 @@ const shouldPush = args.includes('--push');
 
 // 收集待处理的文件列表
 let filesToProcess = [];
+let mdFilesToProcess = [];
 
 if (fileArg) {
   const customPath = path.resolve(process.cwd(), fileArg.split('=')[1]);
@@ -36,18 +37,23 @@ if (fileArg) {
     process.exit(1);
   }
 } else {
-  // 默认模式：扫描 money/inbox/ 下的所有 .json 文件（排除 archive 子目录）
+  // 默认模式：扫描 money/inbox/ 下的所有 .json 与 .md 文件（排除 archive 子目录）
   const entries = fs.readdirSync(INBOX_DIR, { withFileTypes: true });
   for (const entry of entries) {
-    if (entry.isFile() && entry.name.toLowerCase().endsWith('.json')) {
-      filesToProcess.push(path.join(INBOX_DIR, entry.name));
+    if (entry.isFile()) {
+      const ext = path.extname(entry.name).toLowerCase();
+      if (ext === '.json') {
+        filesToProcess.push(path.join(INBOX_DIR, entry.name));
+      } else if (ext === '.md') {
+        mdFilesToProcess.push(path.join(INBOX_DIR, entry.name));
+      }
     }
   }
 }
 
-if (filesToProcess.length === 0) {
-  console.log('💡 [money/inbox] 文件夹中没有发现新的 .json 文件。');
-  console.log('👉 请把下载的新文件直接放入 money/inbox 文件夹中，然后再次双击运行！');
+if (filesToProcess.length === 0 && mdFilesToProcess.length === 0) {
+  console.log('💡 [money/inbox] 文件夹中没有发现新的 .json 或 .md 文件。');
+  console.log('👉 请把下载的新文件直接放入 money/inbox 文件夹中，然后再次运行！');
   process.exit(0);
 }
 
@@ -88,6 +94,32 @@ let totalAdded = 0;
 let totalUpdated = 0;
 const processedFiles = [];
 
+// 自动分拣与安装 inbox 中的单项目专属 SKILL.md
+if (mdFilesToProcess.length > 0) {
+  console.log(`\n🔍 检测到 ${mdFilesToProcess.length} 个专属技能包 (.md)，正在自动分发安装...`);
+  for (const mdPath of mdFilesToProcess) {
+    const raw = fs.readFileSync(mdPath, 'utf8');
+    let slug = '';
+    const nameMatch = raw.match(/^name:\s*["']?([^"'\r\n]+)["']?/m);
+    if (nameMatch) {
+      slug = nameMatch[1].trim();
+    } else {
+      const base = path.basename(mdPath, '.md').replace(/-?SKILL$/i, '');
+      slug = base;
+    }
+
+    if (slug) {
+      const targetDir = path.resolve(__dirname, `../skills/${slug}`);
+      if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+      fs.writeFileSync(path.join(targetDir, 'SKILL.md'), raw, 'utf8');
+      console.log(`  ✓ 专属技能包已自动安装至: skills/${slug}/SKILL.md`);
+      processedFiles.push(mdPath);
+    } else {
+      console.warn(`  ⚠️ 无法识别技能文件 [${path.basename(mdPath)}] 的对应项目 Slug，跳过归档。`);
+    }
+  }
+}
+
 for (const filePath of filesToProcess) {
   const filename = path.basename(filePath);
   try {
@@ -98,6 +130,34 @@ for (const filePath of filesToProcess) {
 
     let fileAdded = 0;
     let fileUpdated = 0;
+
+    // 智能识别：纯英文数据集自动合并到 data/projects_en.json
+    const isEnDataset = filename.toLowerCase().includes('-en') || filename.toLowerCase().includes('_en') || (items.length > 0 && !/[\u4e00-\u9fa5]/.test(items[0].title));
+
+    if (isEnDataset) {
+      console.log(`  🌐 检测到纯英文出海数据集 [${filename}]，直接合并至 data/projects_en.json...`);
+      const DB_PATH_EN = path.resolve(__dirname, '../data/projects_en.json');
+      let enList = [];
+      if (fs.existsSync(DB_PATH_EN)) {
+        try { enList = JSON.parse(fs.readFileSync(DB_PATH_EN, 'utf8')); } catch (e) { enList = []; }
+      }
+      for (const item of items) {
+        const matchIdx = enList.findIndex(e => (e.slug && e.slug === item.slug) || (e.id && e.id === item.id));
+        if (matchIdx >= 0) {
+          enList[matchIdx] = { ...enList[matchIdx], ...item };
+          fileUpdated++;
+        } else {
+          enList.unshift(item);
+          fileAdded++;
+        }
+      }
+      fs.writeFileSync(DB_PATH_EN, JSON.stringify(enList, null, 2), 'utf8');
+      console.log(`  ✓ 英文数据集 [${filename}]: 新增 ${fileAdded} 条, 更新 ${fileUpdated} 条`);
+      totalAdded += fileAdded;
+      totalUpdated += fileUpdated;
+      processedFiles.push(filePath);
+      continue;
+    }
 
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
@@ -163,8 +223,8 @@ for (const filePath of filesToProcess) {
   }
 }
 
-if (totalAdded === 0 && totalUpdated === 0) {
-  console.log('⚠️ 没有有效的新数据可入库。');
+if (totalAdded === 0 && totalUpdated === 0 && mdFilesToProcess.length === 0) {
+  console.log('⚠️ 没有有效的新数据或技能文件可入库。');
   process.exit(0);
 }
 
