@@ -228,12 +228,19 @@ function generatePageHtml(p, lang) {
         "name": isEn ? `How to execute and monetize: ${p.title}` : `如何落地变现【${p.title}】的标准SOP路径`,
         "description": p.summary,
         "totalTime": "P7D",
-        "step": (p.deep_dive?.workflow || []).map((stepText, idx) => ({
-          "@type": "HowToStep",
-          "position": idx + 1,
-          "name": isEn ? `Phase 0${idx + 1}: Execution` : `第 0${idx + 1} 阶段执行交付`,
-          "text": stepText.replace(/^\d+\.\s*/, '').trim()
-        }))
+        "step": (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0)
+          ? p.workflow_steps.map((s, idx) => ({
+              "@type": "HowToStep",
+              "position": idx + 1,
+              "name": `${s.phase || (isEn ? 'Phase' : '阶段') + ' ' + (idx + 1)}: ${s.title || ''}`,
+              "text": `${s.detail || ''}${s.deliverable ? ' [' + (isEn ? 'Deliverable: ' : '阶段交付: ') + s.deliverable + ']' : ''}`
+            }))
+          : (p.deep_dive?.workflow || []).map((stepText, idx) => ({
+              "@type": "HowToStep",
+              "position": idx + 1,
+              "name": isEn ? `Phase 0${idx + 1}: Execution` : `第 0${idx + 1} 阶段执行交付`,
+              "text": stepText.replace(/^\d+\.\s*/, '').trim()
+            }))
       }
     ]
   };

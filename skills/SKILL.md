@@ -296,54 +296,84 @@ AI 完成调研后，必须依次输出两个独立代码块：
 
 > **双语站底层运行机制**：  
 > `m.ucncn.cn` 拥有完全独立且对齐的英文出海站（`m.ucncn.cn/en/` 与 `en/project/<slug>.html`），其底层直接读取 `data/projects_en.json`。  
-> 为避免单次对话中因同时输出「多篇超长中文 + 多篇纯英文翻译 + 完整代码脚手架」而突破网页端 4096 输出 Token 截断限制，**系统支持两大优雅交付模式**：
+> 为避免单次对话中因同时输出「多篇超长中文 + 多篇纯英文翻译 + 完整代码脚手架」而突破网页端 4096 输出 Token 截断限制，**系统支持两大解耦交付模式**：
 
 1. **模式 A：单轮极速轻量模式（默认推荐，零截断风险）**：
    - 网页大模型单轮输出标准中文 JSON（附带轻量的 `title_en` 与 `summary_en`）+ 最佳项目的专属 `SKILL.md`。
-   - 本地入库脚本 `node scripts/ingest.js` 会自动提取英文标题与摘要，并在 `data/projects_en.json` 中建立对齐记录，保证全站编译与 slug 校验 100% 通过。
-2. **模式 B：双轮全量出海模式（100% 纯正海外极客落地页）**：
-   - 在第一轮输出完成并确定入选项目后，用户可直接发送第二轮指令：  
+   - MoneyLab 平台自动化入库引擎在接入时会自动提取英文标题与摘要，并在 `data/projects_en.json` 中建立对齐镜像，确保全站编译、双语路由与 slug 校验 100% 通过。
+2. **模式 B：双轮全量出海模式（100% 原生海外极客落地页）**：
+   - 在第一轮输出完成并确定入选项目后，用户可直接追加发送第二轮指令：  
      `"请将本期入选的项目转换为对齐 projects_en.json 的纯英文 JSON 数据块"`
-   - 大模型输出符合以下 `projects_en.json` 标准规范的纯正英文 JSON：
+   - 大模型输出符合以下规范的纯正英文 JSON。**英文结构与中文版 1:1 绝对镜像对称**（无需把步骤压平成字符串，亦向下弹性兼容旧版 `deep_dive`）：
+
+> ⚠️ **规范声明**：以下 JSON 仅作为 Schema 字段层级与类型规范示例。严禁抄写示例中的模拟数值；各项评分、四维拆解、预估收益、启动成本与来源链接必须严格基于你实际调研的真实数据填报！
 
 ```json
 [
   {
-    "id": "ml-YYYYMMDD-001",
-    "title": "Natural English Title (e.g. Turnkey 3D-Printed Out-of-Production Truck Parts)",
-    "slug": "vintage-truck-3d-printed-parts",
-    "category": "Physical + Digital POD | Micro-SaaS & Automation | AI Wrappers & B2B Solutions | Pure Digital Assets | Local Lead-Gen & Arbitrage | Cross-Border & E-Commerce",
-    "tags": ["3D Printing", "Automotive", "Niche Arbitrage", "CAD Modeling"],
+    "id": "ml-YYYYMMDD-00X",
+    "title": "Concise Natural English Title (e.g. Automated High-Intent Outreach Engine)",
+    "slug": "url-friendly-english-slug",
+    "category": "Micro-SaaS & Automation | Physical + Digital POD | AI Wrappers & B2B Solutions | Pure Digital Assets | Local Lead-Gen & Arbitrage | Cross-Border & E-Commerce",
+    "tags": ["Tag1", "Tag2", "Tag3", "Tag4"],
     "summary": "1-2 sentence concise English summary explaining the exact value proposition and monetization mechanism.",
-    "score": 70,
-    "rating_tier": "B",
-    "verdict": "Clear unit economics with inelastic demand from classic truck restorers. High margin per unit.",
+    "score": 85,
+    "rating_tier": "A",
+    "verdict": "Institutional due diligence conclusion in 1 concise English sentence, free of hype.",
     "score_breakdown": {
-      "feasibility": 8,
+      "feasibility": 9,
       "velocity": 8,
-      "ceiling": 6,
-      "reliability": 7
+      "ceiling": 8,
+      "reliability": 9
     },
     "metrics": {
-      "difficulty_stars": 3,
-      "cycle_time": "7-14 Days",
-      "initial_cost": "$500 (Entry 3D Printer + Filament)",
-      "revenue_model": "Direct E-Commerce ($25/part or $150 kit)",
-      "est_monthly_profit": "$1,000 - $2,500 / mo",
-      "clean_model": "Direct E-Commerce"
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "5-10 Days",
+      "initial_cost": "$20",
+      "startup_cost": "$20",
+      "est_monthly_profit": "$1,500 - $4,000 / mo",
+      "revenue_model": "Monthly SaaS ($29/mo) + Usage Add-ons",
+      "clean_model": "Monthly SaaS / Usage Add-ons"
     },
-    "deep_dive": {
-      "opportunity": "Major OEM automakers discontinue spare interior & latch parts for 15+ year old trucks. Classic truck owners are desperate for functional replacements. Digitizing these rare parts via 3D scanning and printing creates an instant high-margin monopoly.",
-      "workflow": [
-        "Phase 01: Reverse Engineering - Acquire damaged OEM parts from junkyards or eBay, 3D scan or measure with calipers, and create CAD files.",
-        "Phase 02: Prototyping - Print functional test pieces using heat-resistant PETG or ABS filament; verify fitment.",
-        "Phase 03: Storefront Setup - List on eBay Motors, dedicated enthusiast forums, and a lightweight Shopify catalog.",
-        "Phase 04: Print-on-Demand Fulfillment - Batch print upon order receipt; package with installation hardware."
-      ],
-      "risk_and_pitfalls": "Avoid non-UV or heat-sensitive PLA inside vehicles. Strictly verify dimensional tolerance before shipping.",
-      "tools": ["Fusion 360", "Bambu Lab P1S / Voron", "ABS / PETG Filament", "eBay Motors"]
+    "monetization_model": "Monthly SaaS ($29/mo) + Usage Add-ons",
+    "core_thesis": {
+      "market_pain": "Realistic market friction & buyer pain points: In-depth analysis of existing flaws, manual inefficiencies, or excessive pricing that justify immediate willingness to pay.",
+      "opportunity_arbitrage": "Core mechanism & unfair arbitrage: The exact technical leverage, lightweight architecture, or information asymmetry used to achieve positive cash flow."
     },
-    "source_url": "https://reddit.com/r/3Dprinting",
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Validate Core Demand & Niche Selection",
+        "detail": "Actionable validation steps, search queries, and competitor gap analysis.",
+        "deliverable": "Approved 1-page MVP Scope & Pricing Sheet"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Minimal Core Architecture Implementation",
+        "detail": "Engineering choices, API integration, and functional scaffold build.",
+        "deliverable": "End-to-End Working MVP Prototype"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Payment Checkout & License Gatekeeper",
+        "detail": "Stripe / LemonSqueezy checkout wiring with automated webhook delivery.",
+        "deliverable": "Automated Monetization & Billing Flow"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "High-Converting Organic Channel Activation",
+        "detail": "Targeted outreach, directory submissions, and founder-led content blueprint.",
+        "deliverable": "First 10-50 Paying Subscribers"
+      }
+    ],
+    "pitfalls_to_avoid": "Compliance warning and guardrails: Platform policies, API rate limits, anti-scraping safeguards, and operational risks.",
+    "tools": ["Primary Tool 1", "API Service 2", "Platform 3"],
+    "source_url": "https://authentic-unredacted-source-link.com",
     "created_at": "YYYY-MM-DD"
   }
 ]
@@ -474,5 +504,5 @@ https://m.ucncn.cn/llms.txt （或 https://m.ucncn.cn/catalog.json）
 为防止单次对话超出网页端 4096 输出 Token 截断上限，**请勿在第一轮要求模型输出全部双语**。当第一轮项目确定并过审后，若需一并产出出海站（`m.ucncn.cn/en/`）的完整纯英文数据，向模型追加发送此句即可：
 ```text
 请将上一轮通过的这几个项目，严格按照 projects_en.json 规范输出纯英文 JSON 数据块（```json）：
-保持 id、slug、score、metrics 与 source_url 完全一致，将其余所有字段（title、category、tags、summary、verdict，以及 deep_dive 的 opportunity、4 阶段 workflow 数组与 risk_and_pitfalls）翻译为地道、专业的海外独立开发者（Indie Hacker / Builder）语境英文。
+保持 id、slug、score、metrics 与 source_url 完全一致，将其余所有字段（title、category、tags、summary、verdict，以及 core_thesis 与带有交付物的 4 阶段 workflow_steps，亦兼容 deep_dive）翻译为地道、专业的海外独立开发者（Indie Hacker / Builder）语境英文。
 ```
