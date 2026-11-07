@@ -710,3 +710,29 @@ const totalProjectsCount = zhProjects.length;
     console.log(`✓ Synchronized ${relPath} total counters to ${totalProjectsCount}`);
   }
 });
+
+// 4.4 编译期 JavaScript 语法完整性硬检查 (Syntax Integrity Gatekeeper)
+const vm = require('vm');
+['index.html', 'en/index.html'].forEach(relPath => {
+  const filePath = path.join(ROOT_DIR, relPath);
+  if (fs.existsSync(filePath)) {
+    const html = fs.readFileSync(filePath, 'utf8');
+    const scriptRegex = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+    let match;
+    let sIdx = 0;
+    while ((match = scriptRegex.exec(html)) !== null) {
+      sIdx++;
+      const typeMatch = match[0].match(/type=["']([^"']+)["']/i);
+      if (typeMatch && (typeMatch[1].includes('json') || typeMatch[1].includes('tailwind'))) continue;
+      const code = match[1];
+      if (!code.trim()) continue;
+      try {
+        new vm.Script(code, { filename: `${relPath}:script[${sIdx}]` });
+      } catch (syntaxErr) {
+        console.error(`\n❌ 【构建阻断】在 ${relPath} 的第 ${sIdx} 个脚本中发现语法错误: ${syntaxErr.message}`);
+        process.exit(1);
+      }
+    }
+  }
+});
+console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');

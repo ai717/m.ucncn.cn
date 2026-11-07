@@ -2370,11 +2370,7 @@
                 stepContent = step.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim();
               }
             }
-              stepContent = step.replace(/^[0-9.、\sPhase阶段]+[·\-\s]*/i, '').trim();
-            }
 
-            const deliverable = defaultDeliverables[idx] || '✓ Milestone Output Verified';
-            const stageBadge = defaultStageBadges[idx] || `Phase 0${idx + 1}`;
             const isLast = idx === steps.length - 1;
 
             return `
