@@ -1,0 +1,206 @@
+[
+  {
+    "id": "ml-20261112-001",
+    "title": "NCLEX 护理考试 AI 备考站：讲义一键变题库闪卡",
+    "title_en": "AI NCLEX Prep: Lecture Notes to Flashcards & Mock Exams",
+    "slug": "nclex-nursing-exam-ai-prep",
+    "category": "出海/独立开发",
+    "tags": ["执业考试题库", "AI 备考", "护理考试", "NCLEX", "订阅制"],
+    "summary": "护理学生上传讲义和教材，AI 自动生成闪卡、测验题和模拟考，专攻美国护士执业资格 NCLEX 考试，按月订阅收费。",
+    "summary_en": "Nursing students upload lecture notes and textbooks; AI turns them into flashcards, quizzes and mock exams for the US NCLEX licensure exam, charged as a monthly subscription.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "考试是年年都有的刚需，915 个付费订阅和 1.88 万美元月收入已经验证有人真掏钱；单人用 AI 做题库完全跑得动，最大风险是 AI 出的题必须人工审校准确性。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 8,
+      "ceiling": 8,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "2~3 周",
+      "initial_cost": "$20~$50（域名 + AI 接口额度）",
+      "startup_cost": "$20~$50（域名 + AI 接口额度）",
+      "est_monthly_profit": "$2,000 ~ $5,000 / 月（单人稳态）",
+      "revenue_model": "月度订阅（约 $57/月，按对标产品 ARPU $56.65 测算）"
+    },
+    "monetization_model": "月度订阅（约 $57/月，按对标产品 ARPU $56.65 测算）",
+    "prototype": "G",
+    "core_thesis": {
+      "market_pain": "美国每年有几十万护理学生要考 NCLEX 执照，不过就上不了岗。市面上的备考资料要么是几百美元的大部头课程，要么是零散的免费题库，学生手里现成的讲义和教材没人帮他变成能刷的题。学生愿意为“把我的讲义变成考试题”直接付费，痛点具体、付费意愿强。",
+      "opportunity_arbitrage": "对标产品在 DealStream 挂牌的数据已经验证：915 个付费订阅、月收入 $18,824、人均 $56.65/月、毛利率 89.6%，支付数据已核验。切口是“只做 NCLEX 一个考试”，题库和考点高度聚焦；用大模型把讲义转成闪卡和选择题，边际成本只有 Token 费；获客靠护理学生创作者的短视频，创始人每周只花 15~20 小时运营。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定 NCLEX 一个考试，先做出 200 道高质量真题",
+        "detail": "只做 NCLEX-RN 一个考试，不碰其他执照。先按官方考试大纲（Client Needs 四大类）列出高频考点清单，再人工整理 200 道带解析的选择题作为种子题库；AI 生成的题一律先过人工审校，准确率是这门生意的命。",
+        "deliverable": "NCLEX 考点清单 + 200 道人工审校种子题库"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "讲义上传转题库 + 自测评分站上线",
+        "detail": "用 FastAPI + 静态前端搭最小版本：上传 PDF/讲义文本 → 大模型抽考点生成闪卡和选择题 → 在线自测、错题本、 readiness 评分。先跑通“上传→出题→刷题→出分”一条线，再考虑 AI 家教对话。",
+        "deliverable": "可用的讲义转题库自测站（含评分引擎）"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅定价与支付：免费试刷 + $29~$59 月费",
+        "detail": "免费档每天可刷 20 道题，付费解锁全部题库、模拟考和错题解析；定价参考对标 ARPU $56.65，设 $39/月基础版和 $59/月冲刺版。接 Stripe 订阅，取消随时退订，不做年费捆绑强推。",
+        "deliverable": "Stripe 订阅收款闭环 + 两档定价页"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "护理学生创作者短视频 + 护理学校合作",
+        "detail": "找 5~10 个护理专业在读学生做短视频创作者，按成交分佣；内容就是“用我的讲义 10 分钟生成一套模拟考”。同时给护理学校免费开班级试用账号，拿真实通过率做口碑。",
+        "deliverable": "首批 10~50 个付费订阅"
+      }
+    ],
+    "pitfalls_to_avoid": "一、AI 生成的考题必须人工审校，错题会直接毁掉口碑，医学类内容绝不能只靠模型裸奔；二、不要直接复制市面真题集卖，原创改写+解析才是合规做法；三、不要承诺“包过”，考不过退费的口子一开就收不住；四、讲义版权归学生本人，平台只处理用户自己上传的材料，不爬取、不倒卖题库。",
+    "tools": ["FastAPI", "OpenAI / Claude API", "Stripe", "PostgreSQL", "TikTok / Instagram 短视频"],
+    "source_url": "https://dealstream.com/d/biz-sale/tutoring/jdwdiv",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-002",
+    "title": "Sonder 作者出书营销视频：整本书读完自动出片",
+    "title_en": "Sonder: Book-to-Video Marketing for Authors",
+    "slug": "sonder-author-book-video-marketing",
+    "category": "出海/独立开发",
+    "tags": ["AI 视频", "图书营销", "作者工具", "短视频", "订阅制"],
+    "summary": "读完整本已经写好的书，自动生成亚马逊广告、TikTok 短视频和幻灯片，帮作者把书写成销量，$49/月起订阅。",
+    "summary_en": "Reads an author's finished book and auto-generates Amazon ads, TikToks and slideshows that sell more copies, from $49/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "切口极窄只服务写书的人，113 个订阅、2 万美元月收入经 Stripe 核验是真的；但视频生成正在快速变成大路货，赢面在“懂书的脚本套路”而不是生成本身。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3~4 周",
+      "initial_cost": "$50~$200（视频生成 API 额度）",
+      "startup_cost": "$50~$200（视频生成 API 额度）",
+      "est_monthly_profit": "$2,000 ~ $4,000 / 月（单人稳态）",
+      "revenue_model": "月度订阅 $49 / $99 / $209 三档"
+    },
+    "monetization_model": "月度订阅 $49 / $99 / $209 三档",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "写书的人最缺的不是书写得好不好，是书写完没人知道。请 agency 做 5 条视频要 $750+/月还得开会 briefing，大部分独立作者根本请不起；自己剪又没时间、不会剪。书已经写完了，营销视频却还是空白，这就是付费点。",
+      "opportunity_arbitrage": "Sonder 2026 年 9 月 10 日上线，约 2 个月做到 $20,283 月收入、113 个订阅，近 30 天 $18,374 经 Stripe 核验（TrustMRR，2026-11-02）。打法不是拼生成质量，而是把“几千条爆款图书视频的脚本结构”做成套路：钩子—张力—反转，再由 AI 围绕作者自己的书来生产；$49/月对标 agency 的 $750+/月，价格差本身就是卖点。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先攒 50 条图书类爆款视频的脚本结构",
+        "detail": "去 TikTok/Instagram 上扒 50 条真正带货的图书视频，拆出钩子、张力、反转、结尾四段结构，沉淀成 10 套可复用的脚本模板。模板是护城河，先有模板再写代码。",
+        "deliverable": "10 套图书营销脚本模板 + 爆款结构拆解表"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "PDF 上传 → 读全书 → 出脚本 → 成片",
+        "detail": "最小版本只做一条线：上传 PDF 和封面 → 大模型读完全书抽论点和故事 → 套脚本模板出 3 条视频脚本 → 调视频生成 API 出带字幕的成片。先跑通，再补幻灯片和亚马逊广告格式。",
+        "deliverable": "书稿转视频的最小可用流水线"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "7 天免费试用 + $49/月起订阅",
+        "detail": "试用 7 天全功能开放，第 8 天起 $49/月；按每月出片量分 $49/$99/$209 三档，超量用 $35 起的积分包补。接 Stripe，视频按条计成本，定价必须盖住单条生成成本再留毛利。",
+        "deliverable": "Stripe 订阅 + 按条计成本的定价表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "作者社群 + 写书博主分佣冷启",
+        "detail": "去作者社群、自出版论坛和写书博主那里做免费试用：给 20 个作者免费用一个月，条件是把成片发出来并挂链接；再用“5 条视频 $49，对 agency $750+”的价格对比做内容钩子。",
+        "deliverable": "首批 10~50 个付费订阅"
+      }
+    ],
+    "pitfalls_to_avoid": "一、别只拼生成画质，Kling/Runway/Sora 一升级就把你抹平，护城河是脚本套路和作者社群；二、视频成本按条算，定价前先把单条成本算死，别被重度用户薅到亏钱；三、不要拿作者原书内容去训练公开模型，版权纠纷一单就致命；四、别承诺播放量和销量，广告效果看书本身和投放预算，平台只保证出片质量。",
+    "tools": ["视频生成 API（Kling / Runway）", "OpenAI / Claude API", "Stripe", "FFmpeg", "TikTok / Instagram"],
+    "source_url": "https://www.yousonder.com/",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-003",
+    "title": "焊工承包商核实商机订阅：每月 15 条真实工地线索",
+    "title_en": "Verified Leads for Welding Contractors: 15 Real Jobs a Month",
+    "slug": "welding-contractor-verified-leads",
+    "category": "线下数字化线索",
+    "tags": ["B2B 线索", "焊工承包商", "订阅制", "垂直行业", "人工核实"],
+    "summary": "给焊工和钣金承包商每月发 15 条人工核实过的工商业主项目线索，$330/季或 $987/年订阅，5 个月做到 46 个付费会员。",
+    "summary_en": "Sends welding and fabrication contractors 15 research-verified commercial project leads a month, at $330/quarter or $987/year.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "模式极轻：一个网站加人工核实就能开张，5 个月 46 个付费会员、利润率 91.7% 是真金白银；唯一短板是 9 月单月流失率 22.7%，线索质量一掉就掉粉。",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 1,
+      "tech_barrier": "★☆☆☆☆ (1/5)",
+      "cycle_time": "2~3 周",
+      "initial_cost": "¥0~¥500（域名 + 建站）",
+      "startup_cost": "¥0~¥500（域名 + 建站）",
+      "est_monthly_profit": "$3,000 ~ $6,000 / 月（单人稳态）",
+      "revenue_model": "季度订阅 $330 / 年度订阅 $987"
+    },
+    "monetization_model": "季度订阅 $330 / 年度订阅 $987",
+    "prototype": "A",
+    "core_thesis": {
+      "market_pain": "焊工和钣金承包商最缺的不是手艺，是稳定的工商业主订单。他们平时靠熟人介绍和电话黄页，拿到手的项目信息要么过时、要么已经被抢走。每月有人把核实过的真实项目送上门，$330 一个季度，对他们来说就是一单活的零头。",
+      "opportunity_arbitrage": "对标产品 2026 年 6 月上线，5 个月做到 46 个付费会员、收入 $32,093、利润 $29,443、利润率 91.74%，每月发 15 条人工核实线索（Microns 挂牌页，2026-11-03）。技术栈就是 Notion + WordPress + Airtable + Google Sheets，基本零代码；获客靠一个 4.8 万人的焊工 Facebook 社群，每周运营不到 5 小时。壁垒不在技术，在“线索是真核实过的”这句口碑。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先定一个手艺行当，再攒 500 条真实买家",
+        "detail": "不要一上来就做全行业，先定焊工/钣金一个行当。从公开招标、工地公示和本地工商信息里人工整理 500 条真实的工商业主项目记录（项目名、地点、联系方式、开工时间），每条必须能打通电话核实。",
+        "deliverable": "500 条人工核实过的买家项目库"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "一个落地页 + 邮件发线索就能开张",
+        "detail": "WordPress 落地页讲清“每月 15 条核实线索”，Airtable 管线索库，Stripe 收季度/年费订阅，线索按邮件每月分批发。不要一上来写平台，先用表格+邮件跑通交付。",
+        "deliverable": "可收款、可发线索的最小版本"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "季度 $330 / 年度 $987，先收 10 个种子会员",
+        "detail": "定价照抄对标：$330/季、$987/年。先在焊工 Facebook 社群和本地行业群里招 10 个种子会员，前 3 个月半价，条件是每月反馈“哪条线索真成单了”，用成单故事做续费理由。",
+        "deliverable": "10 个种子付费会员 + 首月线索反馈"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "焊工社群深耕 + 老会员转介绍",
+        "detail": "主渠道就是焊工 Facebook 社群：每周发一条“本周已核实线索样例”（脱敏），不硬广；再给老会员转介绍奖励（介绍 1 人送 1 个月）。线索质量是续费的命，每月必须公示成单反馈。",
+        "deliverable": "46 个付费会员量级的订阅基本盘"
+      }
+    ],
+    "pitfalls_to_avoid": "一、线索必须人工核实，发一条假线索就掉一个会员，9 月 22.7% 的流失率就是教训；二、别碰爬来的私人电话和邮箱，只用公开招标和工商公示信息，合规红线不能踩；三、别承诺“包成单”，你卖的是线索不是订单，成单看承包商自己跟进；四、别一上来扩到十个行当，一个行当做出口碑再复制，下一个行当可以是电工或暖通。",
+    "tools": ["WordPress", "Airtable", "Google Sheets", "Stripe", "Attio CRM", "Facebook 社群"],
+    "source_url": "https://www.microns.io/startup-listings/b2b-lead-generation-platform-b21a8",
+    "created_at": "2026-11-12"
+  }
+]

@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ml-20261113-001",
+    "title": "Headroom-Style Context Compression Desktop App for AI Coding Agents",
+    "slug": "headroom-context-saver-desktop",
+    "category": "Micro-SaaS & Automation",
+    "tags": ["Claude Code", "Context Compression", "Desktop App", "Token Savings", "Polar Subscription"],
+    "summary": "Package an open-source context-compression engine as a one-click desktop app with auto-updates and a savings dashboard, charging AI coding-agent users a subscription for the tokens it saves.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "Revenue is payment-verified and the pattern is copyable, but the business lives or dies on whether Anthropic and OpenAI build compression in natively. A B-tier trial, not an all-in bet.",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3-6 Weeks",
+      "initial_cost": "$0-$50",
+      "startup_cost": "$0-$50",
+      "est_monthly_profit": "$800 - $3,000 / mo (copycat steady-state estimate; original MRR $2,025)",
+      "revenue_model": "Monthly subscription (Pro $3-$4/mo + Max tiers) + AppSumo lifetime deal",
+      "clean_model": "Monthly SaaS / Lifetime Deal"
+    },
+    "monetization_model": "Monthly subscription (Pro $3-$4/mo + Max tiers) + AppSumo lifetime deal",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "AI coding agents like Claude Code and Codex burn through tokens on machine noise (logs, search results, JSON) and users hit 5-hour and weekly usage limits fast. The open-source compression engine Headroom CLI already exists (77k GitHub stars), but installing it means Python, pip and hand-editing agent configs, which most developers will not do.",
+      "opportunity_arbitrage": "Do not sell the compression algorithm (it is free under Apache 2.0); sell 'it just works': one-click install, bundled Python runtime, auto-updates, clean uninstall, plus a dashboard showing tokens saved per session so the saving is visible. Price tiers match the AI plan the user already pays for (Pro tier for Claude Pro, Max tiers for larger plans), so the price feels like a rounding error. The original launched 1 April 2026, solo-maintained, with $2,025 MRR from 222 subscriptions on 25 October 2026 and $12,111 all-time revenue (verified by TrustMRR from Polar payment data)."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Find an open-source tool that is powerful but painful to install",
+        "detail": "Search GitHub for highly-starred tools whose install needs command line and config edits (local speech-to-text, local document search, model routers all qualify). Read the license first to confirm commercial use and redistribution are allowed, then write to the author for permission, promising credit on every page and keeping the free path visible.",
+        "deliverable": "1 open-source engine + written permission + license compliance checklist"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Tauri shell + local proxy, one-click install working",
+        "detail": "Build a lightweight Tauri desktop shell with a Rust intercept proxy and a Python backend running the compression engine. The installer writes the agent config automatically, backs up the original, and the uninstaller restores everything. Add a savings dashboard: tokens saved per session and the dollar value at API prices. Ship macOS first, then Windows and Linux.",
+        "deliverable": "Installable desktop app v1 + savings dashboard + verified clean uninstall"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Polar subscriptions with tiers matched to the user's existing AI plan",
+        "detail": "Use Polar for payments and subscription management. Price each tier as a small fraction of the AI plan it stretches (e.g. Pro $3-$4/mo). Free tier gets basic compression; paid unlocks auto-updates and the dashboard. An AppSumo lifetime deal can cold-start sales, but do not bet long-term revenue on it.",
+        "deliverable": "Polar subscription loop + free/paid split + pricing page"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "SEO content + developer-community cold start",
+        "detail": "Publish 20-25 practical articles on the target tool's costs and usage limits (token-saving tips, plan comparisons, competitor comparisons) for Google search traffic. Post real measured savings data on Reddit, Hacker News and Product Hunt. Win the first 10-50 paying seed users and watch renewal rate closely.",
+        "deliverable": "SEO content matrix + community launch posts + first paying users and renewal data"
+      }
+    ],
+    "pitfalls_to_avoid": "The biggest red line is platform dependency: if Anthropic or OpenAI ship native compression in their own agents, the product's value drops to zero. Aiolum's failed-startup database already lists 4 companies dead from this exact pattern, so model the ceiling as if an official feature could land any day. The open-source engine must be credited, the free path kept visible, and the author's permission obtained, or the reputation cost kills you. State savings percentages honestly with measured ranges, never benchmark numbers as promises. AppSumo lifetime deals mortgage future subscription revenue; use them only for cold start.",
+    "tools": ["Tauri", "Rust", "Python", "Headroom CLI (Apache 2.0)", "Polar", "Kompress-v2-base"],
+    "source_url": "https://aiolum.com/story/headroom/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-002",
+    "title": "Glossa-Style Vertical Live Translation Tool for Church Services",
+    "slug": "glossa-church-live-translation",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": ["Live Translation", "Church", "Claude Code", "Vertical Niche", "Stripe Verified"],
+    "summary": "Live translation for multilingual church services at $5/hour per language or $99/$299/$499 monthly plans; the playbook ports to conferences, tours, schools and other vertical interpreting scenes.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "MRR of $14,404 is Stripe-verified and church customers are sticky, but the data feed went stale after 19 October 2026 and translation costs keep falling, so price with room to move.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4-8 Weeks",
+      "initial_cost": "$100-$300 (API credits)",
+      "startup_cost": "$100-$300 (API credits)",
+      "est_monthly_profit": "$1,500 - $6,000 / mo (copycat steady-state estimate; original MRR $14,404)",
+      "revenue_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
+      "clean_model": "Usage-Based / Monthly Subscription"
+    },
+    "monetization_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "In multilingual churches, part of the congregation cannot follow the sermon every service. Hiring human interpreters is expensive and hard to schedule, and small churches cannot afford it; generic translation apps do not know service terminology or flow, and their latency and accuracy fall short. The original Glossa was built by Anton K. with Claude Code and passed $20k revenue by May 2026.",
+      "opportunity_arbitrage": "Do not build generic translation; own one scene end to end. A church service is a fixed flow (sermon, prayer, hymns), so the terminology base and latency can be tuned for exactly that flow. Churches pay per language per hour, and 100 active subscriptions support $14,404 MRR and $196,539 all-time revenue (Stripe-verified via TrustMRR). Copycats need not fixate on churches: conferences, tour groups, international schools and court interpreting share the same 'fixed flow + multilingual audience' structure, and the same pipeline ports over with a swapped terminology base."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Pick a vertical scene with a fixed flow and a multilingual audience",
+        "detail": "Start from the scene, not the tech. List occasions near you with a fixed flow and a multilingual audience (church services, conference talks, tour groups, international-school parent meetings). Talk to 3-5 real institutions about how they solve translation today and what they would pay. Churches are proven, but copycats should pick a scene they can actually reach.",
+        "deliverable": "1 target scene + willingness-to-pay interviews with 3 institutions"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Speech-to-text + translation + caption pipeline working",
+        "detail": "Use off-the-shelf STT APIs for audio-to-text, a translation API, then push translated text or audio to listeners' phones over WebSocket for low latency. Start with one segment only (the sermon): build a 200-term scene glossary (common sermon words, hymn names, people's names) and target under 3 seconds of latency. Do not train your own models; call existing APIs.",
+        "deliverable": "End-to-end live translation demo + glossary + measured latency data"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Pay-per-hour plus monthly plans, billed through Stripe",
+        "detail": "Copy the original pricing structure: occasional use billed per language per hour ($5/hour/language), regulars on monthly plans ($99/$299/$499 by language count and sessions). Bill subscriptions and metered usage through Stripe. Watch STT and translation API unit prices: translation costs are falling, so leave room to cut prices instead of locking in a high price.",
+        "deliverable": "Stripe billing loop + pricing page + per-session cost sheet"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Knock on institutions' doors one by one, offer one free trial service",
+        "detail": "There is no paid-ads shortcut here: contact target institutions directly, offer one free trial service with you on site as backup, and let the congregation scan a code to hear the translation live. Win 3-5 seed institutions, then expand through denominational networks and peer referrals. In parallel, swap the glossary to open a second scene (conferences or tours) so all eggs are not in one scene.",
+        "deliverable": "3-5 seed institutions + trial-to-paid conversion data + second-scene glossary"
+      }
+    ],
+    "pitfalls_to_avoid": "Evidence freshness warning: the original's Stripe-verified figures were last synced 19 October 2026; the feed died when the API key expired, so $14,404 MRR is a 19 October snapshot, not today's number. The 30-day snapshot ($31,173) and the daily-sum ($12,903) disagree on method; use MRR as the reference. Translation API costs keep falling and will squeeze prices long-term, so do not project today's margins forward. Avoid scenes with no clear payer (pure charity, one-off events); institutional customers are the ones who renew. Live-audio latency and glossary mistranslations kill reputation, so field-test at least 3 real services before launch.",
+    "tools": ["Claude Code", "Whisper / STT API", "Translation API", "Stripe", "WebSocket Live Audio"],
+    "source_url": "https://www.stateofindiehacking.com/stories/ai-built-apps-revenue-verified-median-shipped-and-paid/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-003",
+    "title": "Underpriced AI-Style Reseller Price Checker: Photo-to-Profit in 30 Seconds",
+    "slug": "underpriced-ai-reseller-scanner",
+    "category": "Micro-SaaS & Automation",
+    "tags": ["Reselling", "Photo Pricing", "eBay", "AI Vision", "Subscription"],
+    "summary": "Snap a photo and AI identifies the item, pulls real eBay sold prices, deducts fees and shipping, and tells you the net profit and whether to buy; subscriptions from $9.99/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "Monthly revenue of $5,156 is Stripe-verified, the need is real and the setup is fully compliant; the low price point means volume matters, and acquisition has to grind inside reseller communities.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "6-10 Weeks",
+      "initial_cost": "$50-$200 (API credits)",
+      "startup_cost": "$50-$200 (API credits)",
+      "est_monthly_profit": "$1,000 - $4,000 / mo (copycat steady-state estimate; original $5,156/mo)",
+      "revenue_model": "5 free scans + subscription ($9.99/$14.99/$24.99/mo)",
+      "clean_model": "Freemium / Monthly Subscription"
+    },
+    "monetization_model": "5 free scans + subscription ($9.99/$14.99/$24.99/mo)",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "Resellers deciding on the spot at thrift stores and garage sales fear overpaying most. The old way took 10-15 minutes per item: Google Lens, asking ChatGPT, digging through eBay sold listings, then hand-calculating the 13.25% fee and shipping. By the time the math was done, someone else had taken the good item. Founder Frank Kratzer was a reseller himself and built it solo in 6 months while learning AI integration.",
+      "opportunity_arbitrage": "Compress 'identify + check sold prices + compute net profit' into 30 seconds: photograph the item, a vision model identifies brand, model and condition, real eBay sold prices anchor the value, then platform fees and shipping are deducted to produce a 0-100 Deal Score and a buy-or-skip call. One good flip (a $12 item netting $80) pays for a year of subscription, so the purchase decision is easy. Indie Hackers shows $5,156/mo Stripe-verified (29 October 2026), rechecked at $5,236.94 per 30 days on 7 November 2026. Live on web, iOS, Android and Chrome/Firefox extensions."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Live inside reseller communities and confirm the 30-second on-the-spot decision is a real pain",
+        "detail": "Spend two weeks in r/Flipping, Facebook reseller groups and eBay seller forums. Record how sellers actually decide on site, what they complain about, which categories trip them up most, what tool stack they use now, and what they would pay per scan. Pick target categories (vintage cameras, designer jackets, sneakers, collectibles) before building; do not attempt all categories.",
+        "deliverable": "Target category list + 5 seller interviews + willingness-to-pay range"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Photo identification + eBay sold prices + net-profit calculator working",
+        "detail": "Use a cheap vision model (e.g. Gemini Flash) to identify brand, model and condition. Pull real sold prices through the official eBay Finding API as the anchor (never scrape). Deduct platform fees from a rate table (eBay 13.25% + $0.30, Poshmark 20%, Mercari ~12.9%) plus shipping to compute net profit and a Deal Score. Ship a web MVP first and verify identification accuracy before wrapping an app.",
+        "deliverable": "Web MVP + measured identification accuracy + net-profit calculator passing a 20-item physical spot check"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "5 free scans to hook, three subscription tiers, first month half price",
+        "detail": "Give 5 full free scans (including sold-price comparison, no paywall on the key answer) so users taste one 'good find' first. Paid tiers scale by scan volume (Reseller $9.99/mo for 75 scans, Pro $14.99/mo for 200, Ultra $24.99/mo for 500), first month half price to lower the barrier. Bill through Stripe. If the free tier gets farmed, tighten it to 5 scans and do not soften.",
+        "deliverable": "Stripe subscription loop + pricing page + free-tier abuse rules"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Reseller communities + Product Hunt + free tools for traffic",
+        "detail": "Post real flip stories in reseller communities (how a $15 camera was calculated to net $87), not ads. Launch on Product Hunt for a visibility spike. Build 40+ free mini-tools (fee calculators, shipping estimators, ROI calculators) for search traffic. Anchor word of mouth on one line: 'one scan pays for the subscription'. Let existing users bring new ones.",
+        "deliverable": "10 community case posts + Product Hunt launch + free-tool matrix"
+      }
+    ],
+    "pitfalls_to_avoid": "A valuation is an estimate, not an appraisal: state clearly on the page that AI valuations can be wrong and that condition and authenticity are the user's call. Never promise 'guaranteed authentic / guaranteed price', or disputes will follow. The eBay Finding API is official but rate-limited; do not work around it with scraping or an account ban ends everything. Pricing note: the founder's January 2026 post lists $5.99/$9.99/$17.99, while the October 2026 Product Hunt update lists $9.99/$14.99/$24.99; use the latest. Low price means volume: 500 subscriptions make $5,000/mo, so keep acquisition costs down and do not burn money on ads.",
+    "tools": ["Gemini Flash Vision", "eBay Finding API", "Flutter / React Native", "Stripe", "Product Hunt"],
+    "source_url": "https://www.indiehackers.com/post/built-a-profit-checker-app-for-resellers-that-solves-the-should-i-buy-this-problem-22fe82e6ca",
+    "created_at": "2026-11-13"
+  }
+]

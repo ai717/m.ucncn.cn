@@ -1,9 +1,15 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-07",
-  "total_count": 11,
+  "updated_at": "2026-11-13",
+  "total_count": 17,
   "existing_slugs": [
+    "underpriced-ai-reseller-scanner",
+    "glossa-church-live-translation",
+    "headroom-context-saver-desktop",
+    "welding-contractor-verified-leads",
+    "sonder-author-book-video-marketing",
+    "nclex-nursing-exam-ai-prep",
     "vintage-truck-3d-printed-parts",
     "plainmail-multi-domain-email",
     "skillry-agent-skills-library",
@@ -40,6 +46,126 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261113-003",
+      "slug": "underpriced-ai-reseller-scanner",
+      "title": "Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买",
+      "category": "出海/独立开发",
+      "tags": [
+        "二手转卖",
+        "拍照估价",
+        "eBay",
+        "AI 视觉",
+        "订阅制"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。",
+      "monetization_model": "免费 5 次 + 订阅（$9.99/$14.99/$24.99/月）",
+      "est_monthly_profit": "$1,000 ~ $4,000 / 月（复制者稳态预估；原版 $5,156/月）",
+      "landing_url_zh": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/underpriced-ai-reseller-scanner/"
+    },
+    {
+      "id": "ml-20261113-002",
+      "slug": "glossa-church-live-translation",
+      "title": "Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费",
+      "category": "AI应用与服务",
+      "tags": [
+        "实时翻译",
+        "教堂",
+        "Claude Code",
+        "垂直场景",
+        "Stripe 核验"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。",
+      "monetization_model": "按语言按小时计费（$5/小时）+ 月套餐（$99/$299/$499）",
+      "est_monthly_profit": "$1,500 ~ $6,000 / 月（复制者稳态预估；原版 MRR $14,404）",
+      "landing_url_zh": "https://m.ucncn.cn/p/glossa-church-live-translation/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/glossa-church-live-translation/"
+    },
+    {
+      "id": "ml-20261113-001",
+      "slug": "headroom-context-saver-desktop",
+      "title": "Headroom 式 AI 编程上下文压缩桌面应用：把难装的开源引擎打包成一键安装的省钱工具",
+      "category": "出海/独立开发",
+      "tags": [
+        "Claude Code",
+        "上下文压缩",
+        "桌面应用",
+        "Token 省钱",
+        "Polar 订阅"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "把开源上下文压缩引擎打包成一键安装、自动更新、带节省量看板的桌面应用，帮 Claude Code / Codex 用户省 token，按订阅收费。",
+      "monetization_model": "月度订阅（Pro $3~$4/月 + Max 档）+ AppSumo 终身买断",
+      "est_monthly_profit": "$800 ~ $3,000 / 月（复制者稳态预估；原版 MRR $2,025）",
+      "landing_url_zh": "https://m.ucncn.cn/p/headroom-context-saver-desktop/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/headroom-context-saver-desktop/"
+    },
+    {
+      "id": "ml-20261112-003",
+      "slug": "welding-contractor-verified-leads",
+      "title": "焊工承包商核实商机订阅：每月 15 条真实工地线索",
+      "category": "线下数字化线索",
+      "tags": [
+        "B2B 线索",
+        "焊工承包商",
+        "订阅制",
+        "垂直行业",
+        "人工核实"
+      ],
+      "score": 75,
+      "rating_tier": "B",
+      "summary": "给焊工和钣金承包商每月发 15 条人工核实过的工商业主项目线索，$330/季或 $987/年订阅，5 个月做到 46 个付费会员。",
+      "monetization_model": "季度订阅 $330 / 年度订阅 $987",
+      "est_monthly_profit": "$3,000 ~ $6,000 / 月（单人稳态）",
+      "landing_url_zh": "https://m.ucncn.cn/p/welding-contractor-verified-leads/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/welding-contractor-verified-leads/"
+    },
+    {
+      "id": "ml-20261112-002",
+      "slug": "sonder-author-book-video-marketing",
+      "title": "Sonder 作者出书营销视频：整本书读完自动出片",
+      "category": "出海/独立开发",
+      "tags": [
+        "AI 视频",
+        "图书营销",
+        "作者工具",
+        "短视频",
+        "订阅制"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "读完整本已经写好的书，自动生成亚马逊广告、TikTok 短视频和幻灯片，帮作者把书写成销量，$49/月起订阅。",
+      "monetization_model": "月度订阅 $49 / $99 / $209 三档",
+      "est_monthly_profit": "$2,000 ~ $4,000 / 月（单人稳态）",
+      "landing_url_zh": "https://m.ucncn.cn/p/sonder-author-book-video-marketing/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/sonder-author-book-video-marketing/"
+    },
+    {
+      "id": "ml-20261112-001",
+      "slug": "nclex-nursing-exam-ai-prep",
+      "title": "NCLEX 护理考试 AI 备考站：讲义一键变题库闪卡",
+      "category": "出海/独立开发",
+      "tags": [
+        "执业考试题库",
+        "AI 备考",
+        "护理考试",
+        "NCLEX",
+        "订阅制"
+      ],
+      "score": 75,
+      "rating_tier": "B",
+      "summary": "护理学生上传讲义和教材，AI 自动生成闪卡、测验题和模拟考，专攻美国护士执业资格 NCLEX 考试，按月订阅收费。",
+      "monetization_model": "月度订阅（约 $57/月，按对标产品 ARPU $56.65 测算）",
+      "est_monthly_profit": "$2,000 ~ $5,000 / 月（单人稳态）",
+      "landing_url_zh": "https://m.ucncn.cn/p/nclex-nursing-exam-ai-prep/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/nclex-nursing-exam-ai-prep/"
+    },
     {
       "id": "ml-20261107-003",
       "slug": "vintage-truck-3d-printed-parts",

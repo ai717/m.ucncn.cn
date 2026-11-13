@@ -1,5 +1,487 @@
 [
   {
+    "id": "ml-20261113-003",
+    "title": "Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买",
+    "title_en": "Underpriced AI-Style Reseller Price Checker: Photo-to-Profit in 30 Seconds",
+    "slug": "underpriced-ai-reseller-scanner",
+    "category": "出海/独立开发",
+    "tags": [
+      "二手转卖",
+      "拍照估价",
+      "eBay",
+      "AI 视觉",
+      "订阅制"
+    ],
+    "summary": "拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。",
+    "summary_en": "Snap a photo and AI identifies the item, pulls real eBay sold prices, deducts fees and shipping, and tells you the net profit and whether to buy; subscriptions from $9.99/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "月入 5,156 美元经 Stripe 核验，需求真实、合规干净；单价低要靠量，获客得扎进转卖卖家社区慢慢磨。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "6~10 周",
+      "initial_cost": "$50~$200（API 额度）",
+      "startup_cost": "$50~$200（API 额度）",
+      "est_monthly_profit": "$1,000 ~ $4,000 / 月（复制者稳态预估；原版 $5,156/月）",
+      "revenue_model": "免费 5 次 + 订阅（$9.99/$14.99/$24.99/月）"
+    },
+    "monetization_model": "免费 5 次 + 订阅（$9.99/$14.99/$24.99/月）",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "二手转卖卖家在旧货店、车库甩卖现场做决定时最怕买贵：以前要花 10~15 分钟逐件查 Google Lens、问 ChatGPT、翻 eBay 成交价、再手算 13.25% 手续费与运费，等查完好货早被别人拿走了。原版创始人 Frank Kratzer 自己就是转卖卖家，边学 AI 集成边写，6 个月 solo 做出来。",
+      "opportunity_arbitrage": "把“认货 + 查成交价 + 算净利润”压进 30 秒：手机拍照，视觉模型识别品牌型号成色，拉 eBay 真实成交价做锚，再扣掉各平台手续费与运费，给出 0~100 分 Deal Score 与买/不买的结论。一次好货的利润（比如 $12 收、$80 赚）就够付一年订阅，卖家付费阻力极小。Indie Hackers 显示 Stripe 核验月入 $5,156（2026 年 10 月 29 日），11 月 7 日复核为 $5,236.94/30 天；已上架网页、iOS、安卓与 Chrome/Firefox 插件。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "泡进转卖卖家社区，确认“现场 30 秒决策”是真痛点",
+        "detail": "去 r/Flipping、Facebook 转卖群、eBay 卖家论坛潜水两周，记录卖家现场决策的真实流程与吐槽：最常翻车的品类是什么、现在用什么工具组合、愿意为一次扫描付多少钱。确认目标品类（复古相机、设计师外套、球鞋、收藏品）后再动手，别做全品类。",
+        "deliverable": "目标品类清单 + 卖家访谈 5 份 + 付费意愿区间"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "拍照识别 + eBay 成交价 + 净利润计算器跑通",
+        "detail": "视觉模型（Gemini Flash 这类便宜的视觉模型）识别品牌型号成色；走 eBay Finding 官方 API 拉真实成交价做锚（别爬虫）；按平台费率表扣费（eBay 13.25% + $0.30、Poshmark 20%、Mercari 约 12.9%）与运费，算出净利润与 Deal Score。先做网页版 MVP，验证识别准确率再包 App。",
+        "deliverable": "网页版 MVP + 识别准确率实测 + 净利润计算通过 20 件实物抽检"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "免费 5 次引流 + 三档订阅，首月半价",
+        "detail": "免费给 5 次完整扫描（含成交价对比，不卡关键信息），让用户先尝到一次“捡漏”的甜头；付费三档按扫描次数分（Reseller $9.99/月 75 次、Pro $14.99/月 200 次、Ultra $24.99/月 500 次），首月半价降门槛。Stripe 收款；免费额度被薅就收紧到 5 次，别心软。",
+        "deliverable": "Stripe 订阅闭环 + 定价页 + 免费额度风控规则"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "转卖社区 + Product Hunt + 免费工具引流",
+        "detail": "在转卖社区发真实捡漏案例（这件 $15 收的相机怎么算出净赚 $87），别发广告帖；上 Product Hunt 拿一波曝光；再做 40+ 个免费小工具（手续费计算器、运费估算、ROI 计算器）拿搜索流量。盯住“一次扫描帮用户赚回订阅费”这个口碑点，让老用户带新用户。",
+        "deliverable": "社区案例帖 10 篇 + Product Hunt 上线 + 免费工具矩阵"
+      }
+    ],
+    "pitfalls_to_avoid": "估价是“估计”不是鉴定：必须在页面写清 AI 估值可能不准、成色与真伪要用户自己核验，别给“保真/保价”承诺，否则纠纷缠身。eBay Finding API 是官方接口但有限流，别用爬虫绕，封号就全完。定价口径注意：2026 年 1 月创始人帖是 $5.99/$9.99/$17.99，2026 年 10 月 Product Hunt 更新为 $9.99/$14.99/$24.99，以最新为准。单价低、要靠量：500 个订阅才 $5,000/月，获客成本必须压住，别烧广告。",
+    "tools": [
+      "Gemini Flash Vision",
+      "eBay Finding API",
+      "Flutter / React Native",
+      "Stripe",
+      "Product Hunt"
+    ],
+    "source_url": "https://www.indiehackers.com/post/built-a-profit-checker-app-for-resellers-that-solves-the-should-i-buy-this-problem-22fe82e6ca",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-002",
+    "title": "Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费",
+    "title_en": "Glossa-Style Vertical Live Translation Tool for Church Services",
+    "slug": "glossa-church-live-translation",
+    "category": "AI应用与服务",
+    "tags": [
+      "实时翻译",
+      "教堂",
+      "Claude Code",
+      "垂直场景",
+      "Stripe 核验"
+    ],
+    "summary": "给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。",
+    "summary_en": "Live translation for multilingual church services at $5/hour per language or $99/$299/$499 monthly plans; the playbook ports to conferences, tours, schools and other vertical interpreting scenes.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "MRR 1.4 万美元经 Stripe 核验，教堂客户粘性强；但 10 月 19 日后数据断更，翻译成本还在跌，定价要留余地。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4~8 周",
+      "initial_cost": "$100~$300（API 额度）",
+      "startup_cost": "$100~$300（API 额度）",
+      "est_monthly_profit": "$1,500 ~ $6,000 / 月（复制者稳态预估；原版 MRR $14,404）",
+      "revenue_model": "按语言按小时计费（$5/小时）+ 月套餐（$99/$299/$499）"
+    },
+    "monetization_model": "按语言按小时计费（$5/小时）+ 月套餐（$99/$299/$499）",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "多语言教堂每场礼拜都有听不懂讲道的会众：请人工同传贵、排期难，小教堂根本请不起；通用翻译 App 又不懂礼拜场景的术语与流程，延迟与准确率都不够用。原版 Glossa 由 Anton K. 用 Claude Code 写成，2026 年 5 月就发帖称收入突破 2 万美元。",
+      "opportunity_arbitrage": "不做通用翻译，做“一个场景抠到底”：只啃教堂礼拜这个固定流程（讲道、祷告、诗歌），术语库与延迟都按这个场景调优，教堂按语言、按小时付费，100 个活跃订阅就撑起 $14,404 MRR、累计 $19.6 万美元（Stripe 核验，TrustMRR）。复制者不用死磕教堂：会议、旅游团、国际学校、法庭口译都是同样的“固定流程 + 多语言听众”结构，换个术语库就能复用同一套管线。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "挑一个“固定流程 + 多语言听众”的垂直场景",
+        "detail": "别从技术出发，从场景出发：列出你身边固定流程又常年有多语言听众的场合（教堂礼拜、展会演讲、旅游团、国际学校家长会），找 3~5 家真实机构聊，确认他们现在怎么解决翻译、愿意付多少钱。教堂场景已验证，但复制者选自己够得着的场景更重要。",
+        "deliverable": "1 个目标场景 + 3 家机构的付费意愿访谈记录"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "语音转文字 + 翻译 + 字幕管线跑通",
+        "detail": "用现成 STT API 收音转文字，接翻译 API，再把译文以字幕/语音形式推给听众手机，全程走 WebSocket 保低延迟。先做“讲道”这一个环节：建 200 条场景术语库（讲道常用词、诗歌名、人名），延迟目标控制在 3 秒内。别自研模型，全部调现成 API。",
+        "deliverable": "端到端实时翻译 Demo + 术语库 + 延迟实测数据"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "按小时 + 月套餐双轨定价，Stripe 收款",
+        "detail": "照抄原版定价结构：散客按语言按小时（$5/小时/语言），常客走月套餐（$99/$299/$499 三档，按语言数与场次分）。Stripe 接订阅与按量计费；成本端盯住 STT 与翻译 API 的单价，翻译成本在跌，定价要留出降价空间，别锁死高价。",
+        "deliverable": "Stripe 计费闭环 + 定价页 + 单场成本核算表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "一家一家敲教堂/机构的门，免费试一场",
+        "detail": "这行没有线上投放的捷径：直接联系目标机构，提供一场免费试用（你到场兜底），当场让会众扫码听译文。拿下 3~5 家种子客户后，靠教派网络与同行转介绍扩；同时把同一套管线换术语库切第二个场景（会议或旅游团），别把鸡蛋放一个场景里。",
+        "deliverable": "3~5 家种子机构 + 试用转付费数据 + 第二场景术语库"
+      }
+    ],
+    "pitfalls_to_avoid": "证据时效警告：原版 Stripe 核验数据最后同步于 2026 年 10 月 19 日，之后因密钥过期断更，$14,404 MRR 是 10 月 19 日的快照，不是今天的数；另有 30 天快照 $31,173 与逐日合计 $12,903 口径不一致，以 MRR 为准。翻译 API 成本持续下跌，长期会压低售价，别按今天的毛利做长期测算。别碰没有明确付费方的场景（纯公益、一次性活动），机构客户才有续费；实时音频延迟与术语错译是口碑杀手，上线前必须实地跟场测满 3 场。",
+    "tools": [
+      "Claude Code",
+      "Whisper / STT API",
+      "翻译 API",
+      "Stripe",
+      "WebSocket 实时音频"
+    ],
+    "source_url": "https://www.stateofindiehacking.com/stories/ai-built-apps-revenue-verified-median-shipped-and-paid/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-001",
+    "title": "Headroom 式 AI 编程上下文压缩桌面应用：把难装的开源引擎打包成一键安装的省钱工具",
+    "title_en": "Headroom-Style Context Compression Desktop App for AI Coding Agents",
+    "slug": "headroom-context-saver-desktop",
+    "category": "出海/独立开发",
+    "tags": [
+      "Claude Code",
+      "上下文压缩",
+      "桌面应用",
+      "Token 省钱",
+      "Polar 订阅"
+    ],
+    "summary": "把开源上下文压缩引擎打包成一键安装、自动更新、带节省量看板的桌面应用，帮 Claude Code / Codex 用户省 token，按订阅收费。",
+    "summary_en": "Package an open-source context-compression engine as a one-click desktop app with auto-updates and a savings dashboard, charging AI coding-agent users a subscription for the tokens it saves.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "收入经支付方核验是真的，模式能复制；但命悬 Anthropic 与 OpenAI 会不会自己内置压缩，适合当 B 级观察尝试，别 all-in。",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3~6 周",
+      "initial_cost": "$0~$50",
+      "startup_cost": "$0~$50",
+      "est_monthly_profit": "$800 ~ $3,000 / 月（复制者稳态预估；原版 MRR $2,025）",
+      "revenue_model": "月度订阅（Pro $3~$4/月 + Max 档）+ AppSumo 终身买断"
+    },
+    "monetization_model": "月度订阅（Pro $3~$4/月 + Max 档）+ AppSumo 终身买断",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "Claude Code / Codex 这类 AI 编程助手每轮对话都要把工具输出（日志、搜索结果、JSON）发给模型，大量 token 被机器噪音吃掉，用户很快撞上 5 小时与每周用量上限。开源压缩引擎 Headroom CLI 早就存在（GitHub 7.7 万星），但安装要配 Python、pip、改 Agent 配置，普通开发者装不明白。",
+      "opportunity_arbitrage": "不卖压缩算法本身（它是 Apache 2.0 开源免费的），卖“装好就能用”：一键安装、自带 Python 环境、自动更新、卸载不留痕，再加一个每会话省了多少 token 的看板，让省钱看得见。定价锚定用户已付的 AI 套餐（Pro 档对 Claude Pro、Max 档对大套餐），只是其零头，付费阻力小。原版 2026 年 4 月 1 日上线，单人维护，10 月 25 日 MRR $2,025、222 个订阅，累计收入 $12,111（TrustMRR 从 Polar 支付数据核验）。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "找一个“引擎很强、安装很劝退”的开源工具",
+        "detail": "去 GitHub 找星数高、但安装要折腾命令行与配置文件的开源工具（本地语音转文字、本地文档搜索、模型路由器都符合）。先读许可证，确认允许商用与二次分发；再给原作者写信，征得同意并承诺每页署名、保留免费原路径。",
+        "deliverable": "1 个开源引擎 + 书面许可 + 许可证合规清单"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "Tauri 壳 + 本地代理，一键安装跑通",
+        "detail": "用 Tauri 做轻量桌面壳，内嵌 Rust 拦截代理与 Python 后端跑压缩引擎；安装时自动写好 Agent 配置、备份原文件，卸载时完整还原。做一个节省量看板：每会话省了多少 token、按 API 价折合多少钱。先在 macOS 跑通，再补 Windows 与 Linux。",
+        "deliverable": "可安装的桌面应用 v1 + 节省量看板 + 卸载还原验证"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "Polar 订阅 + 档位对齐用户已有套餐",
+        "detail": "接 Polar 做支付与订阅管理；档位直接对标用户已付的 AI 套餐价格（如 Pro 档 $3~$4/月），让用户觉得只是套餐的零头。免费版给基础压缩，付费解锁自动更新与看板。AppSumo 可做一波终身买断冷启动，但别把长期收入押在上面。",
+        "deliverable": "Polar 订阅闭环 + 免费/付费分层 + 定价页"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "SEO 内容 + 开发者社区冷启",
+        "detail": "围绕目标工具的成本与用量上限写 20~25 篇实操文章（省 token 技巧、套餐对比、竞品对比），拿 Google 搜索流量；再去 Reddit、Hacker News、Product Hunt 发真实使用数据（每周省了多少 token 的实测），不要吹牛。先拿 10~50 个付费种子用户，盯住续费率。",
+        "deliverable": "SEO 内容矩阵 + 社区首发帖 + 首批付费用户与续费数据"
+      }
+    ],
+    "pitfalls_to_avoid": "最大红线是平台依赖：Anthropic 或 OpenAI 一旦把压缩内置进自家 Agent，产品价值立刻归零——Aiolum 同类失败库里已有 4 家死于这个模式，务必把收入天花板按“随时可能被官方覆盖”来算。开源引擎必须署名、保留免费路径、征得原作者同意，否则就是白嫖口碑自杀。省钱百分比要诚实标注实测区间，别拿基准测试当承诺；AppSumo 终身买断会透支未来订阅收入，只做冷启动手段。",
+    "tools": [
+      "Tauri",
+      "Rust",
+      "Python",
+      "Headroom CLI（Apache 2.0）",
+      "Polar",
+      "Kompress-v2-base"
+    ],
+    "source_url": "https://aiolum.com/story/headroom/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261112-003",
+    "title": "焊工承包商核实商机订阅：每月 15 条真实工地线索",
+    "title_en": "Verified Leads for Welding Contractors: 15 Real Jobs a Month",
+    "slug": "welding-contractor-verified-leads",
+    "category": "线下数字化线索",
+    "tags": [
+      "B2B 线索",
+      "焊工承包商",
+      "订阅制",
+      "垂直行业",
+      "人工核实"
+    ],
+    "summary": "给焊工和钣金承包商每月发 15 条人工核实过的工商业主项目线索，$330/季或 $987/年订阅，5 个月做到 46 个付费会员。",
+    "summary_en": "Sends welding and fabrication contractors 15 research-verified commercial project leads a month, at $330/quarter or $987/year.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "模式极轻：一个网站加人工核实就能开张，5 个月 46 个付费会员、利润率 91.7% 是真金白银；唯一短板是 9 月单月流失率 22.7%，线索质量一掉就掉粉。",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 1,
+      "tech_barrier": "★☆☆☆☆ (1/5)",
+      "cycle_time": "2~3 周",
+      "initial_cost": "¥0~¥500（域名 + 建站）",
+      "startup_cost": "¥0~¥500（域名 + 建站）",
+      "est_monthly_profit": "$3,000 ~ $6,000 / 月（单人稳态）",
+      "revenue_model": "季度订阅 $330 / 年度订阅 $987"
+    },
+    "monetization_model": "季度订阅 $330 / 年度订阅 $987",
+    "prototype": "A",
+    "core_thesis": {
+      "market_pain": "焊工和钣金承包商最缺的不是手艺，是稳定的工商业主订单。他们平时靠熟人介绍和电话黄页，拿到手的项目信息要么过时、要么已经被抢走。每月有人把核实过的真实项目送上门，$330 一个季度，对他们来说就是一单活的零头。",
+      "opportunity_arbitrage": "对标产品 2026 年 6 月上线，5 个月做到 46 个付费会员、收入 $32,093、利润 $29,443、利润率 91.74%，每月发 15 条人工核实线索（Microns 挂牌页，2026-11-03）。技术栈就是 Notion + WordPress + Airtable + Google Sheets，基本零代码；获客靠一个 4.8 万人的焊工 Facebook 社群，每周运营不到 5 小时。壁垒不在技术，在“线索是真核实过的”这句口碑。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先定一个手艺行当，再攒 500 条真实买家",
+        "detail": "不要一上来就做全行业，先定焊工/钣金一个行当。从公开招标、工地公示和本地工商信息里人工整理 500 条真实的工商业主项目记录（项目名、地点、联系方式、开工时间），每条必须能打通电话核实。",
+        "deliverable": "500 条人工核实过的买家项目库"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "一个落地页 + 邮件发线索就能开张",
+        "detail": "WordPress 落地页讲清“每月 15 条核实线索”，Airtable 管线索库，Stripe 收季度/年费订阅，线索按邮件每月分批发。不要一上来写平台，先用表格+邮件跑通交付。",
+        "deliverable": "可收款、可发线索的最小版本"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "季度 $330 / 年度 $987，先收 10 个种子会员",
+        "detail": "定价照抄对标：$330/季、$987/年。先在焊工 Facebook 社群和本地行业群里招 10 个种子会员，前 3 个月半价，条件是每月反馈“哪条线索真成单了”，用成单故事做续费理由。",
+        "deliverable": "10 个种子付费会员 + 首月线索反馈"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "焊工社群深耕 + 老会员转介绍",
+        "detail": "主渠道就是焊工 Facebook 社群：每周发一条“本周已核实线索样例”（脱敏），不硬广；再给老会员转介绍奖励（介绍 1 人送 1 个月）。线索质量是续费的命，每月必须公示成单反馈。",
+        "deliverable": "46 个付费会员量级的订阅基本盘"
+      }
+    ],
+    "pitfalls_to_avoid": "一、线索必须人工核实，发一条假线索就掉一个会员，9 月 22.7% 的流失率就是教训；二、别碰爬来的私人电话和邮箱，只用公开招标和工商公示信息，合规红线不能踩；三、别承诺“包成单”，你卖的是线索不是订单，成单看承包商自己跟进；四、别一上来扩到十个行当，一个行当做出口碑再复制，下一个行当可以是电工或暖通。",
+    "tools": [
+      "WordPress",
+      "Airtable",
+      "Google Sheets",
+      "Stripe",
+      "Attio CRM",
+      "Facebook 社群"
+    ],
+    "source_url": "https://www.microns.io/startup-listings/b2b-lead-generation-platform-b21a8",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-002",
+    "title": "Sonder 作者出书营销视频：整本书读完自动出片",
+    "title_en": "Sonder: Book-to-Video Marketing for Authors",
+    "slug": "sonder-author-book-video-marketing",
+    "category": "出海/独立开发",
+    "tags": [
+      "AI 视频",
+      "图书营销",
+      "作者工具",
+      "短视频",
+      "订阅制"
+    ],
+    "summary": "读完整本已经写好的书，自动生成亚马逊广告、TikTok 短视频和幻灯片，帮作者把书写成销量，$49/月起订阅。",
+    "summary_en": "Reads an author's finished book and auto-generates Amazon ads, TikToks and slideshows that sell more copies, from $49/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "切口极窄只服务写书的人，113 个订阅、2 万美元月收入经 Stripe 核验是真的；但视频生成正在快速变成大路货，赢面在“懂书的脚本套路”而不是生成本身。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3~4 周",
+      "initial_cost": "$50~$200（视频生成 API 额度）",
+      "startup_cost": "$50~$200（视频生成 API 额度）",
+      "est_monthly_profit": "$2,000 ~ $4,000 / 月（单人稳态）",
+      "revenue_model": "月度订阅 $49 / $99 / $209 三档"
+    },
+    "monetization_model": "月度订阅 $49 / $99 / $209 三档",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "写书的人最缺的不是书写得好不好，是书写完没人知道。请 agency 做 5 条视频要 $750+/月还得开会 briefing，大部分独立作者根本请不起；自己剪又没时间、不会剪。书已经写完了，营销视频却还是空白，这就是付费点。",
+      "opportunity_arbitrage": "Sonder 2026 年 9 月 10 日上线，约 2 个月做到 $20,283 月收入、113 个订阅，近 30 天 $18,374 经 Stripe 核验（TrustMRR，2026-11-02）。打法不是拼生成质量，而是把“几千条爆款图书视频的脚本结构”做成套路：钩子—张力—反转，再由 AI 围绕作者自己的书来生产；$49/月对标 agency 的 $750+/月，价格差本身就是卖点。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先攒 50 条图书类爆款视频的脚本结构",
+        "detail": "去 TikTok/Instagram 上扒 50 条真正带货的图书视频，拆出钩子、张力、反转、结尾四段结构，沉淀成 10 套可复用的脚本模板。模板是护城河，先有模板再写代码。",
+        "deliverable": "10 套图书营销脚本模板 + 爆款结构拆解表"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "PDF 上传 → 读全书 → 出脚本 → 成片",
+        "detail": "最小版本只做一条线：上传 PDF 和封面 → 大模型读完全书抽论点和故事 → 套脚本模板出 3 条视频脚本 → 调视频生成 API 出带字幕的成片。先跑通，再补幻灯片和亚马逊广告格式。",
+        "deliverable": "书稿转视频的最小可用流水线"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "7 天免费试用 + $49/月起订阅",
+        "detail": "试用 7 天全功能开放，第 8 天起 $49/月；按每月出片量分 $49/$99/$209 三档，超量用 $35 起的积分包补。接 Stripe，视频按条计成本，定价必须盖住单条生成成本再留毛利。",
+        "deliverable": "Stripe 订阅 + 按条计成本的定价表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "作者社群 + 写书博主分佣冷启",
+        "detail": "去作者社群、自出版论坛和写书博主那里做免费试用：给 20 个作者免费用一个月，条件是把成片发出来并挂链接；再用“5 条视频 $49，对 agency $750+”的价格对比做内容钩子。",
+        "deliverable": "首批 10~50 个付费订阅"
+      }
+    ],
+    "pitfalls_to_avoid": "一、别只拼生成画质，Kling/Runway/Sora 一升级就把你抹平，护城河是脚本套路和作者社群；二、视频成本按条算，定价前先把单条成本算死，别被重度用户薅到亏钱；三、不要拿作者原书内容去训练公开模型，版权纠纷一单就致命；四、别承诺播放量和销量，广告效果看书本身和投放预算，平台只保证出片质量。",
+    "tools": [
+      "视频生成 API（Kling / Runway）",
+      "OpenAI / Claude API",
+      "Stripe",
+      "FFmpeg",
+      "TikTok / Instagram"
+    ],
+    "source_url": "https://www.yousonder.com/",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-001",
+    "title": "NCLEX 护理考试 AI 备考站：讲义一键变题库闪卡",
+    "title_en": "AI NCLEX Prep: Lecture Notes to Flashcards & Mock Exams",
+    "slug": "nclex-nursing-exam-ai-prep",
+    "category": "出海/独立开发",
+    "tags": [
+      "执业考试题库",
+      "AI 备考",
+      "护理考试",
+      "NCLEX",
+      "订阅制"
+    ],
+    "summary": "护理学生上传讲义和教材，AI 自动生成闪卡、测验题和模拟考，专攻美国护士执业资格 NCLEX 考试，按月订阅收费。",
+    "summary_en": "Nursing students upload lecture notes and textbooks; AI turns them into flashcards, quizzes and mock exams for the US NCLEX licensure exam, charged as a monthly subscription.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "考试是年年都有的刚需，915 个付费订阅和 1.88 万美元月收入已经验证有人真掏钱；单人用 AI 做题库完全跑得动，最大风险是 AI 出的题必须人工审校准确性。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 8,
+      "ceiling": 8,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "2~3 周",
+      "initial_cost": "$20~$50（域名 + AI 接口额度）",
+      "startup_cost": "$20~$50（域名 + AI 接口额度）",
+      "est_monthly_profit": "$2,000 ~ $5,000 / 月（单人稳态）",
+      "revenue_model": "月度订阅（约 $57/月，按对标产品 ARPU $56.65 测算）"
+    },
+    "monetization_model": "月度订阅（约 $57/月，按对标产品 ARPU $56.65 测算）",
+    "prototype": "G",
+    "core_thesis": {
+      "market_pain": "美国每年有几十万护理学生要考 NCLEX 执照，不过就上不了岗。市面上的备考资料要么是几百美元的大部头课程，要么是零散的免费题库，学生手里现成的讲义和教材没人帮他变成能刷的题。学生愿意为“把我的讲义变成考试题”直接付费，痛点具体、付费意愿强。",
+      "opportunity_arbitrage": "对标产品在 DealStream 挂牌的数据已经验证：915 个付费订阅、月收入 $18,824、人均 $56.65/月、毛利率 89.6%，支付数据已核验。切口是“只做 NCLEX 一个考试”，题库和考点高度聚焦；用大模型把讲义转成闪卡和选择题，边际成本只有 Token 费；获客靠护理学生创作者的短视频，创始人每周只花 15~20 小时运营。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定 NCLEX 一个考试，先做出 200 道高质量真题",
+        "detail": "只做 NCLEX-RN 一个考试，不碰其他执照。先按官方考试大纲（Client Needs 四大类）列出高频考点清单，再人工整理 200 道带解析的选择题作为种子题库；AI 生成的题一律先过人工审校，准确率是这门生意的命。",
+        "deliverable": "NCLEX 考点清单 + 200 道人工审校种子题库"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "讲义上传转题库 + 自测评分站上线",
+        "detail": "用 FastAPI + 静态前端搭最小版本：上传 PDF/讲义文本 → 大模型抽考点生成闪卡和选择题 → 在线自测、错题本、 readiness 评分。先跑通“上传→出题→刷题→出分”一条线，再考虑 AI 家教对话。",
+        "deliverable": "可用的讲义转题库自测站（含评分引擎）"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅定价与支付：免费试刷 + $29~$59 月费",
+        "detail": "免费档每天可刷 20 道题，付费解锁全部题库、模拟考和错题解析；定价参考对标 ARPU $56.65，设 $39/月基础版和 $59/月冲刺版。接 Stripe 订阅，取消随时退订，不做年费捆绑强推。",
+        "deliverable": "Stripe 订阅收款闭环 + 两档定价页"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "护理学生创作者短视频 + 护理学校合作",
+        "detail": "找 5~10 个护理专业在读学生做短视频创作者，按成交分佣；内容就是“用我的讲义 10 分钟生成一套模拟考”。同时给护理学校免费开班级试用账号，拿真实通过率做口碑。",
+        "deliverable": "首批 10~50 个付费订阅"
+      }
+    ],
+    "pitfalls_to_avoid": "一、AI 生成的考题必须人工审校，错题会直接毁掉口碑，医学类内容绝不能只靠模型裸奔；二、不要直接复制市面真题集卖，原创改写+解析才是合规做法；三、不要承诺“包过”，考不过退费的口子一开就收不住；四、讲义版权归学生本人，平台只处理用户自己上传的材料，不爬取、不倒卖题库。",
+    "tools": [
+      "FastAPI",
+      "OpenAI / Claude API",
+      "Stripe",
+      "PostgreSQL",
+      "TikTok / Instagram 短视频"
+    ],
+    "source_url": "https://dealstream.com/d/biz-sale/tutoring/jdwdiv",
+    "created_at": "2026-11-12"
+  },
+  {
     "category": "软硬结合/轻制造",
     "core_thesis": {
       "market_pain": "老车车主想要一个原厂早已停产的小塑料件，如仪表盘支架、烟灰缸盖或杯架。经销商没库存，二手件难找，车主只能自己想办法。而通用 3D 打印爆款已卷到白菜价，从约 14 英镑跌到约 4.5 英镑。",

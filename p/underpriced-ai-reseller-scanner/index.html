@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买 - 商业模式尽调与落地SOP | 搞钱实验室 MoneyLab</title>
+  <meta name="description" content="搞钱实验室对【Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买】的深度商业模式尽调。预期月利：$1,000 ~ $4,000 / 月（复制者稳态预估；原版 $5,156/月）。包含真实商业逻辑、4步落地SOP、避坑防线与开箱即用 AI Prompt / SKILL.md。">
+  <meta name="keywords" content="二手转卖, 拍照估价, eBay, AI 视觉, 订阅制, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/underpriced-ai-reseller-scanner/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/underpriced-ai-reseller-scanner/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买">
+  <meta property="og:description" content="拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/">
+  <meta name="twitter:title" content="Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买">
+  <meta name="twitter:description" content="拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/#article",
+      "headline": "Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买",
+      "description": "拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-13",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "搞钱实验室总库",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "出海/独立开发",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买",
+          "item": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/#product",
+      "name": "Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买 (Turnkey Execution Skill & Blueprint)",
+      "description": "拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/p/underpriced-ai-reseller-scanner/#howto",
+      "name": "如何落地变现【Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买】的标准SOP路径",
+      "description": "拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "阶段 01: 泡进转卖卖家社区，确认“现场 30 秒决策”是真痛点",
+          "text": "去 r/Flipping、Facebook 转卖群、eBay 卖家论坛潜水两周，记录卖家现场决策的真实流程与吐槽：最常翻车的品类是什么、现在用什么工具组合、愿意为一次扫描付多少钱。确认目标品类（复古相机、设计师外套、球鞋、收藏品）后再动手，别做全品类。 [阶段交付: 目标品类清单 + 卖家访谈 5 份 + 付费意愿区间]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "阶段 02: 拍照识别 + eBay 成交价 + 净利润计算器跑通",
+          "text": "视觉模型（Gemini Flash 这类便宜的视觉模型）识别品牌型号成色；走 eBay Finding 官方 API 拉真实成交价做锚（别爬虫）；按平台费率表扣费（eBay 13.25% + $0.30、Poshmark 20%、Mercari 约 12.9%）与运费，算出净利润与 Deal Score。先做网页版 MVP，验证识别准确率再包 App。 [阶段交付: 网页版 MVP + 识别准确率实测 + 净利润计算通过 20 件实物抽检]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "阶段 03: 免费 5 次引流 + 三档订阅，首月半价",
+          "text": "免费给 5 次完整扫描（含成交价对比，不卡关键信息），让用户先尝到一次“捡漏”的甜头；付费三档按扫描次数分（Reseller $9.99/月 75 次、Pro $14.99/月 200 次、Ultra $24.99/月 500 次），首月半价降门槛。Stripe 收款；免费额度被薅就收紧到 5 次，别心软。 [阶段交付: Stripe 订阅闭环 + 定价页 + 免费额度风控规则]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "阶段 04: 转卖社区 + Product Hunt + 免费工具引流",
+          "text": "在转卖社区发真实捡漏案例（这件 $15 收的相机怎么算出净赚 $87），别发广告帖；上 Product Hunt 拿一波曝光；再做 40+ 个免费小工具（手续费计算器、运费估算、ROI 计算器）拿搜索流量。盯住“一次扫描帮用户赚回订阅费”这个口碑点，让老用户带新用户。 [阶段交付: 社区案例帖 10 篇 + Product Hunt 上线 + 免费工具矩阵]"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">出海/独立开发</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../en/p/underpriced-ai-reseller-scanner/" 
+          title="Switch to English Edition (EN)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 EN</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← 返回项目库</span>
+          <span class="sm:hidden">← 返回</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            出海/独立开发
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261113-003</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-brand-surface text-slate-300 border-brand-border">
+          Tier B · 70 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        Underpriced AI 式二手转卖拍照估价工具：30 秒告诉你这件货值不值得买
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        拍张照片，AI 认出商品并拉取 eBay 真实成交价，扣掉平台手续费和运费后告诉你净赚多少、买还是不买；$9.99/月起订阅。
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">预估月流水</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$1,000 ~ $4,000 / 月（复制者稳态预估；原版 $5,156/月）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">验证周期</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">6~10 周</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">启动资金壁垒</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$50~$200（API 额度）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">上手复杂度</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★★★☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>研究团队尽调核心结论</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        月入 5,156 美元经 Stripe 核验，需求真实、合规干净；单价低要靠量，获客得扎进转卖卖家社区慢慢磨。
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>市场痛点剖析与商机本质</span>
+      </h2>
+      <div class="space-y-3"><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-400 font-mono block mb-1">【真实市场痛点与供需断层】</strong>二手转卖卖家在旧货店、车库甩卖现场做决定时最怕买贵：以前要花 10~15 分钟逐件查 Google Lens、问 ChatGPT、翻 eBay 成交价、再手算 13.25% 手续费与运费，等查完好货早被别人拿走了。原版创始人 Frank Kratzer 自己就是转卖卖家，边学 AI 集成边写，6 个月 solo 做出来。</div><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-teal-400 font-mono block mb-1">【破局机制与商业套利切口】</strong>把“认货 + 查成交价 + 算净利润”压进 30 秒：手机拍照，视觉模型识别品牌型号成色，拉 eBay 真实成交价做锚，再扣掉各平台手续费与运费，给出 0~100 分 Deal Score 与买/不买的结论。一次好货的利润（比如 $12 收、$80 赚）就够付一年订阅，卖家付费阻力极小。Indie Hackers 显示 Stripe 核验月入 $5,156（2026 年 10 月 29 日），11 月 7 日复核为 $5,236.94/30 天；已上架网页、iOS、安卓与 Chrome/Firefox 插件。</div></div>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4 阶段落地实施 SOP</span>
+      </h2>
+      <div class="space-y-3">
+        
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 01 · 泡进转卖卖家社区，确认“现场 30 秒决策”是真痛点</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">逆向洞察</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">去 r/Flipping、Facebook 转卖群、eBay 卖家论坛潜水两周，记录卖家现场决策的真实流程与吐槽：最常翻车的品类是什么、现在用什么工具组合、愿意为一次扫描付多少钱。确认目标品类（复古相机、设计师外套、球鞋、收藏品）后再动手，别做全品类。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>目标品类清单 + 卖家访谈 5 份 + 付费意愿区间</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 02 · 拍照识别 + eBay 成交价 + 净利润计算器跑通</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">极速构建</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">视觉模型（Gemini Flash 这类便宜的视觉模型）识别品牌型号成色；走 eBay Finding 官方 API 拉真实成交价做锚（别爬虫）；按平台费率表扣费（eBay 13.25% + $0.30、Poshmark 20%、Mercari 约 12.9%）与运费，算出净利润与 Deal Score。先做网页版 MVP，验证识别准确率再包 App。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>网页版 MVP + 识别准确率实测 + 净利润计算通过 20 件实物抽检</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 03 · 免费 5 次引流 + 三档订阅，首月半价</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">商业闭环</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">免费给 5 次完整扫描（含成交价对比，不卡关键信息），让用户先尝到一次“捡漏”的甜头；付费三档按扫描次数分（Reseller $9.99/月 75 次、Pro $14.99/月 200 次、Ultra $24.99/月 500 次），首月半价降门槛。Stripe 收款；免费额度被薅就收紧到 5 次，别心软。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>Stripe 订阅闭环 + 定价页 + 免费额度风控规则</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 04 · 转卖社区 + Product Hunt + 免费工具引流</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">渠道冷启</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">在转卖社区发真实捡漏案例（这件 $15 收的相机怎么算出净赚 $87），别发广告帖；上 Product Hunt 拿一波曝光；再做 40+ 个免费小工具（手续费计算器、运费估算、ROI 计算器）拿搜索流量。盯住“一次扫描帮用户赚回订阅费”这个口碑点，让老用户带新用户。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>社区案例帖 10 篇 + Product Hunt 上线 + 免费工具矩阵</span></div>
+        </div>
+      
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>避坑警戒与防范底线</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        估价是“估计”不是鉴定：必须在页面写清 AI 估值可能不准、成色与真伪要用户自己核验，别给“保真/保价”承诺，否则纠纷缠身。eBay Finding API 是官方接口但有限流，别用爬虫绕，封号就全完。定价口径注意：2026 年 1 月创始人帖是 $5.99/$9.99/$17.99，2026 年 10 月 Product Hunt 更新为 $9.99/$14.99/$24.99，以最新为准。单价低、要靠量：500 个订阅才 $5,000/月，获客成本必须压住，别烧广告。
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>推荐工程与武器库工具链</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Gemini Flash Vision
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # eBay Finding API
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Flutter / React Native
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Stripe
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Product Hunt
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Stripe 官方安全收单 · 支付后秒级授权</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        立即解锁该项目一手未脱敏源帖线索与开箱即用 AI 技能包
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        包含创始人未经清洗的一手信源讨论贴、完整交付物架构图、实操 Prompt 库以及直接可导入 Cursor 和 Claude Code 的 SKILL.md 技能包。
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#underpriced-ai-reseller-scanner" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ 前往实验室主站解锁完整项目</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 对标海外商业情报库</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics 年费 $300~$1,000+</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP 仅零头 HK$299 买断全年</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>单篇买断：HK$29.90 (约 ¥27.5)</span>
+        <span>·</span>
+        <span>年度 VIP：HK$299 全库畅享</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">项目库</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费 - 商业模式尽调与落地SOP | 搞钱实验室 MoneyLab</title>
+  <meta name="description" content="搞钱实验室对【Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费】的深度商业模式尽调。预期月利：$1,500 ~ $6,000 / 月（复制者稳态预估；原版 MRR $14,404）。包含真实商业逻辑、4步落地SOP、避坑防线与开箱即用 AI Prompt / SKILL.md。">
+  <meta name="keywords" content="实时翻译, 教堂, Claude Code, 垂直场景, Stripe 核验, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/p/glossa-church-live-translation/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/glossa-church-live-translation/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/glossa-church-live-translation/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/glossa-church-live-translation/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/p/glossa-church-live-translation/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费">
+  <meta property="og:description" content="给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/p/glossa-church-live-translation/">
+  <meta name="twitter:title" content="Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费">
+  <meta name="twitter:description" content="给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/p/glossa-church-live-translation/#article",
+      "headline": "Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费",
+      "description": "给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-13",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/p/glossa-church-live-translation/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/p/glossa-church-live-translation/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "搞钱实验室总库",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI应用与服务",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费",
+          "item": "https://m.ucncn.cn/p/glossa-church-live-translation/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/p/glossa-church-live-translation/#product",
+      "name": "Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费 (Turnkey Execution Skill & Blueprint)",
+      "description": "给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/p/glossa-church-live-translation/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/p/glossa-church-live-translation/#howto",
+      "name": "如何落地变现【Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费】的标准SOP路径",
+      "description": "给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "阶段 01: 挑一个“固定流程 + 多语言听众”的垂直场景",
+          "text": "别从技术出发，从场景出发：列出你身边固定流程又常年有多语言听众的场合（教堂礼拜、展会演讲、旅游团、国际学校家长会），找 3~5 家真实机构聊，确认他们现在怎么解决翻译、愿意付多少钱。教堂场景已验证，但复制者选自己够得着的场景更重要。 [阶段交付: 1 个目标场景 + 3 家机构的付费意愿访谈记录]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "阶段 02: 语音转文字 + 翻译 + 字幕管线跑通",
+          "text": "用现成 STT API 收音转文字，接翻译 API，再把译文以字幕/语音形式推给听众手机，全程走 WebSocket 保低延迟。先做“讲道”这一个环节：建 200 条场景术语库（讲道常用词、诗歌名、人名），延迟目标控制在 3 秒内。别自研模型，全部调现成 API。 [阶段交付: 端到端实时翻译 Demo + 术语库 + 延迟实测数据]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "阶段 03: 按小时 + 月套餐双轨定价，Stripe 收款",
+          "text": "照抄原版定价结构：散客按语言按小时（$5/小时/语言），常客走月套餐（$99/$299/$499 三档，按语言数与场次分）。Stripe 接订阅与按量计费；成本端盯住 STT 与翻译 API 的单价，翻译成本在跌，定价要留出降价空间，别锁死高价。 [阶段交付: Stripe 计费闭环 + 定价页 + 单场成本核算表]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "阶段 04: 一家一家敲教堂/机构的门，免费试一场",
+          "text": "这行没有线上投放的捷径：直接联系目标机构，提供一场免费试用（你到场兜底），当场让会众扫码听译文。拿下 3~5 家种子客户后，靠教派网络与同行转介绍扩；同时把同一套管线换术语库切第二个场景（会议或旅游团），别把鸡蛋放一个场景里。 [阶段交付: 3~5 家种子机构 + 试用转付费数据 + 第二场景术语库]"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">AI应用与服务</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../en/p/glossa-church-live-translation/" 
+          title="Switch to English Edition (EN)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 EN</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← 返回项目库</span>
+          <span class="sm:hidden">← 返回</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            AI应用与服务
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261113-002</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-brand-surface text-slate-300 border-brand-border">
+          Tier B · 70 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        Glossa 式垂直场景实时翻译工具：教堂礼拜起步，按语言按小时收费
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        给多语言教堂做礼拜实时翻译，按语言每小时 5 美元或 99/299/499 美元月套餐收费；打法可平移到会议、旅游团、国际学校等其他垂直口译场景。
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">预估月流水</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$1,500 ~ $6,000 / 月（复制者稳态预估；原版 MRR $14,404）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">验证周期</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">4~8 周</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">启动资金壁垒</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$100~$300（API 额度）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">上手复杂度</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★★★☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>研究团队尽调核心结论</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        MRR 1.4 万美元经 Stripe 核验，教堂客户粘性强；但 10 月 19 日后数据断更，翻译成本还在跌，定价要留余地。
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>市场痛点剖析与商机本质</span>
+      </h2>
+      <div class="space-y-3"><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-400 font-mono block mb-1">【真实市场痛点与供需断层】</strong>多语言教堂每场礼拜都有听不懂讲道的会众：请人工同传贵、排期难，小教堂根本请不起；通用翻译 App 又不懂礼拜场景的术语与流程，延迟与准确率都不够用。原版 Glossa 由 Anton K. 用 Claude Code 写成，2026 年 5 月就发帖称收入突破 2 万美元。</div><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-teal-400 font-mono block mb-1">【破局机制与商业套利切口】</strong>不做通用翻译，做“一个场景抠到底”：只啃教堂礼拜这个固定流程（讲道、祷告、诗歌），术语库与延迟都按这个场景调优，教堂按语言、按小时付费，100 个活跃订阅就撑起 $14,404 MRR、累计 $19.6 万美元（Stripe 核验，TrustMRR）。复制者不用死磕教堂：会议、旅游团、国际学校、法庭口译都是同样的“固定流程 + 多语言听众”结构，换个术语库就能复用同一套管线。</div></div>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4 阶段落地实施 SOP</span>
+      </h2>
+      <div class="space-y-3">
+        
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 01 · 挑一个“固定流程 + 多语言听众”的垂直场景</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">逆向洞察</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">别从技术出发，从场景出发：列出你身边固定流程又常年有多语言听众的场合（教堂礼拜、展会演讲、旅游团、国际学校家长会），找 3~5 家真实机构聊，确认他们现在怎么解决翻译、愿意付多少钱。教堂场景已验证，但复制者选自己够得着的场景更重要。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>1 个目标场景 + 3 家机构的付费意愿访谈记录</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 02 · 语音转文字 + 翻译 + 字幕管线跑通</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">极速构建</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">用现成 STT API 收音转文字，接翻译 API，再把译文以字幕/语音形式推给听众手机，全程走 WebSocket 保低延迟。先做“讲道”这一个环节：建 200 条场景术语库（讲道常用词、诗歌名、人名），延迟目标控制在 3 秒内。别自研模型，全部调现成 API。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>端到端实时翻译 Demo + 术语库 + 延迟实测数据</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 03 · 按小时 + 月套餐双轨定价，Stripe 收款</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">商业闭环</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">照抄原版定价结构：散客按语言按小时（$5/小时/语言），常客走月套餐（$99/$299/$499 三档，按语言数与场次分）。Stripe 接订阅与按量计费；成本端盯住 STT 与翻译 API 的单价，翻译成本在跌，定价要留出降价空间，别锁死高价。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>Stripe 计费闭环 + 定价页 + 单场成本核算表</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 04 · 一家一家敲教堂/机构的门，免费试一场</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">渠道冷启</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">这行没有线上投放的捷径：直接联系目标机构，提供一场免费试用（你到场兜底），当场让会众扫码听译文。拿下 3~5 家种子客户后，靠教派网络与同行转介绍扩；同时把同一套管线换术语库切第二个场景（会议或旅游团），别把鸡蛋放一个场景里。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>3~5 家种子机构 + 试用转付费数据 + 第二场景术语库</span></div>
+        </div>
+      
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>避坑警戒与防范底线</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        证据时效警告：原版 Stripe 核验数据最后同步于 2026 年 10 月 19 日，之后因密钥过期断更，$14,404 MRR 是 10 月 19 日的快照，不是今天的数；另有 30 天快照 $31,173 与逐日合计 $12,903 口径不一致，以 MRR 为准。翻译 API 成本持续下跌，长期会压低售价，别按今天的毛利做长期测算。别碰没有明确付费方的场景（纯公益、一次性活动），机构客户才有续费；实时音频延迟与术语错译是口碑杀手，上线前必须实地跟场测满 3 场。
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>推荐工程与武器库工具链</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Claude Code
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Whisper / STT API
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # 翻译 API
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Stripe
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # WebSocket 实时音频
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Stripe 官方安全收单 · 支付后秒级授权</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        立即解锁该项目一手未脱敏源帖线索与开箱即用 AI 技能包
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        包含创始人未经清洗的一手信源讨论贴、完整交付物架构图、实操 Prompt 库以及直接可导入 Cursor 和 Claude Code 的 SKILL.md 技能包。
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#glossa-church-live-translation" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ 前往实验室主站解锁完整项目</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 对标海外商业情报库</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics 年费 $300~$1,000+</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP 仅零头 HK$299 买断全年</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>单篇买断：HK$29.90 (约 ¥27.5)</span>
+        <span>·</span>
+        <span>年度 VIP：HK$299 全库畅享</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">项目库</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

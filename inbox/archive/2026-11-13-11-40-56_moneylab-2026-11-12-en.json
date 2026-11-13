@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ml-20261112-001",
+    "title": "AI NCLEX Prep: Lecture Notes to Flashcards & Mock Exams",
+    "slug": "nclex-nursing-exam-ai-prep",
+    "category": "Micro-SaaS & Automation",
+    "tags": ["Exam Prep", "AI Tutoring", "NCLEX", "Nursing", "Subscription"],
+    "summary": "Nursing students upload lecture notes and textbooks; AI turns them into flashcards, quizzes and mock exams for the US NCLEX licensure exam, charged as a monthly subscription.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "Licensure exams recur every year, and 915 paying subscribers with $18.8K MRR prove students really pay. A solo builder can ship the question bank with AI; the main risk is that AI-written questions must be human-checked for accuracy.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 8,
+      "ceiling": 8,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "2-3 Weeks",
+      "initial_cost": "$20-$50 (domain + AI API credits)",
+      "startup_cost": "$20-$50 (domain + AI API credits)",
+      "est_monthly_profit": "$2,000 - $5,000 / mo (solo steady state)",
+      "revenue_model": "Monthly subscription (~$57/mo, based on the reference product's $56.65 ARPU)",
+      "clean_model": "Monthly SaaS"
+    },
+    "monetization_model": "Monthly subscription (~$57/mo, based on the reference product's $56.65 ARPU)",
+    "prototype": "G",
+    "core_thesis": {
+      "market_pain": "Hundreds of thousands of US nursing students sit the NCLEX every year, and failing means no license and no job. Existing prep is either a several-hundred-dollar course or scattered free question sets, while the lecture notes students already own sit unused. Students will pay directly for 'turn my notes into exam questions'.",
+      "opportunity_arbitrage": "The reference product's verified DealStream listing shows 915 paying subscribers, $18,824 MRR, $56.65 ARPU and an 89.6% gross margin, with payment data connected and verified. The wedge is one exam only (NCLEX), so the question bank and syllabus stay tightly focused; an LLM converts notes into flashcards and quizzes at token cost only; acquisition runs through short-form video made with nursing student creators, and the founder spends 15-20 hours a week on operations."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "One exam only: ship 200 human-checked questions first",
+        "detail": "Cover NCLEX-RN only, nothing else. Map the official Client Needs categories into a high-frequency topic list, then hand-build 200 multiple-choice questions with explanations as the seed bank. Every AI-generated question passes human review first; accuracy is the whole business.",
+        "deliverable": "NCLEX topic map + 200 human-checked seed questions"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Notes-to-question-bank site with a scored self-test",
+        "detail": "Ship a minimal FastAPI + static frontend build: upload PDF/notes, LLM extracts topics and generates flashcards and quizzes, then online self-testing, a mistake log and a readiness score. Get 'upload, generate, practice, score' working end to end before adding an AI tutor chat.",
+        "deliverable": "Working notes-to-test site with a scoring engine"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Free practice tier + $29-$59 monthly subscription",
+        "detail": "Free tier allows 20 questions a day; paid unlocks the full bank, mock exams and explanations. Price against the reference ARPU of $56.65 with a $39/mo basic tier and a $59/mo sprint tier. Stripe subscriptions, cancel anytime, no forced annual lock-in.",
+        "deliverable": "Stripe subscription checkout + two-tier pricing page"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Nursing student creators + nursing school partnerships",
+        "detail": "Recruit 5-10 nursing students as short-form video creators on a revenue share; the content is simply 'my lecture notes became a mock exam in 10 minutes'. Offer free classroom trial accounts to nursing schools and use real pass rates as social proof.",
+        "deliverable": "First 10-50 paying subscribers"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Every AI-generated exam question must be human-checked; wrong questions destroy trust, and medical content must never ship straight from a model. 2) Do not resell copied real exam sets; original rewrites plus explanations are the compliant route. 3) Never promise a guaranteed pass; a refund-on-failure offer is a hole you cannot close. 4) Notes belong to the student; only process materials users upload themselves, never scrape or resell question banks.",
+    "tools": ["FastAPI", "OpenAI / Claude API", "Stripe", "PostgreSQL", "TikTok / Instagram short video"],
+    "source_url": "https://dealstream.com/d/biz-sale/tutoring/jdwdiv",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-002",
+    "title": "Sonder: Book-to-Video Marketing for Authors",
+    "slug": "sonder-author-book-video-marketing",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": ["AI Video", "Book Marketing", "Author Tools", "Short Video", "Subscription"],
+    "summary": "Reads an author's finished book and auto-generates Amazon ads, TikToks and slideshows that sell more copies, from $49/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "An extremely narrow niche serving only people who wrote a book, with 113 subscriptions and $20K MRR verified through Stripe. But video generation is commoditizing fast; the edge is in script patterns that understand books, not in generation itself.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3-4 Weeks",
+      "initial_cost": "$50-$200 (video generation API credits)",
+      "startup_cost": "$50-$200 (video generation API credits)",
+      "est_monthly_profit": "$2,000 - $4,000 / mo (solo steady state)",
+      "revenue_model": "Monthly subscription $49 / $99 / $209, three tiers",
+      "clean_model": "Monthly SaaS"
+    },
+    "monetization_model": "Monthly subscription $49 / $99 / $209, three tiers",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "Authors do not struggle to write books; they struggle to be seen after writing one. An agency charges $750+/month for five videos plus briefing calls, which most indie authors cannot afford, and editing it themselves takes time they do not have. The book is finished, the marketing videos are blank, and that gap is the paying point.",
+      "opportunity_arbitrage": "Sonder launched September 10, 2026 and reached about $20,283 MRR with 113 subscriptions in roughly two months, with $18,374 verified over the last 30 days (TrustMRR, November 2, 2026). The play is not generation quality but a library of proven script structures reverse-engineered from thousands of book videos that actually sold: hook, tension, reveal. At $49/month against an agency's $750+, the price gap itself is the pitch."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Collect 50 viral book-video script structures first",
+        "detail": "Pull 50 book videos on TikTok/Instagram that actually drove sales, break each into hook, tension, reveal and ending, and distill 10 reusable script templates. The templates are the moat; build them before writing code.",
+        "deliverable": "10 book-marketing script templates + viral structure breakdown"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "PDF upload, read the whole book, output scripts, render video",
+        "detail": "Ship one pipeline only for the MVP: upload PDF and cover, LLM reads the whole book and pulls arguments and stories, applies the script templates to produce 3 video scripts, then a video generation API renders captioned clips. Add slideshows and Amazon ad formats only after this works.",
+        "deliverable": "Working book-to-video pipeline"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "7-day free trial, then $49/month and up",
+        "detail": "Full access free for 7 days, then $49/month from day 8; three tiers at $49/$99/$209 by monthly video count, with $35+ credit packs for overages. Stripe billing, and price per video only after costing each render, so heavy users cannot burn the margin.",
+        "deliverable": "Stripe subscriptions + per-video costed pricing table"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Author communities + writing creators on commission",
+        "detail": "Give 20 authors a free month in author communities, self-publishing forums and through writing creators, in exchange for posting their videos with a link; run content on the '$49 for 5 videos vs $750+ at an agency' price contrast.",
+        "deliverable": "First 10-50 paying subscribers"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Do not compete on generation quality alone; Kling/Runway/Sora upgrades will erase that edge. The moat is script patterns plus the author community. 2) Cost every video before pricing; heavy users can eat the margin if pricing is flat. 3) Never train public models on authors' book content; one copyright dispute is fatal. 4) Never promise views or sales; ad results depend on the book and the ad budget, the platform only guarantees the videos.",
+    "tools": ["Video generation API (Kling / Runway)", "OpenAI / Claude API", "Stripe", "FFmpeg", "TikTok / Instagram"],
+    "source_url": "https://www.yousonder.com/",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-003",
+    "title": "Verified Leads for Welding Contractors: 15 Real Jobs a Month",
+    "slug": "welding-contractor-verified-leads",
+    "category": "Local Lead-Gen & Arbitrage",
+    "tags": ["B2B Leads", "Welding Contractors", "Subscription", "Vertical Niche", "Human Verified"],
+    "summary": "Sends welding and fabrication contractors 15 research-verified commercial project leads a month, at $330/quarter or $987/year.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "An extremely light model: a website plus human verification is enough to start, and 46 paying members with a 91.7% margin in five months is real money. The one weak spot is a 22.7% churn rate in a single month in September; if lead quality slips, members leave.",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 1,
+      "tech_barrier": "★☆☆☆☆ (1/5)",
+      "cycle_time": "2-3 Weeks",
+      "initial_cost": "$0-$70 (domain + no-code site)",
+      "startup_cost": "$0-$70 (domain + no-code site)",
+      "est_monthly_profit": "$3,000 - $6,000 / mo (solo steady state)",
+      "revenue_model": "Quarterly subscription $330 / annual subscription $987",
+      "clean_model": "Quarterly / Annual Subscription"
+    },
+    "monetization_model": "Quarterly subscription $330 / annual subscription $987",
+    "prototype": "A",
+    "core_thesis": {
+      "market_pain": "Welding and fabrication contractors do not lack skill; they lack a steady flow of commercial and industrial jobs. They rely on word of mouth and phone books, and the project tips they get are often stale or already taken. Fifteen verified real projects a month for $330 a quarter is a rounding error against a single job.",
+      "opportunity_arbitrage": "The reference business launched in June 2026 and reached 46 paying members, $32,093 in revenue, $29,443 in profit and a 91.74% margin in five months, delivering 15 research-verified leads per member per month (Microns listing, November 3, 2026). The stack is Notion + WordPress + Airtable + Google Sheets, essentially no-code; acquisition runs through a 48,000-member welding Facebook community, and the owner spends under 5 hours a week. The moat is not technology, it is the reputation that every lead was actually verified."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Pick one trade, then build a 500-record buyer list",
+        "detail": "Do not cover every industry at once; start with welding/fabrication only. Hand-collect 500 real commercial project records from public tenders, site notices and local business filings (project name, location, contact, start date), each verifiable by a phone call.",
+        "deliverable": "500 human-verified buyer project records"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "One landing page plus emailed leads is enough to open",
+        "detail": "A WordPress landing page explaining '15 verified leads a month', Airtable for the lead database, Stripe for quarterly/annual billing, and leads delivered by email in monthly batches. Do not build a platform first; run delivery on spreadsheets plus email.",
+        "deliverable": "Minimal version that can take payment and deliver leads"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "$330/quarter or $987/year, first 10 seed members",
+        "detail": "Copy the reference pricing: $330/quarter, $987/year. Recruit 10 seed members in welding Facebook groups and local trade groups at half price for the first 3 months, in exchange for monthly feedback on which leads actually turned into jobs; use those closed-deal stories as the renewal pitch.",
+        "deliverable": "10 seed paying members + first month of lead feedback"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Own the welding community + member referrals",
+        "detail": "The main channel is the welding Facebook community: post one anonymized sample of that week's verified leads every week, no hard selling; add a referral reward (one free month per referred member). Lead quality is the renewal engine, so publish closed-deal feedback every month.",
+        "deliverable": "A subscription base on the order of 46 paying members"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Every lead must be human-verified; one fake lead loses one member, and the 22.7% September churn rate is the lesson. 2) Only use public tenders and business filings; never scrape private phone numbers or emails. 3) Never promise guaranteed jobs; you sell leads, not orders, and closing is the contractor's job. 4) Do not expand to ten trades at once; earn a reputation in one trade first, then copy the playbook to the next trade, such as electricians or HVAC.",
+    "tools": ["WordPress", "Airtable", "Google Sheets", "Stripe", "Attio CRM", "Facebook community"],
+    "source_url": "https://www.microns.io/startup-listings/b2b-lead-generation-platform-b21a8",
+    "created_at": "2026-11-12"
+  }
+]
