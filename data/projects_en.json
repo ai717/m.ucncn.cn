@@ -1,5 +1,637 @@
 [
   {
+    "id": "ml-20261107-001",
+    "title": "Skillry: Design-Taste Agent Skills Library",
+    "slug": "skillry-agent-skills-library",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Agent Skills",
+      "Claude Code",
+      "设计模板",
+      "订阅制",
+      "独立开发"
+    ],
+    "summary": "Hand-craft beautiful finished work first, then sell the method as a Skill: 475 viral Opus 5.5 videos with originals, remakes and full prompts free to attract traffic, while a subscription unlocks the full Skill library. Stripe-verified revenue: $10,913 in 29 days.",
+    "score": 73,
+    "rating_tier": "B",
+    "verdict": "卖的不是代码，是“成品先行”的筛选品味：免费库拉流量、订阅收钱，单人可跑，但近 7 天日均收入已从峰值跌超 40%，不能按爆发周外推。",
+    "score_breakdown": {
+      "ceiling": 7,
+      "feasibility": 8,
+      "reliability": 6,
+      "velocity": 8
+    },
+    "metrics": {
+      "cycle_time": "7~14 天",
+      "difficulty_stars": 2,
+      "est_monthly_profit": "$800 ~ $1,500 / 月",
+      "initial_cost": "$0~$200",
+      "revenue_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30",
+      "startup_cost": "$0~$200",
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "clean_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30"
+    },
+    "deep_dive": {
+      "opportunity": "破局点是“以成品选品”：团队先亲手做一个漂亮成品（网站、幻灯片、视频），再把模板、脚本与操作说明打包成 SKILL.md。475 条 Opus 5.5 爆款视频的原片、复刻与完整提示词免费开放引流，付费墙只拦完整技能包与更新，边际成本几乎为零。",
+      "workflow": [
+        "阶段 01: 选一个垂直方向，先做 5 个成品 - 不要一上来就搭全目录。选一个自己最懂的垂直方向，如 OG 图、落地页或发布视频。拆解近 30 天 X / YouTube 上该方向最好的作品，先亲手做 5 个成品，再谈卖 Skill。",
+        "阶段 02: 把成品写成 SKILL.md 并全程跑通 - 每个 Skill 用固定结构：先放成品图或视频，再给模板、脚本与分步说明，最后写清怎么改颜色、文案与版式而不翻车。每个 Skill 必须用 Claude Code 从零跑一遍，产出与原作并排对比，差太多就改 Skill，不要改截图。",
+        "阶段 03: 免费库引流，付费墙只拦完整包 - 爆款视频库（原片、复刻与提示词）完全免费，放主导航。单个 Skill 可免费试用，不用绑卡、不限试用期；全部技能库、更新与新 Skill 走订阅：$19.90/月、$158/年、$249 终身。Stripe 收款，分销给 40% 佣金 12 个月，先找 AI 工具导航站站长。",
+        "阶段 04: 创始人个人号冷启动 + 导航站铺量 - 用创始人个人 X 账号发布，带干货帖，品牌号只做辅助。把产品挂到 10~15 个中英文 AI 工具导航站。每周用自家 Skill 复刻一个热点产品，明确标注非官方概念。每周按日均收入复盘，不拿爆发周外推。"
+      ],
+      "risk_and_pitfalls": "警惕三点：第一，近 7 天日均约 $288，比 9 月 29 日那周约 $503 跌超 40%，不要拿峰值周算月入；第二，Marc Lou 点名带来的主要是开发者围观，创始人自己承认没带来付费转化；第三，官方免费 Skill 库与竞品 SkillGild 都在，卖点是筛选与成品质量，不是数量。",
+      "tools": [
+        "Claude Code",
+        "Stripe",
+        "公开收入数据",
+        "X (Twitter)",
+        "AI 工具导航站"
+      ]
+    },
+    "source_url": "https://bizpeel.com/project/skillry",
+    "created_at": "2026-11-07"
+  },
+  {
+    "id": "ml-20261107-002",
+    "title": "Plainmail: Real Email on Every Domain for $5 Flat",
+    "slug": "plainmail-multi-domain-email",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "邮箱服务",
+      "域名",
+      "MCP",
+      "SES",
+      "独立开发"
+    ],
+    "summary": "Every domain bought for a side project ends up with no email: Plainmail writes DNS, creates a real IMAP/SMTP mailbox and sends via Amazon SES from one sentence or one command, $5/month for 50 domains and 100 mailboxes. Live on Product Hunt since 2026-11-05.",
+    "score": 73,
+    "rating_tier": "B",
+    "verdict": "定价本身就是广告：按邮箱收费的对手每月 $700 才够 100 个邮箱，它 $5 全包；但还没有收入实证，且有 $9/年的廉价对手在压天花板。",
+    "score_breakdown": {
+      "ceiling": 6,
+      "feasibility": 8,
+      "reliability": 7,
+      "velocity": 8
+    },
+    "metrics": {
+      "cycle_time": "5~10 天",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$340 ~ $1,090 / 月",
+      "initial_cost": "$50~$200",
+      "revenue_model": "月度订阅 ($5/月)",
+      "startup_cost": "$50~$200",
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "clean_model": "月度订阅 ($5/月)"
+    },
+    "deep_dive": {
+      "opportunity": "破局点是把“写 DNS + 建邮箱 + 发信”压成一句话：告诉 Agent 或跑一条命令，Cloudflare / Vercel / Porkbun 的记录自动写好，真实 IMAP/SMTP 邮箱建好，邮件经 Amazon SES 发出。$5 包月对 $700/月的按邮箱计价，价格本身就是广告。",
+      "workflow": [
+        "阶段 01: 先验证自动写 DNS 再卖 - 去 Product Hunt 评论与 X 上找“每个域名都没有邮箱”的抱怨，确认买家是手里有 3 个以上域名的人，不是只有一个域名的用户。在 Cloudflare、Vercel、Porkbun 各测一个域名，从建邮箱到收到第一封回信全程跑通。",
+        "阶段 02: 只做收信、发信与 DNS 三件事 - 最小版本只做三件事：自动写 DNS、建 IMAP/SMTP 邮箱、经 SES 发信。不要做群发与冷邮件。新账号每天限发 50 封防滥用。提供 CLI 与 MCP 入口，让 Agent 能替用户跑“plainmail add hello@域名”。",
+        "阶段 03: 一个价，Stripe 收第一笔钱 - 只卖一个价：$5/月包 50 个域名、100 个邮箱、25GB。GitHub 注册，随时取消。扣掉约 5% 的 Stripe 手续费与每月约 $30 的托管与 SES 成本，80 个用户净赚约 $340/月，240 个用户约 $1,090/月。不要学按邮箱收费，那正是你要打败的对手。",
+        "阶段 04: Product Hunt 上线，盯紧廉价对手 - 在 Product Hunt 上线，标题就写价格与套餐。去独立开发者社区问大家手里有几个域名、现在怎么收信。盯紧 FranklyMail（$9/年、无限邮箱与域名，约 Plainmail 价格的 1/7）：你的卖点必须是更稳的 SES 送达率、MCP/Claude 集成与持续维护，不是价格。"
+      ],
+      "risk_and_pitfalls": "注意三点：第一，FranklyMail $9/年无限邮箱域名，价格只有 Plainmail 的约 1/7，天花板压得很低；第二，新账号每天限发 50 封，定位是人与人之间的邮件，不是群发与冷邮件，别跑偏；第三，目前没有任何收入实证，$340~$1,090/月是按用户数算的模型，不是实测。",
+      "tools": [
+        "Amazon SES",
+        "Cloudflare",
+        "Vercel",
+        "Porkbun",
+        "MCP"
+      ]
+    },
+    "source_url": "https://www.producthunt.com/products/plainmail",
+    "created_at": "2026-11-07"
+  },
+  {
+    "id": "ml-20261107-003",
+    "title": "Vintage Truck 3D-Printed Parts: One Model, One Part, One Etsy Niche",
+    "slug": "vintage-truck-3d-printed-parts",
+    "category": "Physical + Digital POD",
+    "tags": [
+      "3D打印",
+      "Etsy",
+      "老车配件",
+      "轻制造",
+      "小众电商"
+    ],
+    "summary": "Pick one discontinued plastic part for one old truck model: one model, one year, one part, and exact fitment is what holds the price. $25 per printed part earns about $20, $150 per fully wired unit earns about $60-65; the seller reports 683 orders and $30,062 in a year (seller-reported, unaudited).",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "窄口子才有价：通用 3D 打印爆款已从约 14 英镑跌到约 4.5 英镑，只有“指定车型、指定年份、指定件”保得住毛利；但打印机工时就是天花板，想放大得加机器或只卖 STL 文件。",
+    "score_breakdown": {
+      "ceiling": 7,
+      "feasibility": 7,
+      "reliability": 7,
+      "velocity": 7
+    },
+    "metrics": {
+      "cycle_time": "7~14 天",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$500 ~ $1,500 / 月",
+      "initial_cost": "$400+（封闭式耐热打印机）",
+      "revenue_model": "实物电商（$25/件 或 $150 整机）",
+      "startup_cost": "$400+（封闭式耐热打印机）",
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "clean_model": "实物电商（$25/件 或 $150 整机）"
+    },
+    "deep_dive": {
+      "opportunity": "只有窄口子保得住价：一个具体车型、一个具体年份、一个具体零件，尺寸精确贴合。去 Facebook 车主群听车主反复问的那个件，把它做出来，实车装车测试，再挂 Etsy。打印机工时是上限，想放大就加一台打印机，或只卖 STL 文件，不靠一个爆款吃一年。",
+      "workflow": [
+        "阶段 01: 锁定一个车型与一个零件 - 不要做“Etsy 上卖 3D 打印”这种泛生意。挑一个停产多年、车主基数大、社群活跃的老车型，如 1973~1987 年的 Squarebody 雪佛兰。进它的 Facebook 车主群，找到车主反复问的那个件——杯架、烟灰缸面板或仪表盘卡扣——只做这一个。",
+        "阶段 02: 自己画 CAD，实车装车测试再上架 - 在 YouTube 上学 CAD，自己画原创内饰件。不要抄原厂件，不要碰刹车等安全件，不要用品牌商标。用耐热 PETG 打印，实车装上验证贴合，反复改到严丝合缝。2025 年 6 月起 Etsy 要求 3D 打印 listing 必须是卖家原创设计，打印别人的 STL 文件拿来卖会被下架。",
+        "阶段 03: 打印件引流，整机赚钱 - 只卖打印件 $25，约赚 $20；卖带屏幕与线束的整机 $150，约赚 $60~65。Etsy 费用约 11~15%，耗材每个件 $0.5~3。1~2 台打印机的稳健新手，6~12 个月后约 $500~1,500/月。先把退换流程跑顺，再考虑加打印机。",
+        "阶段 04: 只在车主群发帖，不买广告 - 原卖家一年零广告，只在指定 Facebook 群组发帖，平均每周约 10 单。照抄：每周在群里发一次装车测试与车主反馈，不要刷屏。eBay 也挂，但不要指望它当主力。想放大先加一台打印机，再考虑只卖 STL 文件。"
+      ],
+      "risk_and_pitfalls": "注意四点：第一，2025 年 6 月起 Etsy 要求 3D 打印件为卖家原创设计，打印他人 STL 文件转卖会被下架；第二，车内不要用不耐热、不耐紫外线的 PLA；第三，不要碰安全件，不要用品牌商标；第四，年 $30,062 是卖家自报的 Reddit 截图转述，未审计，国内复刻的可行性也未验证。",
+      "tools": [
+        "Fusion 360",
+        "Bambu Lab P1S",
+        "PETG/ABS 耗材",
+        "Etsy",
+        "eBay Motors"
+      ]
+    },
+    "source_url": "https://ebizfacts.com/3d-printed-vintage-truck-parts-etsy-30k-first-year/",
+    "created_at": "2026-11-07"
+  },
+  {
+    "id": "ml-20261113-003",
+    "title": "Underpriced AI-Style Reseller Price Checker: Photo-to-Profit in 30 Seconds",
+    "slug": "underpriced-ai-reseller-scanner",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Reselling",
+      "Photo Pricing",
+      "eBay",
+      "AI Vision",
+      "Subscription"
+    ],
+    "summary": "Snap a photo and AI identifies the item, pulls real eBay sold prices, deducts fees and shipping, and tells you the net profit and whether to buy; subscriptions from $9.99/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "Monthly revenue of $5,156 is Stripe-verified, the need is real and the setup is fully compliant; the low price point means volume matters, and acquisition has to grind inside reseller communities.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "6-10 Weeks",
+      "initial_cost": "$50-$200 (API credits)",
+      "startup_cost": "$50-$200 (API credits)",
+      "est_monthly_profit": "$1,000 - $4,000 / mo (copycat steady-state estimate; original $5,156/mo)",
+      "revenue_model": "5 free scans + subscription ($9.99/$14.99/$24.99/mo)",
+      "clean_model": "Freemium / Monthly Subscription"
+    },
+    "monetization_model": "5 free scans + subscription ($9.99/$14.99/$24.99/mo)",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "Resellers deciding on the spot at thrift stores and garage sales fear overpaying most. The old way took 10-15 minutes per item: Google Lens, asking ChatGPT, digging through eBay sold listings, then hand-calculating the 13.25% fee and shipping. By the time the math was done, someone else had taken the good item. Founder Frank Kratzer was a reseller himself and built it solo in 6 months while learning AI integration.",
+      "opportunity_arbitrage": "Compress 'identify + check sold prices + compute net profit' into 30 seconds: photograph the item, a vision model identifies brand, model and condition, real eBay sold prices anchor the value, then platform fees and shipping are deducted to produce a 0-100 Deal Score and a buy-or-skip call. One good flip (a $12 item netting $80) pays for a year of subscription, so the purchase decision is easy. Indie Hackers shows $5,156/mo Stripe-verified (29 October 2026), rechecked at $5,236.94 per 30 days on 7 November 2026. Live on web, iOS, Android and Chrome/Firefox extensions."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Live inside reseller communities and confirm the 30-second on-the-spot decision is a real pain",
+        "detail": "Spend two weeks in r/Flipping, Facebook reseller groups and eBay seller forums. Record how sellers actually decide on site, what they complain about, which categories trip them up most, what tool stack they use now, and what they would pay per scan. Pick target categories (vintage cameras, designer jackets, sneakers, collectibles) before building; do not attempt all categories.",
+        "deliverable": "Target category list + 5 seller interviews + willingness-to-pay range"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Photo identification + eBay sold prices + net-profit calculator working",
+        "detail": "Use a cheap vision model (e.g. Gemini Flash) to identify brand, model and condition. Pull real sold prices through the official eBay Finding API as the anchor (never scrape). Deduct platform fees from a rate table (eBay 13.25% + $0.30, Poshmark 20%, Mercari ~12.9%) plus shipping to compute net profit and a Deal Score. Ship a web MVP first and verify identification accuracy before wrapping an app.",
+        "deliverable": "Web MVP + measured identification accuracy + net-profit calculator passing a 20-item physical spot check"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "5 free scans to hook, three subscription tiers, first month half price",
+        "detail": "Give 5 full free scans (including sold-price comparison, no paywall on the key answer) so users taste one 'good find' first. Paid tiers scale by scan volume (Reseller $9.99/mo for 75 scans, Pro $14.99/mo for 200, Ultra $24.99/mo for 500), first month half price to lower the barrier. Bill through Stripe. If the free tier gets farmed, tighten it to 5 scans and do not soften.",
+        "deliverable": "Stripe subscription loop + pricing page + free-tier abuse rules"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Reseller communities + Product Hunt + free tools for traffic",
+        "detail": "Post real flip stories in reseller communities (how a $15 camera was calculated to net $87), not ads. Launch on Product Hunt for a visibility spike. Build 40+ free mini-tools (fee calculators, shipping estimators, ROI calculators) for search traffic. Anchor word of mouth on one line: 'one scan pays for the subscription'. Let existing users bring new ones.",
+        "deliverable": "10 community case posts + Product Hunt launch + free-tool matrix"
+      }
+    ],
+    "pitfalls_to_avoid": "A valuation is an estimate, not an appraisal: state clearly on the page that AI valuations can be wrong and that condition and authenticity are the user's call. Never promise 'guaranteed authentic / guaranteed price', or disputes will follow. The eBay Finding API is official but rate-limited; do not work around it with scraping or an account ban ends everything. Pricing note: the founder's January 2026 post lists $5.99/$9.99/$17.99, while the October 2026 Product Hunt update lists $9.99/$14.99/$24.99; use the latest. Low price means volume: 500 subscriptions make $5,000/mo, so keep acquisition costs down and do not burn money on ads.",
+    "tools": [
+      "Gemini Flash Vision",
+      "eBay Finding API",
+      "Flutter / React Native",
+      "Stripe",
+      "Product Hunt"
+    ],
+    "source_url": "https://www.indiehackers.com/post/built-a-profit-checker-app-for-resellers-that-solves-the-should-i-buy-this-problem-22fe82e6ca",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-002",
+    "title": "Glossa-Style Vertical Live Translation Tool for Church Services",
+    "slug": "glossa-church-live-translation",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": [
+      "Live Translation",
+      "Church",
+      "Claude Code",
+      "Vertical Niche",
+      "Stripe Verified"
+    ],
+    "summary": "Live translation for multilingual church services at $5/hour per language or $99/$299/$499 monthly plans; the playbook ports to conferences, tours, schools and other vertical interpreting scenes.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "MRR of $14,404 is Stripe-verified and church customers are sticky, but the data feed went stale after 19 October 2026 and translation costs keep falling, so price with room to move.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4-8 Weeks",
+      "initial_cost": "$100-$300 (API credits)",
+      "startup_cost": "$100-$300 (API credits)",
+      "est_monthly_profit": "$1,500 - $6,000 / mo (copycat steady-state estimate; original MRR $14,404)",
+      "revenue_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
+      "clean_model": "Usage-Based / Monthly Subscription"
+    },
+    "monetization_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "In multilingual churches, part of the congregation cannot follow the sermon every service. Hiring human interpreters is expensive and hard to schedule, and small churches cannot afford it; generic translation apps do not know service terminology or flow, and their latency and accuracy fall short. The original Glossa was built by Anton K. with Claude Code and passed $20k revenue by May 2026.",
+      "opportunity_arbitrage": "Do not build generic translation; own one scene end to end. A church service is a fixed flow (sermon, prayer, hymns), so the terminology base and latency can be tuned for exactly that flow. Churches pay per language per hour, and 100 active subscriptions support $14,404 MRR and $196,539 all-time revenue (Stripe-verified via TrustMRR). Copycats need not fixate on churches: conferences, tour groups, international schools and court interpreting share the same 'fixed flow + multilingual audience' structure, and the same pipeline ports over with a swapped terminology base."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Pick a vertical scene with a fixed flow and a multilingual audience",
+        "detail": "Start from the scene, not the tech. List occasions near you with a fixed flow and a multilingual audience (church services, conference talks, tour groups, international-school parent meetings). Talk to 3-5 real institutions about how they solve translation today and what they would pay. Churches are proven, but copycats should pick a scene they can actually reach.",
+        "deliverable": "1 target scene + willingness-to-pay interviews with 3 institutions"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Speech-to-text + translation + caption pipeline working",
+        "detail": "Use off-the-shelf STT APIs for audio-to-text, a translation API, then push translated text or audio to listeners' phones over WebSocket for low latency. Start with one segment only (the sermon): build a 200-term scene glossary (common sermon words, hymn names, people's names) and target under 3 seconds of latency. Do not train your own models; call existing APIs.",
+        "deliverable": "End-to-end live translation demo + glossary + measured latency data"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Pay-per-hour plus monthly plans, billed through Stripe",
+        "detail": "Copy the original pricing structure: occasional use billed per language per hour ($5/hour/language), regulars on monthly plans ($99/$299/$499 by language count and sessions). Bill subscriptions and metered usage through Stripe. Watch STT and translation API unit prices: translation costs are falling, so leave room to cut prices instead of locking in a high price.",
+        "deliverable": "Stripe billing loop + pricing page + per-session cost sheet"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Knock on institutions' doors one by one, offer one free trial service",
+        "detail": "There is no paid-ads shortcut here: contact target institutions directly, offer one free trial service with you on site as backup, and let the congregation scan a code to hear the translation live. Win 3-5 seed institutions, then expand through denominational networks and peer referrals. In parallel, swap the glossary to open a second scene (conferences or tours) so all eggs are not in one scene.",
+        "deliverable": "3-5 seed institutions + trial-to-paid conversion data + second-scene glossary"
+      }
+    ],
+    "pitfalls_to_avoid": "Evidence freshness warning: the original's Stripe-verified figures were last synced 19 October 2026; the feed died when the API key expired, so $14,404 MRR is a 19 October snapshot, not today's number. The 30-day snapshot ($31,173) and the daily-sum ($12,903) disagree on method; use MRR as the reference. Translation API costs keep falling and will squeeze prices long-term, so do not project today's margins forward. Avoid scenes with no clear payer (pure charity, one-off events); institutional customers are the ones who renew. Live-audio latency and glossary mistranslations kill reputation, so field-test at least 3 real services before launch.",
+    "tools": [
+      "Claude Code",
+      "Whisper / STT API",
+      "Translation API",
+      "Stripe",
+      "WebSocket Live Audio"
+    ],
+    "source_url": "https://www.stateofindiehacking.com/stories/ai-built-apps-revenue-verified-median-shipped-and-paid/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261113-001",
+    "title": "Headroom-Style Context Compression Desktop App for AI Coding Agents",
+    "slug": "headroom-context-saver-desktop",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Claude Code",
+      "Context Compression",
+      "Desktop App",
+      "Token Savings",
+      "Polar Subscription"
+    ],
+    "summary": "Package an open-source context-compression engine as a one-click desktop app with auto-updates and a savings dashboard, charging AI coding-agent users a subscription for the tokens it saves.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "Revenue is payment-verified and the pattern is copyable, but the business lives or dies on whether Anthropic and OpenAI build compression in natively. A B-tier trial, not an all-in bet.",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3-6 Weeks",
+      "initial_cost": "$0-$50",
+      "startup_cost": "$0-$50",
+      "est_monthly_profit": "$800 - $3,000 / mo (copycat steady-state estimate; original MRR $2,025)",
+      "revenue_model": "Monthly subscription (Pro $3-$4/mo + Max tiers) + AppSumo lifetime deal",
+      "clean_model": "Monthly SaaS / Lifetime Deal"
+    },
+    "monetization_model": "Monthly subscription (Pro $3-$4/mo + Max tiers) + AppSumo lifetime deal",
+    "prototype": "B",
+    "core_thesis": {
+      "market_pain": "AI coding agents like Claude Code and Codex burn through tokens on machine noise (logs, search results, JSON) and users hit 5-hour and weekly usage limits fast. The open-source compression engine Headroom CLI already exists (77k GitHub stars), but installing it means Python, pip and hand-editing agent configs, which most developers will not do.",
+      "opportunity_arbitrage": "Do not sell the compression algorithm (it is free under Apache 2.0); sell 'it just works': one-click install, bundled Python runtime, auto-updates, clean uninstall, plus a dashboard showing tokens saved per session so the saving is visible. Price tiers match the AI plan the user already pays for (Pro tier for Claude Pro, Max tiers for larger plans), so the price feels like a rounding error. The original launched 1 April 2026, solo-maintained, with $2,025 MRR from 222 subscriptions on 25 October 2026 and $12,111 all-time revenue (verified by TrustMRR from Polar payment data)."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Find an open-source tool that is powerful but painful to install",
+        "detail": "Search GitHub for highly-starred tools whose install needs command line and config edits (local speech-to-text, local document search, model routers all qualify). Read the license first to confirm commercial use and redistribution are allowed, then write to the author for permission, promising credit on every page and keeping the free path visible.",
+        "deliverable": "1 open-source engine + written permission + license compliance checklist"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Tauri shell + local proxy, one-click install working",
+        "detail": "Build a lightweight Tauri desktop shell with a Rust intercept proxy and a Python backend running the compression engine. The installer writes the agent config automatically, backs up the original, and the uninstaller restores everything. Add a savings dashboard: tokens saved per session and the dollar value at API prices. Ship macOS first, then Windows and Linux.",
+        "deliverable": "Installable desktop app v1 + savings dashboard + verified clean uninstall"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Polar subscriptions with tiers matched to the user's existing AI plan",
+        "detail": "Use Polar for payments and subscription management. Price each tier as a small fraction of the AI plan it stretches (e.g. Pro $3-$4/mo). Free tier gets basic compression; paid unlocks auto-updates and the dashboard. An AppSumo lifetime deal can cold-start sales, but do not bet long-term revenue on it.",
+        "deliverable": "Polar subscription loop + free/paid split + pricing page"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "SEO content + developer-community cold start",
+        "detail": "Publish 20-25 practical articles on the target tool's costs and usage limits (token-saving tips, plan comparisons, competitor comparisons) for Google search traffic. Post real measured savings data on Reddit, Hacker News and Product Hunt. Win the first 10-50 paying seed users and watch renewal rate closely.",
+        "deliverable": "SEO content matrix + community launch posts + first paying users and renewal data"
+      }
+    ],
+    "pitfalls_to_avoid": "The biggest red line is platform dependency: if Anthropic or OpenAI ship native compression in their own agents, the product's value drops to zero. Aiolum's failed-startup database already lists 4 companies dead from this exact pattern, so model the ceiling as if an official feature could land any day. The open-source engine must be credited, the free path kept visible, and the author's permission obtained, or the reputation cost kills you. State savings percentages honestly with measured ranges, never benchmark numbers as promises. AppSumo lifetime deals mortgage future subscription revenue; use them only for cold start.",
+    "tools": [
+      "Tauri",
+      "Rust",
+      "Python",
+      "Headroom CLI (Apache 2.0)",
+      "Polar",
+      "Kompress-v2-base"
+    ],
+    "source_url": "https://aiolum.com/story/headroom/",
+    "created_at": "2026-11-13"
+  },
+  {
+    "id": "ml-20261112-003",
+    "title": "Verified Leads for Welding Contractors: 15 Real Jobs a Month",
+    "slug": "welding-contractor-verified-leads",
+    "category": "Local Lead-Gen & Arbitrage",
+    "tags": [
+      "B2B Leads",
+      "Welding Contractors",
+      "Subscription",
+      "Vertical Niche",
+      "Human Verified"
+    ],
+    "summary": "Sends welding and fabrication contractors 15 research-verified commercial project leads a month, at $330/quarter or $987/year.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "An extremely light model: a website plus human verification is enough to start, and 46 paying members with a 91.7% margin in five months is real money. The one weak spot is a 22.7% churn rate in a single month in September; if lead quality slips, members leave.",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 1,
+      "tech_barrier": "★☆☆☆☆ (1/5)",
+      "cycle_time": "2-3 Weeks",
+      "initial_cost": "$0-$70 (domain + no-code site)",
+      "startup_cost": "$0-$70 (domain + no-code site)",
+      "est_monthly_profit": "$3,000 - $6,000 / mo (solo steady state)",
+      "revenue_model": "Quarterly subscription $330 / annual subscription $987",
+      "clean_model": "Quarterly / Annual Subscription"
+    },
+    "monetization_model": "Quarterly subscription $330 / annual subscription $987",
+    "prototype": "A",
+    "core_thesis": {
+      "market_pain": "Welding and fabrication contractors do not lack skill; they lack a steady flow of commercial and industrial jobs. They rely on word of mouth and phone books, and the project tips they get are often stale or already taken. Fifteen verified real projects a month for $330 a quarter is a rounding error against a single job.",
+      "opportunity_arbitrage": "The reference business launched in June 2026 and reached 46 paying members, $32,093 in revenue, $29,443 in profit and a 91.74% margin in five months, delivering 15 research-verified leads per member per month (Microns listing, November 3, 2026). The stack is Notion + WordPress + Airtable + Google Sheets, essentially no-code; acquisition runs through a 48,000-member welding Facebook community, and the owner spends under 5 hours a week. The moat is not technology, it is the reputation that every lead was actually verified."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Pick one trade, then build a 500-record buyer list",
+        "detail": "Do not cover every industry at once; start with welding/fabrication only. Hand-collect 500 real commercial project records from public tenders, site notices and local business filings (project name, location, contact, start date), each verifiable by a phone call.",
+        "deliverable": "500 human-verified buyer project records"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "One landing page plus emailed leads is enough to open",
+        "detail": "A WordPress landing page explaining '15 verified leads a month', Airtable for the lead database, Stripe for quarterly/annual billing, and leads delivered by email in monthly batches. Do not build a platform first; run delivery on spreadsheets plus email.",
+        "deliverable": "Minimal version that can take payment and deliver leads"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "$330/quarter or $987/year, first 10 seed members",
+        "detail": "Copy the reference pricing: $330/quarter, $987/year. Recruit 10 seed members in welding Facebook groups and local trade groups at half price for the first 3 months, in exchange for monthly feedback on which leads actually turned into jobs; use those closed-deal stories as the renewal pitch.",
+        "deliverable": "10 seed paying members + first month of lead feedback"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Own the welding community + member referrals",
+        "detail": "The main channel is the welding Facebook community: post one anonymized sample of that week's verified leads every week, no hard selling; add a referral reward (one free month per referred member). Lead quality is the renewal engine, so publish closed-deal feedback every month.",
+        "deliverable": "A subscription base on the order of 46 paying members"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Every lead must be human-verified; one fake lead loses one member, and the 22.7% September churn rate is the lesson. 2) Only use public tenders and business filings; never scrape private phone numbers or emails. 3) Never promise guaranteed jobs; you sell leads, not orders, and closing is the contractor's job. 4) Do not expand to ten trades at once; earn a reputation in one trade first, then copy the playbook to the next trade, such as electricians or HVAC.",
+    "tools": [
+      "WordPress",
+      "Airtable",
+      "Google Sheets",
+      "Stripe",
+      "Attio CRM",
+      "Facebook community"
+    ],
+    "source_url": "https://www.microns.io/startup-listings/b2b-lead-generation-platform-b21a8",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-002",
+    "title": "Sonder: Book-to-Video Marketing for Authors",
+    "slug": "sonder-author-book-video-marketing",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": [
+      "AI Video",
+      "Book Marketing",
+      "Author Tools",
+      "Short Video",
+      "Subscription"
+    ],
+    "summary": "Reads an author's finished book and auto-generates Amazon ads, TikToks and slideshows that sell more copies, from $49/month.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "An extremely narrow niche serving only people who wrote a book, with 113 subscriptions and $20K MRR verified through Stripe. But video generation is commoditizing fast; the edge is in script patterns that understand books, not in generation itself.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3-4 Weeks",
+      "initial_cost": "$50-$200 (video generation API credits)",
+      "startup_cost": "$50-$200 (video generation API credits)",
+      "est_monthly_profit": "$2,000 - $4,000 / mo (solo steady state)",
+      "revenue_model": "Monthly subscription $49 / $99 / $209, three tiers",
+      "clean_model": "Monthly SaaS"
+    },
+    "monetization_model": "Monthly subscription $49 / $99 / $209, three tiers",
+    "prototype": "C",
+    "core_thesis": {
+      "market_pain": "Authors do not struggle to write books; they struggle to be seen after writing one. An agency charges $750+/month for five videos plus briefing calls, which most indie authors cannot afford, and editing it themselves takes time they do not have. The book is finished, the marketing videos are blank, and that gap is the paying point.",
+      "opportunity_arbitrage": "Sonder launched September 10, 2026 and reached about $20,283 MRR with 113 subscriptions in roughly two months, with $18,374 verified over the last 30 days (TrustMRR, November 2, 2026). The play is not generation quality but a library of proven script structures reverse-engineered from thousands of book videos that actually sold: hook, tension, reveal. At $49/month against an agency's $750+, the price gap itself is the pitch."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "Collect 50 viral book-video script structures first",
+        "detail": "Pull 50 book videos on TikTok/Instagram that actually drove sales, break each into hook, tension, reveal and ending, and distill 10 reusable script templates. The templates are the moat; build them before writing code.",
+        "deliverable": "10 book-marketing script templates + viral structure breakdown"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "PDF upload, read the whole book, output scripts, render video",
+        "detail": "Ship one pipeline only for the MVP: upload PDF and cover, LLM reads the whole book and pulls arguments and stories, applies the script templates to produce 3 video scripts, then a video generation API renders captioned clips. Add slideshows and Amazon ad formats only after this works.",
+        "deliverable": "Working book-to-video pipeline"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "7-day free trial, then $49/month and up",
+        "detail": "Full access free for 7 days, then $49/month from day 8; three tiers at $49/$99/$209 by monthly video count, with $35+ credit packs for overages. Stripe billing, and price per video only after costing each render, so heavy users cannot burn the margin.",
+        "deliverable": "Stripe subscriptions + per-video costed pricing table"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Author communities + writing creators on commission",
+        "detail": "Give 20 authors a free month in author communities, self-publishing forums and through writing creators, in exchange for posting their videos with a link; run content on the '$49 for 5 videos vs $750+ at an agency' price contrast.",
+        "deliverable": "First 10-50 paying subscribers"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Do not compete on generation quality alone; Kling/Runway/Sora upgrades will erase that edge. The moat is script patterns plus the author community. 2) Cost every video before pricing; heavy users can eat the margin if pricing is flat. 3) Never train public models on authors' book content; one copyright dispute is fatal. 4) Never promise views or sales; ad results depend on the book and the ad budget, the platform only guarantees the videos.",
+    "tools": [
+      "Video generation API (Kling / Runway)",
+      "OpenAI / Claude API",
+      "Stripe",
+      "FFmpeg",
+      "TikTok / Instagram"
+    ],
+    "source_url": "https://www.yousonder.com/",
+    "created_at": "2026-11-12"
+  },
+  {
+    "id": "ml-20261112-001",
+    "title": "AI NCLEX Prep: Lecture Notes to Flashcards & Mock Exams",
+    "slug": "nclex-nursing-exam-ai-prep",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Exam Prep",
+      "AI Tutoring",
+      "NCLEX",
+      "Nursing",
+      "Subscription"
+    ],
+    "summary": "Nursing students upload lecture notes and textbooks; AI turns them into flashcards, quizzes and mock exams for the US NCLEX licensure exam, charged as a monthly subscription.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "Licensure exams recur every year, and 915 paying subscribers with $18.8K MRR prove students really pay. A solo builder can ship the question bank with AI; the main risk is that AI-written questions must be human-checked for accuracy.",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 8,
+      "ceiling": 8,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "2-3 Weeks",
+      "initial_cost": "$20-$50 (domain + AI API credits)",
+      "startup_cost": "$20-$50 (domain + AI API credits)",
+      "est_monthly_profit": "$2,000 - $5,000 / mo (solo steady state)",
+      "revenue_model": "Monthly subscription (~$57/mo, based on the reference product's $56.65 ARPU)",
+      "clean_model": "Monthly SaaS"
+    },
+    "monetization_model": "Monthly subscription (~$57/mo, based on the reference product's $56.65 ARPU)",
+    "prototype": "G",
+    "core_thesis": {
+      "market_pain": "Hundreds of thousands of US nursing students sit the NCLEX every year, and failing means no license and no job. Existing prep is either a several-hundred-dollar course or scattered free question sets, while the lecture notes students already own sit unused. Students will pay directly for 'turn my notes into exam questions'.",
+      "opportunity_arbitrage": "The reference product's verified DealStream listing shows 915 paying subscribers, $18,824 MRR, $56.65 ARPU and an 89.6% gross margin, with payment data connected and verified. The wedge is one exam only (NCLEX), so the question bank and syllabus stay tightly focused; an LLM converts notes into flashcards and quizzes at token cost only; acquisition runs through short-form video made with nursing student creators, and the founder spends 15-20 hours a week on operations."
+    },
+    "workflow_steps": [
+      {
+        "phase": "Phase 01",
+        "stage_tag": "Reverse Insight",
+        "title": "One exam only: ship 200 human-checked questions first",
+        "detail": "Cover NCLEX-RN only, nothing else. Map the official Client Needs categories into a high-frequency topic list, then hand-build 200 multiple-choice questions with explanations as the seed bank. Every AI-generated question passes human review first; accuracy is the whole business.",
+        "deliverable": "NCLEX topic map + 200 human-checked seed questions"
+      },
+      {
+        "phase": "Phase 02",
+        "stage_tag": "Rapid Build",
+        "title": "Notes-to-question-bank site with a scored self-test",
+        "detail": "Ship a minimal FastAPI + static frontend build: upload PDF/notes, LLM extracts topics and generates flashcards and quizzes, then online self-testing, a mistake log and a readiness score. Get 'upload, generate, practice, score' working end to end before adding an AI tutor chat.",
+        "deliverable": "Working notes-to-test site with a scoring engine"
+      },
+      {
+        "phase": "Phase 03",
+        "stage_tag": "Commercialization",
+        "title": "Free practice tier + $29-$59 monthly subscription",
+        "detail": "Free tier allows 20 questions a day; paid unlocks the full bank, mock exams and explanations. Price against the reference ARPU of $56.65 with a $39/mo basic tier and a $59/mo sprint tier. Stripe subscriptions, cancel anytime, no forced annual lock-in.",
+        "deliverable": "Stripe subscription checkout + two-tier pricing page"
+      },
+      {
+        "phase": "Phase 04",
+        "stage_tag": "Cold Outbound",
+        "title": "Nursing student creators + nursing school partnerships",
+        "detail": "Recruit 5-10 nursing students as short-form video creators on a revenue share; the content is simply 'my lecture notes became a mock exam in 10 minutes'. Offer free classroom trial accounts to nursing schools and use real pass rates as social proof.",
+        "deliverable": "First 10-50 paying subscribers"
+      }
+    ],
+    "pitfalls_to_avoid": "1) Every AI-generated exam question must be human-checked; wrong questions destroy trust, and medical content must never ship straight from a model. 2) Do not resell copied real exam sets; original rewrites plus explanations are the compliant route. 3) Never promise a guaranteed pass; a refund-on-failure offer is a hole you cannot close. 4) Notes belong to the student; only process materials users upload themselves, never scrape or resell question banks.",
+    "tools": [
+      "FastAPI",
+      "OpenAI / Claude API",
+      "Stripe",
+      "PostgreSQL",
+      "TikTok / Instagram short video"
+    ],
+    "source_url": "https://dealstream.com/d/biz-sale/tutoring/jdwdiv",
+    "created_at": "2026-11-12"
+  },
+  {
     "id": "ml-cloud-test-001",
     "title": "Automated Reddit Buying-Signal Listener & Contextual Cold Outreach Engine",
     "slug": "reddit-leadgen-cold-email-bot",

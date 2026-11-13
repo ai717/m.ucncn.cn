@@ -380,7 +380,7 @@ try {
 if (shouldPush) {
   try {
     console.log('\n🚀 正在推送到 GitHub，GitHub Pages 将全自动构建生效...');
-    execSync('git add data/projects.json inbox index.html en sitemap.xml catalog.json llms.txt p', { stdio: 'inherit' });
+    execSync('git add data/ inbox/ skills/ index.html en/ sitemap.xml catalog.json llms.txt p/', { stdio: 'inherit' });
     execSync(`git commit -m "chore: auto-ingest ${totalAdded} projects via inbox"`, { stdio: 'inherit' });
     
     try {
