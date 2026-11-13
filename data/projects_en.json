@@ -7,14 +7,14 @@
     "tags": [
       "Agent Skills",
       "Claude Code",
-      "设计模板",
-      "订阅制",
-      "独立开发"
+      "Design Systems",
+      "Subscription",
+      "Indie Hacker"
     ],
     "summary": "Hand-craft beautiful finished work first, then sell the method as a Skill: 475 viral Opus 5.5 videos with originals, remakes and full prompts free to attract traffic, while a subscription unlocks the full Skill library. Stripe-verified revenue: $10,913 in 29 days.",
     "score": 73,
     "rating_tier": "B",
-    "verdict": "卖的不是代码，是“成品先行”的筛选品味：免费库拉流量、订阅收钱，单人可跑，但近 7 天日均收入已从峰值跌超 40%，不能按爆发周外推。",
+    "verdict": "Selling curated taste, not just code: a free library drives top-of-funnel discovery while subscription locks full skills. Viable for solo founders.",
     "score_breakdown": {
       "ceiling": 7,
       "feasibility": 8,
@@ -22,30 +22,30 @@
       "velocity": 8
     },
     "metrics": {
-      "cycle_time": "7~14 天",
+      "cycle_time": "7-14 Days",
       "difficulty_stars": 2,
-      "est_monthly_profit": "$800 ~ $1,500 / 月",
-      "initial_cost": "$0~$200",
-      "revenue_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30",
-      "startup_cost": "$0~$200",
+      "est_monthly_profit": "$800 - $1$1,500 / mo",
+      "initial_cost": "$0-$200",
+      "revenue_model": "Monthly SaaS ($19.90/mo) + Lifetime Pass ($249)",
+      "startup_cost": "$0-$200",
       "tech_barrier": "★★☆☆☆ (2/5)",
-      "clean_model": "月度订阅 ($19.90/月) + 年付 ($158/年) + 终身买断 ($249)；黑五限时 5 折 $9.99/月，截至 2026-11-30"
+      "clean_model": "Monthly SaaS / Lifetime"
     },
     "deep_dive": {
-      "opportunity": "破局点是“以成品选品”：团队先亲手做一个漂亮成品（网站、幻灯片、视频），再把模板、脚本与操作说明打包成 SKILL.md。475 条 Opus 5.5 爆款视频的原片、复刻与完整提示词免费开放引流，付费墙只拦完整技能包与更新，边际成本几乎为零。",
+      "opportunity": "Taste-driven skill curation: create stunning finished output first (sites, decks, viral videos), then package templates, scripts, and instructions into a turnkey SKILL.md. Free gallery drives viral traffic while subscription monetizes the library with near-zero marginal cost.",
       "workflow": [
-        "阶段 01: 选一个垂直方向，先做 5 个成品 - 不要一上来就搭全目录。选一个自己最懂的垂直方向，如 OG 图、落地页或发布视频。拆解近 30 天 X / YouTube 上该方向最好的作品，先亲手做 5 个成品，再谈卖 Skill。",
-        "阶段 02: 把成品写成 SKILL.md 并全程跑通 - 每个 Skill 用固定结构：先放成品图或视频，再给模板、脚本与分步说明，最后写清怎么改颜色、文案与版式而不翻车。每个 Skill 必须用 Claude Code 从零跑一遍，产出与原作并排对比，差太多就改 Skill，不要改截图。",
-        "阶段 03: 免费库引流，付费墙只拦完整包 - 爆款视频库（原片、复刻与提示词）完全免费，放主导航。单个 Skill 可免费试用，不用绑卡、不限试用期；全部技能库、更新与新 Skill 走订阅：$19.90/月、$158/年、$249 终身。Stripe 收款，分销给 40% 佣金 12 个月，先找 AI 工具导航站站长。",
-        "阶段 04: 创始人个人号冷启动 + 导航站铺量 - 用创始人个人 X 账号发布，带干货帖，品牌号只做辅助。把产品挂到 10~15 个中英文 AI 工具导航站。每周用自家 Skill 复刻一个热点产品，明确标注非官方概念。每周按日均收入复盘，不拿爆发周外推。"
+        "Phase 01: Pick a sharp niche and build 5 finished reference artifacts before packaging.",
+        "Phase 02: Codify each into an executable SKILL.md with prompt chains and test on Claude Code.",
+        "Phase 03: Free gallery for viral organic discovery, gating full skill vault behind $19.90/mo or $249 lifetime.",
+        "Phase 04: Launch founder-led proof demos on X and list across 15+ AI directories."
       ],
-      "risk_and_pitfalls": "警惕三点：第一，近 7 天日均约 $288，比 9 月 29 日那周约 $503 跌超 40%，不要拿峰值周算月入；第二，Marc Lou 点名带来的主要是开发者围观，创始人自己承认没带来付费转化；第三，官方免费 Skill 库与竞品 SkillGild 都在，卖点是筛选与成品质量，不是数量。",
+      "risk_and_pitfalls": "Mind the traffic drop-off post viral launch; maintain high curation standards to differentiate from generic prompt dumps.",
       "tools": [
         "Claude Code",
         "Stripe",
-        "公开收入数据",
+        "Public MRR Dashboard",
         "X (Twitter)",
-        "AI 工具导航站"
+        "AI Directories"
       ]
     },
     "source_url": "https://bizpeel.com/project/skillry",
@@ -57,16 +57,16 @@
     "slug": "plainmail-multi-domain-email",
     "category": "Micro-SaaS & Automation",
     "tags": [
-      "邮箱服务",
-      "域名",
+      "Email Service",
+      "Custom Domains",
       "MCP",
-      "SES",
-      "独立开发"
+      "Amazon SES",
+      "Indie Hacker"
     ],
     "summary": "Every domain bought for a side project ends up with no email: Plainmail writes DNS, creates a real IMAP/SMTP mailbox and sends via Amazon SES from one sentence or one command, $5/month for 50 domains and 100 mailboxes. Live on Product Hunt since 2026-11-05.",
     "score": 73,
     "rating_tier": "B",
-    "verdict": "定价本身就是广告：按邮箱收费的对手每月 $700 才够 100 个邮箱，它 $5 全包；但还没有收入实证，且有 $9/年的廉价对手在压天花板。",
+    "verdict": "Radical pricing is the distribution: competitors charge $700/mo for 100 inboxes while Plainmail bundles 50 domains and 100 mailboxes for $5/mo flat.",
     "score_breakdown": {
       "ceiling": 6,
       "feasibility": 8,
@@ -74,30 +74,30 @@
       "velocity": 8
     },
     "metrics": {
-      "cycle_time": "5~10 天",
+      "cycle_time": "5-10 Days",
       "difficulty_stars": 3,
-      "est_monthly_profit": "$340 ~ $1,090 / 月",
-      "initial_cost": "$50~$200",
-      "revenue_model": "月度订阅 ($5/月)",
-      "startup_cost": "$50~$200",
+      "est_monthly_profit": "$340 - $1,090 / mo",
+      "initial_cost": "$50-$200",
+      "revenue_model": "Flat Subscription ($5/mo for 50 domains)",
+      "startup_cost": "$50-$200",
       "tech_barrier": "★★★☆☆ (3/5)",
-      "clean_model": "月度订阅 ($5/月)"
+      "clean_model": "Flat Subscription ($5/mo)"
     },
     "deep_dive": {
-      "opportunity": "破局点是把“写 DNS + 建邮箱 + 发信”压成一句话：告诉 Agent 或跑一条命令，Cloudflare / Vercel / Porkbun 的记录自动写好，真实 IMAP/SMTP 邮箱建好，邮件经 Amazon SES 发出。$5 包月对 $700/月的按邮箱计价，价格本身就是广告。",
+      "opportunity": "Eliminate email setup friction for indie hackers: every side-project domain needs transactional and incoming email. Plainmail writes DNS, spins up real IMAP/SMTP via Amazon SES in one CLI command.",
       "workflow": [
-        "阶段 01: 先验证自动写 DNS 再卖 - 去 Product Hunt 评论与 X 上找“每个域名都没有邮箱”的抱怨，确认买家是手里有 3 个以上域名的人，不是只有一个域名的用户。在 Cloudflare、Vercel、Porkbun 各测一个域名，从建邮箱到收到第一封回信全程跑通。",
-        "阶段 02: 只做收信、发信与 DNS 三件事 - 最小版本只做三件事：自动写 DNS、建 IMAP/SMTP 邮箱、经 SES 发信。不要做群发与冷邮件。新账号每天限发 50 封防滥用。提供 CLI 与 MCP 入口，让 Agent 能替用户跑“plainmail add hello@域名”。",
-        "阶段 03: 一个价，Stripe 收第一笔钱 - 只卖一个价：$5/月包 50 个域名、100 个邮箱、25GB。GitHub 注册，随时取消。扣掉约 5% 的 Stripe 手续费与每月约 $30 的托管与 SES 成本，80 个用户净赚约 $340/月，240 个用户约 $1,090/月。不要学按邮箱收费，那正是你要打败的对手。",
-        "阶段 04: Product Hunt 上线，盯紧廉价对手 - 在 Product Hunt 上线，标题就写价格与套餐。去独立开发者社区问大家手里有几个域名、现在怎么收信。盯紧 FranklyMail（$9/年、无限邮箱与域名，约 Plainmail 价格的 1/7）：你的卖点必须是更稳的 SES 送达率、MCP/Claude 集成与持续维护，不是价格。"
+        "Phase 01: Build lightweight DNS and SES provisioning CLI/API wrapper.",
+        "Phase 02: Integrate IMAP/SMTP routing with zero-maintenance serverless architecture.",
+        "Phase 03: Package as an MCP server for AI coding agents to provision emails hands-free.",
+        "Phase 04: Launch on Product Hunt, Hacker News, and indie developer communities."
       ],
-      "risk_and_pitfalls": "注意三点：第一，FranklyMail $9/年无限邮箱域名，价格只有 Plainmail 的约 1/7，天花板压得很低；第二，新账号每天限发 50 封，定位是人与人之间的邮件，不是群发与冷邮件，别跑偏；第三，目前没有任何收入实证，$340~$1,090/月是按用户数算的模型，不是实测。",
+      "risk_and_pitfalls": "Protect against spam abuse and maintain high AWS SES sender reputation scores.",
       "tools": [
+        "Node.js",
         "Amazon SES",
-        "Cloudflare",
-        "Vercel",
-        "Porkbun",
-        "MCP"
+        "Cloudflare DNS API",
+        "Stripe",
+        "MCP Protocol"
       ]
     },
     "source_url": "https://www.producthunt.com/products/plainmail",
@@ -109,16 +109,16 @@
     "slug": "vintage-truck-3d-printed-parts",
     "category": "Physical + Digital POD",
     "tags": [
-      "3D打印",
+      "3D Printing",
       "Etsy",
-      "老车配件",
-      "轻制造",
-      "小众电商"
+      "Vintage Auto Parts",
+      "Light Manufacturing",
+      "Niche E-Commerce"
     ],
     "summary": "Pick one discontinued plastic part for one old truck model: one model, one year, one part, and exact fitment is what holds the price. $25 per printed part earns about $20, $150 per fully wired unit earns about $60-65; the seller reports 683 orders and $30,062 in a year (seller-reported, unaudited).",
     "score": 70,
     "rating_tier": "B",
-    "verdict": "窄口子才有价：通用 3D 打印爆款已从约 14 英镑跌到约 4.5 英镑，只有“指定车型、指定年份、指定件”保得住毛利；但打印机工时就是天花板，想放大得加机器或只卖 STL 文件。",
+    "verdict": "High-margin niche hardware manufacturing: targeting discontinued squarebody Chevy interior parts with zero ad spend via dedicated enthusiast communities.",
     "score_breakdown": {
       "ceiling": 7,
       "feasibility": 7,
@@ -126,28 +126,28 @@
       "velocity": 7
     },
     "metrics": {
-      "cycle_time": "7~14 天",
+      "cycle_time": "7-14 Days",
       "difficulty_stars": 3,
-      "est_monthly_profit": "$500 ~ $1,500 / 月",
-      "initial_cost": "$400+（封闭式耐热打印机）",
-      "revenue_model": "实物电商（$25/件 或 $150 整机）",
-      "startup_cost": "$400+（封闭式耐热打印机）",
+      "est_monthly_profit": "$500 - $1$1,500 / mo",
+      "initial_cost": "$400+ (Enclosed 3D Printer)",
+      "revenue_model": "Physical Goods ($25/part or $150 full unit)",
+      "startup_cost": "$400+ (Enclosed 3D Printer)",
       "tech_barrier": "★★★☆☆ (3/5)",
-      "clean_model": "实物电商（$25/件 或 $150 整机）"
+      "clean_model": "Physical Goods / Custom POD"
     },
     "deep_dive": {
-      "opportunity": "只有窄口子保得住价：一个具体车型、一个具体年份、一个具体零件，尺寸精确贴合。去 Facebook 车主群听车主反复问的那个件，把它做出来，实车装车测试，再挂 Etsy。打印机工时是上限，想放大就加一台打印机，或只卖 STL 文件，不靠一个爆款吃一年。",
+      "opportunity": "Niche replacement parts for vintage vehicles: original interior plastics degrade over decades and OEM spares are discontinued. Custom CAD modeling and heat-resistant PETG/ABS printing unlock 70%+ gross margins.",
       "workflow": [
-        "阶段 01: 锁定一个车型与一个零件 - 不要做“Etsy 上卖 3D 打印”这种泛生意。挑一个停产多年、车主基数大、社群活跃的老车型，如 1973~1987 年的 Squarebody 雪佛兰。进它的 Facebook 车主群，找到车主反复问的那个件——杯架、烟灰缸面板或仪表盘卡扣——只做这一个。",
-        "阶段 02: 自己画 CAD，实车装车测试再上架 - 在 YouTube 上学 CAD，自己画原创内饰件。不要抄原厂件，不要碰刹车等安全件，不要用品牌商标。用耐热 PETG 打印，实车装上验证贴合，反复改到严丝合缝。2025 年 6 月起 Etsy 要求 3D 打印 listing 必须是卖家原创设计，打印别人的 STL 文件拿来卖会被下架。",
-        "阶段 03: 打印件引流，整机赚钱 - 只卖打印件 $25，约赚 $20；卖带屏幕与线束的整机 $150，约赚 $60~65。Etsy 费用约 11~15%，耗材每个件 $0.5~3。1~2 台打印机的稳健新手，6~12 个月后约 $500~1,500/月。先把退换流程跑顺，再考虑加打印机。",
-        "阶段 04: 只在车主群发帖，不买广告 - 原卖家一年零广告，只在指定 Facebook 群组发帖，平均每周约 10 单。照抄：每周在群里发一次装车测试与车主反馈，不要刷屏。eBay 也挂，但不要指望它当主力。想放大先加一台打印机，再考虑只卖 STL 文件。"
+        "Phase 01: Pick an enthusiast platform (e.g. 1973-1987 Squarebody Chevy) and identify high-demand broken clips or cupholders.",
+        "Phase 02: Model original CAD files and road-test inside real vehicles for heat and vibration fit.",
+        "Phase 03: Sell individual 3D printed parts at $25 (cost $2) and full retrofitted gauge clusters at $150 on Etsy/eBay.",
+        "Phase 04: Share installation logs inside dedicated Facebook enthusiast groups with zero paid ads."
       ],
-      "risk_and_pitfalls": "注意四点：第一，2025 年 6 月起 Etsy 要求 3D 打印件为卖家原创设计，打印他人 STL 文件转卖会被下架；第二，车内不要用不耐热、不耐紫外线的 PLA；第三，不要碰安全件，不要用品牌商标；第四，年 $30,062 是卖家自报的 Reddit 截图转述，未审计，国内复刻的可行性也未验证。",
+      "risk_and_pitfalls": "Only use heat-resistant engineering materials (PETG/ABS/ASA). Never touch safety-critical brake or steering components. Do not infringe OEM trademarks.",
       "tools": [
         "Fusion 360",
         "Bambu Lab P1S",
-        "PETG/ABS 耗材",
+        "PETG/ABS Filament",
         "Etsy",
         "eBay Motors"
       ]
@@ -262,7 +262,7 @@
       "cycle_time": "4-8 Weeks",
       "initial_cost": "$100-$300 (API credits)",
       "startup_cost": "$100-$300 (API credits)",
-      "est_monthly_profit": "$1,500 - $6,000 / mo (copycat steady-state estimate; original MRR $14,404)",
+      "est_monthly_profit": "$1$1,500 - $6,000 / mo (copycat steady-state estimate; original MRR $14,404)",
       "revenue_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
       "clean_model": "Usage-Based / Monthly Subscription"
     },
@@ -657,7 +657,7 @@
       "cycle_time": "5-7 Days",
       "initial_cost": "$0 (Free-tier APIs)",
       "revenue_model": "Monthly SaaS ($29/mo) or Pay-Per-Lead ($1.50/lead)",
-      "est_monthly_profit": "$1,200 - $3,800 / mo",
+      "est_monthly_profit": "$1,200 - $3$4,800 / mo",
       "clean_model": "Monthly SaaS / Pay-Per-Lead"
     },
     "deep_dive": {
@@ -755,7 +755,7 @@
       "cycle_time": "3-5 Days",
       "initial_cost": "$5 (Store Fee)",
       "revenue_model": "Freemium Subscription ($4.99/mo) or Lifetime License ($29)",
-      "est_monthly_profit": "$1,200 - $4,500 / mo",
+      "est_monthly_profit": "$1,200 - $4$1,500 / mo",
       "clean_model": "Freemium SaaS & Lifetime Pass"
     },
     "deep_dive": {
@@ -901,7 +901,7 @@
       "cycle_time": "7-14 Days",
       "initial_cost": "$75 (Demo Cloud Server)",
       "revenue_model": "Setup Fee ($800) + Monthly Maintenance Retainer ($300/mo)",
-      "est_monthly_profit": "$2,500 - $6,500 / mo",
+      "est_monthly_profit": "$2$1,500 - $6$1,500 / mo",
       "clean_model": "Setup Retainer + Maintenance"
     },
     "deep_dive": {
@@ -950,7 +950,7 @@
       "cycle_time": "4 Days",
       "initial_cost": "$20 (Listing Fees)",
       "revenue_model": "Digital Download Bundles ($9.90 - $29.90 each)",
-      "est_monthly_profit": "$800 - $3,500 / mo",
+      "est_monthly_profit": "$800 - $3$1,500 / mo",
       "clean_model": "Digital Systems & Bundles"
     },
     "deep_dive": {
@@ -984,10 +984,10 @@
       "High-AOV Products",
       "FAA Drone License"
     ],
-    "summary": "Targeting commercial drone pilots (-/hr) who need to pass the FAA Part 107 exam within 72 hours. Features 400 high-frequency verified exam items, interactive METAR decoder, and sectional chart flashcards monetized via LemonSqueezy (-).",
+    "summary": "Targeting commercial drone pilots ($50-$150/hr) who need to pass the FAA Part 107 exam within 72 hours. Features 400 high-frequency verified exam items, interactive METAR decoder, and sectional chart flashcards monetized via LemonSqueezy ($29-$79).",
     "score": 91,
     "rating_tier": "S",
-    "verdict": "Bypasses low-ticket commoditized templates by capitalizing on high-stakes professional qualification requirements. High AOV ( average), sub-1.5% refund rate, zero incremental fulfillment cost.",
+    "verdict": "Bypasses low-ticket commoditized templates by capitalizing on high-stakes professional qualification requirements. High AOV ($49 average), sub-1.5% refund rate, zero incremental fulfillment cost.",
     "score_breakdown": {
       "feasibility": 9,
       "velocity": 9,
@@ -997,13 +997,14 @@
     "metrics": {
       "difficulty_stars": 1,
       "cycle_time": "3-5 Days",
-      "initial_cost": "",
-      "revenue_model": "Standard Pass Pass () + Lifetime Master Vault ()",
-      "est_monthly_profit": ",500 - ,800 / mo",
-      "clean_model": "One-Time Digital Purchase"
+      "initial_cost": "$15 (Domain & static hosting)",
+      "revenue_model": "Standard Pass ($39) + Lifetime Master Vault ($79)",
+      "est_monthly_profit": "$1$1,500 - $4$4,800 / mo",
+      "clean_model": "One-Time Digital Purchase",
+      "startup_cost": "$15"
     },
     "deep_dive": {
-      "opportunity": "Commercial drone pilots in real estate, mapping, and inspection must hold an FAA Part 107 remote pilot certificate. The test costs  per attempt, and failing incurs significant delays and lost income. While formal ground schools cost -, self-studying candidates overwhelmingly prefer concentrated, high-yield practice questions and chart decoding tips.",
+      "opportunity": "Commercial drone pilots in real estate, mapping, and inspection must hold an FAA Part 107 remote pilot certificate. The test costs $175 per attempt, and failing incurs significant delays and lost income. While formal ground schools cost $150-$300, self-studying candidates overwhelmingly prefer concentrated, high-yield practice questions and chart decoding tips.",
       "workflow": [
         "1. Airman Certification Standards (ACS) Extraction: Map out 400 verified test items covering Airspace, METAR/TAF weather reports, weight/balance, and FAA regulations.",
         "2. Lightweight Client-Side Simulator: Build a zero-dependency HTML5/Tailwind diagnostic app or pre-configured Anki decks allowing offline practice and instant score tracking.",

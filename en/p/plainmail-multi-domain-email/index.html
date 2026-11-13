@@ -13,8 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plainmail: Real Email on Every Domain for $5 Flat - Revenue Blueprint &amp; AI Agent Skill | MoneyLab</title>
-  <meta name="description" content="Deconstructed teardown of Plainmail: Real Email on Every Domain for $5 Flat. Est. Monthly Run Rate: $340 ~ $1,090 / 月. Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.">
-  <meta name="keywords" content="邮箱服务, 域名, MCP, SES, 独立开发, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="description" content="Deconstructed teardown of Plainmail: Real Email on Every Domain for $5 Flat. Est. Monthly Run Rate: $340 - $1,090 / mo. Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.">
+  <meta name="keywords" content="Email Service, Custom Domains, MCP, Amazon SES, Indie Hacker, MoneyLab, Solopreneur, Micro-SaaS">
   <meta name="author" content="MoneyLab Research Team">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://m.ucncn.cn/en/p/plainmail-multi-domain-email/">
@@ -154,25 +154,25 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Phase 01: Execution",
-          "text": "阶段 01: 先验证自动写 DNS 再卖 - 去 Product Hunt 评论与 X 上找“每个域名都没有邮箱”的抱怨，确认买家是手里有 3 个以上域名的人，不是只有一个域名的用户。在 Cloudflare、Vercel、Porkbun 各测一个域名，从建邮箱到收到第一封回信全程跑通。"
+          "text": "Phase 01: Build lightweight DNS and SES provisioning CLI/API wrapper."
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Phase 02: Execution",
-          "text": "阶段 02: 只做收信、发信与 DNS 三件事 - 最小版本只做三件事：自动写 DNS、建 IMAP/SMTP 邮箱、经 SES 发信。不要做群发与冷邮件。新账号每天限发 50 封防滥用。提供 CLI 与 MCP 入口，让 Agent 能替用户跑“plainmail add hello@域名”。"
+          "text": "Phase 02: Integrate IMAP/SMTP routing with zero-maintenance serverless architecture."
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Phase 03: Execution",
-          "text": "阶段 03: 一个价，Stripe 收第一笔钱 - 只卖一个价：$5/月包 50 个域名、100 个邮箱、25GB。GitHub 注册，随时取消。扣掉约 5% 的 Stripe 手续费与每月约 $30 的托管与 SES 成本，80 个用户净赚约 $340/月，240 个用户约 $1,090/月。不要学按邮箱收费，那正是你要打败的对手。"
+          "text": "Phase 03: Package as an MCP server for AI coding agents to provision emails hands-free."
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Phase 04: Execution",
-          "text": "阶段 04: Product Hunt 上线，盯紧廉价对手 - 在 Product Hunt 上线，标题就写价格与套餐。去独立开发者社区问大家手里有几个域名、现在怎么收信。盯紧 FranklyMail（$9/年、无限邮箱与域名，约 Plainmail 价格的 1/7）：你的卖点必须是更稳的 SES 送达率、MCP/Claude 集成与持续维护，不是价格。"
+          "text": "Phase 04: Launch on Product Hunt, Hacker News, and indie developer communities."
         }
       ]
     }
@@ -266,15 +266,15 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
           <span class="text-[11px] font-mono text-slate-400">Est. Monthly Run Rate</span>
-          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$340 ~ $1,090 / 月</p>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$340 - $1,090 / mo</p>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
           <span class="text-[11px] font-mono text-slate-400">Validation Speed</span>
-          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">5~10 天</p>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">5-10 Days</p>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
           <span class="text-[11px] font-mono text-slate-400">Startup Barrier</span>
-          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$50~$200</p>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$50-$200</p>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
           <span class="text-[11px] font-mono text-slate-400">Effort & Complexity</span>
@@ -291,7 +291,7 @@
         <span>Institutional Due Diligence Verdict</span>
       </div>
       <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
-        定价本身就是广告：按邮箱收费的对手每月 $700 才够 100 个邮箱，它 $5 全包；但还没有收入实证，且有 $9/年的廉价对手在压天花板。
+        Radical pricing is the distribution: competitors charge $700/mo for 100 inboxes while Plainmail bundles 50 domains and 100 mailboxes for $5/mo flat.
       </p>
     </section>
 
@@ -301,7 +301,7 @@
         <span>🔍</span>
         <span>Market Opportunity & Founder Bottlenecks</span>
       </h2>
-      <p class="text-sm text-slate-300 leading-relaxed font-sans">破局点是把“写 DNS + 建邮箱 + 发信”压成一句话：告诉 Agent 或跑一条命令，Cloudflare / Vercel / Porkbun 的记录自动写好，真实 IMAP/SMTP 邮箱建好，邮件经 Amazon SES 发出。$5 包月对 $700/月的按邮箱计价，价格本身就是广告。</p>
+      <p class="text-sm text-slate-300 leading-relaxed font-sans">Eliminate email setup friction for indie hackers: every side-project domain needs transactional and incoming email. Plainmail writes DNS, spins up real IMAP/SMTP via Amazon SES in one CLI command.</p>
     </section>
 
     <!-- 4-Step Execution Workflow (SOP) -->
@@ -314,22 +314,22 @@
         
       <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
         <span class="text-emerald-400 font-bold shrink-0">➔</span>
-        <span>阶段 01: 先验证自动写 DNS 再卖 - 去 Product Hunt 评论与 X 上找“每个域名都没有邮箱”的抱怨，确认买家是手里有 3 个以上域名的人，不是只有一个域名的用户。在 Cloudflare、Vercel、Porkbun 各测一个域名，从建邮箱到收到第一封回信全程跑通。</span>
+        <span>Phase 01: Build lightweight DNS and SES provisioning CLI/API wrapper.</span>
       </div>
     
       <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
         <span class="text-emerald-400 font-bold shrink-0">➔</span>
-        <span>阶段 02: 只做收信、发信与 DNS 三件事 - 最小版本只做三件事：自动写 DNS、建 IMAP/SMTP 邮箱、经 SES 发信。不要做群发与冷邮件。新账号每天限发 50 封防滥用。提供 CLI 与 MCP 入口，让 Agent 能替用户跑“plainmail add hello@域名”。</span>
+        <span>Phase 02: Integrate IMAP/SMTP routing with zero-maintenance serverless architecture.</span>
       </div>
     
       <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
         <span class="text-emerald-400 font-bold shrink-0">➔</span>
-        <span>阶段 03: 一个价，Stripe 收第一笔钱 - 只卖一个价：$5/月包 50 个域名、100 个邮箱、25GB。GitHub 注册，随时取消。扣掉约 5% 的 Stripe 手续费与每月约 $30 的托管与 SES 成本，80 个用户净赚约 $340/月，240 个用户约 $1,090/月。不要学按邮箱收费，那正是你要打败的对手。</span>
+        <span>Phase 03: Package as an MCP server for AI coding agents to provision emails hands-free.</span>
       </div>
     
       <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
         <span class="text-emerald-400 font-bold shrink-0">➔</span>
-        <span>阶段 04: Product Hunt 上线，盯紧廉价对手 - 在 Product Hunt 上线，标题就写价格与套餐。去独立开发者社区问大家手里有几个域名、现在怎么收信。盯紧 FranklyMail（$9/年、无限邮箱与域名，约 Plainmail 价格的 1/7）：你的卖点必须是更稳的 SES 送达率、MCP/Claude 集成与持续维护，不是价格。</span>
+        <span>Phase 04: Launch on Product Hunt, Hacker News, and indie developer communities.</span>
       </div>
     
       </div>
@@ -342,7 +342,7 @@
         <span>Pitfalls & Risk Warning</span>
       </h2>
       <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
-        注意三点：第一，FranklyMail $9/年无限邮箱域名，价格只有 Plainmail 的约 1/7，天花板压得很低；第二，新账号每天限发 50 封，定位是人与人之间的邮件，不是群发与冷邮件，别跑偏；第三，目前没有任何收入实证，$340~$1,090/月是按用户数算的模型，不是实测。
+        Protect against spam abuse and maintain high AWS SES sender reputation scores.
       </p>
     </section>
 
@@ -355,23 +355,23 @@
       <div class="flex flex-wrap gap-2">
         
           <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Node.js
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
             # Amazon SES
           </span>
         
           <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
-            # Cloudflare
+            # Cloudflare DNS API
           </span>
         
           <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
-            # Vercel
+            # Stripe
           </span>
         
           <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
-            # Porkbun
-          </span>
-        
-          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
-            # MCP
+            # MCP Protocol
           </span>
         
       </div>

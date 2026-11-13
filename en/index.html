@@ -2175,10 +2175,41 @@
         const diffStars = getDiffStars(p);
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
 
-        // Clean revenue model & initial cost (elastic fallback)
-        const cleanModel = p.metrics?.clean_model || p.monetization_model || (p.metrics?.revenue_model || 'Subscription').replace(/\([^)]*\)/g, '').trim();
-        const cleanCost = (p.metrics?.initial_cost || p.metrics?.startup_cost || '$0 Free Tier').replace(/\([^)]*\)/g, '').trim() || '$0';
+        // Category display mapping for compact single-line card header
+        const categoryMap = {
+          'Micro-SaaS & Automation': 'Micro-SaaS',
+          'Physical + Digital POD': 'Physical POD',
+          'AI Wrappers & B2B Solutions': 'AI Wrappers',
+          'Local Lead-Gen & Arbitrage': 'Local Lead-Gen',
+          'Shopify Apps & AI': 'Shopify Apps',
+          'Chrome Extensions': 'Chrome Ext',
+          'Micro-SaaS Acquisition': 'Acquisition',
+          'Digital Products': 'Digital Products',
+          'B2B Services & AI': 'B2B Services',
+          'Notion & Digital Assets': 'Notion Assets'
+        };
+        const displayCategory = categoryMap[p.category] || p.category || 'Solopreneur';
+
+        // Clean revenue model (elastic fallback with concise badges)
+        const rawModel = p.metrics?.clean_model || p.monetization_model || p.metrics?.revenue_model || 'Subscription';
+        let cleanModel = rawModel.replace(/\([^)]*\)/g, '').replace(/（[^）]*）/g, '').replace(/\s+/g, ' ').trim();
+        cleanModel = cleanModel.replace(/Monthly Subscription/gi, 'Monthly SaaS')
+                               .replace(/Usage-Based \/ Monthly SaaS/gi, 'Usage / SaaS')
+                               .replace(/Freemium \/ Monthly SaaS/gi, 'Freemium SaaS')
+                               .replace(/Quarterly \/ Annual Subscription/gi, 'Quarterly / Annual')
+                               .replace(/Instant Digital Downloads/gi, 'Digital Downloads')
+                               .replace(/Setup Retainer \+ Maintenance/gi, 'Setup + Retainer')
+                               .replace(/Subscription \+ Token Overages/gi, 'SaaS + Overages')
+                               .replace(/Freemium SaaS & Lifetime Pass/gi, 'Freemium / Lifetime')
+                               .replace(/Cash Flow \+ Exit Multiple/gi, 'Cash Flow / Flip')
+                               .replace(/Digital Systems & Bundles/gi, 'Digital Bundles')
+                               .replace(/One-Time Digital Purchase/gi, 'Digital Purchase');
+
+        const cleanCost = (p.metrics?.initial_cost || p.metrics?.startup_cost || '$0 Free Tier').replace(/\([^)]*\)/g, '').replace(/（[^）]*）/g, '').trim() || '$0';
+
+        // Clean run rate: strip verbose parentheticals for compact card view to prevent multi-line squeezing
         const profitRaw = p.metrics?.est_monthly_profit || 'Predictable';
+        const cleanProfit = profitRaw.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').replace(/\/ 月/, '/ mo').trim();
 
         return `
           <article 
@@ -2186,19 +2217,19 @@
             class="${cardClass} rounded-2xl p-5 sm:p-6 cursor-pointer flex flex-col justify-between group relative transition-all"
           >
             <div>
-              <!-- Top Row: Category + Index + Tier Score Badge (Strictly Single-Line) -->
-              <div class="flex items-center justify-between gap-2 mb-3.5 text-xs font-mono">
+              <!-- Top Row: Category + Index + Tier Score Badge (Strictly Single-Line, Zero Truncation) -->
+              <div class="flex items-center justify-between gap-1.5 mb-3.5 text-xs font-mono">
                 <div class="flex items-center space-x-1.5 min-w-0">
-                  <span class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border text-[11px] font-semibold whitespace-nowrap truncate max-w-[170px]" title="${p.category}">
-                    ${p.category || 'Solopreneur'}
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-brand-surface text-slate-700 dark:text-brand-textSecondary border border-slate-200 dark:border-brand-border text-[11px] font-semibold whitespace-nowrap truncate max-w-[130px] sm:max-w-[155px]" title="${p.category}">
+                    ${displayCategory}
                   </span>
                   <span class="text-slate-400 dark:text-brand-textMuted/60 text-xs font-mono shrink-0">#${String(index + 1).padStart(2, '0')}</span>
                 </div>
                 
                 <div class="flex items-center space-x-1.5 shrink-0">
-                  ${isUnlocked ? '<span class="px-2 py-0.5 rounded-md font-mono text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center space-x-1 shadow-2xs whitespace-nowrap"><span>✓</span><span>Unlocked</span></span>' : ''}
-                  <div class="px-2.5 py-0.5 rounded-md border text-xs font-bold tracking-wide whitespace-nowrap shrink-0 ${tierBadgeClass}">
-                    Tier ${p.rating_tier || 'A'} · ${p.score} pts
+                  ${isUnlocked ? '<span class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center space-x-0.5 shadow-2xs whitespace-nowrap"><span>✓</span><span>Unlocked</span></span>' : ''}
+                  <div class="px-2 py-0.5 rounded-md border text-xs font-bold tracking-wide whitespace-nowrap shrink-0 ${tierBadgeClass}">
+                    Tier ${p.rating_tier || 'A'} · ${p.score}
                   </div>
                 </div>
               </div>
@@ -2212,10 +2243,10 @@
 
               <!-- Model Capsule (Left) & Capital Barrier (Right) (Structured 2-column layout) -->
               <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-brand-textMuted mt-3 pt-0.5">
-                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary font-medium truncate max-w-[175px]" title="${cleanModel}">
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-brand-surface border border-slate-200 dark:border-brand-border text-slate-700 dark:text-brand-textSecondary font-medium truncate max-w-[165px]" title="${rawModel}">
                   ${cleanModel}
                 </span>
-                <span class="shrink-0 text-[11px]">
+                <span class="shrink-0 text-[11px] ml-1.5">
                   Barrier: <strong class="text-emerald-600 dark:text-emerald-400 font-bold">${cleanCost}</strong>
                 </span>
               </div>
@@ -2229,9 +2260,9 @@
             <!-- Financial & Execution Metrics -->
             <div class="mt-4 pt-3.5 border-t border-slate-100 dark:border-brand-border/40 space-y-2">
               <div class="flex items-baseline justify-between gap-2">
-                <span class="text-xs font-mono text-slate-400 dark:text-brand-textMuted">Est. Monthly Run Rate</span>
-                <span class="text-base font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight whitespace-nowrap">
-                  ${profitRaw}
+                <span class="text-xs font-mono text-slate-400 dark:text-brand-textMuted shrink-0">Est. Run Rate</span>
+                <span class="text-sm sm:text-base font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-tight text-right truncate" title="${profitRaw}">
+                  ${cleanProfit}
                 </span>
               </div>
 
