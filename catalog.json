@@ -2,8 +2,14 @@
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
   "updated_at": "2026-11-16",
-  "total_count": 17,
+  "total_count": 23,
   "existing_slugs": [
+    "xiaohongshu-ai-workbench-custom",
+    "gumroad-micro-pdf",
+    "footballgpt-coach-assistant",
+    "colorcraft-kdp-publishing",
+    "ai-designer-ui-brand",
+    "mbti-personality-report-matrix",
     "underpriced-ai-reseller-scanner",
     "glossa-church-live-translation",
     "headroom-context-saver-desktop",
@@ -46,6 +52,126 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261116-001",
+      "slug": "xiaohongshu-ai-workbench-custom",
+      "title": "小红书获客接 AI 工作台定制：9.9 元资料筛客、1.5 个月接 5 单、累计收款 ¥2.5 万",
+      "category": "AI应用与服务",
+      "tags": [
+        "小红书获客",
+        "AI工作台定制",
+        "小B服务",
+        "需求问诊",
+        "副业"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "不会开发的作者靠小红书内容获客，为传统小商家定制 AI 工作台：¥9.9 资料/教程引流筛客，筛出有定制需求的客户后收项目费；作者管内容获客、沟通与需求整理，技术伙伴管开发交付。2026 年 9 月至 10 月 22 日累计收款约 ¥2.5 万，5 个付费客户，最高单项目 ¥8,900。",
+      "monetization_model": "¥9.9 资料/教程引流筛客 + 一次性项目费（¥500 测试 / ¥1,600~¥8,900 定制），无订阅复购",
+      "est_monthly_profit": "¥5,000 ~ ¥10,000 / 月（复制者稳态毛利口径，需与技术伙伴分账；1.5 个月 ¥2.5 万为毛收款，非稳态净利润）",
+      "landing_url_zh": "https://m.ucncn.cn/p/xiaohongshu-ai-workbench-custom/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/"
+    },
+    {
+      "id": "ml-20261116-003",
+      "slug": "gumroad-micro-pdf",
+      "title": "Gumroad微型数字产品：小PDF变现",
+      "category": "出海/独立开发",
+      "tags": [
+        "Gumroad",
+        "微型数字产品",
+        "PDF变现",
+        "Reddit获客",
+        "AI写作"
+      ],
+      "score": 73,
+      "rating_tier": "B",
+      "summary": "把生活中反复出现的小麻烦写成几页 PDF，定价 3-19 美元挂 Gumroad，在 Reddit 与社群原问题帖下留言留链接获客；作者 Gloria 30 天靠 17 个小 PDF 收入 1171.92 美元，首单第 1 天就来了。",
+      "monetization_model": "Gumroad 单品买断 $3–$19",
+      "est_monthly_profit": "$500 ~ $1,200 / 月（扣 Gumroad 约 10% 手续费后；波动大、无复购）",
+      "landing_url_zh": "https://m.ucncn.cn/p/gumroad-micro-pdf/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/"
+    },
+    {
+      "id": "ml-20261116-005",
+      "slug": "footballgpt-coach-assistant",
+      "title": "FootballGPT 草根足球教练 AI 助教：教案动画化 + SEO 获客的订阅 SaaS",
+      "category": "AI应用与服务",
+      "tags": [
+        "足球教练",
+        "AI助教",
+        "订阅SaaS",
+        "SEO获客"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "非开发者教练用 Claude Code 两个月做出草根足球 AI 助教：输入年龄组/人数/场地/主题，输出带动画示意图的训练教案，Pro 周付 $2.99 起，40+ SEO 页面获客；TrustMRR Stripe 验证 MRR $4,778、505 订阅。",
+      "monetization_model": "免费版引流 + Pro 周付 $2.99 起 + 俱乐部整队订阅",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，扣掉约 $95/月运营成本与 API 费用后）",
+      "landing_url_zh": "https://m.ucncn.cn/p/footballgpt-coach-assistant/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/footballgpt-coach-assistant/"
+    },
+    {
+      "id": "ml-20261116-004",
+      "slug": "colorcraft-kdp-publishing",
+      "title": "ColorCraft：KDP自出版AI出书工具——一句话出整本涂色书/故事书",
+      "category": "AI应用与服务",
+      "tags": [
+        "KDP自出版",
+        "AI出书",
+        "涂色书",
+        "订阅制SaaS",
+        "Cursor开发"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "给亚马逊 KDP 自出版者用的 AI 出书工具：描述一句话就生成涂色书、故事书、漫画或解谜书，导出可印刷封面，直接上架卖书；订阅收费，7 天试用做完一整本才付费。",
+      "monetization_model": "月度订阅（$9~$119/月）+ 7 天试用（做完一整本才付费）",
+      "est_monthly_profit": "$1,000 ~ $2,500 / 月（复制者稳态；运营者当前 MRR $2,388）",
+      "landing_url_zh": "https://m.ucncn.cn/p/colorcraft-kdp-publishing/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/colorcraft-kdp-publishing/"
+    },
+    {
+      "id": "ml-20261116-002",
+      "slug": "ai-designer-ui-brand",
+      "title": "AI Designer 式一句话生成 UI 与品牌设计 SaaS",
+      "category": "出海/独立开发",
+      "tags": [
+        "AI设计",
+        "UI生成",
+        "品牌设计",
+        "SaaS订阅",
+        "Vibe Coding"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "一句话生成网站/App UI、Logo 与品牌素材的 AI 设计 SaaS：设计师、创业者与小团队付订阅费，几秒拿到可直接发布、能导出干净代码的成品设计，省去外包费用与等待。",
+      "monetization_model": "订阅制：免费 5 个终身额度；Pro $25/月起（100 次生成），按生成量阶梯涨至 $2,250/月；年付约 10 个月价；另有 20% 联盟佣金",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，扣手续费与模型成本后）",
+      "landing_url_zh": "https://m.ucncn.cn/p/ai-designer-ui-brand/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/ai-designer-ui-brand/"
+    },
+    {
+      "id": "ml-20261115-001",
+      "slug": "mbti-personality-report-matrix",
+      "title": "小红书 MBTI 人格解析报告虚拟资料：AI 批量生成 16 型深度解析 PDF，4.9 元卖出 6.5 万份",
+      "category": "国内虚拟电商",
+      "tags": [
+        "MBTI",
+        "人格解析",
+        "小红书虚拟资料",
+        "AI 生成报告",
+        "情绪价值",
+        "副业"
+      ],
+      "score": 75,
+      "rating_tier": "B",
+      "summary": "小红书卖 MBTI 人格解析报告虚拟资料：AI 批量生成 16 型人格深度解析 PDF，¥4.9 客单、自动发货、零边际成本；头部店铺粉丝仅 1,887，单链接已售 6.5 万+份，全店累计 25.7 万+件。",
+      "monetization_model": "¥0.99 引流款 + ¥4.9 主力款 + ¥9.9~¥39.9 进阶报告，全店 4 件 8 折凑单；中英双语版海外 Etsy / Gumroad 再卖一遍",
+      "est_monthly_profit": "¥3,000 ~ ¥8,000 / 月（稳态单人副业口径；头部店铺全店累计流水 ¥60～100 万为博主估算、未经平台审计，不计入稳态测算）",
+      "landing_url_zh": "https://m.ucncn.cn/p/mbti-personality-report-matrix/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/mbti-personality-report-matrix/"
+    },
     {
       "id": "ml-20261113-003",
       "slug": "underpriced-ai-reseller-scanner",

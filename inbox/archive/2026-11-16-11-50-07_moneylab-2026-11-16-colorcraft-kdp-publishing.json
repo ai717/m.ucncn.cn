@@ -1,0 +1,83 @@
+[
+  {
+    "id": "ml-20261116-004",
+    "title": "ColorCraft：KDP自出版AI出书工具——一句话出整本涂色书/故事书",
+    "title_en": "ColorCraft: AI Book Maker for KDP Self-Publishers",
+    "slug": "colorcraft-kdp-publishing",
+    "category": "AI应用与服务",
+    "tags": [
+      "KDP自出版",
+      "AI出书",
+      "涂色书",
+      "订阅制SaaS",
+      "Cursor开发"
+    ],
+    "summary": "给亚马逊 KDP 自出版者用的 AI 出书工具：描述一句话就生成涂色书、故事书、漫画或解谜书，导出可印刷封面，直接上架卖书；订阅收费，7 天试用做完一整本才付费。",
+    "summary_en": "AI book maker for Amazon KDP self-publishers: describe an idea and get a print-ready coloring book, storybook, comic or puzzle book; subscription with a 7-day trial that lets users finish a whole book before paying.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "63 分 C 级（60~69 值得观察）：过 60 分线，不过 70 分线。收入经 TrustMRR/Stripe 验证是真的（MRR $2,388，126 订阅），但规模尚小、KDP 政策依赖明显；复制者稳态按每月 $1,000~$2,500 估算，别拿运营者数字当自己的。TrustMRR 原页未能直接打开，数字由 MissumAI 与 PrintCashWithAI 两家独立引用 TrustMRR/Stripe 数据的来源交叉印证，量级一致。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4~8 周",
+      "initial_cost": "$50~$200（生图 API + 域名 + 基础订阅工具）",
+      "startup_cost": "$50~$200（生图 API + 域名 + 基础订阅工具）",
+      "est_monthly_profit": "$1,000 ~ $2,500 / 月（复制者稳态；运营者当前 MRR $2,388）",
+      "revenue_model": "月度订阅（$9~$119/月）+ 7 天试用（做完一整本才付费）"
+    },
+    "monetization_model": "月度订阅（$9~$119/月）+ 7 天试用（做完一整本才付费）",
+    "core_thesis": {
+      "market_pain": "KDP 自出版者想出涂色书、故事书赚钱，但请插画师贵且慢；自己用 Midjourney 加 Canva 拼流程繁琐，角色一致性、页数、封面尺寸、300 DPI 打印要求都要自己搞定，一本书折腾几天还未必能上架。",
+      "opportunity_arbitrage": "把出书压成一句话：AI 按同一角色锚点批量生图，自动按 KDP 印刷规格（书脊、出血、封面尺寸）出可印刷文件；付费点卡在价值验证后——7 天试用让用户做完一整本才付费，创始人发现 10 页以上用户才付费，试用设计直接对着这个发现改。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定一个出书人群，先别写代码",
+        "detail": "先定一种书、一个人群：涂色书（家长/老师）、儿童故事书（新手爸妈作者）、漫画（同人/小众爱好者）、解谜书（老年/儿童益智）。去 KDP 搜同类书的定价、页数、评论，确认有人在买；再读 KDP 的 AI 内容披露规则与低质书限制，划出红线。",
+        "deliverable": "一页纸的选品单：书种、人群、定价区间、KDP 红线清单"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "搭最小出书流水线：生图 + KDP 规格",
+        "detail": "用 Cursor + 生图 API 搭 MVP：输入主题出整书页计划，每页提示词复用同一段角色锚点保一致性；按 KDP 公式自动算书脊宽、封面尺寸、300 DPI 内页像素；导出可印刷 PDF。先只做一种书（推荐涂色书，页型最简单）。",
+        "deliverable": "能跑通的 colorcraft_kdp.py：plan / specs / funnel 三个子命令"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "7 天试用 + 订阅收费",
+        "detail": "接 Stripe 订阅（$9 起步档 + 高级档），试用 7 天且须绑卡；试用期内让用户做完一整本再收费，付费墙放在完成整本之后而不是第 10 页——这是 ColorCraft 验证过的转化点。记录试用开始、做完、付费三数，每周看漏斗。",
+        "deliverable": "Stripe 订阅上线 + 漏斗 CSV 开始记数"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "去 KDP 作者扎堆的地方拿前 50 个用户",
+        "detail": "在 KDP 社区、Reddit 的自出版板块、Facebook 自出版小组发真实的出书过程贴（别发广告）：晒一本从一句话到上架的完整过程，附试用链接；同步做 10 篇长尾内容（比如“涂色书 KDP 上架全流程”），拿搜索流量。目标：前 50 个试用用户。",
+        "deliverable": "50 个试用用户 + 10 篇长尾内容上线"
+      }
+    ],
+    "pitfalls_to_avoid": "KDP 政策是命脉：上传时必须披露 AI 生成内容，低质量 AI 书会被限制展示，别拿模板批量刷书；角色一致性是口碑关键，锚点提示词每页原文复用，别每页重写描述；别把创始人“几乎没写代码”当成零门槛——KDP 打印规格、角色一致性、试用转化设计都要自己啃；别拿运营者 MRR $2,388 当自己的收入，复制者稳态按每月 $1,000~$2,500 估算；TrustMRR 原页本次未能直接打开，收入数字以交叉印证为准，写文章引用时注明来源与核查日期。",
+    "tools": [
+      "Cursor",
+      "Midjourney / Flux",
+      "Stripe",
+      "TrustMRR",
+      "Amazon KDP",
+      "Python 3 标准库"
+    ],
+    "source_url": "https://trustmrr.com/startup/colorcraft",
+    "created_at": "2026-11-16",
+    "prototype": "C"
+  }
+]

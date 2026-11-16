@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gumroad Micro Digital Products: Tiny PDFs That Pay - Revenue Blueprint &amp; AI Agent Skill | MoneyLab</title>
+  <meta name="description" content="Deconstructed teardown of Gumroad Micro Digital Products: Tiny PDFs That Pay. Est. Monthly Run Rate: $500 ~ $1,200 / 月（扣 Gumroad 约 10% 手续费后；波动大、无复购）. Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.">
+  <meta name="keywords" content="Gumroad, 微型数字产品, PDF变现, Reddit获客, AI写作, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/en/p/gumroad-micro-pdf/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/gumroad-micro-pdf/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/gumroad-micro-pdf/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/gumroad-micro-pdf/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/en/p/gumroad-micro-pdf/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="Gumroad Micro Digital Products: Tiny PDFs That Pay">
+  <meta property="og:description" content="Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/en/p/gumroad-micro-pdf/">
+  <meta name="twitter:title" content="Gumroad Micro Digital Products: Tiny PDFs That Pay">
+  <meta name="twitter:description" content="Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/#article",
+      "headline": "Gumroad Micro Digital Products: Tiny PDFs That Pay",
+      "description": "Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-16",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MoneyLab Catalog",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Micro-SaaS & Automation",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Gumroad Micro Digital Products: Tiny PDFs That Pay",
+          "item": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/#product",
+      "name": "Gumroad Micro Digital Products: Tiny PDFs That Pay (Turnkey Execution Skill & Blueprint)",
+      "description": "Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/en/p/gumroad-micro-pdf/#howto",
+      "name": "How to execute and monetize: Gumroad Micro Digital Products: Tiny PDFs That Pay",
+      "description": "Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Phase 01: Execution",
+          "text": "阶段 01: 每天找 3 个真痒点并打分 - 去 Reddit、Twitter、Facebook Groups 搜“How do I…”或“Ugh, why does…”；只挑反复出现的小麻烦。用脚手架 micro_pdf.py score 按出现频率、烦人程度、付费意愿、可搜索性打分，75 分以上优先做，60 分以下直接换题。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Phase 02: Execution",
+          "text": "阶段 02: 一句话出稿、12 分钟成 PDF - 按模板让 AI 写 500 字新手步骤稿（不要理论、只要步骤），加一张自己的实拍图，标题写成“How To [解决问题] Without [常见痛点]”；用 micro_pdf.py build 渲染成带步骤、贴士和检查清单的 PDF，标题、正文、价格一次成型。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Phase 03: Execution",
+          "text": "阶段 03: Gumroad 上架 + 定价 3-19 美元 - 用 micro_pdf.py listing 生成上架标题、描述与定价（冲动价位 3-19 美元）；Gumroad 收款，扣约 10% 平台费后到账；每个产品单独上架，别打包成合集（合集抬高了决策门槛）。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Phase 04: Execution",
+          "text": "阶段 04: 回到原帖留“BTW”回复，循环分发 - 回到发现问题的原帖，先给真实有用的回答，再顺带提一句自己写了步骤 PDF 附链接；同一帖子只留一次链接，同一天同一社区不超 3 条带链接回复；旧产品优先重发、改写、换标题再分发，别只顾做新品——分发重于产量。"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">Micro-SaaS &amp; Automation</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../../../p/gumroad-micro-pdf/" 
+          title="Switch to Chinese Edition (ZH)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 ZH</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← All Playbooks</span>
+          <span class="sm:hidden">← Back</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            Micro-SaaS &amp; Automation
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261116-003</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-brand-surface text-slate-300 border-brand-border">
+          Tier B · 73 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        Gumroad Micro Digital Products: Tiny PDFs That Pay
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        Turn tiny recurring annoyances into few-page PDFs ($3-$19) on Gumroad, and sell them by leaving helpful comments under the original Reddit/community problem threads. Author Gloria made $1,171.92 in 30 days from 17 PDFs, first sale on day 1.
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Est. Monthly Run Rate</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$500 ~ $1,200 / 月（扣 Gumroad 约 10% 手续费后；波动大、无复购）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Validation Speed</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">1 天首单，7 天验证（首周 421.64 美元）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Startup Barrier</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$0</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Effort & Complexity</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★☆☆☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>Institutional Due Diligence Verdict</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        真实小额现金流、门槛极低、首单极快，但天花板低、无复购、无护城河：30 天 1171.92 美元为作者自述加截图，未经第三方验证；文中截图“日均 80-400 美元”与 30 天总额对不上，未采用；“BTW 留言”分发方式有被判垃圾信息的真实风险。
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>Market Opportunity & Founder Bottlenecks</span>
+      </h2>
+      <p class="text-sm text-slate-300 leading-relaxed font-sans">套利不在信息本身（ChatGPT 也能写），而在“打包 + 位置 + 冲动”：AI 几分钟写出 500 字步骤稿，12 分钟排版成 PDF 挂 Gumroad，在求助者发帖求助的原帖下留一条先帮忙、再顺带提链接的回复——买家在痛点最痛的那一刻、3-19 美元的冲动价位上直接付款。一次制作、零边际成本，17 个小产品 30 天带来 1171.92 美元。</p>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4-Step Operational Blueprint (SOP)</span>
+      </h2>
+      <div class="space-y-3">
+        
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 01: 每天找 3 个真痒点并打分 - 去 Reddit、Twitter、Facebook Groups 搜“How do I…”或“Ugh, why does…”；只挑反复出现的小麻烦。用脚手架 micro_pdf.py score 按出现频率、烦人程度、付费意愿、可搜索性打分，75 分以上优先做，60 分以下直接换题。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 02: 一句话出稿、12 分钟成 PDF - 按模板让 AI 写 500 字新手步骤稿（不要理论、只要步骤），加一张自己的实拍图，标题写成“How To [解决问题] Without [常见痛点]”；用 micro_pdf.py build 渲染成带步骤、贴士和检查清单的 PDF，标题、正文、价格一次成型。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 03: Gumroad 上架 + 定价 3-19 美元 - 用 micro_pdf.py listing 生成上架标题、描述与定价（冲动价位 3-19 美元）；Gumroad 收款，扣约 10% 平台费后到账；每个产品单独上架，别打包成合集（合集抬高了决策门槛）。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 04: 回到原帖留“BTW”回复，循环分发 - 回到发现问题的原帖，先给真实有用的回答，再顺带提一句自己写了步骤 PDF 附链接；同一帖子只留一次链接，同一天同一社区不超 3 条带链接回复；旧产品优先重发、改写、换标题再分发，别只顾做新品——分发重于产量。</span>
+      </div>
+    
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>Pitfalls & Risk Warning</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        ① 分发是命脉也是风险：只丢链接不帮忙会被当垃圾信息删帖甚至封号，必须先给真实回答再顺带提链接，同一帖子只留一次。② 信息本身不值钱：指南内容 ChatGPT 也能写，卖的是打包、位置和冲动，标题与分发不到位就卖不动。③ 收入波动大、无复购：30 天 1171.92 美元是作者自述加截图，未经第三方验证；文中截图“日均 80-400 美元”与 30 天总额对不上，未采用，不得引用。④ 零护城河：任何人几分钟就能复制同款 PDF，只能靠先发与分发量守住。⑤ Gumroad 抽成约 10% 加支付手续费，定价 3 美元的产品到手更少。
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>Weaponry & Infrastructure Stack</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # ChatGPT/Claude（写稿）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Google Docs（排版）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Gumroad（收单）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Reddit/Facebook Groups（找痒点+分发）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # micro_pdf.py（本 SKILL.md 脚手架：痛点打分/PDF 生成/上架文案/销售台账）
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Instant Decryption via Stripe Official Checkout</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        Unlock Raw Unredacted Source Threads + Turnkey AI Prompt File
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Includes founder raw discussions, architecture diagrams, step-by-step prompt library, and universal Cursor / Claude Code SKILL.md file.
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#gumroad-micro-pdf" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ View Full Teardown & Unlock on MoneyLab</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 Benchmark vs Overseas Intel</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics $300~$1,000/yr</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP is only HK$299 (~$38) lifetime</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>Single Pass: HK$29.90 (~$3.80)</span>
+        <span>·</span>
+        <span>Annual VIP: HK$299 (~$38.00)</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">Catalog</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

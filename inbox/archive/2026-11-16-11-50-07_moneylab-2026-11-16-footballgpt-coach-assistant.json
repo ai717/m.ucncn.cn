@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ml-20261116-005",
+    "title": "FootballGPT 草根足球教练 AI 助教：教案动画化 + SEO 获客的订阅 SaaS",
+    "title_en": "FootballGPT: AI Assistant for Grassroots Football Coaches",
+    "slug": "footballgpt-coach-assistant",
+    "category": "AI应用与服务",
+    "tags": [
+      "足球教练",
+      "AI助教",
+      "订阅SaaS",
+      "SEO获客"
+    ],
+    "summary": "非开发者教练用 Claude Code 两个月做出草根足球 AI 助教：输入年龄组/人数/场地/主题，输出带动画示意图的训练教案，Pro 周付 $2.99 起，40+ SEO 页面获客；TrustMRR Stripe 验证 MRR $4,778、505 订阅。",
+    "summary_en": "A non-developer coach built an AI assistant for grassroots football coaches with Claude Code: animated session plans, video technique analysis and SEO-driven subscriptions; $4,778 MRR verified by TrustMRR/Stripe.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "63 分 C 级（60~69 值得观察），过 60 分线、未过 70 分线，入选。一手核实：TrustMRR Stripe 验证 MRR $4,778、近 30 天收入 $4,406、505 订阅、累计 $34,991（2026-11-15 更新）；TrustMRR 页面内图表另显示 $4,202，与标题口径相差 $204（约 5%），未查到确切口径原因，不影响结论。注意：MRR 从 10 月 24 日的 $5,261 降至 11 月 15 日的 $4,778（-9%），季节性或流失待观察；19,000+ 注册用户为创始人自述，未独立核实；4 款产品 2 个月为创始人自述，未独立核实。去重：在线索引 17 条无同款，无撞车。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 5,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "2~3 个月（搭建约 2 个月 + SEO 爬坡）",
+      "initial_cost": "$200~$500（域名 + 首月 API 与服务器）",
+      "startup_cost": "$200~$500",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，扣掉约 $95/月运营成本与 API 费用后）",
+      "revenue_model": "免费版引流 + Pro 周付 $2.99 起 + 俱乐部整队订阅"
+    },
+    "monetization_model": "免费版引流 + Pro 周付 $2.99 起 + 俱乐部整队订阅",
+    "core_thesis": {
+      "market_pain": "草根/青训教练每周备课从空白页开始：网上找的教案不贴合自己队伍的年龄、人数与场地；通用 ChatGPT 只给纯文字教案，没有动画示意图、没有存档、第二周又得重来；请助教或买现成课程又贵。教练最缺的是时间，每周重复造轮子。",
+      "opportunity_arbitrage": "把'针对自己队伍的教案'做成垂直 AI 助教：输入年龄组、人数、场地与主题，输出带动画示意图的训练教案，外加视频骨架分析、赛后复盘、家长版练习与 FM 战术转换；40+ SEO 页面吃'青少年足球训练'长尾搜索；免费版引流、Pro 周付 $2.99 降低决策门槛、俱乐部整队采购抬客单。Claude Code 让非开发者两个月做出 4 款产品，证明构建门槛已被 AI 编程打下来；运营成本仅约 $95/月，毛利约 84%。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "验证需求：找 10 个本地青训教练聊透备课痛点",
+        "detail": "访谈本地青训教练与俱乐部：每周备课花多久、愿为省时间付多少钱、现在用什么办法；扒足球教练论坛与 Trustpilot 差评，确认通用 AI 教案的短板；锁定一个年龄组（如 U12）先切入，不贪多。",
+        "deliverable": "10 份教练访谈纪要 + 竞品差评清单 + 锁定的首发年龄组"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "Claude Code + Next.js/Supabase/Stripe 搭 MVP",
+        "detail": "用 Claude Code 生成教案引擎（年龄组/人数/场地/主题四参数，输出结构化教案）；动画示意图先用静态图 + 文字走位描述起步；免费版限量 1 次用量；Stripe 接入周付与月付；本包 session_planner.py 可直接跑通教案生成与 MRR 推演。",
+        "deliverable": "可跑通的 MVP + session_planner.py 脚手架实测通过"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "五档定价与流失挽留",
+        "detail": "定价 Free / Starter / Plus / Pro Weekly / Club 五档，Pro 周付 $2.99 起降低首次付费门槛；用量到限时提醒升级；到期前 3 天提醒续费；每月看 TrustMRR 的 MRR 与流失，及时处理差评。",
+        "deliverable": "支付闭环跑通 + 定价页上线 + 流失看板"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "40+ SEO 页面 + 教练社群冷启动",
+        "detail": "按年龄组×主题×场地批量生成 SEO 落地页（如 U12 传球训练、U10 带球游戏），吃长尾搜索；去教练社群真实分享教案案例（不发广告）；给 3 家本地俱乐部免费整队试用一个月，换口碑与续费。",
+        "deliverable": "40+ SEO 页面上线 + 首批 10 个付费教练"
+      }
+    ],
+    "pitfalls_to_avoid": "TrustMRR 页面内两个收入口径相差 $204（标题 $4,406 与图表 $4,202，约 5%），属页面口径差异，不影响结论，但引用时以标题口径为准并注明；MRR 从 10 月 24 日 $5,261 降至 11 月 15 日 $4,778（-9%），青少年足球有季节性，淡季收入会掉，复制者须盯紧流失率；19,000+ 注册用户与 4 款产品 2 个月均为创始人自述，未独立核实，不得当审计数用；教练对 AI 准确度要求高，错误教案会伤口碑，教案须经真教练审校再上线；通用 AI 能写纯文字教案，护城河在动画示意图、视频骨架分析、球探数据等垂直功能，只做文字版会被大厂功能覆盖；Pro 周付 $2.99 的价格以官网实时价为准，引用前复核。",
+    "tools": [
+      "Claude Code",
+      "Next.js",
+      "Supabase",
+      "Stripe",
+      "TrustMRR",
+      "session_planner.py"
+    ],
+    "source_url": "https://trustmrr.com/startup/footballgpt",
+    "created_at": "2026-11-16",
+    "prototype": "C"
+  }
+]

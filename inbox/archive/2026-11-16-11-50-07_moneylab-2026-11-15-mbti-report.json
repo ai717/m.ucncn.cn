@@ -1,0 +1,83 @@
+[
+  {
+    "id": "ml-20261115-001",
+    "title": "小红书 MBTI 人格解析报告虚拟资料：AI 批量生成 16 型深度解析 PDF，4.9 元卖出 6.5 万份",
+    "title_en": "MBTI Personality Report PDFs on Xiaohongshu: AI-Generated 16-Type Deep-Dive Reports Selling 65,000+ Copies at ¥4.9",
+    "slug": "mbti-personality-report-matrix",
+    "category": "国内虚拟电商",
+    "tags": [
+      "MBTI",
+      "人格解析",
+      "小红书虚拟资料",
+      "AI 生成报告",
+      "情绪价值",
+      "副业"
+    ],
+    "summary": "小红书卖 MBTI 人格解析报告虚拟资料：AI 批量生成 16 型人格深度解析 PDF，¥4.9 客单、自动发货、零边际成本；头部店铺粉丝仅 1,887，单链接已售 6.5 万+份，全店累计 25.7 万+件。",
+    "summary_en": "Selling AI-generated MBTI personality report PDFs on Xiaohongshu: ¥4.9 per copy, auto-delivery, near-zero marginal cost; the leading store has only 1,887 followers yet sold 65,000+ copies of a single SKU and 257,000+ items store-wide.",
+    "score": 75,
+    "rating_tier": "B",
+    "verdict": "一手打开信源原文逐项核对：粉丝 1887、单链接已售 6.5 万+、全店 25.7 万+件、好评率 99.9% 均与原文一致；¥32 万与全店 ¥60～100 万为博主算术粗估、非平台审计，已剔除出稳态测算。与库内 #14 小红书情绪树洞已做差异化甄别（产品形态、流量引擎、购买触发点均不同），不撞车。75 分 B 级，值得入库观察尝试。",
+    "score_breakdown": {
+      "feasibility": 9,
+      "velocity": 8,
+      "ceiling": 7,
+      "reliability": 6
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "7~14 天",
+      "initial_cost": "¥0~¥500（大模型订阅 + AI 绘图 + 自动发货工具；小红书店铺按类目可能需保证金）",
+      "startup_cost": "¥0~¥500",
+      "est_monthly_profit": "¥3,000 ~ ¥8,000 / 月（稳态单人副业口径；头部店铺全店累计流水 ¥60～100 万为博主估算、未经平台审计，不计入稳态测算）",
+      "revenue_model": "¥0.99 引流款 + ¥4.9 主力款 + ¥9.9~¥39.9 进阶报告，全店 4 件 8 折凑单；中英双语版海外 Etsy / Gumroad 再卖一遍"
+    },
+    "monetization_model": "¥0.99 引流款 + ¥4.9 主力款 + ¥9.9~¥39.9 进阶报告，全店 4 件 8 折凑单；中英双语版海外 Etsy / Gumroad 再卖一遍",
+    "core_thesis": {
+      "market_pain": "MBTI 在年轻人中几乎是社交货币，“你是 I 人还是 E 人”是破冰话题；免费在线测试只给基础结果，想要几十页深度解析报告要么贵、要么不正规。用户花一杯奶茶一半的钱，买一次“被看透”的体验和社交谈资，¥4.9 低于决策阈值，纯冲动消费。",
+      "opportunity_arbitrage": "AI 生成报告内容 + AI 绘图做商品封面，2~3 天可出一条完整产品线，一次制作终身零边际成本复卖；同一题库换主题（心智阶段/恋爱风格/职业适配/七宗罪）即成 64 个 SKU 矩阵，划线价锚定 + 4 件 8 折拉高客单；成交靠平台搜索与推荐流量，不靠粉丝量。资产匹配：已有 MissxClub 测验矩阵（题目、答题流、七语言架构）可直接复用，做“测评 + 3000 字专属深度报告”组合；moyunews 可承接“MBTI 报告”“INTJ 深度解析”SEO 长尾词。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "选定主题切角，别只做“MBTI 测试”",
+        "detail": "不要只做“MBTI 测试”（红海），做细分：16 人格×心智阶段、×恋爱风格、×职业适配、七宗罪人格等新概念组合。先上 1 个 SKU + 10 篇笔记，测“MBTI”“人格解析”搜索词有没有真实流量、能不能出首单，再决定铺量。",
+        "deliverable": "锁定 1 个细分切角 + 首个 SKU 规格与首单验证"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "AI 生产报告 + 封面，2~3 天出一条产品线",
+        "detail": "用大模型按“人格 × 维度”生成 30~60 页深度解析，人工校对逻辑与表述，做出“专业感”排版；AI 绘图做封面（梦幻场景 + 人格角色立绘 + 大字标题）；用本技能包 mbti_report.py 批量出 PDF 并生成 64 个 SKU 矩阵；划线价 ¥14.9 → 到手 ¥4.9，再做 ¥0.99 引流款 + ¥9.9~19.9 利润款。",
+        "deliverable": "16 型 × 1 主题的首批 PDF + SKU 矩阵 CSV 跑通，定价分层定稿"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "自动发货 + 凑单，跑通无人值守",
+        "detail": "网盘链接 + 自动发货工具，配置售后话术，做到无人值守；店铺页做“4 件 8 折”满减凑单提升连带率；同一份内容做低阶/中阶/高阶价格阶梯，升级版再收割一轮。",
+        "deliverable": "自动发货闭环上线，售后话术与凑单配置完成"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "94 篇笔记铺搜索词，跑通后矩阵复制",
+        "detail": "小红书批量发笔记（测人格类内容天然易爆），挂商品链接；标题封面全带“MBTI”“16人格”“人格解析”关键词；跑通一个 SKU 后换主题快速复制第二条产品线；同一题库出中英双语版，上 Etsy / Gumroad 吃海外第二市场。",
+        "deliverable": "前 10 单成交与搜索流量验证，复制第二条产品线"
+      }
+    ],
+    "pitfalls_to_avoid": "SCL90 属于专业心理测评量表，普通商家销售相关报告可能涉及资质与伦理问题——头部店铺挂 SCL90 是合规负债，抄矩阵时必须剔除，只做趣味测试/自我探索；不得宣称“治愈”“诊断”“医学认证”，不得贬损任何人格类型；不要直接抄袭他人报告或使用未经授权的 IP 形象；虚拟资料类目在各平台有准入要求，批量铺号、刷量会被处罚；不要把博主估算的 ¥32 万、¥60～100 万当成自己的预期收入，那是累计数且未经平台审计，稳态按每月 3000~8000 元测算；红海化后拼的是产品质量和视觉，不是粗暴复制。",
+    "tools": [
+      "大模型（报告内容生成）",
+      "AI 绘图（商品封面）",
+      "mbti_report.py（PDF 批量生成 + SKU 矩阵）",
+      "小红书店铺 + 自动发货工具",
+      "Etsy / Gumroad（海外第二市场）"
+    ],
+    "source_url": "https://www.jxxy.net/ai/articles/hyh1564069-2102078328035508691/",
+    "created_at": "2026-11-15",
+    "prototype": "D"
+  }
+]

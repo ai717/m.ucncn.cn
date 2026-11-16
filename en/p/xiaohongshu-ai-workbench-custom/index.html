@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected - Revenue Blueprint &amp; AI Agent Skill | MoneyLab</title>
+  <meta name="description" content="Deconstructed teardown of Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected. Est. Monthly Run Rate: ¥5,000 ~ ¥10,000 / 月（复制者稳态毛利口径，需与技术伙伴分账；1.5 个月 ¥2.5 万为毛收款，非稳态净利润）. Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.">
+  <meta name="keywords" content="小红书获客, AI工作台定制, 小B服务, 需求问诊, 副业, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/xiaohongshu-ai-workbench-custom/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected">
+  <meta property="og:description" content="A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/">
+  <meta name="twitter:title" content="Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected">
+  <meta name="twitter:description" content="A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/#article",
+      "headline": "Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected",
+      "description": "A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-16",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MoneyLab Catalog",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Wrappers & B2B Solutions",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected",
+          "item": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/#product",
+      "name": "Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected (Turnkey Execution Skill & Blueprint)",
+      "description": "A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/en/p/xiaohongshu-ai-workbench-custom/#howto",
+      "name": "How to execute and monetize: Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected",
+      "description": "A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Phase 01: Execution",
+          "text": "阶段 01: 做资料不卖概念，筛出带真实业务问题的人 - 不直接发“AI 智能体定制”“企业工作流搭建”（离用户太远，数据差），改做资料、教程、工作台内容，让小商家看懂“这件事我每天也在做”。找对标不只看流量，看是否有人买单、多篇有反馈、评论区有没有反复出现的问题。感兴趣的人先进粉丝群，辅助账号在群里交流，有需求的人主动添加；朋友圈持续发正在做的项目和客户反馈。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Phase 02: Execution",
+          "text": "阶段 02: 6 个问题筛意向，再让客户讲一笔真实业务 - 筛选先聊清 6 件事：这件事多久发生一次、现在怎么处理、哪里费时间易出错、谁用、谁拍板、有没有预算和使用时间。每天新增的人里大概五六个会提出比较明确的咨询，问得多不一定成交。用本技能包 workbench_quote.py 的意向评分筛出高意向客户，再让他拿一笔刚发生过的业务从头讲一遍（订单怎么来的、谁录入、中间怎么错），不要只记“库存管理”这种功能名。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Phase 03: Execution",
+          "text": "阶段 03: 先收 ¥500 测试，再按确认范围报价，新增功能再谈 - 整理给技术伙伴的内容不能只有一句“客户想做一个订单系统”，要说清现在怎么做、有什么资料、解决哪几个问题、哪些功能第一版就要。技术伙伴评估实现范围和报价；第一次报价只对应确认的范围（参考锚点：小型工作台 ¥1,600 / 中型系统 ¥2,800 / 中大型工作台 ¥3,660，测试费 ¥500 另计），新增功能再谈（参考 ¥800/次）。工期与功能实现不能为了促成合作自己先答应，技术伙伴的限制也要让客户听得懂。"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Phase 04: Execution",
+          "text": "阶段 04: 交付清单锁死范围，跑通后换行业复制 - 给客户用的项目必须过交付清单：多人操作、数据保存、权限、部署、售后，服务器、域名、模型接口等费用提前聊清。交付后请客户介绍朋友（中药材老板已介绍朋友）。跑通一个行业后换下一个传统小商家行业复制同一套问诊、报价与交付流程；不要接超出技术伙伴能力的单，不要在技术评估前把话说满。"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">AI Wrappers &amp; B2B Solutions</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../../../p/xiaohongshu-ai-workbench-custom/" 
+          title="Switch to Chinese Edition (ZH)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 ZH</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← All Playbooks</span>
+          <span class="sm:hidden">← Back</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            AI Wrappers &amp; B2B Solutions
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261116-001</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-indigo-950/40 text-indigo-300 border-indigo-800/50">
+          Tier C · 60 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        Xiaohongshu Lead-Gen to Custom AI Workbenches: ¥9.9 Lead Magnets Filter Buyers, 5 Orders in 1.5 Months, ¥25,000 Collected
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        A non-developer uses Xiaohongshu content to win custom AI workbench orders from traditional small businesses: ¥9.9 lead magnets filter for buyers, then project fees for custom builds; the author handles content, sales and requirements while a technical partner delivers. ¥25,000 collected from 5 paying clients between September and October 22, 2026, largest single project ¥8,900.
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Est. Monthly Run Rate</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">¥5,000 ~ ¥10,000 / 月（复制者稳态毛利口径，需与技术伙伴分账；1.5 个月 ¥2.5 万为毛收款，非稳态净利润）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Validation Speed</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">2~3 周首单</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Startup Barrier</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">¥0~¥200（小红书账号 + 9.9 元资料制作；开发交付依赖技术伙伴，分账另议）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Effort & Complexity</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★★★☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>Institutional Due Diligence Verdict</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        牛老板 2026-11-16 明确指令必须入选；原始分 60 分 C 级（60~69 值得观察），分数未改高。一手打开复盘原文逐项核对：累计收款约 ¥2.5 万、5 个付费客户、20 天新增 1200+ 人、最高单项目 ¥8,900、客单明细全部一致；但全部数字均为作者自述、无收款截图或平台后台佐证，按收入只认 TrustMRR 的口径只能按 C 级信源采信，不得当审计数用。三条如实提醒：作者本人明说零开发经验者靠 AI 不能独立交付，交付全靠技术伙伴；¥2.5 万是 1.5 个月毛收款、还要与技术伙伴分账、无订阅复购；客户项目涉及多人操作、权限、部署、售后，范围没锁死会被无限加需求拖垮。与库内 #15 本地 RAG 咨询已做差异化甄别（获客漏斗与交付物不同），不撞车。
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>Market Opportunity & Founder Bottlenecks</span>
+      </h2>
+      <p class="text-sm text-slate-300 leading-relaxed font-sans">漏斗错位套利：不直接卖离用户远的“企业工作流”，先做 ¥9.9 资料/教程让人看懂“这件事能帮我处理什么”，把有真实业务问题的人筛出来；再用“让客户拿一笔真实业务从头讲一遍”问清真需求，第一次报价只锁确认的范围，新增功能再谈；前端（内容获客、沟通、需求整理）与后端（技术伙伴评估、开发、交付）分工，复用同一套问诊、报价与交付流程接不同行业的单。1.5 个月 5 单、累计收款 ¥2.5 万，首单 2~3 周验证。</p>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4-Step Operational Blueprint (SOP)</span>
+      </h2>
+      <div class="space-y-3">
+        
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 01: 做资料不卖概念，筛出带真实业务问题的人 - 不直接发“AI 智能体定制”“企业工作流搭建”（离用户太远，数据差），改做资料、教程、工作台内容，让小商家看懂“这件事我每天也在做”。找对标不只看流量，看是否有人买单、多篇有反馈、评论区有没有反复出现的问题。感兴趣的人先进粉丝群，辅助账号在群里交流，有需求的人主动添加；朋友圈持续发正在做的项目和客户反馈。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 02: 6 个问题筛意向，再让客户讲一笔真实业务 - 筛选先聊清 6 件事：这件事多久发生一次、现在怎么处理、哪里费时间易出错、谁用、谁拍板、有没有预算和使用时间。每天新增的人里大概五六个会提出比较明确的咨询，问得多不一定成交。用本技能包 workbench_quote.py 的意向评分筛出高意向客户，再让他拿一笔刚发生过的业务从头讲一遍（订单怎么来的、谁录入、中间怎么错），不要只记“库存管理”这种功能名。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 03: 先收 ¥500 测试，再按确认范围报价，新增功能再谈 - 整理给技术伙伴的内容不能只有一句“客户想做一个订单系统”，要说清现在怎么做、有什么资料、解决哪几个问题、哪些功能第一版就要。技术伙伴评估实现范围和报价；第一次报价只对应确认的范围（参考锚点：小型工作台 ¥1,600 / 中型系统 ¥2,800 / 中大型工作台 ¥3,660，测试费 ¥500 另计），新增功能再谈（参考 ¥800/次）。工期与功能实现不能为了促成合作自己先答应，技术伙伴的限制也要让客户听得懂。</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>阶段 04: 交付清单锁死范围，跑通后换行业复制 - 给客户用的项目必须过交付清单：多人操作、数据保存、权限、部署、售后，服务器、域名、模型接口等费用提前聊清。交付后请客户介绍朋友（中药材老板已介绍朋友）。跑通一个行业后换下一个传统小商家行业复制同一套问诊、报价与交付流程；不要接超出技术伙伴能力的单，不要在技术评估前把话说满。</span>
+      </div>
+    
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>Pitfalls & Risk Warning</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        “不会开发也能做”对复制者是误导：作者本人明说零开发经验者靠 AI 不能独立交付，交付全靠技术伙伴；没有靠谱技术伙伴，这条路起不来。不要把功能名当完整需求：听到“库存管理”就以为听懂了，实际细节很多没弄清，必须让客户拿一笔真实业务从头讲一遍。第一次报价只对应确认的范围，新增功能再谈，不把范围锁死会被无限加需求拖垮。技术评估前不要把话说满，测试版本、正式开发、新增功能要分清。全部收入数字均为作者自述、无收款截图或平台后台佐证，不得当成审计数或稳态利润宣传；¥2.5 万是 1.5 个月毛收款，还要与技术伙伴分账，且无订阅复购。给客户用还要考虑多人操作、数据保存、权限、部署和售后，普通人配合 AI 更适合做范围简单的小工具。
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>Weaponry & Infrastructure Stack</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # 小红书（内容获客）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # workbench_quote.py（意向评分 + 报价 + 需求锁定合同）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # 微信/粉丝群（筛选与成交推进）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # 技术伙伴（评估、开发、交付）
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # ¥9.9 资料/教程（引流筛客）
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Instant Decryption via Stripe Official Checkout</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        Unlock Raw Unredacted Source Threads + Turnkey AI Prompt File
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Includes founder raw discussions, architecture diagrams, step-by-step prompt library, and universal Cursor / Claude Code SKILL.md file.
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#xiaohongshu-ai-workbench-custom" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ View Full Teardown & Unlock on MoneyLab</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 Benchmark vs Overseas Intel</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics $300~$1,000/yr</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP is only HK$299 (~$38) lifetime</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>Single Pass: HK$29.90 (~$3.80)</span>
+        <span>·</span>
+        <span>Annual VIP: HK$299 (~$38.00)</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">Catalog</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
