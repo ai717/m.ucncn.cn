@@ -24,7 +24,7 @@
     "metrics": {
       "cycle_time": "7-14 Days",
       "difficulty_stars": 2,
-      "est_monthly_profit": "$800 - $1$1,500 / mo",
+      "est_monthly_profit": " - ,500 / mo",
       "initial_cost": "$0-$200",
       "revenue_model": "Monthly SaaS ($19.90/mo) + Lifetime Pass ($249)",
       "startup_cost": "$0-$200",
@@ -128,7 +128,7 @@
     "metrics": {
       "cycle_time": "7-14 Days",
       "difficulty_stars": 3,
-      "est_monthly_profit": "$500 - $1$1,500 / mo",
+      "est_monthly_profit": " - ,500 / mo",
       "initial_cost": "$400+ (Enclosed 3D Printer)",
       "revenue_model": "Physical Goods ($25/part or $150 full unit)",
       "startup_cost": "$400+ (Enclosed 3D Printer)",
@@ -262,7 +262,7 @@
       "cycle_time": "4-8 Weeks",
       "initial_cost": "$100-$300 (API credits)",
       "startup_cost": "$100-$300 (API credits)",
-      "est_monthly_profit": "$1$1,500 - $6,000 / mo (copycat steady-state estimate; original MRR $14,404)",
+      "est_monthly_profit": ",500 - ,000 / mo (copycat steady-state estimate; original MRR ,404)",
       "revenue_model": "Pay-per-hour per language ($5/hour) + monthly plans ($99/$299/$499)",
       "clean_model": "Usage-Based / Monthly Subscription"
     },
@@ -657,7 +657,7 @@
       "cycle_time": "5-7 Days",
       "initial_cost": "$0 (Free-tier APIs)",
       "revenue_model": "Monthly SaaS ($29/mo) or Pay-Per-Lead ($1.50/lead)",
-      "est_monthly_profit": "$1,200 - $3$4,800 / mo",
+      "est_monthly_profit": ",200 - ,500 / mo",
       "clean_model": "Monthly SaaS / Pay-Per-Lead"
     },
     "deep_dive": {
@@ -755,7 +755,7 @@
       "cycle_time": "3-5 Days",
       "initial_cost": "$5 (Store Fee)",
       "revenue_model": "Freemium Subscription ($4.99/mo) or Lifetime License ($29)",
-      "est_monthly_profit": "$1,200 - $4$1,500 / mo",
+      "est_monthly_profit": ",200 - ,500 / mo",
       "clean_model": "Freemium SaaS & Lifetime Pass"
     },
     "deep_dive": {
@@ -901,7 +901,7 @@
       "cycle_time": "7-14 Days",
       "initial_cost": "$75 (Demo Cloud Server)",
       "revenue_model": "Setup Fee ($800) + Monthly Maintenance Retainer ($300/mo)",
-      "est_monthly_profit": "$2$1,500 - $6$1,500 / mo",
+      "est_monthly_profit": ",000 - ,000 / mo",
       "clean_model": "Setup Retainer + Maintenance"
     },
     "deep_dive": {
@@ -950,7 +950,7 @@
       "cycle_time": "4 Days",
       "initial_cost": "$20 (Listing Fees)",
       "revenue_model": "Digital Download Bundles ($9.90 - $29.90 each)",
-      "est_monthly_profit": "$800 - $3$1,500 / mo",
+      "est_monthly_profit": " - ,500 / mo",
       "clean_model": "Digital Systems & Bundles"
     },
     "deep_dive": {
@@ -999,7 +999,7 @@
       "cycle_time": "3-5 Days",
       "initial_cost": "$15 (Domain & static hosting)",
       "revenue_model": "Standard Pass ($39) + Lifetime Master Vault ($79)",
-      "est_monthly_profit": "$1$1,500 - $4$4,800 / mo",
+      "est_monthly_profit": ",500 - ,800 / mo",
       "clean_model": "One-Time Digital Purchase",
       "startup_cost": "$15"
     },

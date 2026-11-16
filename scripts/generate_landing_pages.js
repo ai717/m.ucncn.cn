@@ -701,12 +701,15 @@ Focus 100% on deep business teardown, real unit economics, and actionable delive
 fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxtContent, 'utf8');
 console.log('✓ Generated llms.txt (at https://m.ucncn.cn/llms.txt)');
 
-// 4.3 自动同步首页卡片计数 (index.html & en/index.html)
+// 4.3 自动同步首页卡片计数与高可用内嵌全量数据集 (index.html & en/index.html)
 const totalProjectsCount = zhProjects.length;
 ['index.html', 'en/index.html'].forEach(relPath => {
   const filePath = path.join(ROOT_DIR, relPath);
   if (fs.existsSync(filePath)) {
     let content = fs.readFileSync(filePath, 'utf8');
+    const isEn = relPath.startsWith('en');
+    const listToEmbed = isEn ? enProjects : zhProjects;
+
     content = content.replace(/"numberOfItems":\s*\d+/g, `"numberOfItems": ${totalProjectsCount}`);
     content = content.replace(/>\d+<\/div>(\s*<div class="text-xs text-slate-500 font-medium tracking-wide">100% 真实单位经济模型)/g, `>${totalProjectsCount}</div>$1`);
     content = content.replace(/>\d+<\/div>(\s*<div class="text-xs text-slate-500 font-medium tracking-wide">100% Audited Unit Economics)/g, `>${totalProjectsCount}</div>$1`);
@@ -714,8 +717,13 @@ const totalProjectsCount = zhProjects.length;
     content = content.replace(/已解锁 \(\d+\)/g, `已解锁 (${totalProjectsCount})`);
     content = content.replace(/All Playbooks \(\d+\)/g, `All Playbooks (${totalProjectsCount})`);
     content = content.replace(/Unlocked \(\d+\)/g, `Unlocked (${totalProjectsCount})`);
+
+    // 同步内嵌数据集 EMBEDDED_PROJECTS (必须使用函数返回值，防止 JSON 内部 $ 符号被解析为正则捕获组)
+    const embeddedJson = JSON.stringify(listToEmbed, null, 2);
+    content = content.replace(/const EMBEDDED_PROJECTS = (\[[\s\S]*?\]);/, () => `const EMBEDDED_PROJECTS = ${embeddedJson};`);
+
     fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`✓ Synchronized ${relPath} total counters to ${totalProjectsCount}`);
+    console.log(`✓ Synchronized ${relPath} total counters (${totalProjectsCount}) & high-availability EMBEDDED_PROJECTS (${listToEmbed.length} items)`);
   }
 });
 
@@ -745,7 +753,7 @@ const vm = require('vm');
 });
 console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
 
-// 4.5 运行时沙箱卡片渲染仿真校验 (Runtime Execution & ReferenceError Gatekeeper)
+// 4.5 运行时沙箱卡片渲染与 HTML 结构对称校验 (Runtime Execution & Semantic Tag Gatekeeper)
 ['index.html', 'en/index.html'].forEach(relPath => {
   const isEn = relPath.startsWith('en');
   const projectList = isEn ? enProjects : zhProjects;
@@ -757,9 +765,11 @@ console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
     while ((match = scriptRegex.exec(html)) !== null) {
       const code = match[1];
       if (code.includes('renderCards')) {
+        let capturedHtml = '';
         const mockElement = () => ({
-          classList: { add: () => {}, remove: () => {} },
-          innerHTML: '',
+          classList: { add: () => {}, remove: () => {}, toggle: () => {}, contains: () => false },
+          set innerHTML(val) { capturedHtml = val; },
+          get innerHTML() { return capturedHtml; },
           innerText: '',
           value: '',
           style: {},
@@ -769,6 +779,7 @@ console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
         const sandbox = {
           window: { addEventListener: () => {}, location: { hash: '' } },
           document: {
+            body: mockElement(),
             getElementById: mockElement,
             querySelectorAll: () => [],
             querySelector: mockElement
@@ -784,6 +795,17 @@ console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
           vm.runInContext(code, sandbox);
           if (typeof sandbox.renderCards === 'function') {
             sandbox.renderCards(projectList);
+
+            // 校验卡片模板 HTML 标签严格对称闭合 (防止多余或遗漏 </div> 导致 cards-grid 结构被浏览器意外破坏)
+            ['div', 'article', 'span', 'p', 'a'].forEach(tag => {
+              const openCount = (capturedHtml.match(new RegExp(`<${tag}\\b`, 'gi')) || []).length;
+              const closeCount = (capturedHtml.match(new RegExp(`</${tag}>`, 'gi')) || []).length;
+              if (openCount !== closeCount) {
+                console.error(`\n❌ 【构建阻断·HTML结构损毁】在 ${relPath} 渲染卡片时检测到标签不对称: <${tag}> 打开 ${openCount} 次，闭合 ${closeCount} 次！`);
+                process.exit(1);
+              }
+            });
+            console.log(`✓ ${relPath} 卡片渲染 HTML 结构对称校验通过 (div/article/span/p/a 严格闭合)`);
           }
           if (typeof sandbox.openProjectModal === 'function' && projectList.length > 0) {
             sandbox.openProjectModal(projectList[0].id);
@@ -797,4 +819,4 @@ console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
     }
   }
 });
-console.log('✓ 首页卡片渲染与弹窗逻辑运行时仿真自检 100% 通过（0 ReferenceError / 0 运行时异常）！');
+console.log('✓ 首页卡片渲染与弹窗逻辑运行时仿真自检 100% 通过（0 ReferenceError / 0 运行时异常 / 标签100%闭合）！');

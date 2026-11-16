@@ -108,7 +108,7 @@ However, proven business models (e.g. Chrome extensions, specialized certificati
 
 17. [faa-drone-license-exam-cram-vault] - FAA Part 107 商业无人机执照考前高转化冲刺题库与自测系统
    - Category: 出海/独立开发 | Tier: S (91 pts)
-   - Summary: 针对欧美商用无人机飞手（时薪~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。
+   - Summary: 针对欧美商用无人机飞手（时薪 ~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。
    - Monetization: 考前速成单品买断 () + 终身真题升级包 ()
    - URL: https://m.ucncn.cn/p/faa-drone-license-exam-cram-vault/
 

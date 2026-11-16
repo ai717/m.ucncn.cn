@@ -40,9 +40,11 @@ const enProjects = require('../data/projects_en.json');
   while ((m = scriptRegex.exec(html)) !== null) {
     const code = m[1];
     if (code.includes('renderCards')) {
+      let capturedHtml = '';
       const mockElement = () => ({
-        classList: { add: () => {}, remove: () => {} },
-        innerHTML: '',
+        classList: { add: () => {}, remove: () => {}, toggle: () => {}, contains: () => false },
+        set innerHTML(val) { capturedHtml = val; },
+        get innerHTML() { return capturedHtml; },
         innerText: '',
         value: '',
         style: {},
@@ -52,6 +54,7 @@ const enProjects = require('../data/projects_en.json');
       const sandbox = {
         window: { addEventListener: () => {}, location: { hash: '' } },
         document: {
+          body: mockElement(),
           getElementById: mockElement,
           querySelectorAll: () => [],
           querySelector: mockElement
@@ -67,7 +70,18 @@ const enProjects = require('../data/projects_en.json');
         vm.runInContext(code, sandbox);
         if (typeof sandbox.renderCards === 'function') {
           sandbox.renderCards(projectList);
-          console.log(`✓ ${rel} renderCards(${projectList.length} 个真实项目) 运行时渲染通过`);
+
+          // 校验卡片模板 HTML 标签严格对称闭合 (防止多余或遗漏 </div> 导致 cards-grid 结构被浏览器意外破坏)
+          ['div', 'article', 'span', 'p', 'a'].forEach(tag => {
+            const openCount = (capturedHtml.match(new RegExp(`<${tag}\\b`, 'gi')) || []).length;
+            const closeCount = (capturedHtml.match(new RegExp(`</${tag}>`, 'gi')) || []).length;
+            if (openCount !== closeCount) {
+              console.error(`\n❌ 【致命错误·HTML结构损毁】在 ${rel} 渲染卡片时检测到标签不对称: <${tag}> 打开 ${openCount} 次，闭合 ${closeCount} 次！`);
+              process.exit(1);
+            }
+          });
+
+          console.log(`✓ ${rel} renderCards(${projectList.length} 个真实项目) 运行时渲染通过（HTML 标签 100% 严格对称闭合）`);
         }
         if (typeof sandbox.openProjectModal === 'function' && projectList.length > 0) {
           sandbox.openProjectModal(projectList[0].id);

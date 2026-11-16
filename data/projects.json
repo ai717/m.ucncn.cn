@@ -1065,7 +1065,7 @@
       "高客单题库",
       "FAA无人机"
     ],
-    "summary": "针对欧美商用无人机飞手（时薪~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。",
+    "summary": "针对欧美商用无人机飞手（时薪 ~）急需通过 FAA Part 107 笔试考核的刚性需求，整理高频真题、气象报文速解与航空图速记卡，接入 LemonSqueezy 实行 ~ 自动化买断交付。",
     "score": 91,
     "rating_tier": "S",
     "verdict": "避开烂大街的低客单通用模板，切入具备强刚需付费意愿的特种执业准入赛道。客单价高、退款率极低（<1.5%），纯边际零成本履约。",
@@ -1078,7 +1078,7 @@
     "metrics": {
       "difficulty_stars": 1,
       "cycle_time": "3~5 天",
-      "initial_cost": "",
+      "initial_cost": "~",
       "revenue_model": "考前速成单品买断 () + 终身真题升级包 ()",
       "est_monthly_profit": ",500 ~ ,800 / 月"
     },
