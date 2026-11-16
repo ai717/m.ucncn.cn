@@ -2366,6 +2366,7 @@
       grid.innerHTML = projects.map((p, index) => {
         const isS = p.rating_tier === 'S' || p.score >= 90;
         const isWatchlist = p.rating_tier === 'C' || p.rating_tier === '60-';
+        const isUnlocked = isProjectUnlocked(p.id);
         const cardClass = isS ? 'memo-card memo-card-s' : 'memo-card';
         const tierBadgeClass = isS 
           ? 'tier-badge-s' 

@@ -744,3 +744,57 @@ const vm = require('vm');
   }
 });
 console.log('✓ 首页 JavaScript 语法编译期自检 100% 通过！');
+
+// 4.5 运行时沙箱卡片渲染仿真校验 (Runtime Execution & ReferenceError Gatekeeper)
+['index.html', 'en/index.html'].forEach(relPath => {
+  const isEn = relPath.startsWith('en');
+  const projectList = isEn ? enProjects : zhProjects;
+  const filePath = path.join(ROOT_DIR, relPath);
+  if (fs.existsSync(filePath)) {
+    const html = fs.readFileSync(filePath, 'utf8');
+    const scriptRegex = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+    let match;
+    while ((match = scriptRegex.exec(html)) !== null) {
+      const code = match[1];
+      if (code.includes('renderCards')) {
+        const mockElement = () => ({
+          classList: { add: () => {}, remove: () => {} },
+          innerHTML: '',
+          innerText: '',
+          value: '',
+          style: {},
+          setAttribute: () => {},
+          addEventListener: () => {}
+        });
+        const sandbox = {
+          window: { addEventListener: () => {}, location: { hash: '' } },
+          document: {
+            getElementById: mockElement,
+            querySelectorAll: () => [],
+            querySelector: mockElement
+          },
+          console: { log: () => {}, warn: () => {}, error: console.error },
+          currentUserProfile: { unlocked_projects: [] },
+          allProjects: projectList,
+          setTimeout: () => {},
+          localStorage: { getItem: () => null, setItem: () => {} }
+        };
+        vm.createContext(sandbox);
+        try {
+          vm.runInContext(code, sandbox);
+          if (typeof sandbox.renderCards === 'function') {
+            sandbox.renderCards(projectList);
+          }
+          if (typeof sandbox.openProjectModal === 'function' && projectList.length > 0) {
+            sandbox.openProjectModal(projectList[0].id);
+          }
+        } catch (runtimeErr) {
+          console.error(`\n❌ 【构建阻断·运行时致命崩溃】在 ${relPath} 仿真渲染卡片时抛出异常: ${runtimeErr.message}`);
+          console.error(runtimeErr.stack);
+          process.exit(1);
+        }
+      }
+    }
+  }
+});
+console.log('✓ 首页卡片渲染与弹窗逻辑运行时仿真自检 100% 通过（0 ReferenceError / 0 运行时异常）！');
