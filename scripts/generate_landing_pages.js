@@ -615,6 +615,14 @@ ${sitemapEntries.join('\n')}
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
 console.log('✓ Generated sitemap.xml with ' + sitemapEntries.length + ' URLs!');
 
+// 确保根目录存在 .nojekyll 文件，彻底禁用 GitHub Pages 默认 Jekyll 编译引擎
+// 避免 inbox/archive/ 或 skills/ 目录中含有 {{ ... }} 的 Prompt/代码块引发 Liquid 语法崩溃
+const nojekyllPath = path.join(ROOT_DIR, '.nojekyll');
+if (!fs.existsSync(nojekyllPath)) {
+  fs.writeFileSync(nojekyllPath, '', 'utf8');
+}
+console.log('✓ Ensured .nojekyll exists in root (bypasses Jekyll on GitHub Pages)');
+
 // ==========================================
 // 4. 生成 AI 专用动态查重与索引资产 (catalog.json & llms.txt)
 // 方便外部独立大模型 (Muse, 豆包, Grok, Claude, ChatGPT) 联网读取并自动去重
