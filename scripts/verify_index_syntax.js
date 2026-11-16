@@ -6,6 +6,16 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const zhProjects = require('../data/projects.json');
 const enProjects = require('../data/projects_en.json');
 
+// 0. 英文出海数据集纯净度门禁 (Zero-Chinese Gatekeeper for Overseas Edition)
+const enJsonStr = JSON.stringify(enProjects);
+const zhCharMatch = enJsonStr.match(/[\u4e00-\u9fa5]/g);
+if (zhCharMatch && zhCharMatch.length > 0) {
+  console.error(`\n❌ 【致命构建阻断·英文纯净度门禁】data/projects_en.json 检测到 ${zhCharMatch.length} 个残留中文字符！`);
+  console.error('海外版必须具备 100% 纯英文体验，严禁将未翻译的中文指标、核心论证、SOP 或标签合入 projects_en.json！');
+  process.exit(1);
+}
+console.log('✓ 英文出海数据集 (data/projects_en.json) 纯净度校验通过（0 中文字符残留）');
+
 // 1. 静态语法检查 (Static Syntax Parse)
 ['index.html', 'en/index.html'].forEach(rel => {
   const filePath = path.join(ROOT_DIR, rel);

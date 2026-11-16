@@ -30,6 +30,14 @@ function validateAndDedupProjects(projects, lang) {
     }
   });
 
+  if (lang.toUpperCase() === 'EN') {
+    const jsonStr = JSON.stringify(projects);
+    const zhMatches = jsonStr.match(/[\u4e00-\u9fa5]/g);
+    if (zhMatches && zhMatches.length > 0) {
+      duplicates.push(`【英文纯净度门禁】data/projects_en.json 中检测到 ${zhMatches.length} 个残留中文字符，海外站严禁混入未翻译中文！`);
+    }
+  }
+
   return duplicates;
 }
 

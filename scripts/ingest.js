@@ -256,22 +256,31 @@ let enAdded = 0;
 existing.forEach(item => {
   const matchIdx = enExisting.findIndex(e => (e.slug && e.slug === item.slug) || (e.id && e.id === item.id));
   if (matchIdx < 0) {
-    const enEntry = {
+    const enEntry = item.en ? {
+      id: item.id,
+      slug: item.slug,
+      score: item.score,
+      rating_tier: item.rating_tier,
+      score_breakdown: item.score_breakdown,
+      source_url: item.source_url,
+      created_at: item.created_at,
+      ...item.en
+    } : {
       id: item.id,
       title: item.title_en || item.title,
       slug: item.slug,
       category: item.category_en || categoryEnMap[item.category] || 'Micro-SaaS & Automation',
-      tags: item.tags || [],
+      tags: item.tags_en || item.tags || [],
       summary: item.summary_en || item.summary,
       score: item.score,
       rating_tier: item.rating_tier,
       verdict: item.verdict_en || item.verdict,
       score_breakdown: item.score_breakdown,
-      metrics: {
+      metrics: item.metrics_en || {
         ...item.metrics,
         clean_model: item.metrics?.clean_model || item.metrics?.revenue_model || 'Subscription / License'
       },
-      deep_dive: item.deep_dive || {
+      deep_dive: item.deep_dive_en || item.deep_dive || {
         opportunity: item.core_thesis?.opportunity_arbitrage || item.summary,
         workflow: (item.workflow_steps || []).map(s => `${s.phase || 'Phase'}: ${s.title || ''} - ${s.detail || ''}`),
         risk_and_pitfalls: item.pitfalls_to_avoid || 'Maintain strict operational discipline.',
