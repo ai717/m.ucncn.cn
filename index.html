@@ -431,6 +431,11 @@
       color: #94a3b8;
       border: 1px solid #1e222b;
     }
+    html.dark .tier-badge-watchlist {
+      background-color: rgba(99, 102, 241, 0.12);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
 
     /* 亮色模式（极简工程蓝图纸质风，温和抗疲劳，科技网格底纹，高级克制不刺眼） */
     html:not(.dark) {
@@ -489,6 +494,11 @@
       background-color: #f1f5f9;
       color: #475569;
       border: 1px solid #e2e8f0;
+    }
+    html:not(.dark) .tier-badge-watchlist {
+      background-color: #f8fafc;
+      color: #475569;
+      border: 1px solid #cbd5e1;
     }
 
     html:not(.dark) #search-input,
@@ -2353,11 +2363,11 @@
 
       grid.innerHTML = projects.map((p, index) => {
         const isS = p.rating_tier === 'S' || p.score >= 90;
-        const isUnlocked = isProjectUnlocked(p.id);
+        const isWatchlist = p.rating_tier === 'C' || p.rating_tier === '60-';
         const cardClass = isS ? 'memo-card memo-card-s' : 'memo-card';
         const tierBadgeClass = isS 
           ? 'tier-badge-s' 
-          : 'tier-badge-normal';
+          : (isWatchlist ? 'tier-badge-watchlist' : 'tier-badge-normal');
 
         const diffStars = getDiffStars(p);
         const starsText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars);
@@ -2393,7 +2403,7 @@
                 <div class="flex items-center space-x-1.5">
                   ${isUnlocked ? '<span class="px-2 py-0.5 rounded-md font-mono text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center space-x-1 shadow-2xs"><span>✓</span><span>已拥有</span></span>' : ''}
                   <div class="px-2.5 py-0.5 rounded-md border text-xs font-semibold tracking-wide ${tierBadgeClass}">
-                    ${p.rating_tier || 'A'} 级 · ${p.score}分
+                    ${p.rating_tier === '60-' ? '特批 · ' + p.score + '分' : (p.rating_tier || 'A') + ' 级 · ' + p.score + '分'}
                   </div>
                 </div>
               </div>
@@ -2492,11 +2502,21 @@
       document.getElementById('modal-score').innerText = p.score;
 
       const isS = p.rating_tier === 'S' || p.score >= 90;
+      const isWatchlist = p.rating_tier === 'C' || p.rating_tier === '60-';
       const tierEl = document.getElementById('modal-tier-badge');
-      tierEl.innerText = `${p.rating_tier || 'A'} 级卓越推荐`;
+      const tierNamesZh = {
+        'S': 'S 级 · 卓越推荐',
+        'A': 'A 级 · 良好推荐',
+        'B': 'B 级 · 观察尝试',
+        'C': 'C 级 · 值得观察',
+        '60-': '特批 · 观察入选 (<60分)'
+      };
+      tierEl.innerText = tierNamesZh[p.rating_tier] || `${p.rating_tier || 'A'} 级推荐`;
       tierEl.className = isS 
         ? 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-brand-gold dark:border-amber-800/60' 
-        : 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200 dark:bg-brand-surface dark:text-brand-textSecondary dark:border-brand-border';
+        : (isWatchlist
+            ? 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-950/40 dark:text-indigo-300 dark:border-indigo-800/50'
+            : 'text-xs font-mono px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200 dark:bg-brand-surface dark:text-brand-textSecondary dark:border-brand-border');
 
       const diffStars = getDiffStars(p);
       document.getElementById('modal-diff-stars').innerText = '★'.repeat(diffStars) + '☆'.repeat(5 - diffStars) + ` (${diffStars}/5)`;

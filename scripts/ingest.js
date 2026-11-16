@@ -170,7 +170,11 @@ for (const filePath of filesToProcess) {
         item.created_at = new Date().toISOString().slice(0, 10);
       }
       if (!item.rating_tier) {
-        item.rating_tier = item.score >= 90 ? 'S' : (item.score >= 80 ? 'A' : 'B');
+        if (item.score >= 90) item.rating_tier = 'S';
+        else if (item.score >= 80) item.rating_tier = 'A';
+        else if (item.score >= 70) item.rating_tier = 'B';
+        else if (item.score >= 60) item.rating_tier = 'C';
+        else item.rating_tier = '60-';
       }
 
       // 弹性字段智能自适应与标准化 (Elastic Schema Normalizer)
