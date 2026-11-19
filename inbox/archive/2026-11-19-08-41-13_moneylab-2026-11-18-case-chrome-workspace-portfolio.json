@@ -1,0 +1,131 @@
+[
+  {
+    "id": "ml-20261118-003",
+    "title": "Chrome 扩展 + Workspace 插件小产品组合：先卖后做，30 款里跑出 8 款赚钱",
+    "title_en": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+    "slug": "chrome-workspace-plugin-portfolio",
+    "category": "出海/独立开发",
+    "tags": [
+      "Chrome扩展",
+      "Google Workspace",
+      "预售验证",
+      "小产品组合",
+      "YouTube长尾"
+    ],
+    "summary": "一人公司 6 年做了 30 多款 Chrome 扩展与 Google Workspace 插件（如 PDF 转 PPT 的 MagicSlides、表格 AI Sheet AI、视频问答 Ask Video），每款只做一个功能，先挂购买按钮预售（10~30 天交付），有订单再开发；8 款赚钱，6 年累计收入约 100 万美元（Stripe 约 85.6 万美元、AppSumo 超 8.5 万美元），每月约 1,000 名付费客户。创始人自述（B级证据，未见 TrustMRR 直连核验）。",
+    "summary_en": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+    "score": 60,
+    "rating_tier": "C",
+    "verdict": "60 分 C 级（60~69 值得观察），压线入选。一手核实：BigGo Finance 原文（2026-11-08，Starter Story 访谈转述）逐项核对一致：6 年 30 多款产品、8 款赚钱、累计约 100 万美元（Stripe 约 85.6 万美元、AppSumo 超 8.5 万美元）、每月约 1,000 名付费客户、前两年收入为 0、Sheet AI 曾达 2,000 美元 MRR、每款产品单独开 YouTube 频道做长尾流量。注意：全部收入数字均为创始人自述，未见 TrustMRR/Stripe 直连核验标识，按自述口径评分；前两年 0 收入，组合打法要熬得住 70% 以上的试错率；高度依赖 Google 应用市场分发，一个人维护 8 款产品精力有限。去重：与已收录 #03 niche-chrome-extension-monetization（单款插件 + LemonSqueezy 订阅变现）切口不同：本案是'组合打法 + 预售验证 + Workspace 插件 + 每产品独立 YouTube 频道'，按差异化准入规则入选。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "10~30 天验证一个小产品（预售先行，有单再开发）",
+      "initial_cost": "$0~$200（域名 + 落地页）",
+      "startup_cost": "$0~$200",
+      "est_monthly_profit": "$1,000 ~ $3,500 / 月（复制者稳态；组合打法，前两年可能 $0，需承受 70%+ 试错率）",
+      "revenue_model": "订阅 + 一次性买断 + AppSumo 终身 deal"
+    },
+    "monetization_model": "订阅 + 一次性买断 + AppSumo 终身 deal",
+    "core_thesis": {
+      "market_pain": "独立开发者最大的坑不是不会写代码，是花一年做出一个没人买的产品：第一年死磕一个点子，第二年才发现'想卖的东西没人要'。单押一款产品等于把全部身家押在一次猜测上，错一次就浪费一年。",
+      "opportunity_arbitrage": "把'做产品'改成'批量下注 + 预售验证'：每款只做一个功能，搭在 Chrome 商店与 Google Workspace 市场已有的分发上，不用自己建流量；先挂购买按钮预售、承诺 10~30 天交付，有订单才开发，没订单直接砍掉，错一次只亏几天；30 多款里跑出 8 款赚钱的，MagicSlides、Sheet AI 各自吃到自己的长尾需求；每款产品单独开一个 YouTube 频道，几年前的老视频今天还在带来订单，时间越久资产越值钱。AI 编程把单款构建成本打到接近零，22 次失败才扛得住。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "从 TrustMRR 与自己痛点里攒 10 个候选点子",
+        "detail": "在 TrustMRR 上看真实赚钱的小产品找灵感；在 X 上跟对的人、点赞攒点子；只选'自己或身边人真实遇到、且对方有付费能力'的点子，学生与纯好奇人群的点子直接砍；列出 10 个候选，每个一句话写清'谁付钱、为什么付'。",
+        "deliverable": "10 个候选点子清单 + 每个点子的付费人群一句话"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "预售先行：落地页 + 购买按钮 + 10~30 天交付承诺",
+        "detail": "每个点子先做一页落地页（AI 编程工具当天可出），挂购买按钮、写清 10~30 天交付；有第一单才启动 10 天倒计时开工，没单就砍掉换下一个；每款只做一个功能，不加第二个；本包 portfolio_tracker.py 可直接跑通组合记账、胜率统计与砍/留判定。",
+        "deliverable": "3 个预售落地页上线 + portfolio_tracker.py 脚手架实测通过 + 首单判定规则"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "Chrome 商店 + Workspace 市场双分发，订阅与买断混搭",
+        "detail": "每款产品上架 Chrome Web Store 与 Google Workspace Marketplace，吃平台自带搜索与安装入口；定价订阅与一次性买断混搭，AppSumo 上终身 deal 换第一波销量与口碑；Stripe 收款，每款单独记账，月度复盘哪款值得继续投时间。",
+        "deliverable": "首款产品双市场上架 + Stripe 收款跑通 + 单款记账表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "每款产品一个 YouTube 频道，老视频持续带单",
+        "detail": "每款产品单独开一个 YouTube 频道（不同受众混在一个频道会互相干扰），发 10 条左右手机直拍的短视频讲用法；先去匹配的 Facebook 群组拿第一单，再上 AppSumo；视频不求精致、求持续，老视频几年后还在带单；每月看一次各产品 MRR，砍掉连续 3 个月零增长的款，把时间让给赢家。",
+        "deliverable": "首款产品 YouTube 频道上线 + 首批 10 条视频 + 月度砍/留复盘机制"
+      }
+    ],
+    "pitfalls_to_avoid": "全部收入数字（6 年约 100 万美元、Stripe 约 85.6 万美元、AppSumo 超 8.5 万美元、每月约 1,000 付费客户）均为创始人自述，未见 TrustMRR/Stripe 直连核验，引用时必须写清'创始人自述'；前两年收入为 0，组合打法是长跑，缺耐心与现金流垫底的人不要学；30 多款只成 8 款，约 73% 的失败率是常态，每款失败要控制在几天成本内，恋战一款死产品是最大亏损；一个人维护 8 款产品精力有限，上新速度须服从维护能力；高度依赖 Google 应用市场分发与 SEO/YouTube 长尾流量，平台政策或审核一变，整批产品都会受影响；与 #03 单款插件变现案切口不同，引用时不要混淆。",
+    "tools": [
+      "Chrome Web Store",
+      "Google Workspace Marketplace",
+      "Next.js",
+      "Supabase",
+      "Cloudflare",
+      "Stripe",
+      "AppSumo",
+      "YouTube",
+      "portfolio_tracker.py"
+    ],
+    "source_url": "https://finance.biggo.com/news/97ace21e5b96f04c",
+    "created_at": "2026-11-18",
+    "prototype": "B",
+    "en": {
+      "title": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "Chrome Extension",
+        "Google Workspace",
+        "Presale Validation",
+        "Product Portfolio",
+        "YouTube Evergreen"
+      ],
+      "summary": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+      "verdict": "60 points, Tier C (60-69, worth watching), admitted exactly on the line. Verified first-hand against the BigGo Finance story (2026-11-08, retelling the Starter Story interview): 30+ products in 6 years, 8 revenue winners, ~$1M cumulative (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month, $0 revenue in the first two years, Sheet AI once hit $2,000 MRR, one YouTube channel per product for evergreen traffic. Watch out: all revenue figures are founder-reported with no TrustMRR/Stripe verification seen, so quote them as self-reported; the first two years paid $0, so the portfolio play demands patience and a cash cushion for a 70%+ miss rate; one person maintaining 8 products is a real bandwidth cap. Deduplication: a different cut from #03 niche-chrome-extension-monetization (single extension plus LemonSqueezy subscription); this case is portfolio system plus presale validation plus Workspace add-ons plus per-product YouTube channels, admitted under the differentiation rule.",
+      "metrics": {
+        "difficulty_stars": 2,
+        "tech_barrier": "2/5",
+        "cycle_time": "10-30 Days to validate one small product (presale first, build only with orders)",
+        "initial_cost": "$0-$200 (domain plus landing page)",
+        "startup_cost": "$0-$200",
+        "est_monthly_profit": "$1,000 - $3,500 / mo (replicator steady state; portfolio play, first two years may be $0, requires tolerance for a 70%+ miss rate)",
+        "revenue_model": "Subscription plus one-time purchase plus AppSumo lifetime deals",
+        "clean_model": "Subscription plus one-time purchase"
+      },
+      "monetization_model": "Subscription plus one-time purchase plus AppSumo lifetime deals",
+      "deep_dive": {
+        "opportunity": "The biggest trap for indie developers is not writing code but spending a year building something nobody buys: one year on a single idea, then learning the hard way that nobody wants it. Betting everything on one product means betting everything on one guess, and one miss costs a year. The fix is to turn product building into batch betting with presale validation: one feature per app, distributed through the Chrome Web Store and Google Workspace Marketplace instead of building traffic from zero; put up a buy button first with a 10-30 day delivery promise, build only when orders arrive, kill the idea when nobody buys, so each miss costs days not a year. Out of 30+ bets, 8 paid off, with MagicSlides and Sheet AI each catching their own long-tail demand. One YouTube channel per product means videos from years ago still bring orders today, so the assets appreciate with time. AI coding has pushed the cost of each bet close to zero, which is what makes 22 failures survivable.",
+        "workflow": [
+          "Phase 01: Collect 10 candidate ideas from TrustMRR revenue data and your own pain. Follow the right people on X, keep only ideas whose users can pay, cut student and curiosity-only ideas, and write one line per idea stating who pays and why.",
+          "Phase 02: Sell before you build. Ship a landing page per idea the same day with an AI coding tool, add a buy button and a 10-30 day delivery promise, start the 10-day build clock only on the first order, kill ideas with no orders, keep one feature per app; the included portfolio_tracker.py script runs portfolio accounting, win-rate stats and kill-or-keep decisions.",
+          "Phase 03: Close the commercial loop. List each product on the Chrome Web Store and Google Workspace Marketplace for built-in search and install flow, mix subscription with one-time purchase, run AppSumo lifetime deals for first sales and reviews, collect with Stripe, and track each product separately with a monthly review of where time is worth spending.",
+          "Phase 04: Cold-start distribution. Open one YouTube channel per product (mixing audiences in one channel confuses everyone), post about 10 short phone-shot how-to videos, take the first sale from a matching Facebook group, then AppSumo; videos need consistency not polish, old videos keep selling for years; review MRR monthly and cut any product with three straight months of zero growth to free time for winners."
+        ],
+        "risk_and_pitfalls": "All revenue figures (~$1M over 6 years, Stripe ~$856K, AppSumo $85K+, ~1,000 paying customers a month) are founder-reported with no TrustMRR/Stripe verification seen; always label them self-reported. The first two years paid $0, so the portfolio play is a long run that needs patience and a cash cushion; do not copy it without both. Only 8 of 30+ bets won, so a ~73% miss rate is normal; cap each miss at days of cost, because clinging to one dead product is the biggest loss. One person maintaining 8 products hits a bandwidth ceiling fast; new launches must respect maintenance capacity. Heavy dependence on Google marketplace distribution plus SEO and YouTube evergreen traffic means a policy or review change hits the whole portfolio at once. This case differs from #03 single-extension monetization; do not confuse the two when quoting.",
+        "tools": [
+          "Chrome Web Store",
+          "Google Workspace Marketplace",
+          "Next.js",
+          "Supabase",
+          "Cloudflare",
+          "Stripe",
+          "AppSumo",
+          "YouTube",
+          "portfolio_tracker.py"
+        ]
+      }
+    }
+  }
+]

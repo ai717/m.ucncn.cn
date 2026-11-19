@@ -1,0 +1,127 @@
+[
+  {
+    "id": "ml-20261118-001",
+    "title": "Post Bridge 式一键多平台分发：写一次，全网发，API/MCP 让 AI 代发",
+    "title_en": "Post Bridge: Write Once, Publish Everywhere with API and MCP",
+    "slug": "post-bridge-multi-platform-publisher",
+    "category": "出海/独立开发",
+    "tags": [
+      "社媒分发",
+      "多账号管理",
+      "SaaS订阅",
+      "MCP",
+      "API"
+    ],
+    "summary": "一人公司做的跨平台分发 SaaS：写一次内容，一键发到 Instagram、TikTok、YouTube、X 等多平台多账号，按账号数收订阅费（Marketer 套餐 39 美元/月起，15 个账号）；另有 REST API、CLI 与 MCP 服务器，让 AI 直接代发。TrustMRR Stripe 验证 MRR 约 48,500 美元、累计收入约 58.2 万美元、约 1,600 订阅。",
+    "summary_en": "A solo-built cross-platform publishing SaaS: write once, publish to Instagram, TikTok, YouTube, X and more; priced per connected account from $39/mo; REST API, CLI and MCP server let AI agents publish on your behalf. TrustMRR/Stripe-verified ~$48.5K MRR, ~$582K all-time revenue, ~1,600 subscriptions.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "63 分 C 级（60~69 值得观察），过 60 分线入选。一手核实：IndieFounder 原文（2026-11-14 发布）逐项核对一致：TrustMRR 直连 Stripe 显示 MRR 约 48,500 美元、累计收入约 582,000 美元、约 1,600 订阅；Marketer 套餐 39 美元/月起（15 个账号），付费档不限发帖量；创始人 Jack Friks 一人运营，基建成本低于 2,000 美元/月，毛利 90% 以上；2025 年春曾拒绝 100 万美元收购；2026 年 9 月上线 ChatGPT 插件与 Claude 连接器后注册量连创新高。注意：获客几乎全靠 X 一个渠道做公开开发，平台 API 政策一旦收紧（Meta/TikTok/Instagram）会直接冲击分发能力；单人运营，客服与开发全靠创始人一人。去重：在线索引 23 条无同款，无撞车。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 8,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "1~2 个月（MVP 约 1 个月 + 各平台 OAuth 与发帖联调）",
+      "initial_cost": "$100~$300（域名 + 首月云服务）",
+      "startup_cost": "$100~$300",
+      "est_monthly_profit": "$2,000 ~ $6,000 / 月（复制者稳态，扣掉约 $500~$2,000/月基建与 API 成本后）",
+      "revenue_model": "按连接账号数收订阅费（Marketer $39/月起，15 个账号；无限发帖）+ 高用量按账号阶梯价"
+    },
+    "monetization_model": "按连接账号数收订阅费（Marketer $39/月起，15 个账号；无限发帖）+ 高用量按账号阶梯价",
+    "core_thesis": {
+      "market_pain": "做短视频/做产品的创作者每天要把同一条内容手动复制到 Instagram、TikTok、YouTube、X 等多个平台：每个平台格式、标题、封面要求都不一样，光复制粘贴就要花近 1 小时；现成排期工具又贵又臃肿，小创作者用不上。时间全耗在重复发布上，没空做内容本身。",
+      "opportunity_arbitrage": "只做'写一次，全网发'这一件小事：一个后台接多平台 OAuth，一次撰写按各平台规则自动适配标题、封面与格式；按账号数而不是按发帖量收费，定价简单好算；硬付费墙（无免费档）直接筛出愿意付钱的人；再把分发能力包成 REST API、CLI 与 MCP 服务器，让 AI 助手直接代发，踩中 2026 年 Agent 工作流的风口。创始人先给自己的应用做营销才顺手做出这款工具，需求是自己每天真实的痛，产品从第一天就贴合用户。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "先拿自己的号做验证：连续 30 天每天多平台发一次",
+        "detail": "自己先当第一个用户：每天把一条短视频手动发到 3~5 个平台，记下每步耗时与格式坑；访谈 10 个同样多平台发内容的创作者，确认他们愿为省时间付多少钱；只锁定'短视频创作者 + 一人公司'这一个客群，不做全能排期工具。",
+        "deliverable": "30 天手动分发耗时记录 + 10 份创作者访谈 + 锁定的首发客群"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "一个月做出 MVP：多平台 OAuth + 一键分发 + 硬付费墙",
+        "detail": "用 Supabase + Vercel + Trigger.dev + Unkey 搭后端（创始人同款低成本栈，月成本可控在 2,000 美元内）；先接 X、Instagram、TikTok、YouTube 四个平台的 OAuth 与发帖接口；每平台单独做标题/封面适配（本包 postbridge_publish.py 可直接跑通文案适配与发布队列校验）；上线即硬付费墙，无免费档，Stripe 按账号数计费。",
+        "deliverable": "可跑通的 MVP + postbridge_publish.py 脚手架实测通过 + Stripe 订阅闭环"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "按账号数定价 + API/MCP 让 AI 代发",
+        "detail": "定价按连接账号数（Marketer 39 美元/月起，15 个账号），付费档不限发帖量，降低用户算账成本；随后补 REST API、npm CLI 与 MCP 服务器，让 Claude/ChatGPT 能替用户排期发帖；把 API 调用量与账号数挂钩，防止被白嫖刷爆。",
+        "deliverable": "定价页上线 + API/CLI/MCP 三件套跑通 + 用量计费防刷"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "X 公开开发 + 短视频自带流量冷启动",
+        "detail": "在 X 上公开晒收入与进展（创始人靠这招做到 1,600 订阅），每周发 3~5 条真实进展；用自己的短视频号每天发内容，顺带展示产品；上 Product Hunt 与 Indie Hackers 拿第一波曝光；前 100 个付费用户给创始价并拉群，换口碑与续费。",
+        "deliverable": "X 公开开发节奏跑起来 + 首批 100 个付费用户"
+      }
+    ],
+    "pitfalls_to_avoid": "获客几乎全靠 X 一个渠道，平台算法或账号一旦出问题增长立刻停摆，复制者须从第一天就同时经营短视频与邮件列表两个后备渠道；各平台 API 政策（Meta、TikTok、Instagram）随时可能收紧或涨价，分发失败要有降级提示与重试队列，不能静默丢帖；单人运营意味着客服、开发、运维全在一人身上，订阅量上来后须先补客服流程再扩功能；约 1,600 订阅与 29,000+ 注册为创始人自述与快照数，引用时注明口径与日期；MRR 与累计收入以 TrustMRR 页面实时数为准，引用前复核。",
+    "tools": [
+      "Supabase",
+      "Vercel",
+      "Trigger.dev",
+      "Unkey",
+      "Stripe",
+      "X API",
+      "postbridge_publish.py"
+    ],
+    "source_url": "https://indiefounder.me/stories/jack-friks-post-bridge/",
+    "created_at": "2026-11-18",
+    "prototype": "C",
+    "en": {
+      "title": "Post Bridge: Write Once, Publish Everywhere with API and MCP",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "Social Scheduling",
+        "Multi-Account",
+        "SaaS Subscription",
+        "MCP",
+        "API"
+      ],
+      "summary": "A solo-built cross-platform publishing SaaS: write once, publish to Instagram, TikTok, YouTube, X and more; priced per connected account from $39/mo; REST API, CLI and MCP server let AI agents publish on your behalf. TrustMRR/Stripe-verified ~$48.5K MRR, ~$582K all-time revenue, ~1,600 subscriptions.",
+      "verdict": "63 points, Tier C (60-69, worth watching), above the 60-point bar. Verified first-hand against the IndieFounder story (published 2026-11-14): TrustMRR via Stripe shows ~$48,500 MRR, ~$582,000 all-time revenue and ~1,600 subscriptions; Marketer plan from $39/mo for 15 accounts with unlimited posts on paid plans; solo founder Jack Friks runs it with infra under $2,000/mo and 90%+ gross margins; he declined a $1M acquisition offer in spring 2025; signups spiked after the ChatGPT plugin and Claude connector listings in September 2026. Watch out: distribution depends almost entirely on X build-in-public, platform API policies (Meta/TikTok/Instagram) can tighten at any time, and support plus development rest on one person. Deduplication: 23 live entries checked, no identical product.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "3/5",
+        "cycle_time": "1-2 Months (MVP in about 1 month plus OAuth and publishing integration)",
+        "initial_cost": "$100-$300 (domain plus first month of cloud services)",
+        "startup_cost": "$100-$300",
+        "est_monthly_profit": "$2,000 - $6,000 / mo (replicator steady state, after roughly $500-$2,000/mo infra and API costs)",
+        "revenue_model": "Subscription per connected account (Marketer from $39/mo, 15 accounts, unlimited posts) plus per-account tiers at higher volumes",
+        "clean_model": "Subscription per connected account"
+      },
+      "monetization_model": "Subscription per connected account (Marketer from $39/mo, 15 accounts, unlimited posts) plus per-account tiers at higher volumes",
+      "deep_dive": {
+        "opportunity": "Creators waste close to an hour a day copying the same video across Instagram, TikTok, YouTube and X, each with different format, title and cover rules, while existing schedulers are expensive and bloated for small creators. Post Bridge does exactly one small job well: one dashboard, multi-platform OAuth, automatic per-platform adaptation, and simple per-account pricing instead of per-post billing. A hard paywall from day one filters for people willing to pay. Packaging distribution as a REST API, CLI and MCP server lets AI assistants publish on the user's behalf, riding the 2026 agent-workflow wave. The founder built it for his own daily marketing, so the product matched a real pain from the start.",
+        "workflow": [
+          "Phase 01: Validate on your own accounts first. Post manually to 3-5 platforms daily for 30 days, log the time and format traps, interview 10 multi-platform creators about willingness to pay, and lock in one audience: short-form creators and solo founders.",
+          "Phase 02: Ship an MVP in about a month. Supabase plus Vercel plus Trigger.dev plus Unkey keeps monthly infra under $2,000; connect X, Instagram, TikTok and YouTube OAuth and posting APIs first; adapt titles and covers per platform (the included postbridge_publish.py script runs caption adaptation and publish-queue checks); launch behind a hard paywall with Stripe per-account billing.",
+          "Phase 03: Close the commercial loop. Price per connected account (Marketer from $39/mo, 15 accounts), unlimited posts on paid plans, then add REST API, npm CLI and MCP server so Claude and ChatGPT can schedule and publish for users, with usage tied to account count to stop abuse.",
+          "Phase 04: Cold-start distribution. Build in public on X with real revenue updates, post short-form video daily from your own accounts, launch on Product Hunt and Indie Hackers, and give the first 100 paying users a founder price in exchange for testimonials and renewals."
+        ],
+        "risk_and_pitfalls": "Distribution leans almost entirely on X, so an algorithm change or account problem stalls growth at once; build email and short-video backup channels from day one. Platform API policies (Meta, TikTok, Instagram) can tighten or reprice; failed posts need visible fallback and a retry queue, never silent drops. Solo operation means support, development and ops sit on one person; fix support flows before adding features once subscriptions grow. The ~1,600 subscriptions and 29,000+ signups are founder-reported snapshots; quote them with date and source, and re-check TrustMRR live figures before quoting.",
+        "tools": [
+          "Supabase",
+          "Vercel",
+          "Trigger.dev",
+          "Unkey",
+          "Stripe",
+          "X API",
+          "postbridge_publish.py"
+        ]
+      }
+    }
+  }
+]

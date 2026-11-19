@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ml-20261118-002",
+    "title": "gettbook.ai 式 AI 电子书生成器：想法变整本电子书，Meta 广告放量",
+    "title_en": "gettbook.ai: Turn an Idea into a Finished Ebook with Meta Ads Scale",
+    "slug": "gettbook-ai-ebook-generator",
+    "category": "出海/独立开发",
+    "tags": [
+      "AI电子书",
+      "AI Wrapper",
+      "Meta广告",
+      "订阅制",
+      "数字产品"
+    ],
+    "summary": "输入一个想法，AI 自动完成选题调研、大纲生成、正文写作、排版设计、导出成品电子书的全流程，订阅制 29 美元/月起，叠加按量额度包与教程加购；增长全靠大量测试 Meta 广告创意与漏斗优化。创始人自述：4 个月收入超 13 万美元、1,700 多名付费客户、约 5,000 注册用户（C级证据，未见 TrustMRR/Stripe 直连核验）。",
+    "summary_en": "Type in an idea and AI handles topic research, outline, full writing, layout and ebook export end to end; subscriptions from $29/mo plus credit packs and tutorial upsells; growth runs entirely on high-volume Meta ad creative testing and funnel optimization. Founder-reported (Grade C evidence, no TrustMRR/Stripe verification seen): over $130K revenue in 4 months, 1,700+ paying customers, ~5,000 registered users.",
+    "score": 60,
+    "rating_tier": "C",
+    "verdict": "60 分 C 级（60~69 值得观察），压线入选。一手核实：Yedapo 摘要页（Starter Story 2026 年 11 月访谈）逐项核对一致：4 个月收入超 13 万美元、1,700 多名付费客户、约 5,000 名注册用户、每月 Meta 广告投入 2~3 万美元、利润率 40~50%。注意：全部收入数字均为创始人自述，未见 TrustMRR/Stripe 直连核验标识，按自述口径评分，引用时必须注明；每月 2~3 万美元广告费意味着净利很薄，广告一停增长就停；AI Wrapper 门槛极低、极易被复制；Vibe coding 导致技术债，创始人自己承认代码乱到重构过一次。去重：在线索引 23 条无同款（与 ColorCraft 的 KDP 涂色书/故事书是不同客群与不同成品），无撞车。",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 3
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "2~4 周（Vibe coding 出 MVP + 广告漏斗跑通）",
+      "initial_cost": "$500~$2,000（含首月小额广告测试费）",
+      "startup_cost": "$500~$2,000",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，扣掉广告与 API 成本后；原版 40~50% 利润率为创始人自述）",
+      "revenue_model": "订阅 $29/月起 + 按量额度包 + 教程等数字产品加购"
+    },
+    "monetization_model": "订阅 $29/月起 + 按量额度包 + 教程等数字产品加购",
+    "core_thesis": {
+      "market_pain": "想出电子书的人卡在最磨人的环节：选题调研、大纲、正文、排版、导出，每一步都要换工具、耗时间；很多营销人与小生意主明明有料可写，却因为'写一本书太费劲'一直没动手。市面上的 AI 写作工具只给零散段落，不给一本能直接卖的成品。",
+      "opportunity_arbitrage": "把'一句话想法变成一本能卖的电子书'做成一条龙：调研、大纲、写作、排版、导出全包，用户只管给想法；技术门槛被 Vibe coding 打下来，非技术创始人用 Lovable + Claude Code 就能做出 MVP；真正的壁垒不在代码，在营销：创始人靠营销老本行，大量测试 Meta 广告创意、优化漏斗、叠加额度包与教程加购抬客单，4 个月做到 13 万美元收入。卖的是'省掉的几十小时重复劳动'，不是技术本身。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定一个会掏钱的写书人群：营销人与小生意主",
+        "detail": "访谈 10 个想出电子书引流/卖货的人：他们现在怎么出书、花了多久、愿付多少钱；确认客群是'有料可写、缺时间'的营销人与小生意主，不是学生与纯好奇者；把竞品（通用 AI 写作工具）的差评扒一遍，确认'只给段落、不给成品'是最大缺口。",
+        "deliverable": "10 份访谈纪要 + 竞品差评清单 + 锁定的首发客群"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "Vibe coding 两周出 MVP：调研→大纲→成书→导出",
+        "detail": "用 Lovable/Claude Code 搭 MVP：输入想法→自动调研→生成大纲（可改）→逐章写正文→排版导出 PDF/EPUB；先做一种书型（实操指南类）做到能用，不贪多；本包 ebook_builder.py 可直接跑通大纲生成与样章导出；从第一天起写测试，别等代码乱到看不懂才重构。",
+        "deliverable": "可跑通的 MVP + ebook_builder.py 脚手架实测通过 + 一种书型端到端跑通"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅打底 + 额度包与教程加购抬客单",
+        "detail": "订阅 29 美元/月起，叠加按量额度包（多写多付）与教程等数字产品加购，把单个客户价值做厚；Stripe 接入订阅与一次性加购；每本书生成后引导用户晒成果，换口碑与复购；每周算一次真实获客成本与毛利，广告费占比一旦超过 60% 立刻收紧。",
+        "deliverable": "支付闭环跑通 + 加购漏斗上线 + 每周毛利看板"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "Meta 广告小步快测：每天测创意，亏得起才放大",
+        "detail": "先拿 500 美元测 10 条广告创意，只放大获客成本低于客单价 1/3 的那条；漏斗每一步（点击→注册→试用→付费）都埋转化数据，堵漏再放量；广告素材每周换一批，防创意疲劳；同时在 YouTube/社群沉淀免费电子书样章，拿自然流量对冲广告依赖。",
+        "deliverable": "跑通 1 条正向 ROI 广告 + 漏斗转化看板 + 每周创意更新节奏"
+      }
+    ],
+    "pitfalls_to_avoid": "全部收入数字（4 个月超 13 万美元、1,700 多付费客户、约 5,000 注册）均为创始人自述，未见 TrustMRR/Stripe 直连核验，引用时必须写清'创始人自述'，不得当审计数用；每月 2~3 万美元广告费是双刃剑，广告账户一旦被封或创意疲劳，增长立刻断档，须留自然流量后手；AI Wrapper 门槛极低，同类产品几天就能抄一个，护城河只在漏斗与广告素材的持续迭代，不在代码；Vibe coding 一时爽，代码乱到看不懂就要重构，MVP 阶段就要留测试与文档；AI 生成的书内容同质化风险高，须提醒用户人工审校，否则差评会反噬口碑。",
+    "tools": [
+      "Lovable",
+      "Claude Code",
+      "Stripe",
+      "Meta Ads",
+      "ebook_builder.py"
+    ],
+    "source_url": "https://www.yedapo.com/episode/fe07e181-d5c2-4241-852b-3a2d9798e324/starter-story-i-made-100k-in-3-months-with-this-ai-wrapper/insights",
+    "created_at": "2026-11-18",
+    "prototype": "C",
+    "en": {
+      "title": "gettbook.ai: Turn an Idea into a Finished Ebook with Meta Ads Scale",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "AI Ebook",
+        "AI Wrapper",
+        "Meta Ads",
+        "Subscription",
+        "Digital Products"
+      ],
+      "summary": "Type in an idea and AI handles topic research, outline, full writing, layout and ebook export end to end; subscriptions from $29/mo plus credit packs and tutorial upsells; growth runs entirely on high-volume Meta ad creative testing and funnel optimization. Founder-reported (Grade C evidence, no TrustMRR/Stripe verification seen): over $130K revenue in 4 months, 1,700+ paying customers, ~5,000 registered users.",
+      "verdict": "60 points, Tier C (60-69, worth watching), admitted exactly on the line. Verified first-hand against the Yedapo summary of the Starter Story interview (November 2026): over $130,000 revenue in 4 months, 1,700+ paying customers, ~5,000 registered users, $20K-$30K per month in Meta ad spend, 40-50% profit margins. Watch out: every revenue figure is founder-reported with no TrustMRR/Stripe verification seen, so score and quote it as self-reported; $20K-$30K a month in ads leaves thin net profit and growth stops the moment ads stop; AI wrappers are trivially copyable; vibe coding created tech debt the founder had to rebuild once. Deduplication: 23 live entries checked, no identical product (ColorCraft targets KDP coloring and story books, a different audience and output).",
+      "metrics": {
+        "difficulty_stars": 2,
+        "tech_barrier": "2/5",
+        "cycle_time": "2-4 Weeks (vibe-coded MVP plus ad funnel)",
+        "initial_cost": "$500-$2,000 (including first-month small ad tests)",
+        "startup_cost": "$500-$2,000",
+        "est_monthly_profit": "$1,500 - $4,000 / mo (replicator steady state, after ad and API costs; the 40-50% margin is founder-reported)",
+        "revenue_model": "Subscription from $29/mo plus usage credit packs and tutorial upsells",
+        "clean_model": "Subscription plus credit packs"
+      },
+      "monetization_model": "Subscription from $29/mo plus usage credit packs and tutorial upsells",
+      "deep_dive": {
+        "opportunity": "People who want to publish an ebook stall on the grind: topic research, outline, writing, layout and export each need a different tool and hours of time. Marketers and small business owners have material worth writing but never ship because writing a book feels too heavy, and generic AI writing tools only return scattered paragraphs, not a finished book to sell. gettbook.ai packages the whole chain: research, outline, writing, layout and export from a single idea. Vibe coding crushed the build barrier, so a non-technical founder shipped the MVP with Lovable and Claude Code. The real moat is not code but marketing: the founder's marketing background, high-volume Meta ad creative testing, funnel optimization, and credit-pack plus tutorial upsells that lift average order value to $130K in four months. It sells dozens of saved hours of repetitive labor, not technology.",
+        "workflow": [
+          "Phase 01: Lock in one audience that pays: marketers and small business owners. Interview 10 people who want an ebook for lead generation or sales, map how they publish today and what they would pay, and mine competing AI writing tools for the gap: paragraphs but no finished book.",
+          "Phase 02: Ship an MVP in two weeks with vibe coding. Idea in, research, editable outline, chapter-by-chapter writing, layout and PDF/EPUB export out; nail one book type (how-to guides) before adding more; the included ebook_builder.py script runs outline generation and sample-chapter export; write tests from day one so the codebase never needs a full rebuild.",
+          "Phase 03: Close the commercial loop. Subscriptions from $29/mo, usage credit packs and tutorial upsells to thicken average order value, Stripe for subscriptions and one-off upsells, and a weekly true CAC and margin review that tightens ad spend the moment it passes 60% of revenue.",
+          "Phase 04: Cold-start with Meta ads in small fast tests. Spend $500 testing 10 creatives, scale only the one whose CAC sits below one third of order value, instrument every funnel step (click, signup, trial, paid), refresh creatives weekly against fatigue, and publish free sample chapters on YouTube and communities for organic traffic that hedges ad dependence."
+        ],
+        "risk_and_pitfalls": "Every revenue figure (over $130K in 4 months, 1,700+ paying customers, ~5,000 registered) is founder-reported with no TrustMRR/Stripe verification seen; always label it self-reported and never quote it as audited. $20K-$30K a month in Meta ads cuts both ways: an account ban or creative fatigue kills growth overnight, so keep an organic channel as backup. AI wrappers are trivially copied within days; the moat is the funnel and creative iteration, not the code. Vibe coding feels fast until the codebase becomes unreadable and needs a rebuild; keep tests and docs from the MVP stage. AI-generated books risk generic content, so require human review before publishing or bad reviews will damage reputation.",
+        "tools": [
+          "Lovable",
+          "Claude Code",
+          "Stripe",
+          "Meta Ads",
+          "ebook_builder.py"
+        ]
+      }
+    }
+  }
+]

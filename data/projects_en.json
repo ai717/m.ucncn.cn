@@ -1,5 +1,170 @@
 [
   {
+    "id": "ml-20261118-003",
+    "slug": "chrome-workspace-plugin-portfolio",
+    "score": 60,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 5
+    },
+    "source_url": "https://finance.biggo.com/news/97ace21e5b96f04c",
+    "created_at": "2026-11-18",
+    "title": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Chrome Extension",
+      "Google Workspace",
+      "Presale Validation",
+      "Product Portfolio",
+      "YouTube Evergreen"
+    ],
+    "summary": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+    "verdict": "60 points, Tier C (60-69, worth watching), admitted exactly on the line. Verified first-hand against the BigGo Finance story (2026-11-08, retelling the Starter Story interview): 30+ products in 6 years, 8 revenue winners, ~$1M cumulative (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month, $0 revenue in the first two years, Sheet AI once hit $2,000 MRR, one YouTube channel per product for evergreen traffic. Watch out: all revenue figures are founder-reported with no TrustMRR/Stripe verification seen, so quote them as self-reported; the first two years paid $0, so the portfolio play demands patience and a cash cushion for a 70%+ miss rate; one person maintaining 8 products is a real bandwidth cap. Deduplication: a different cut from #03 niche-chrome-extension-monetization (single extension plus LemonSqueezy subscription); this case is portfolio system plus presale validation plus Workspace add-ons plus per-product YouTube channels, admitted under the differentiation rule.",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "2/5",
+      "cycle_time": "10-30 Days to validate one small product (presale first, build only with orders)",
+      "initial_cost": "$0-$200 (domain plus landing page)",
+      "startup_cost": "$0-$200",
+      "est_monthly_profit": "$1,000 - $3,500 / mo (replicator steady state; portfolio play, first two years may be $0, requires tolerance for a 70%+ miss rate)",
+      "revenue_model": "Subscription plus one-time purchase plus AppSumo lifetime deals",
+      "clean_model": "Subscription plus one-time purchase"
+    },
+    "monetization_model": "Subscription plus one-time purchase plus AppSumo lifetime deals",
+    "deep_dive": {
+      "opportunity": "The biggest trap for indie developers is not writing code but spending a year building something nobody buys: one year on a single idea, then learning the hard way that nobody wants it. Betting everything on one product means betting everything on one guess, and one miss costs a year. The fix is to turn product building into batch betting with presale validation: one feature per app, distributed through the Chrome Web Store and Google Workspace Marketplace instead of building traffic from zero; put up a buy button first with a 10-30 day delivery promise, build only when orders arrive, kill the idea when nobody buys, so each miss costs days not a year. Out of 30+ bets, 8 paid off, with MagicSlides and Sheet AI each catching their own long-tail demand. One YouTube channel per product means videos from years ago still bring orders today, so the assets appreciate with time. AI coding has pushed the cost of each bet close to zero, which is what makes 22 failures survivable.",
+      "workflow": [
+        "Phase 01: Collect 10 candidate ideas from TrustMRR revenue data and your own pain. Follow the right people on X, keep only ideas whose users can pay, cut student and curiosity-only ideas, and write one line per idea stating who pays and why.",
+        "Phase 02: Sell before you build. Ship a landing page per idea the same day with an AI coding tool, add a buy button and a 10-30 day delivery promise, start the 10-day build clock only on the first order, kill ideas with no orders, keep one feature per app; the included portfolio_tracker.py script runs portfolio accounting, win-rate stats and kill-or-keep decisions.",
+        "Phase 03: Close the commercial loop. List each product on the Chrome Web Store and Google Workspace Marketplace for built-in search and install flow, mix subscription with one-time purchase, run AppSumo lifetime deals for first sales and reviews, collect with Stripe, and track each product separately with a monthly review of where time is worth spending.",
+        "Phase 04: Cold-start distribution. Open one YouTube channel per product (mixing audiences in one channel confuses everyone), post about 10 short phone-shot how-to videos, take the first sale from a matching Facebook group, then AppSumo; videos need consistency not polish, old videos keep selling for years; review MRR monthly and cut any product with three straight months of zero growth to free time for winners."
+      ],
+      "risk_and_pitfalls": "All revenue figures (~$1M over 6 years, Stripe ~$856K, AppSumo $85K+, ~1,000 paying customers a month) are founder-reported with no TrustMRR/Stripe verification seen; always label them self-reported. The first two years paid $0, so the portfolio play is a long run that needs patience and a cash cushion; do not copy it without both. Only 8 of 30+ bets won, so a ~73% miss rate is normal; cap each miss at days of cost, because clinging to one dead product is the biggest loss. One person maintaining 8 products hits a bandwidth ceiling fast; new launches must respect maintenance capacity. Heavy dependence on Google marketplace distribution plus SEO and YouTube evergreen traffic means a policy or review change hits the whole portfolio at once. This case differs from #03 single-extension monetization; do not confuse the two when quoting.",
+      "tools": [
+        "Chrome Web Store",
+        "Google Workspace Marketplace",
+        "Next.js",
+        "Supabase",
+        "Cloudflare",
+        "Stripe",
+        "AppSumo",
+        "YouTube",
+        "portfolio_tracker.py"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261118-002",
+    "slug": "gettbook-ai-ebook-generator",
+    "score": 60,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 8,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 3
+    },
+    "source_url": "https://www.yedapo.com/episode/fe07e181-d5c2-4241-852b-3a2d9798e324/starter-story-i-made-100k-in-3-months-with-this-ai-wrapper/insights",
+    "created_at": "2026-11-18",
+    "title": "gettbook.ai: Turn an Idea into a Finished Ebook with Meta Ads Scale",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "AI Ebook",
+      "AI Wrapper",
+      "Meta Ads",
+      "Subscription",
+      "Digital Products"
+    ],
+    "summary": "Type in an idea and AI handles topic research, outline, full writing, layout and ebook export end to end; subscriptions from $29/mo plus credit packs and tutorial upsells; growth runs entirely on high-volume Meta ad creative testing and funnel optimization. Founder-reported (Grade C evidence, no TrustMRR/Stripe verification seen): over $130K revenue in 4 months, 1,700+ paying customers, ~5,000 registered users.",
+    "verdict": "60 points, Tier C (60-69, worth watching), admitted exactly on the line. Verified first-hand against the Yedapo summary of the Starter Story interview (November 2026): over $130,000 revenue in 4 months, 1,700+ paying customers, ~5,000 registered users, $20K-$30K per month in Meta ad spend, 40-50% profit margins. Watch out: every revenue figure is founder-reported with no TrustMRR/Stripe verification seen, so score and quote it as self-reported; $20K-$30K a month in ads leaves thin net profit and growth stops the moment ads stop; AI wrappers are trivially copyable; vibe coding created tech debt the founder had to rebuild once. Deduplication: 23 live entries checked, no identical product (ColorCraft targets KDP coloring and story books, a different audience and output).",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "2/5",
+      "cycle_time": "2-4 Weeks (vibe-coded MVP plus ad funnel)",
+      "initial_cost": "$500-$2,000 (including first-month small ad tests)",
+      "startup_cost": "$500-$2,000",
+      "est_monthly_profit": "$1,500 - $4,000 / mo (replicator steady state, after ad and API costs; the 40-50% margin is founder-reported)",
+      "revenue_model": "Subscription from $29/mo plus usage credit packs and tutorial upsells",
+      "clean_model": "Subscription plus credit packs"
+    },
+    "monetization_model": "Subscription from $29/mo plus usage credit packs and tutorial upsells",
+    "deep_dive": {
+      "opportunity": "People who want to publish an ebook stall on the grind: topic research, outline, writing, layout and export each need a different tool and hours of time. Marketers and small business owners have material worth writing but never ship because writing a book feels too heavy, and generic AI writing tools only return scattered paragraphs, not a finished book to sell. gettbook.ai packages the whole chain: research, outline, writing, layout and export from a single idea. Vibe coding crushed the build barrier, so a non-technical founder shipped the MVP with Lovable and Claude Code. The real moat is not code but marketing: the founder's marketing background, high-volume Meta ad creative testing, funnel optimization, and credit-pack plus tutorial upsells that lift average order value to $130K in four months. It sells dozens of saved hours of repetitive labor, not technology.",
+      "workflow": [
+        "Phase 01: Lock in one audience that pays: marketers and small business owners. Interview 10 people who want an ebook for lead generation or sales, map how they publish today and what they would pay, and mine competing AI writing tools for the gap: paragraphs but no finished book.",
+        "Phase 02: Ship an MVP in two weeks with vibe coding. Idea in, research, editable outline, chapter-by-chapter writing, layout and PDF/EPUB export out; nail one book type (how-to guides) before adding more; the included ebook_builder.py script runs outline generation and sample-chapter export; write tests from day one so the codebase never needs a full rebuild.",
+        "Phase 03: Close the commercial loop. Subscriptions from $29/mo, usage credit packs and tutorial upsells to thicken average order value, Stripe for subscriptions and one-off upsells, and a weekly true CAC and margin review that tightens ad spend the moment it passes 60% of revenue.",
+        "Phase 04: Cold-start with Meta ads in small fast tests. Spend $500 testing 10 creatives, scale only the one whose CAC sits below one third of order value, instrument every funnel step (click, signup, trial, paid), refresh creatives weekly against fatigue, and publish free sample chapters on YouTube and communities for organic traffic that hedges ad dependence."
+      ],
+      "risk_and_pitfalls": "Every revenue figure (over $130K in 4 months, 1,700+ paying customers, ~5,000 registered) is founder-reported with no TrustMRR/Stripe verification seen; always label it self-reported and never quote it as audited. $20K-$30K a month in Meta ads cuts both ways: an account ban or creative fatigue kills growth overnight, so keep an organic channel as backup. AI wrappers are trivially copied within days; the moat is the funnel and creative iteration, not the code. Vibe coding feels fast until the codebase becomes unreadable and needs a rebuild; keep tests and docs from the MVP stage. AI-generated books risk generic content, so require human review before publishing or bad reviews will damage reputation.",
+      "tools": [
+        "Lovable",
+        "Claude Code",
+        "Stripe",
+        "Meta Ads",
+        "ebook_builder.py"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261118-001",
+    "slug": "post-bridge-multi-platform-publisher",
+    "score": 63,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 8,
+      "reliability": 5
+    },
+    "source_url": "https://indiefounder.me/stories/jack-friks-post-bridge/",
+    "created_at": "2026-11-18",
+    "title": "Post Bridge: Write Once, Publish Everywhere with API and MCP",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Social Scheduling",
+      "Multi-Account",
+      "SaaS Subscription",
+      "MCP",
+      "API"
+    ],
+    "summary": "A solo-built cross-platform publishing SaaS: write once, publish to Instagram, TikTok, YouTube, X and more; priced per connected account from $39/mo; REST API, CLI and MCP server let AI agents publish on your behalf. TrustMRR/Stripe-verified ~$48.5K MRR, ~$582K all-time revenue, ~1,600 subscriptions.",
+    "verdict": "63 points, Tier C (60-69, worth watching), above the 60-point bar. Verified first-hand against the IndieFounder story (published 2026-11-14): TrustMRR via Stripe shows ~$48,500 MRR, ~$582,000 all-time revenue and ~1,600 subscriptions; Marketer plan from $39/mo for 15 accounts with unlimited posts on paid plans; solo founder Jack Friks runs it with infra under $2,000/mo and 90%+ gross margins; he declined a $1M acquisition offer in spring 2025; signups spiked after the ChatGPT plugin and Claude connector listings in September 2026. Watch out: distribution depends almost entirely on X build-in-public, platform API policies (Meta/TikTok/Instagram) can tighten at any time, and support plus development rest on one person. Deduplication: 23 live entries checked, no identical product.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "3/5",
+      "cycle_time": "1-2 Months (MVP in about 1 month plus OAuth and publishing integration)",
+      "initial_cost": "$100-$300 (domain plus first month of cloud services)",
+      "startup_cost": "$100-$300",
+      "est_monthly_profit": "$2,000 - $6,000 / mo (replicator steady state, after roughly $500-$2,000/mo infra and API costs)",
+      "revenue_model": "Subscription per connected account (Marketer from $39/mo, 15 accounts, unlimited posts) plus per-account tiers at higher volumes",
+      "clean_model": "Subscription per connected account"
+    },
+    "monetization_model": "Subscription per connected account (Marketer from $39/mo, 15 accounts, unlimited posts) plus per-account tiers at higher volumes",
+    "deep_dive": {
+      "opportunity": "Creators waste close to an hour a day copying the same video across Instagram, TikTok, YouTube and X, each with different format, title and cover rules, while existing schedulers are expensive and bloated for small creators. Post Bridge does exactly one small job well: one dashboard, multi-platform OAuth, automatic per-platform adaptation, and simple per-account pricing instead of per-post billing. A hard paywall from day one filters for people willing to pay. Packaging distribution as a REST API, CLI and MCP server lets AI assistants publish on the user's behalf, riding the 2026 agent-workflow wave. The founder built it for his own daily marketing, so the product matched a real pain from the start.",
+      "workflow": [
+        "Phase 01: Validate on your own accounts first. Post manually to 3-5 platforms daily for 30 days, log the time and format traps, interview 10 multi-platform creators about willingness to pay, and lock in one audience: short-form creators and solo founders.",
+        "Phase 02: Ship an MVP in about a month. Supabase plus Vercel plus Trigger.dev plus Unkey keeps monthly infra under $2,000; connect X, Instagram, TikTok and YouTube OAuth and posting APIs first; adapt titles and covers per platform (the included postbridge_publish.py script runs caption adaptation and publish-queue checks); launch behind a hard paywall with Stripe per-account billing.",
+        "Phase 03: Close the commercial loop. Price per connected account (Marketer from $39/mo, 15 accounts), unlimited posts on paid plans, then add REST API, npm CLI and MCP server so Claude and ChatGPT can schedule and publish for users, with usage tied to account count to stop abuse.",
+        "Phase 04: Cold-start distribution. Build in public on X with real revenue updates, post short-form video daily from your own accounts, launch on Product Hunt and Indie Hackers, and give the first 100 paying users a founder price in exchange for testimonials and renewals."
+      ],
+      "risk_and_pitfalls": "Distribution leans almost entirely on X, so an algorithm change or account problem stalls growth at once; build email and short-video backup channels from day one. Platform API policies (Meta, TikTok, Instagram) can tighten or reprice; failed posts need visible fallback and a retry queue, never silent drops. Solo operation means support, development and ops sit on one person; fix support flows before adding features once subscriptions grow. The ~1,600 subscriptions and 29,000+ signups are founder-reported snapshots; quote them with date and source, and re-check TrustMRR live figures before quoting.",
+      "tools": [
+        "Supabase",
+        "Vercel",
+        "Trigger.dev",
+        "Unkey",
+        "Stripe",
+        "X API",
+        "postbridge_publish.py"
+      ]
+    }
+  },
+  {
     "id": "ml-20261115-001",
     "title": "MBTI Personality Report PDFs on Xiaohongshu: AI-Generated 16-Type Deep-Dive Reports Selling 65,000+ Copies at ¥4.9",
     "slug": "mbti-personality-report-matrix",

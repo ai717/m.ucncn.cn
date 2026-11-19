@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets - Revenue Blueprint &amp; AI Agent Skill | MoneyLab</title>
+  <meta name="description" content="Deconstructed teardown of Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets. Est. Monthly Run Rate: $1,000 - $3,500 / mo (replicator steady state; portfolio play, first two years may be $0, requires tolerance for a 70%+ miss rate). Includes unit economics, workflow architecture, pitfall post-mortems, and turnkey AI agent skills.">
+  <meta name="keywords" content="Chrome Extension, Google Workspace, Presale Validation, Product Portfolio, YouTube Evergreen, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/chrome-workspace-plugin-portfolio/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets">
+  <meta property="og:description" content="A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/">
+  <meta name="twitter:title" content="Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets">
+  <meta name="twitter:description" content="A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/#article",
+      "headline": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+      "description": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-18",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MoneyLab Catalog",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Micro-SaaS & Automation",
+          "item": "https://m.ucncn.cn/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+          "item": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/#product",
+      "name": "Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets (Turnkey Execution Skill & Blueprint)",
+      "description": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/#howto",
+      "name": "How to execute and monetize: Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets",
+      "description": "A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Phase 01: Execution",
+          "text": "Phase 01: Collect 10 candidate ideas from TrustMRR revenue data and your own pain. Follow the right people on X, keep only ideas whose users can pay, cut student and curiosity-only ideas, and write one line per idea stating who pays and why."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Phase 02: Execution",
+          "text": "Phase 02: Sell before you build. Ship a landing page per idea the same day with an AI coding tool, add a buy button and a 10-30 day delivery promise, start the 10-day build clock only on the first order, kill ideas with no orders, keep one feature per app; the included portfolio_tracker.py script runs portfolio accounting, win-rate stats and kill-or-keep decisions."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Phase 03: Execution",
+          "text": "Phase 03: Close the commercial loop. List each product on the Chrome Web Store and Google Workspace Marketplace for built-in search and install flow, mix subscription with one-time purchase, run AppSumo lifetime deals for first sales and reviews, collect with Stripe, and track each product separately with a monthly review of where time is worth spending."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Phase 04: Execution",
+          "text": "Phase 04: Cold-start distribution. Open one YouTube channel per product (mixing audiences in one channel confuses everyone), post about 10 short phone-shot how-to videos, take the first sale from a matching Facebook group, then AppSumo; videos need consistency not polish, old videos keep selling for years; review MRR monthly and cut any product with three straight months of zero growth to free time for winners."
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">Micro-SaaS &amp; Automation</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../../../p/chrome-workspace-plugin-portfolio/" 
+          title="Switch to Chinese Edition (ZH)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 ZH</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← All Playbooks</span>
+          <span class="sm:hidden">← Back</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            Micro-SaaS &amp; Automation
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261118-003</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-indigo-950/40 text-indigo-300 border-indigo-800/50">
+          Tier C · 60 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        Chrome Extension and Workspace Add-on Portfolio: Sell Before You Build, 8 Winners out of 30 Bets
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        A solo founder built 30+ Chrome extensions and Google Workspace add-ons over 6 years (MagicSlides for PDF-to-PPT, Sheet AI, Ask Video and more), one feature per app, selling before building with a buy button and a 10-30 day delivery timer; 8 winners, ~$1M cumulative revenue (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month. Founder-reported (Grade B evidence, no TrustMRR verification seen).
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Est. Monthly Run Rate</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">$1,000 - $3,500 / mo (replicator steady state; portfolio play, first two years may be $0, requires tolerance for a 70%+ miss rate)</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Validation Speed</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">10-30 Days to validate one small product (presale first, build only with orders)</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Startup Barrier</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$0-$200 (domain plus landing page)</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">Effort & Complexity</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★★☆☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>Institutional Due Diligence Verdict</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        60 points, Tier C (60-69, worth watching), admitted exactly on the line. Verified first-hand against the BigGo Finance story (2026-11-08, retelling the Starter Story interview): 30+ products in 6 years, 8 revenue winners, ~$1M cumulative (Stripe ~$856K, AppSumo $85K+), ~1,000 paying customers a month, $0 revenue in the first two years, Sheet AI once hit $2,000 MRR, one YouTube channel per product for evergreen traffic. Watch out: all revenue figures are founder-reported with no TrustMRR/Stripe verification seen, so quote them as self-reported; the first two years paid $0, so the portfolio play demands patience and a cash cushion for a 70%+ miss rate; one person maintaining 8 products is a real bandwidth cap. Deduplication: a different cut from #03 niche-chrome-extension-monetization (single extension plus LemonSqueezy subscription); this case is portfolio system plus presale validation plus Workspace add-ons plus per-product YouTube channels, admitted under the differentiation rule.
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>Market Opportunity & Founder Bottlenecks</span>
+      </h2>
+      <p class="text-sm text-slate-300 leading-relaxed font-sans">The biggest trap for indie developers is not writing code but spending a year building something nobody buys: one year on a single idea, then learning the hard way that nobody wants it. Betting everything on one product means betting everything on one guess, and one miss costs a year. The fix is to turn product building into batch betting with presale validation: one feature per app, distributed through the Chrome Web Store and Google Workspace Marketplace instead of building traffic from zero; put up a buy button first with a 10-30 day delivery promise, build only when orders arrive, kill the idea when nobody buys, so each miss costs days not a year. Out of 30+ bets, 8 paid off, with MagicSlides and Sheet AI each catching their own long-tail demand. One YouTube channel per product means videos from years ago still bring orders today, so the assets appreciate with time. AI coding has pushed the cost of each bet close to zero, which is what makes 22 failures survivable.</p>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4-Step Operational Blueprint (SOP)</span>
+      </h2>
+      <div class="space-y-3">
+        
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>Phase 01: Collect 10 candidate ideas from TrustMRR revenue data and your own pain. Follow the right people on X, keep only ideas whose users can pay, cut student and curiosity-only ideas, and write one line per idea stating who pays and why.</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>Phase 02: Sell before you build. Ship a landing page per idea the same day with an AI coding tool, add a buy button and a 10-30 day delivery promise, start the 10-day build clock only on the first order, kill ideas with no orders, keep one feature per app; the included portfolio_tracker.py script runs portfolio accounting, win-rate stats and kill-or-keep decisions.</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>Phase 03: Close the commercial loop. List each product on the Chrome Web Store and Google Workspace Marketplace for built-in search and install flow, mix subscription with one-time purchase, run AppSumo lifetime deals for first sales and reviews, collect with Stripe, and track each product separately with a monthly review of where time is worth spending.</span>
+      </div>
+    
+      <div class="p-3.5 rounded-xl bg-slate-950/70 border border-brand-border/80 text-xs sm:text-sm text-slate-200 leading-relaxed font-mono flex items-start space-x-3">
+        <span class="text-emerald-400 font-bold shrink-0">➔</span>
+        <span>Phase 04: Cold-start distribution. Open one YouTube channel per product (mixing audiences in one channel confuses everyone), post about 10 short phone-shot how-to videos, take the first sale from a matching Facebook group, then AppSumo; videos need consistency not polish, old videos keep selling for years; review MRR monthly and cut any product with three straight months of zero growth to free time for winners.</span>
+      </div>
+    
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>Pitfalls & Risk Warning</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        All revenue figures (~$1M over 6 years, Stripe ~$856K, AppSumo $85K+, ~1,000 paying customers a month) are founder-reported with no TrustMRR/Stripe verification seen; always label them self-reported. The first two years paid $0, so the portfolio play is a long run that needs patience and a cash cushion; do not copy it without both. Only 8 of 30+ bets won, so a ~73% miss rate is normal; cap each miss at days of cost, because clinging to one dead product is the biggest loss. One person maintaining 8 products hits a bandwidth ceiling fast; new launches must respect maintenance capacity. Heavy dependence on Google marketplace distribution plus SEO and YouTube evergreen traffic means a policy or review change hits the whole portfolio at once. This case differs from #03 single-extension monetization; do not confuse the two when quoting.
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>Weaponry & Infrastructure Stack</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Chrome Web Store
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Google Workspace Marketplace
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Next.js
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Supabase
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Cloudflare
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Stripe
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # AppSumo
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # YouTube
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # portfolio_tracker.py
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Instant Decryption via Stripe Official Checkout</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        Unlock Raw Unredacted Source Threads + Turnkey AI Prompt File
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Includes founder raw discussions, architecture diagrams, step-by-step prompt library, and universal Cursor / Claude Code SKILL.md file.
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#chrome-workspace-plugin-portfolio" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ View Full Teardown & Unlock on MoneyLab</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 Benchmark vs Overseas Intel</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics $300~$1,000/yr</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP is only HK$299 (~$38) lifetime</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>Single Pass: HK$29.90 (~$3.80)</span>
+        <span>·</span>
+        <span>Annual VIP: HK$299 (~$38.00)</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">Catalog</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

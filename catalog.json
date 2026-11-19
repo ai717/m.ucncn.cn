@@ -1,9 +1,12 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-16",
-  "total_count": 23,
+  "updated_at": "2026-11-19",
+  "total_count": 26,
   "existing_slugs": [
+    "post-bridge-multi-platform-publisher",
+    "gettbook-ai-ebook-generator",
+    "chrome-workspace-plugin-portfolio",
     "xiaohongshu-ai-workbench-custom",
     "gumroad-micro-pdf",
     "footballgpt-coach-assistant",
@@ -52,6 +55,66 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261118-001",
+      "slug": "post-bridge-multi-platform-publisher",
+      "title": "Post Bridge 式一键多平台分发：写一次，全网发，API/MCP 让 AI 代发",
+      "category": "出海/独立开发",
+      "tags": [
+        "社媒分发",
+        "多账号管理",
+        "SaaS订阅",
+        "MCP",
+        "API"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "一人公司做的跨平台分发 SaaS：写一次内容，一键发到 Instagram、TikTok、YouTube、X 等多平台多账号，按账号数收订阅费（Marketer 套餐 39 美元/月起，15 个账号）；另有 REST API、CLI 与 MCP 服务器，让 AI 直接代发。TrustMRR Stripe 验证 MRR 约 48,500 美元、累计收入约 58.2 万美元、约 1,600 订阅。",
+      "monetization_model": "按连接账号数收订阅费（Marketer $39/月起，15 个账号；无限发帖）+ 高用量按账号阶梯价",
+      "est_monthly_profit": "$2,000 ~ $6,000 / 月（复制者稳态，扣掉约 $500~$2,000/月基建与 API 成本后）",
+      "landing_url_zh": "https://m.ucncn.cn/p/post-bridge-multi-platform-publisher/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/post-bridge-multi-platform-publisher/"
+    },
+    {
+      "id": "ml-20261118-002",
+      "slug": "gettbook-ai-ebook-generator",
+      "title": "gettbook.ai 式 AI 电子书生成器：想法变整本电子书，Meta 广告放量",
+      "category": "出海/独立开发",
+      "tags": [
+        "AI电子书",
+        "AI Wrapper",
+        "Meta广告",
+        "订阅制",
+        "数字产品"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "输入一个想法，AI 自动完成选题调研、大纲生成、正文写作、排版设计、导出成品电子书的全流程，订阅制 29 美元/月起，叠加按量额度包与教程加购；增长全靠大量测试 Meta 广告创意与漏斗优化。创始人自述：4 个月收入超 13 万美元、1,700 多名付费客户、约 5,000 注册用户（C级证据，未见 TrustMRR/Stripe 直连核验）。",
+      "monetization_model": "订阅 $29/月起 + 按量额度包 + 教程等数字产品加购",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，扣掉广告与 API 成本后；原版 40~50% 利润率为创始人自述）",
+      "landing_url_zh": "https://m.ucncn.cn/p/gettbook-ai-ebook-generator/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/gettbook-ai-ebook-generator/"
+    },
+    {
+      "id": "ml-20261118-003",
+      "slug": "chrome-workspace-plugin-portfolio",
+      "title": "Chrome 扩展 + Workspace 插件小产品组合：先卖后做，30 款里跑出 8 款赚钱",
+      "category": "出海/独立开发",
+      "tags": [
+        "Chrome扩展",
+        "Google Workspace",
+        "预售验证",
+        "小产品组合",
+        "YouTube长尾"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "一人公司 6 年做了 30 多款 Chrome 扩展与 Google Workspace 插件（如 PDF 转 PPT 的 MagicSlides、表格 AI Sheet AI、视频问答 Ask Video），每款只做一个功能，先挂购买按钮预售（10~30 天交付），有订单再开发；8 款赚钱，6 年累计收入约 100 万美元（Stripe 约 85.6 万美元、AppSumo 超 8.5 万美元），每月约 1,000 名付费客户。创始人自述（B级证据，未见 TrustMRR 直连核验）。",
+      "monetization_model": "订阅 + 一次性买断 + AppSumo 终身 deal",
+      "est_monthly_profit": "$1,000 ~ $3,500 / 月（复制者稳态；组合打法，前两年可能 $0，需承受 70%+ 试错率）",
+      "landing_url_zh": "https://m.ucncn.cn/p/chrome-workspace-plugin-portfolio/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/chrome-workspace-plugin-portfolio/"
+    },
     {
       "id": "ml-20261116-001",
       "slug": "xiaohongshu-ai-workbench-custom",
