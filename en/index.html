@@ -98,7 +98,7 @@
       "@id": "https://m.ucncn.cn/en/#itemlist",
       "name": "Featured Micro-Business & Solopreneur Blueprints",
       "description": "Objectively deconstructed business playbooks with audited unit economics and executable turnkey AI agent skills.",
-      "numberOfItems": 26,
+      "numberOfItems": 31,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1383,6 +1383,266 @@
   <!-- Application Logic -->
   <script>
     const EMBEDDED_PROJECTS = [
+  {
+    "id": "ml-20261120-004",
+    "slug": "ai-toolbox-cross-platform-chat-organizer",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "ceiling": 6,
+      "feasibility": 7,
+      "reliability": 6,
+      "velocity": 7
+    },
+    "source_url": "https://theaireceipts.com/case-studies/ai-toolbox/",
+    "created_at": "2026-11-20",
+    "category": "Micro-SaaS & Automation",
+    "deep_dive": {
+      "opportunity": "Heavy AI users spread chats across four platforms with no unified search, folders or prompt reuse, and no vendor will index a rival's history. A local-only extension owns that cross-platform layer at near-zero running cost, so lifetime pricing works. Unlike generic extension plays, this does one job across four platforms.",
+      "risk_and_pitfalls": "Any platform can break the extension with a DOM change or ship native folders and search. Keep selectors isolated per platform, ship fixes within 48 hours, and never upload chat content to a server.",
+      "tools": [
+        "Chrome MV3",
+        "IndexedDB",
+        "Lemon Squeezy",
+        "Polar"
+      ],
+      "workflow": [
+        "Phase 01: Mine 1-3 star reviews of rival organizers to lock the three recurring pains worth charging for.",
+        "Phase 02: Ship one platform first: folders, full-text search and export with a local index and minimal permissions.",
+        "Phase 03: Sell per-platform monthly and lifetime plans plus an all-access bundle through a merchant of record.",
+        "Phase 04: Grow through store search terms, comparison pages and a free tier capped at 2 folders."
+      ]
+    },
+    "metrics": {
+      "clean_model": "Lifetime + Subscription",
+      "cycle_time": "14-21 Days to MVP",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$800 - $3,000 / mo (copycat steady state, lifetime-heavy)",
+      "initial_cost": "$5-$50",
+      "revenue_model": "$9.99/mo per platform, $99 lifetime, $200 all-access",
+      "startup_cost": "$5-$50",
+      "tech_barrier": "★★★☆☆ (3/5)"
+    },
+    "monetization_model": "$9.99/mo per platform, $99 lifetime, $200 all-access",
+    "summary": "A Chrome extension adding folders, cross-platform full-text search, a prompt library and export to ChatGPT, Claude, Gemini and Grok; TrustMRR verified $24.6K in 30 days, mostly lifetime sales.",
+    "tags": [
+      "Chrome Extension",
+      "AI Chat",
+      "Productivity",
+      "Lifetime Deal",
+      "Local-First"
+    ],
+    "title": "Cross-Platform AI Chat Organizer Extension: Search Four AIs at Once",
+    "verdict": "Best evidence quality in this batch (TrustMRR verified), but revenue is lifetime-heavy and platform changes can break it; a solid C-tier niche play."
+  },
+  {
+    "id": "ml-20261120-002",
+    "slug": "liinks-link-in-bio-saas",
+    "score": 68,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "ceiling": 7,
+      "feasibility": 7,
+      "reliability": 8,
+      "velocity": 5
+    },
+    "source_url": "https://untoldstartups.com/stories/liinks-charlie-clark-link-in-bio-1-8m-revenue",
+    "created_at": "2026-11-20",
+    "category": "Micro-SaaS & Automation",
+    "deep_dive": {
+      "opportunity": "Creators get one bio link per platform, while the category leader charges more for plain templates. A cheaper, better-looking page with custom domains and multi-page management wins switchers, and every published page carries a badge that recruits the next user. Copycats should serve one vertical with prebuilt templates.",
+      "risk_and_pitfalls": "The category is crowded and the leader has a huge free base, so generic clones will not grow. Paid search gets expensive; rely on badges, SEO and community launches. Keep churn visible and price below the leader.",
+      "tools": [
+        "Next.js",
+        "Stripe",
+        "Cloudflare",
+        "Plausible"
+      ],
+      "workflow": [
+        "Phase 01: Pick one creator vertical and map its five must-have page blocks before designing anything.",
+        "Phase 02: Ship a mobile-first page builder with links, embeds, forms and analytics in two weeks.",
+        "Phase 03: Charge from day one: a low starter tier undercutting the leader and a pro tier with custom domains and multi-page plans.",
+        "Phase 04: Grow with page badges, comparison SEO pages and one community launch; add search ads only after conversion is proven."
+      ]
+    },
+    "metrics": {
+      "clean_model": "Subscription",
+      "cycle_time": "14-21 Days to MVP",
+      "difficulty_stars": 2,
+      "est_monthly_profit": "$1,000 - $4,000 / mo (copycat steady state, vertical niche)",
+      "initial_cost": "$50-$200",
+      "revenue_model": "Starter $5/mo + Pro $12/mo",
+      "startup_cost": "$50-$200",
+      "tech_barrier": "★★☆☆☆ (2/5)"
+    },
+    "monetization_model": "Starter $5/mo + Pro $12/mo",
+    "summary": "A link-in-bio page builder that undercuts Linktree at $5/month with better design, custom domains and multi-page management on the $12 Pro plan; verified at $31.6K MRR as a solo business.",
+    "tags": [
+      "Link in Bio",
+      "Creator Tools",
+      "Micro-SaaS",
+      "Subscription",
+      "SEO"
+    ],
+    "title": "Link-in-Bio SaaS: Undercut the Leader, Win One Creator Vertical",
+    "verdict": "Verified solo-founder numbers in a crowded market; copycats must niche down to one creator vertical instead of building another generic clone."
+  },
+  {
+    "id": "ml-20261120-003",
+    "slug": "podsqueeze-podcast-repurposing",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "ceiling": 6,
+      "feasibility": 6,
+      "reliability": 8,
+      "velocity": 6
+    },
+    "source_url": "https://www.printcashwithai.com/stacks/ai-show-notes-and-clips-for-podcasters-podsqueeze/",
+    "created_at": "2026-11-20",
+    "category": "AI Wrappers & B2B Solutions",
+    "deep_dive": {
+      "opportunity": "Recording is only half the work: transcripts, notes, timestamps, titles, newsletters, posts and clips eat hours per episode. One upload that returns the full distribution pack, priced by audio minutes, keeps margins above 80%. Specialize in one show format instead of matching every feature.",
+      "risk_and_pitfalls": "Recording platforms now bundle AI notes and clips, and the incumbent has been flat for two years. Differentiate on one format, watch API costs per minute, and price agencies separately from solo hosts.",
+      "tools": [
+        "OpenAI Whisper API",
+        "GPT-4 API",
+        "FFmpeg",
+        "Stripe"
+      ],
+      "workflow": [
+        "Phase 01: Interview 10 hosts of one show format and rank which outputs they would pay for first.",
+        "Phase 02: Build the pipeline: upload, transcribe, then generate notes, timestamps, titles and posts from one transcript.",
+        "Phase 03: Meter by audio minutes with starter, pro and agency tiers; add short clips only after text outputs are stable.",
+        "Phase 04: Launch on Product Hunt and podcast communities with a free 30-minute tier that converts on the second episode."
+      ]
+    },
+    "metrics": {
+      "clean_model": "Subscription",
+      "cycle_time": "14-21 Days to MVP",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$1,000 - $3,000 / mo (copycat steady state, one show format)",
+      "initial_cost": "$100-$300",
+      "revenue_model": "Subscription by minutes: $9-$259/mo",
+      "startup_cost": "$100-$300",
+      "tech_barrier": "★★★☆☆ (3/5)"
+    },
+    "monetization_model": "Subscription by minutes: $9-$259/mo",
+    "summary": "Upload a podcast episode and get transcripts, show notes, timestamps, titles, newsletter copy, social posts and clips, priced by audio minutes; founders report about 16K EUR/month, flat for two years.",
+    "tags": [
+      "Podcast Tools",
+      "AI Repurposing",
+      "Transcription",
+      "Subscription",
+      "Creator Economy"
+    ],
+    "title": "Podcast AI Repurposing: One Upload, Full Distribution Pack",
+    "verdict": "Real product with real pricing, but growth has stalled against platform-native AI; copycats must specialize in one show format to earn a C-tier slot."
+  },
+  {
+    "id": "ml-20261120-005",
+    "slug": "reelfarm-tiktok-slideshow-automation",
+    "score": 63,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "ceiling": 8,
+      "feasibility": 5,
+      "reliability": 5,
+      "velocity": 7
+    },
+    "source_url": "https://AppliedAIHub.org/ai-digests/case-studies/reelfarm/",
+    "created_at": "2026-11-20",
+    "category": "AI Wrappers & B2B Solutions",
+    "deep_dive": {
+      "opportunity": "TikTok reach rewards volume, but human UGC costs $100-$300 per video. Templated photo carousels and AI hook videos at $0.20-$0.50 per asset, auto-published across accounts, close that gap. Bind the template library to one category such as app promotion instead of building a generic generator.",
+      "risk_and_pitfalls": "Bulk automation can trip platform policies, so publish through official APIs with human review. Credit systems confuse users; keep one simple allowance. Revenue figures are founder-reported.",
+      "tools": [
+        "TikTok API",
+        "FFmpeg",
+        "Pillow",
+        "Stripe"
+      ],
+      "workflow": [
+        "Phase 01: Pick one promotion category and collect 20 proven carousel formats from live accounts.",
+        "Phase 02: Build a template engine that renders carousels and hook videos, then schedules posts across connected accounts.",
+        "Phase 03: Price by monthly volume with growth, scale and agency tiers; allow unlimited accounts and seats.",
+        "Phase 04: Dogfood your own account matrix, publish revenue milestones, and recruit the first 10 paying operators."
+      ]
+    },
+    "metrics": {
+      "clean_model": "Subscription",
+      "cycle_time": "21-30 Days to MVP",
+      "difficulty_stars": 3,
+      "est_monthly_profit": "$1,500 - $5,000 / mo (copycat steady state, one category)",
+      "initial_cost": "$200-$600",
+      "revenue_model": "Subscription $49 / $95 / $195 per month",
+      "startup_cost": "$200-$600",
+      "tech_barrier": "★★★☆☆ (3/5)"
+    },
+    "monetization_model": "Subscription $49 / $95 / $195 per month",
+    "summary": "Automates TikTok photo carousels and AI UGC hook videos with multi-account scheduling, priced $49-$195/month by volume; founder reports $30K+/month after a $44K peak.",
+    "tags": [
+      "TikTok Automation",
+      "AI UGC",
+      "Slideshow",
+      "Creator Tools",
+      "Subscription"
+    ],
+    "title": "TikTok Slideshow Automation: Templated Volume at $0.50 per Asset",
+    "verdict": "Clear unit-economics wedge against human UGC, but platform policy risk and founder-reported numbers keep it at C tier."
+  },
+  {
+    "id": "ml-20261120-001",
+    "slug": "typingmind-byok-chat-frontend",
+    "score": 78,
+    "rating_tier": "B",
+    "score_breakdown": {
+      "ceiling": 8,
+      "feasibility": 8,
+      "reliability": 7,
+      "velocity": 8
+    },
+    "source_url": "https://theaireceipts.com/case-studies/typingmind/",
+    "created_at": "2026-11-20",
+    "category": "Micro-SaaS & Automation",
+    "deep_dive": {
+      "opportunity": "Official chat UIs lack search, folders and multi-model switching, while teams need central billing, SSO and data controls the platforms do not sell. A static BYOK frontend carries no inference cost, so a lifetime price works; the recurring money is in team workspaces for one vertical niche.",
+      "risk_and_pitfalls": "Upstream API pricing and policies change, so support multiple providers. Keep server-backed features on subscription tiers only. Never store user keys server-side. Original revenue is founder-reported and not a promise.",
+      "tools": [
+        "Next.js / Vite",
+        "Vercel AI SDK",
+        "Lemon Squeezy",
+        "Stripe"
+      ],
+      "workflow": [
+        "Phase 01: Pick one vertical team niche and collect 3 paid-intent confirmations before building.",
+        "Phase 02: Ship a static BYOK frontend with multi-model chat, folders, full-text search and a prompt library, all stored locally.",
+        "Phase 03: Sell lifetime license keys for individuals and per-seat subscriptions for teams with hosted keys and admin controls.",
+        "Phase 04: Win the first 10 team customers with live workflow demos in niche communities; skip paid ads."
+      ]
+    },
+    "metrics": {
+      "clean_model": "Lifetime + Subscription",
+      "cycle_time": "7-14 Days to MVP",
+      "difficulty_stars": 2,
+      "est_monthly_profit": "$1,500 - $5,000 / mo (copycat steady state, vertical team plans)",
+      "initial_cost": "$20-$100",
+      "revenue_model": "Lifetime license $39-$79 + Team $12-$30/seat/mo",
+      "startup_cost": "$20-$100",
+      "tech_barrier": "★★☆☆☆ (2/5)"
+    },
+    "monetization_model": "Lifetime license $39-$79 + Team $12-$30/seat/mo",
+    "summary": "A better AI chat interface where users bring their own API keys and keep data on-device: lifetime license for individuals, per-seat subscription for teams with SSO and shared prompt libraries.",
+    "tags": [
+      "BYOK",
+      "AI Chat Frontend",
+      "Multi-Model",
+      "B2B SaaS",
+      "Solo Founder"
+    ],
+    "title": "BYOK Multi-Model Chat Frontend: Lifetime License Plus Team Subscription",
+    "verdict": "Real pain with near-zero running costs; the original revenue figures are founder-reported only, so copycats must win a vertical niche on team subscriptions rather than chase consumer volume."
+  },
   {
     "id": "ml-20261118-003",
     "slug": "chrome-workspace-plugin-portfolio",

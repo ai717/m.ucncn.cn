@@ -1,9 +1,14 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-19",
-  "total_count": 26,
+  "updated_at": "2026-11-20",
+  "total_count": 31,
   "existing_slugs": [
+    "typingmind-byok-chat-frontend",
+    "reelfarm-tiktok-slideshow-automation",
+    "podsqueeze-podcast-repurposing",
+    "liinks-link-in-bio-saas",
+    "ai-toolbox-cross-platform-chat-organizer",
     "post-bridge-multi-platform-publisher",
     "gettbook-ai-ebook-generator",
     "chrome-workspace-plugin-portfolio",
@@ -55,6 +60,106 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261120-001",
+      "slug": "typingmind-byok-chat-frontend",
+      "title": "TypingMind 式自带 Key 多模型聊天前端：个人买断 + 团队订阅双轨",
+      "category": "出海/独立开发",
+      "tags": [
+        "BYOK",
+        "ChatGPT前端",
+        "多模型",
+        "B2B订阅",
+        "一人公司"
+      ],
+      "score": 78,
+      "rating_tier": "B",
+      "summary": "做一个更好用的 AI 聊天界面：用户自带 OpenAI 等 API Key、数据存本地，个人版一次性买断；再给企业做带登录和权限的团队版按座位订阅。原版创始人自述月入 13-16 万美元（C 级证据，未经第三方核实），复制者应切垂直行业小团队，务实目标月入 1500-5000 美元。",
+      "monetization_model": "个人终身买断 $39~$79 + 团队版 $12~$30/座位/月",
+      "est_monthly_profit": "$1,500 ~ $5,000 / 月（复制者稳态，垂直团队版口径；原版自述数字不作承诺）",
+      "landing_url_zh": "https://m.ucncn.cn/p/typingmind-byok-chat-frontend/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/typingmind-byok-chat-frontend/"
+    },
+    {
+      "id": "ml-20261120-005",
+      "slug": "reelfarm-tiktok-slideshow-automation",
+      "title": "ReelFarm 式 TikTok 轮播自动化：单条成本压到 0.5 美元",
+      "category": "AI应用与服务",
+      "tags": [
+        "TikTok自动化",
+        "AI UGC",
+        "图文轮播",
+        "创作者工具",
+        "订阅制"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "把 TikTok 图文轮播和 AI 钩子视频做成自动流水线：模板生成、多账号排期发布，按量订阅 49/95/195 美元三档；创始人自述峰值月入 4.4 万美元、稳态 3 万美元以上（C 级证据）。复制者绑定单品类模板库，务实目标月入 1500-5000 美元。",
+      "monetization_model": "订阅 $49 / $95 / $195 每月三档",
+      "est_monthly_profit": "$1,500 ~ $5,000 / 月（复制者稳态，单品类口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/reelfarm-tiktok-slideshow-automation/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/reelfarm-tiktok-slideshow-automation/"
+    },
+    {
+      "id": "ml-20261120-003",
+      "slug": "podsqueeze-podcast-repurposing",
+      "title": "Podsqueeze 式播客 AI 再利用：一次上传出全套分发物料",
+      "category": "AI应用与服务",
+      "tags": [
+        "播客工具",
+        "AI再利用",
+        "转写",
+        "订阅制",
+        "创作者经济"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "上传一期播客音频，AI 自动产出文字稿、节目笔记、时间戳、标题、Newsletter 文案、社媒帖子和短视频切片，按音频分钟数订阅收费（Starter 8.99 美元起）。创始人自述月入约 1.6 万欧元、两年持平（C 级证据），复制者须专攻一种节目形态，务实目标月入 1000-3000 美元。",
+      "monetization_model": "按分钟订阅 $9~$259/月",
+      "est_monthly_profit": "$1,000 ~ $3,000 / 月（复制者稳态，单一节目形态口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/podsqueeze-podcast-repurposing/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/podsqueeze-podcast-repurposing/"
+    },
+    {
+      "id": "ml-20261120-002",
+      "slug": "liinks-link-in-bio-saas",
+      "title": "Liinks 式链接聚合页 SaaS：低价切龙头、垂直人群做深",
+      "category": "出海/独立开发",
+      "tags": [
+        "Link in Bio",
+        "创作者工具",
+        "微型SaaS",
+        "订阅制",
+        "SEO获客"
+      ],
+      "score": 68,
+      "rating_tier": "C",
+      "summary": "给创作者做个人主页链接聚合页：Starter 5 美元/月压 Linktree 一头，Pro 12 美元卖自定义域名和多页面管理；TrustMRR 验证 MRR 31654 美元、5534 个订阅、累计收入 180 万美元，单人运营。复制者切垂直人群，务实目标月入 1000-4000 美元。",
+      "monetization_model": "Starter $5/月 + Pro $12/月起",
+      "est_monthly_profit": "$1,000 ~ $4,000 / 月（复制者稳态，垂直人群口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/liinks-link-in-bio-saas/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/liinks-link-in-bio-saas/"
+    },
+    {
+      "id": "ml-20261120-004",
+      "slug": "ai-toolbox-cross-platform-chat-organizer",
+      "title": "AI Toolbox 式跨平台对话整理插件：四家 AI 一次搜全",
+      "category": "出海/独立开发",
+      "tags": [
+        "Chrome扩展",
+        "AI对话整理",
+        "效率工具",
+        "终身制",
+        "本地优先"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "一款 Chrome 扩展给 ChatGPT、Claude、Gemini、Grok 统一加文件夹、跨平台全文搜索、提示词库和导出；TrustMRR 验证近 30 天收入 2.46 万美元、累计约 14 万美元，但 MRR 仅 1214 美元，收入以终身买断为主。复制者务实目标月入 800-3000 美元。",
+      "monetization_model": "单平台 $9.99/月、终身 $99；四平台捆绑终身 $200",
+      "est_monthly_profit": "$800 ~ $3,000 / 月（复制者稳态，终身制为主口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/ai-toolbox-cross-platform-chat-organizer/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/ai-toolbox-cross-platform-chat-organizer/"
+    },
     {
       "id": "ml-20261118-001",
       "slug": "post-bridge-multi-platform-publisher",
