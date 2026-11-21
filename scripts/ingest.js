@@ -94,7 +94,7 @@ let totalAdded = 0;
 let totalUpdated = 0;
 const processedFiles = [];
 
-// 自动分拣与安装 inbox 中的单项目专属 SKILL.md
+// 自动分拣与安装 inbox 中的单项目专属 SKILL.md 与 SKILL-EN.md
 if (mdFilesToProcess.length > 0) {
   console.log(`\n🔍 检测到 ${mdFilesToProcess.length} 个专属技能包 (.md)，正在自动分发安装...`);
   for (const mdPath of mdFilesToProcess) {
@@ -104,15 +104,21 @@ if (mdFilesToProcess.length > 0) {
     if (nameMatch) {
       slug = nameMatch[1].trim();
     } else {
-      const base = path.basename(mdPath, '.md').replace(/-?SKILL$/i, '');
+      const base = path.basename(mdPath, '.md').replace(/-?(?:SKILL|EN|SKILL-EN)$/i, '');
       slug = base;
     }
 
     if (slug) {
       const targetDir = path.resolve(__dirname, `../skills/${slug}`);
       if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-      fs.writeFileSync(path.join(targetDir, 'SKILL.md'), raw, 'utf8');
-      console.log(`  ✓ 专属技能包已自动安装至: skills/${slug}/SKILL.md`);
+      
+      const filename = path.basename(mdPath).toLowerCase();
+      const hasChinese = /[\u4e00-\u9fa5]/.test(raw);
+      const isEnglishSkill = filename.includes('-en') || filename.includes('_en') || !hasChinese;
+      const targetFilename = isEnglishSkill ? 'SKILL-EN.md' : 'SKILL.md';
+
+      fs.writeFileSync(path.join(targetDir, targetFilename), raw, 'utf8');
+      console.log(`  ✓ 专属技能包已自动安装至: skills/${slug}/${targetFilename} (${isEnglishSkill ? '🌐 纯英文版' : '🇨🇳 中文版'})`);
       processedFiles.push(mdPath);
     } else {
       console.warn(`  ⚠️ 无法识别技能文件 [${path.basename(mdPath)}] 的对应项目 Slug，跳过归档。`);

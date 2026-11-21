@@ -4250,12 +4250,12 @@
         const skillBox = document.getElementById('unlocked-skill-box');
         skillBox.textContent = generateSkillMd(p);
 
-        // Auto-upgrade to curated master skill if available
+        // Auto-upgrade to curated master English skill if available (Strictly zero Chinese characters allowed)
         if (p.slug) {
           fetch(`/skills/${p.slug}/SKILL-EN.md`)
-            .then(res => res.ok ? res.text() : fetch(`/skills/${p.slug}/SKILL.md`).then(r => r.ok ? r.text() : null))
+            .then(res => res.ok ? res.text() : null)
             .then(curated => {
-              if (curated && skillBox && activeModalProject && activeModalProject.id === p.id) {
+              if (curated && !/[\u4e00-\u9fa5]/.test(curated) && skillBox && activeModalProject && activeModalProject.id === p.id) {
                 skillBox.textContent = curated;
               }
             })
@@ -4270,21 +4270,29 @@
 
     // Turnkey Universal SKILL.md Generator
     function generateSkillMd(p) {
-      const tools = (p.deep_dive?.tools || []).join(', ');
-      const workflowText = (p.deep_dive?.workflow || []).map((w, i) => `### Phase ${i+1}: ${w}`).join('\n\n');
+      const tools = (p.tools || p.deep_dive?.tools || ['Next.js', 'Tailwind', 'Stripe', 'Supabase']).join(', ');
+      
+      let workflowText = '';
+      if (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0) {
+        workflowText = p.workflow_steps.map((s, i) => `### ${s.phase || 'Phase 0' + (i + 1)}: ${s.title || 'Execution Step'}\n- **Action:** ${s.detail || ''}${s.deliverable ? '\n- **Deliverable:** ' + s.deliverable : ''}`).join('\n\n');
+      } else {
+        workflowText = (p.deep_dive?.workflow || []).map((w, i) => `### Phase 0${i + 1}: ${w}`).join('\n\n');
+      }
+
+      const pitfalls = p.pitfalls_to_avoid || p.deep_dive?.risk_and_pitfalls || 'Verify buyer willingness to pay before writing custom code. Keep marginal costs near zero.';
 
       return `---
 name: "${p.slug}"
 description: "Turnkey execution skill for ${p.title.replace(/"/g, "'")}. Deconstructed by MoneyLab for solo founders."
-version: "1.0.0"
-category: "${p.category}"
+version: "2.0.0"
+category: "${p.category || 'Solo Business'}"
 author: "MoneyLab (m.ucncn.cn/en/)"
 ---
 
 # Solopreneur Execution Skill: ${p.title}
 
 ## 1. Value Proposition & Business Thesis
-- **Audience:** Buyers in ${p.category}
+- **Audience:** Buyers in ${p.category || 'Target Niche'}
 - **Value Metric:** ${p.summary}
 - **Unit Economics:** ${p.metrics?.est_monthly_profit || 'High-margin cash flow'} with ${p.metrics?.revenue_model || 'Subscription / Single Pass'}
 
@@ -4292,23 +4300,24 @@ author: "MoneyLab (m.ucncn.cn/en/)"
 ${workflowText}
 
 ## 3. Minimal Production Stack
-- Stack Components: ${tools || 'Next.js, Tailwind, Supabase, Stripe'}
-- Strategy: Leverage open-source boilerplates and serverless free tiers.
+- Stack Components: ${tools}
+- Strategy: Leverage open-source boilerplates and serverless free tiers to keep fixed overhead near zero.
 
 ## 4. Anti-Pitfall Checklist
-- [ ] Critical: ${p.deep_dive?.risk_and_pitfalls || 'Verify buyer willingness to pay before writing custom code.'}
+- [ ] Critical: ${pitfalls}
 
 ## 5. Ready-to-Run Operational Prompt
 \`\`\`markdown
 You are an autonomous growth engineer specializing in "${p.title}".
-Your mandate is to build, validate, and launch the MVP for this blueprint within 7 days.
+Your mandate is to build, validate, and launch the MVP for this blueprint within 7-14 days.
 Focus strictly on high-converting value proposition, zero-friction checkout, and verified buyer outreach.
 \`\`\``;
     }
 
     function copySkillMd() {
       if (!activeModalProject) return;
-      const text = generateSkillMd(activeModalProject);
+      const skillBox = document.getElementById('unlocked-skill-box');
+      const text = (skillBox && skillBox.textContent.trim()) || generateSkillMd(activeModalProject);
       navigator.clipboard.writeText(text).then(() => {
         showToast('Turnkey SKILL.md copied to clipboard!', '🤖');
       }).catch(() => {

@@ -561,6 +561,169 @@ enProjects.forEach(p => {
   console.log('✓ Generated EN landing page: en/p/' + p.slug + '/index.html');
 });
 
+// ==========================================
+// 2.5 自动合成与保障纯英文专属技能包 (SKILL-EN.md Zero-Chinese Gatekeeper)
+// 确保每个出海项目均拥有 100% 纯英文、零中文字符、可开箱即用的落地 Agent 资产
+// ==========================================
+function generateSkillEnContent(p) {
+  const tools = (p.tools || p.deep_dive?.tools || ['Next.js', 'Tailwind', 'Stripe', 'Supabase']).join(', ');
+  
+  let workflowText = '';
+  if (Array.isArray(p.workflow_steps) && p.workflow_steps.length > 0) {
+    workflowText = p.workflow_steps.map((s, i) => {
+      const phase = s.phase || `Phase 0${i + 1}`;
+      const title = s.title ? ` · ${s.title}` : '';
+      const tag = s.stage_tag ? ` [${s.stage_tag}]` : '';
+      const deliverable = s.deliverable ? `\n- **Deliverable:** ${s.deliverable}` : '';
+      return `### ${phase}${title}${tag}\n- **Action:** ${s.detail || ''}${deliverable}`;
+    }).join('\n\n');
+  } else if (Array.isArray(p.deep_dive?.workflow) && p.deep_dive.workflow.length > 0) {
+    workflowText = p.deep_dive.workflow.map((w, i) => `### Phase 0${i + 1}: Execution Step\n- **Action:** ${w.replace(/^Phase\s*\d+:\s*/i, '')}`).join('\n\n');
+  } else {
+    workflowText = `### Phase 01: Reverse-Engineer Demand\n- **Action:** Validate market friction and search intent.\n\n### Phase 02: Build Minimal Architecture\n- **Action:** Deploy core MVP with zero unnecessary dependencies.`;
+  }
+
+  const painPoint = p.core_thesis?.market_pain || p.deep_dive?.opportunity || p.summary || '';
+  const arbitrage = p.core_thesis?.opportunity_arbitrage || p.verdict || '';
+  const pitfalls = p.pitfalls_to_avoid || p.deep_dive?.risk_and_pitfalls || 'Verify willingness to pay before scaling custom code. Keep marginal costs near zero.';
+  const profitEst = p.metrics?.est_monthly_profit || 'High-margin cash flow';
+  const revModel = p.metrics?.revenue_model || p.monetization_model || 'Subscription / Single Pass';
+  const cycleTime = p.metrics?.cycle_time || '7-14 Days';
+  const tagsList = (p.tags || []).map(t => `"${t}"`).join(', ');
+
+  return `---
+name: "${p.slug}"
+description: "Turnkey commercial execution skill for ${p.title.replace(/"/g, "'")}. Deconstructed by MoneyLab for solo founders."
+version: "2.0.0"
+category: "${p.category || 'Solo Business'}"
+tags: [${tagsList}]
+tools_required: [${tools}]
+author: "MoneyLab (m.ucncn.cn/en/)"
+license: "Commercial Asset - Authorized for MoneyLab Pro Members"
+---
+
+# 🤖 MoneyLab Turnkey Solopreneur Agent: ${p.title}
+
+> **Institutional Rating**: MoneyLab Tier ${p.rating_tier || 'A'} (Score: ${p.score || 80}/100)  
+> **Commercial Thesis**: ${p.summary}  
+> **Estimated Run Rate**: ${profitEst} (${revModel})  
+> **Validation Cycle**: ${cycleTime}  
+> **Official Dossier**: https://m.ucncn.cn/en/p/${p.slug}/
+
+---
+
+## ⚡ Module 1: Diagnostic & Wake-Up Protocol
+
+When the user sends any greeting ("hello", "hi", "start", "run", "begin"), wake up as the dedicated co-founder for **${p.title}** and respond with:
+
+\`\`\`text
+👋 Hello! I am your dedicated solopreneur co-founder for [${p.title}].
+
+I have loaded the complete business blueprint, unit economics model, execution SOP, and compliance guardrails from MoneyLab.
+
+Key Objective: Deploy and validate this blueprint within ${cycleTime}, targeting ${profitEst}.
+
+Choose your starting phase:
+- 🛠️ [Mode A: Fast-Track MVP Architecture]: Minimal stack and scaffold to get to market in 72 hours.
+- 🎯 [Mode B: Core Thesis & Demand Validation]: Target buyer profiles, pain-point friction, and pricing wedges.
+- 📋 [Mode C: 4-Phase Execution SOP]: Step-by-step operational roadmap from zero to first paying customer.
+- 🛡️ [Mode D: Risk & Anti-Pitfall Checklist]: Critical platform compliance, anti-ban measures, and margin preservation.
+
+Reply A, B, C, or D to begin!
+\`\`\`
+
+---
+
+## 🎯 Module 2: Core Value Proposition & Arbitrage Wedge
+
+### Market Friction & User Pain Points
+${painPoint}
+
+### Opportunity & Unfair Arbitrage
+${arbitrage}
+
+### Financial Profile & Unit Economics
+- **Monetization Model**: ${revModel}
+- **Target Monthly Cash Flow**: ${profitEst}
+- **Capital Requirement**: ${p.metrics?.startup_cost || p.metrics?.initial_cost || '$50 - $200'}
+- **Tech Barrier**: ${p.metrics?.tech_barrier || 'Moderate'}
+
+---
+
+## 🚀 Module 3: 4-Phase Turnkey Execution SOP
+
+${workflowText}
+
+---
+
+## 💻 Module 4: Production Stack & Minimal Tooling
+
+- **Core Technologies**: ${tools}
+- **Strategy**: Leverage open-source boilerplates and serverless free tiers to keep fixed costs near zero.
+- **Reference URL**: ${p.source_url || `https://m.ucncn.cn/en/p/${p.slug}/`}
+
+---
+
+## 🛡️ Module 5: Anti-Pitfall Checklist & Compliance Guardrails
+
+- [ ] **Critical Warning**: ${pitfalls}
+- [ ] **Validation Gate**: Secure first commitment or preorder before over-engineering complex backend features.
+- [ ] **Churn Defense**: Keep turnaround time fast and maintain direct founder communication with initial buyers.
+
+---
+
+## 🤖 Module 6: Autonomous Execution Prompt
+
+\`\`\`markdown
+You are an elite solopreneur growth engineer and venture architect specializing in "${p.title}".
+Your mandate: Guide the founder through validating, building, and commercializing this specific business model.
+
+Core Parameters:
+- Blueprint: ${p.title} (${p.slug})
+- Expected Monthly Run Rate: ${profitEst}
+- Pricing Structure: ${revModel}
+- Stack: ${tools}
+
+Ground Truth Caveats:
+${pitfalls}
+
+Always provide concrete, copy-pasteable deliverables (scripts, schemas, landing copy, cold email templates) rather than abstract advice.
+\`\`\`
+`;
+}
+
+let skillEnGeneratedCount = 0;
+let skillEnKeptCount = 0;
+
+enProjects.forEach(p => {
+  const skillDir = path.join(ROOT_DIR, 'skills', p.slug);
+  if (!fs.existsSync(skillDir)) fs.mkdirSync(skillDir, { recursive: true });
+  
+  const skillEnPath = path.join(skillDir, 'SKILL-EN.md');
+  let needsGeneration = true;
+
+  if (fs.existsSync(skillEnPath)) {
+    const existing = fs.readFileSync(skillEnPath, 'utf8');
+    // 如果已有且 100% 无中文字符，则保留人工定制的深度版本
+    if (!/[\u4e00-\u9fa5]/.test(existing) && existing.trim().length > 100) {
+      needsGeneration = false;
+      skillEnKeptCount++;
+    }
+  }
+
+  if (needsGeneration) {
+    const content = generateSkillEnContent(p);
+    if (/[\u4e00-\u9fa5]/.test(content)) {
+      console.error(`\n❌ 【构建阻断】为英文项目 ${p.slug} 合成的 SKILL-EN.md 中检测到残留中文字符！`);
+      process.exit(1);
+    }
+    fs.writeFileSync(skillEnPath, content, 'utf8');
+    skillEnGeneratedCount++;
+    console.log(`✓ Generated 100% pure English skill: skills/${p.slug}/SKILL-EN.md`);
+  }
+});
+console.log(`✓ SKILL-EN.md 纯净度保障通过：全量 ${enProjects.length} 篇覆盖（保持精品定制 ${skillEnKeptCount} 篇，自动补全新合成 ${skillEnGeneratedCount} 篇，0 中文残留）`);
+
 // 3. Generate money/sitemap.xml with all 16 URLs and bidirectional hreflang
 const today = new Date().toISOString().split('T')[0];
 
