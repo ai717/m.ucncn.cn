@@ -1,5 +1,217 @@
 [
   {
+    "id": "ml-20261121-001",
+    "slug": "vendplacer-vending-location-marketplace",
+    "score": 68,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 7,
+      "reliability": 8
+    },
+    "source_url": "https://bizpeel.com/project/vendplacer",
+    "created_at": "2026-11-21",
+    "title": "Vending Location Marketplace: Free Browsing, Paid Owner Contact Access",
+    "category": "Local Lead-Gen & Arbitrage",
+    "tags": [
+      "Vending Machines",
+      "Marketplace",
+      "Lead Generation",
+      "Annual Subscription",
+      "SEO"
+    ],
+    "summary": "A two-sided marketplace where property owners list vending locations for free and operators pay $249/year to unlock unlimited direct owner contact with zero commission; verified at $4,480 MRR, 187 active subscriptions and 22,876 listed locations across 420 cities.",
+    "verdict": "Location hunting is the top bottleneck for vending operators and willingness to pay is proven, but marketplace cold start is hard: copycats must win one city cluster at a time.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "21-35 Days to MVP (supply cold start extra)",
+      "initial_cost": "$100-$400",
+      "startup_cost": "$100-$400",
+      "est_monthly_profit": "$1,500 - $4,000 / mo (copycat steady state, one country or city cluster)",
+      "revenue_model": "Operator annual plan $249/yr for contact access, zero commission",
+      "clean_model": "Annual Subscription"
+    },
+    "monetization_model": "Operator annual plan $249/yr for contact access, zero commission",
+    "deep_dive": {
+      "opportunity": "Independent vending operators struggle most with finding high-traffic placements; brokers charge high fees and cold-calling businesses is slow. Owners of malls, offices and gyms have idle corners worth $48-$150/month in rent but no channel to reach operators. The original lists 22,876 locations across 420 cities. The platform sells contact access for a flat annual fee, never touches rent, and uses programmatic city and venue SEO pages for traffic. Copycats should seed supply in one city cluster first, then sell annual plans to local operator communities; the same playbook extends to EV chargers, ATMs and claw machines.",
+      "workflow": [
+        "Phase 01: Pick one city cluster, define listing fields, and manually recruit 30-50 verified owner listings before selling anything.",
+        "Phase 02: Ship the marketplace MVP with city/venue filters, free owner listings, a contact paywall, and programmatic SEO pages per city and venue type.",
+        "Phase 03: Charge $249/year via Stripe for unlimited direct owner contact; rent is settled directly between parties with zero commission.",
+        "Phase 04: Cold-start in vending operator forums and local business groups, push referrals from placed owners, and only expand after one city reaches 200+ listings and 30+ paying operators."
+      ],
+      "risk_and_pitfalls": "Fake or stale listings destroy paid trust fast: verify listings manually and remove placed spots promptly. Never hold rent or deposits. Protect contact details from scraping with rate limits and staged reveal. Annual-plan renewal in year two is the real test, so prove one city before expanding.",
+      "tools": [
+        "Next.js",
+        "Stripe",
+        "PostgreSQL",
+        "Cloudflare",
+        "Google Search Console"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261121-002",
+    "slug": "monatelier-repair-shop-erp",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 5,
+      "ceiling": 7,
+      "reliability": 8
+    },
+    "source_url": "https://bizpeel.com/project/mon-atelier",
+    "created_at": "2026-11-21",
+    "title": "Repair Shop ERP: Tickets, Quotes, Invoices and Local Compliance in One Tool",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Repair Shop SaaS",
+      "Vertical ERP",
+      "Work Orders",
+      "Local Compliance",
+      "Subscription"
+    ],
+    "summary": "An all-in-one ERP for phone, computer, appliance and bike repair shops: tickets, quotes, invoices, stock, POS, online booking and automatic customer notifications, with French compliance built in (NF525, 2026 e-invoicing, second-hand police ledger, FEC exports); verified around $2,931 MRR across 70 shops from EUR 19/month.",
+    "verdict": "Repair-shop digitization is a real need and built-in compliance is a real moat, but B2B sales cycles are long and compliance must be rebuilt per country; it suits builders willing to sell shop by shop.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "30-45 Days to MVP (sales cold start extra)",
+      "initial_cost": "$100-$500",
+      "startup_cost": "$100-$500",
+      "est_monthly_profit": "$1,500 - $4,000 / mo (copycat steady state, 30-80 shops)",
+      "revenue_model": "Subscription from EUR 19/mo, 14-day free trial",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Subscription from EUR 19/mo, 14-day free trial",
+    "deep_dive": {
+      "opportunity": "Small repair shops still run on paper tickets, spreadsheets and generic invoicing apps: intake, quotes, parts stock, pickup notifications and invoicing live in separate places, causing lost jobs and constant status calls. Generic ERPs are heavy and expensive. The original serves 70 shops at about $2,931 MRR by wiring the full repair flow into one line and baking local rules into the product (NF525, 2026 e-invoicing, police ledger, FEC exports), turning compliance into the reason to buy. Copycats should pick one country and one trade, master its invoicing and ledger rules, and win shops one by one through demos and referrals; once ticket and stock data live in the system, renewal is sticky.",
+      "workflow": [
+        "Phase 01: Pick one country and one trade (e.g. phone repair), shadow 5-10 shops for a day, and map intake, quote approval, parts and invoicing rules into one flow diagram.",
+        "Phase 02: Ship the core four: work orders with status flow, quotes with customer approval links, compliant invoices, and parts stock with auto-deduction, plus pickup SMS notifications.",
+        "Phase 03: Price from EUR 19/month with a 14-day trial; import the shop's customer and parts data during trial so the data itself locks them in; add multi-store tiers later.",
+        "Phase 04: Cold-start offline: in-person demos, parts-wholesaler referrals and trade-group word of mouth; win 20 flagship shops in one city, then expand by referral to 50-80."
+      ],
+      "risk_and_pitfalls": "Compliance is both moat and liability: invoicing, ledgers and tax exports must track current local law, and errors can trigger claims. Customer phone numbers and repair records are sensitive data; back up and isolate per-shop access. Do not launch multi-country or multi-trade; fields and rules differ per trade. Avoid promising done-for-you services beyond the software.",
+      "tools": [
+        "Next.js",
+        "PostgreSQL",
+        "Stripe",
+        "Twilio",
+        "Docker"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261121-003",
+    "slug": "howtoconvert-local-file-converter",
+    "score": 63,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 4,
+      "reliability": 8
+    },
+    "source_url": "https://bizpeel.com/project/how-to-convert",
+    "created_at": "2026-11-21",
+    "title": "Local File Converter: Privacy-First, Named After a Search Query",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Local Tools",
+      "File Conversion",
+      "Privacy First",
+      "One-Time License",
+      "SEO"
+    ],
+    "summary": "A locally-run file converter covering 6,000+ format combinations: files never leave the device, a free in-browser demo funnels users to a $29 one-time offline license (5 devices, lifetime updates); $417 in the last 30 days, about $61K all-time, 124.9K monthly visits and 2,427 offline users.",
+    "verdict": "No-upload privacy is a real wedge and the search-query naming playbook is copyable, but one-time pricing has no recurring revenue and the original is down to $417/month; copycats must narrow to professionals who are banned from uploading files.",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "14-28 Days to MVP",
+      "initial_cost": "$50-$200",
+      "startup_cost": "$50-$200",
+      "est_monthly_profit": "$300 - $1,200 / mo (copycat steady state, one-time license)",
+      "revenue_model": "Free web demo + $29 one-time offline license",
+      "clean_model": "One-Time License"
+    },
+    "monetization_model": "Free web demo + $29 one-time offline license",
+    "deep_dive": {
+      "opportunity": "Millions search how to convert one format to another, but online converters upload files to unknown servers with ads and missing formats, while command-line tools are unusable for most people. Archivists, legal, medical and finance staff are often banned from uploading work files at all; the original's reviews include a digital archivist seeking a workplace license. The product is literally named after the search query, each format pair gets an SEO page (124.9K monthly visits), the free in-browser version funnels users to a $29 offline license, and server costs are zero. Copycats should skip the mass market and serve one no-upload profession with its 20-30 frequent formats, batch mode and audit logs.",
+      "workflow": [
+        "Phase 01: Pick one profession that cannot upload files (archivists, legal assistants, medical imaging techs) and interview users for their frequent format list and compliance rules.",
+        "Phase 02: Package open-source engines (ffmpeg, ImageMagick, LibreOffice) into a local drag-and-drop batch converter; validate with an in-browser version first.",
+        "Phase 03: Sell a $29 one-time personal license (multi-device, lifetime updates) plus per-seat workplace licenses with a compliance one-pager for procurement.",
+        "Phase 04: Build one SEO landing page per format pair, launch on Product Hunt and in archivist/legal communities with the privacy angle, and let the free web version convert."
+      ],
+      "risk_and_pitfalls": "Free mass-market converters are everywhere; a generic clone will drown, so niche down. Check each open-source engine license for commercial distribution. One-time pricing means no recurring revenue: sustain with SEO traffic and workplace seat renewals. Never add silent cloud upload; the privacy promise is the whole brand. Be honest about large-file and exotic-format failure rates.",
+      "tools": [
+        "ffmpeg",
+        "ImageMagick",
+        "LibreOffice",
+        "Tauri",
+        "Stripe"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261121-004",
+    "slug": "nocapmocap-roblox-animation-credits",
+    "score": 60,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 5,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "source_url": "https://bizpeel.com/project/nocapmocap",
+    "created_at": "2026-11-21",
+    "title": "Roblox Animation Generator: Text or Phone Video to R15 Moves, Credit Packs",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": [
+      "Roblox",
+      "AI Animation",
+      "Game Dev Tools",
+      "Credit Packs",
+      "Studio Plugin"
+    ],
+    "summary": "An animation tool for Roblox indie developers and small studios: a plain-English sentence or a phone video (up to 8 people) becomes game-ready R15 character animation in seconds, previewed in a free Studio plugin and sold as prepaid credit packs ($20 for 100 credits, about 1m40s of animation); verified around $2,529 MRR via TrustMRR/Polar with about $20K all-time revenue.",
+    "verdict": "Roblox creators genuinely lack animations and credit-pack cash flow is real, but motion quality and GPU cost are hard gates; it passes on the line and suits builders with 3D or motion expertise.",
+    "metrics": {
+      "difficulty_stars": 4,
+      "tech_barrier": "★★★★☆ (4/5)",
+      "cycle_time": "21-35 Days to MVP (motion tuning extra)",
+      "initial_cost": "$200-$800",
+      "startup_cost": "$200-$800",
+      "est_monthly_profit": "$800 - $2,500 / mo (copycat steady state, credit packs)",
+      "revenue_model": "Prepaid credit packs ($20/100 credits) + monthly plan credits",
+      "clean_model": "Credit Packs"
+    },
+    "monetization_model": "Prepaid credit packs ($20/100 credits) + monthly plan credits",
+    "deep_dive": {
+      "opportunity": "Roblox indie developers need dozens of character animations per game, but hand-animating is slow and specialized, stock packs are expensive and overused (the founder calls it the Mixamo loop), and mocap suits are out of reach. The tool turns a text prompt or a phone video into R15 animation in seconds, previews it inside a free Studio plugin, sells prepaid credits that never expire ($20 for 100 credits), and even lets coding agents generate animations through an API. Copycats can target Unity, Godot or UEFN, or own one Roblox genre such as dance, fighting or parkour moves.",
+      "workflow": [
+        "Phase 01: Pick one engine (Roblox R15, Unity Humanoid or Godot) and one high-frequency move family; collect 50 animations target users actually ship and confirm skeleton and export standards.",
+        "Phase 02: Build the pipeline: text-to-motion via open models or APIs, video via pose estimation plus retargeting; ship web generation with file export first, then an in-editor preview plugin. Quality floor: no foot sliding, no mesh clipping.",
+        "Phase 03: Sell prepaid credit packs (never expire) plus monthly plan credits (expire monthly); quote the credit price before generating, bake GPU cost into pricing, and auto-refund failed generations.",
+        "Phase 04: Cold-start with phone-video-to-character comparison clips on TikTok, YouTube and creator communities; list the free plugin on the official marketplace and watermark free exports for sharing."
+      ],
+      "risk_and_pitfalls": "Motion quality is life or death: foot sliding, clipping and broken skeletons churn users instantly, so test inside real target games. Video mocap raises likeness and choreography rights issues; require users to only upload video they have rights to. GPU cost scales with generations, so price credits with margin and per-user caps. If the platform ships native AI animation, differentiate with vertical move libraries and workflow integration. Never-expiring credits are a liability; reserve compute budget for them.",
+      "tools": [
+        "Python",
+        "MediaPipe",
+        "Blender",
+        "Roblox Studio",
+        "Polar"
+      ]
+    }
+  },
+  {
     "id": "ml-20261120-004",
     "slug": "ai-toolbox-cross-platform-chat-organizer",
     "score": 65,

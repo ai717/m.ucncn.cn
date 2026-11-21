@@ -1,9 +1,13 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-20",
-  "total_count": 31,
+  "updated_at": "2026-11-21",
+  "total_count": 35,
   "existing_slugs": [
+    "nocapmocap-roblox-animation-credits",
+    "howtoconvert-local-file-converter",
+    "monatelier-repair-shop-erp",
+    "vendplacer-vending-location-marketplace",
     "typingmind-byok-chat-frontend",
     "reelfarm-tiktok-slideshow-automation",
     "podsqueeze-podcast-repurposing",
@@ -60,6 +64,86 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261121-004",
+      "slug": "nocapmocap-roblox-animation-credits",
+      "title": "Nocapmocap 式 Roblox 动画生成：文字或手机视频一键出 R15 动作、点数包收费",
+      "category": "AI应用与服务",
+      "tags": [
+        "Roblox",
+        "AI动画",
+        "游戏开发工具",
+        "点数包",
+        "Studio插件"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "给 Roblox 独立开发者用的动画生成工具：一句英文描述或一段手机视频，几秒生成可直接用的 R15 角色动画，免费 Studio 插件在编辑器内预览、点数包按次收费（20 美元 100 点、约 1 分 40 秒动画）。TrustMRR/Polar 验证 MRR 约 2,529 美元（2026-10-25），BizPeel 11 月初数据 MRR 约 2,400 美元、累计约 2 万美元。复制者务实目标月入 800~2,500 美元。",
+      "monetization_model": "点数包预付（$20/100 点）+ 月度计划点数",
+      "est_monthly_profit": "$800 ~ $2,500 / 月（复制者稳态，点数包口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/nocapmocap-roblox-animation-credits/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/nocapmocap-roblox-animation-credits/"
+    },
+    {
+      "id": "ml-20261121-003",
+      "slug": "howtoconvert-local-file-converter",
+      "title": "How to Convert 式本地文件转换器：不上云的隐私卖点 + 搜索词命名吃 SEO",
+      "category": "出海/独立开发",
+      "tags": [
+        "本地工具",
+        "文件转换",
+        "隐私优先",
+        "一次性买断",
+        "SEO获客"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "把 6,000 多种文件格式转换做成本地运行的桌面应用：文件不上传、拖拽即转，免费在线版试用、29 美元一次买断解锁离线版（5 台设备、终身更新）。BizPeel 数据：近 30 天收入 417 美元、累计约 6.1 万美元、月访问约 12.5 万，官网称 2,427 名用户在用离线版。复制者务必收窄人群（档案、法务、医疗等不能上传文件的岗位），务实目标月入 300~1,200 美元。",
+      "monetization_model": "免费在线版 + 离线版 $29 一次买断",
+      "est_monthly_profit": "$300 ~ $1,200 / 月（复制者稳态，一次性买断口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/howtoconvert-local-file-converter/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/howtoconvert-local-file-converter/"
+    },
+    {
+      "id": "ml-20261121-002",
+      "slug": "monatelier-repair-shop-erp",
+      "title": "Mon Atelier 式维修店一体化 ERP：工单报价开票库存一站式、本地合规做护城河",
+      "category": "出海/独立开发",
+      "tags": [
+        "维修店SaaS",
+        "垂直ERP",
+        "工单系统",
+        "本地合规",
+        "订阅制"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "给手机、电脑、家电、自行车维修店用的一体化 ERP：维修工单、报价、发票、库存、POS、在线预约和客户自动通知一站搞定，替代纸质本和表格；法国合规内置（NF525、2026 电子发票、二手货警方台账、FEC 导出）。BizPeel 与 TrustMRR 数据：MRR 约 2,931 美元、近 30 天收入约 3,600 美元、累计约 2.2 万美元、70 家店在用、19 欧元/月起。复制者选一个国家加一个维修品类切入，务实目标月入 1,500~4,000 美元。",
+      "monetization_model": "订阅 19 欧元/月起，14 天免费试用",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，30~80 家店口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/monatelier-repair-shop-erp/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/monatelier-repair-shop-erp/"
+    },
+    {
+      "id": "ml-20261121-001",
+      "slug": "vendplacer-vending-location-marketplace",
+      "title": "VendPlacer 式自动售货机点位撮合市场：免费看点位、年费解锁业主联系方式",
+      "category": "线下数字化线索",
+      "tags": [
+        "自动售货机",
+        "点位撮合",
+        "双边市场",
+        "年费订阅",
+        "SEO获客"
+      ],
+      "score": 68,
+      "rating_tier": "C",
+      "summary": "给自动售货机运营商找点位的双边市场：业主免费挂点位、运营商免费浏览，付 249 美元年费解锁不限次直联业主、平台零抽成，租金 48~150 美元/月双方直结。BizPeel 公开渠道数据：MRR 4,480 美元、187 个活跃订阅、近 30 天收入 1.37 万美元，官网已挂 22,876 个点位、覆盖 420 城。复制者先锁一个国家或城市群冷启供给，务实目标月入 1,500~4,000 美元。",
+      "monetization_model": "运营商年费 $249/年解锁联系方式，零抽成",
+      "est_monthly_profit": "$1,500 ~ $4,000 / 月（复制者稳态，单国/单城市群口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/vendplacer-vending-location-marketplace/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/vendplacer-vending-location-marketplace/"
+    },
     {
       "id": "ml-20261120-001",
       "slug": "typingmind-byok-chat-frontend",
