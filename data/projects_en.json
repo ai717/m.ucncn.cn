@@ -1,5 +1,263 @@
 [
   {
+    "id": "ml-20261122-029",
+    "slug": "bulk-mockup-photoshop-batch",
+    "score": 68,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 7
+    },
+    "source_url": "https://bulkmockup.com/",
+    "created_at": "2026-11-22",
+    "title": "Photoshop Bulk Mockup Plugin: Hundreds of POD Product Shots in Minutes",
+    "category": "Cross-Border & E-Commerce",
+    "tags": [
+      "Photoshop Plugin",
+      "POD",
+      "Etsy Sellers",
+      "Bulk Mockups",
+      "Subscription"
+    ],
+    "summary": "A Photoshop UXP plugin that batch-swaps design files into smart-object mockup templates and exports hundreds of product shots in minutes, priced at $15/month or $77/year for 2 devices with unlimited output. The founder reports about $150K/year and $13K+/month, which is self-reported and not third-party verified.",
+    "verdict": "Real pain with a clear buyer, but revenue is founder-reported only and the tool depends on the Photoshop host plus Q4 seasonality; copycats should lock one POD category with a template library first.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14-21 Days to MVP",
+      "initial_cost": "$50-$200",
+      "startup_cost": "$50-$200",
+      "est_monthly_profit": "$600 - $2,000 / mo (copycat steady state, one POD category)",
+      "revenue_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+    "deep_dive": {
+      "opportunity": "POD, Etsy and Shopify sellers waste hours swapping each new design into T-shirt, mug and poster templates one by one in Photoshop, and Q4 multiplies the workload. A UXP plugin that runs the design-folder by template-PSD matrix automatically, with rule-based naming and batch export, turns hours into minutes at zero server cost. Copycats should bind one category such as pet-portrait tees and ship a template library as the wedge.",
+      "workflow": [
+        "Phase 01: Pick one high-volume seller category, collect its 10 most-used PSD templates and naming rules, and secure 5 paid-intent confirmations.",
+        "Phase 02: Build the UXP core: choose a template PSD and a design folder, replace the named smart object for every design, and batch-export with rule-based filenames.",
+        "Phase 03: Free tier capped at 5 outputs per batch; paid at $15/month or $77/year for 2 devices, license keys via a merchant of record with a 7-day offline grace period.",
+        "Phase 04: Grow with YouTube comparison tutorials targeting bulk mockup search terms, timed ahead of the Q4 peak."
+      ],
+      "risk_and_pitfalls": "Adobe UXP APIs change across Photoshop versions, so regression-test within 48 hours of each host release. Revenue figures are founder-reported and unverified; never market them as guarantees. Expect Q4 seasonality and push annual plans. Never upload seller designs to a server; local processing is the privacy promise.",
+      "tools": [
+        "Photoshop UXP",
+        "JavaScript",
+        "Python + Pillow",
+        "Lemon Squeezy"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261122-031",
+    "slug": "creativeclaw-mcp-media-gateway",
+    "score": 63,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 8,
+      "reliability": 4
+    },
+    "source_url": "https://creativeclaw.co",
+    "created_at": "2026-11-22",
+    "title": "CreativeClaw: MCP Media Gateway for Multi-Model Image and Video Generation",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": [
+      "MCP",
+      "Media Gateway",
+      "Model Aggregation",
+      "Points Billing",
+      "Solo Founder"
+    ],
+    "summary": "A solo-built MCP gateway that aggregates multiple image and video models so creators call them in one place inside Claude and ChatGPT, billed by points ($10 = 1000 points, never expiring), with model routing and brand-parameter injection at the gateway layer.",
+    "verdict": "Verified gross revenue with undisclosed margin and heavy platform-distribution dependence: MRR $14,900 and trailing-30-day revenue $112,268 are gross revenue, not profit; resale model costs are undisclosed, the September 18x jump is unexplained, and the wedge is worth watching rather than copying at scale.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "2-4 weeks (gateway MVP in about 1-2 weeks, plus MCP directory listing and payments)",
+      "initial_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+      "startup_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+      "est_monthly_profit": "Realistic early replicator range: $300-$1,500/mo in gross revenue before upstream model costs; the benchmark trailing-30-day figure of $112,268 is gross revenue, not profit, and must not be treated as replicator profit",
+      "revenue_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+      "clean_model": "Prepaid Points + Team Subscription"
+    },
+    "monetization_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+    "deep_dive": {
+      "opportunity": "The wedge is the gateway layer, not proprietary models: aggregate third-party image and video models through legitimate APIs such as fal.ai into one MCP service, sell one points balance ($10 = 1000 points, never expiring, with 100 free points), and let the gateway handle model routing, per-call point deduction, brand-parameter injection, and failure refunds, with a Team plan from $50/mo. TrustMRR via The AI Receipts on 2026-11-21 verified MRR $14,900, trailing-30-day revenue $112,268, and cumulative revenue of about $291,000 for a one-person company. Three caveats are mandatory: first, revenue is gross revenue, not profit, and resale model costs and margin are undisclosed, so margin is uncertain and replicators must cost each generation before pricing points; second, the roughly 18x September revenue jump is unexplained and must not be assumed replicable; third, acquisition depends heavily on Claude and ChatGPT directory distribution, so a policy or ranking change can cut off demand, which is why reliability scores only 4. A prudent replicator estimate is $300-$1,500/mo in early gross revenue, with profit only after upstream call costs, payment fees, and refunds; never market benchmark gross revenue as replicator profit.",
+      "workflow": [
+        "Phase 01: Lock the customer and cost each generation: serve creators and 2-5 person teams who generate media inside Claude/ChatGPT, verify per-call upstream pricing, failure billing, concurrency, and commercial licenses, and publish a points price table with an explicit uncertain-margin note.",
+        "Phase 02: Build the minimal MCP media gateway: implement a /generate endpoint with points accounts and deduction, a model routing table, brand-parameter injection, an upstream adapter layer, and automatic refunds on failure; prove it with curl self-tests.",
+        "Phase 03: Close the points loop: sell points packs through a legitimate payment provider (benchmark: $10 = 1000 points, never expiring, 100 free points), charge Team monthly, log every deduction, auto-refund failed generations, and reconcile upstream bills against points revenue weekly.",
+        "Phase 04: Cold-start through directories plus direct channels: list in Claude/ChatGPT and MCP directories, recruit 10-50 seed users with real generation examples, and build a direct website and community channel so the business is not single-threaded on directory ranking."
+      ],
+      "risk_and_pitfalls": "Revenue is gross revenue, not profit; resale model costs are undisclosed and margin is uncertain, so never present gross revenue as profit. The September jump is unexplained and must not be promised as replicable. Distribution depends heavily on Claude and ChatGPT directories, so keep a direct-purchase second channel. Use only legitimate APIs such as fal.ai, verify each model's commercial license and content policy, and never resell shared accounts or bypass upstream billing. Never-expiring points create an unfulfilled-service liability; failed generations must refund points with an audit trail.",
+      "tools": [
+        "Python stdlib http.server or FastAPI",
+        "Legitimate model APIs such as fal.ai",
+        "Stripe or LemonSqueezy for points payments",
+        "MCP directories and the Claude/ChatGPT connector ecosystem"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261122-027",
+    "slug": "excel-exercises-interactive-drills",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 5,
+      "ceiling": 6,
+      "reliability": 8
+    },
+    "source_url": "https://excelexercises.com/premium.html",
+    "created_at": "2026-11-22",
+    "title": "Interactive Excel Drill SaaS: Learn-by-Doing Practice",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Excel Practice",
+      "Skill Drills",
+      "Subscription",
+      "SEO"
+    ],
+    "summary": "Practice Excel formulas in the browser with instant grading; Premium $19.99/mo or $199 lifetime. Founder-reported $30K-35K/mo (unaudited). Copycat target $300-$2,500/mo via SEO.",
+    "verdict": "Real demand from job seekers who must pass hands-on Excel tests, but revenue is founder-reported and unaudited, and growth is slow SEO over about a year. Copycat steady state $300-$2,500/mo. Tier C, worth watching.",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "21-42 Days to MVP",
+      "initial_cost": "$20-$150",
+      "startup_cost": "$20-$150",
+      "est_monthly_profit": "$300 - $2,500 / mo (copycat steady state)",
+      "revenue_model": "Premium $19.99/mo, $59.99/yr, $199 lifetime",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Premium $19.99/mo, $59.99/yr, $199 lifetime",
+    "deep_dive": {
+      "opportunity": "Job seekers watch free videos but cannot actually perform spreadsheet tasks; what they lack is hands-on practice with instant feedback. A browser grading engine checks formula results and structure, free drills capture long-tail SEO, and Premium or lifetime plans monetize the full set plus certificates. Copycats can swap in SQL, Sheets, or Python basics with near-zero marginal cost.",
+      "workflow": [
+        "Phase 01: Pick one job-critical skill and list 30 high-frequency drill types with starter data and answer keys.",
+        "Phase 02: Ship a single-file browser grading engine that renders sheets, evaluates formulas, and gives tiered hints.",
+        "Phase 03: Offer 10 free drills, then Premium at $19.99/mo and $199 lifetime via Stripe, with completion certificates.",
+        "Phase 04: Build one indexable page per drill for long-tail SEO and seed free practice posts in job communities."
+      ],
+      "risk_and_pitfalls": "Revenue figures are founder-reported and unaudited; do not market them as verified. SEO is slow, roughly a year to meaningful traffic. Test every answer key and accept equivalent formula forms in grading, or reputation collapses. Never imply official certification.",
+      "tools": [
+        "JavaScript",
+        "HTML5",
+        "Stripe",
+        "SEO"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261122-026",
+    "slug": "leave-me-alone-inbox-unsubscribe-audit",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "source_url": "https://leavemealone.com",
+    "created_at": "2026-11-22",
+    "title": "Inbox Unsubscribe Audit SaaS: Privacy-First Bulk Cleanup",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Inbox Cleanup",
+      "Email SaaS",
+      "Privacy First",
+      "Subscription"
+    ],
+    "summary": "Connect Gmail, list every subscription sender, and unsubscribe or block in bulk; free for 10 unsubscribes, $19 for a 7-day pass, $48+/yr. Original verified at ~$14K/mo via Stripe Live.",
+    "verdict": "A real small business verified via Stripe Live; privacy (never selling data) is the moat. Google security review and OAuth trust are the barrier. Copycat steady state $300-$1,500/mo. Tier C, worth watching.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14-28 Days to MVP",
+      "initial_cost": "$50-$300",
+      "startup_cost": "$50-$300",
+      "est_monthly_profit": "$300 - $1,500 / mo (copycat steady state)",
+      "revenue_model": "7-day pass $19 + annual $48/$72/$59",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "7-day pass $19 + annual $48/$72/$59",
+    "deep_dive": {
+      "opportunity": "Inboxes are buried in subscription mail and manual unsubscribing is slow; the legacy leader monetizes user data, so a privacy-first tool that never sells data wins trust. Read-only Gmail scanning, bulk unsubscribe plus blocking, and a $19 seven-day pass for one-off cleanups form the wedge. Copycats should serve one vertical audience with tailored copy.",
+      "workflow": [
+        "Phase 01: Pick one inbox-heavy audience and write the privacy promise (read-only, no body storage, no data sales) as the hero.",
+        "Phase 02: Ship read-only Gmail scanning that aggregates List-Unsubscribe senders and extracts one-click unsubscribe endpoints.",
+        "Phase 03: Gate with 10 free unsubscribes, then a $19 seven-day pass and $48+/yr annual plans via Stripe.",
+        "Phase 04: Launch with a data-policy comparison page against the legacy leader and one community launch for 30 seed users."
+      ],
+      "risk_and_pitfalls": "OAuth scope is the trust bottleneck: request minimal read-only access and budget time and money for Google security review. Never store message bodies or sell data. Provide manual unsubscribe links as fallback when one-click fails, and avoid false-positive blocks.",
+      "tools": [
+        "Gmail API",
+        "Stripe",
+        "Google OAuth",
+        "Python"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261122-033",
+    "slug": "stencil-ai-tattoo-stencil",
+    "score": 70,
+    "rating_tier": "B",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 8
+    },
+    "source_url": "https://stencilai.app/",
+    "created_at": "2026-11-22",
+    "title": "Tattoo Stencil AI: Photo to Print-Ready Line Art at True Size",
+    "category": "AI Wrappers & B2B Solutions",
+    "tags": [
+      "Tattoo Tools",
+      "AI Line Art",
+      "Vertical SaaS",
+      "Credit Pricing",
+      "Subscription"
+    ],
+    "summary": "A vertical AI tool for working tattoo artists: upload a client photo or reference image and get a clean stencil line drawing exported at true physical size, saving about an hour of hand tracing per job. Pricing runs $14/month for 20 credits, $29/month for 100 credits and $69/month for studios, with a $0.99 five-credit trial pack; TrustMRR verified $48.8K MRR, 1,800 subscriptions and about $493K cumulative revenue.",
+    "verdict": "A sharply defined buyer paying to save an hour per job, with TrustMRR-verified revenue; the incumbent has been flat around $60K-$64K/month since July 2026, so copycats must win on line quality or the sizing workflow. B tier.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14-21 Days to MVP",
+      "initial_cost": "$100-$300",
+      "startup_cost": "$100-$300",
+      "est_monthly_profit": "$1,000 - $3,500 / mo (copycat steady state, one tattoo style)",
+      "revenue_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+    "deep_dive": {
+      "opportunity": "Tattoo artists spend about an hour hand-tracing each client photo into a transferable stencil, and in peak season that hour is a lost booking. Generic image generators produce pretty pictures, not clean, true-size, print-ready line art. A tool that does only photo-to-stencil well, with adjustable line weight and centimeter-accurate PDF export, priced by credits with a $0.99 trial pack, fits the workflow. Copycats should specialize in one style such as realism portraits.",
+      "workflow": [
+        "Phase 01: Interview 10 working tattoo artists and test stencil quality on their real photo samples until at least 8 say the output can go straight to the transfer printer.",
+        "Phase 02: Build the pipeline: grayscale, contrast, edge extraction and binarization, exporting a line-art PNG plus a true-size PDF at 300 dpi with two sliders for line weight and detail.",
+        "Phase 03: Charge by credits: Hobby $14 for 20, Pro $29 for 100, Studio from $69 for multi-seat shops, plus a one-time $0.99 five-credit trial; failed generations refund the credit.",
+        "Phase 04: Launch in tattoo artist communities with before-and-after demos, hand tracing versus one click, and win the first 20 paying artists one by one."
+      ],
+      "risk_and_pitfalls": "Line quality is existential: blurry edges, lost detail or wrong size get rejected instantly, so validate on real samples before launch. Client photos are portraits; state storage and deletion rules clearly and never train on them by default. The incumbent has been flat since July 2026, so growth must come from style depth and studio deals, not category tailwinds.",
+      "tools": [
+        "Python + Pillow",
+        "OpenCV",
+        "Stripe",
+        "Cloudflare R2"
+      ]
+    }
+  },
+  {
     "id": "ml-20261121-001",
     "slug": "vendplacer-vending-location-marketplace",
     "score": 68,

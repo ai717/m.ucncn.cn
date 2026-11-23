@@ -1,5 +1,596 @@
 [
   {
+    "id": "ml-20261122-033",
+    "title": "Stencil AI 式纹身描图工具：照片一键转线稿，按真实尺寸导出",
+    "title_en": "Tattoo Stencil AI: Photo to Print-Ready Line Art at True Size",
+    "slug": "stencil-ai-tattoo-stencil",
+    "category": "AI应用与服务",
+    "tags": [
+      "纹身工具",
+      "AI描图",
+      "垂直SaaS",
+      "按点计费",
+      "订阅制"
+    ],
+    "summary": "给在岗纹身师的垂直 AI 工具：上传客户照片或参考图，自动生成可打印的描图线稿（stencil），按真实尺寸导出，省去手工描图约 1 小时/单。Hobby 14 美元/月 20 点、Pro 29 美元/月 100 点、Studio 69 美元/月起，另有 0.99 美元 5 点体验包；TrustMRR 核实 MRR 4.88 万美元、1800 个订阅、累计约 49.3 万美元。复制者务实目标月入 1000-3500 美元。",
+    "summary_en": "A vertical AI tool for working tattoo artists: upload a photo, get a print-ready stencil line drawing exported at true size, saving about an hour of hand tracing per job; TrustMRR verified $48.8K MRR and 1,800 subscriptions.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "客群极具象、付费理由是省时间多接单，收入经 TrustMRR 核实；但原版月收入自 2026-07 起停滞在 6 万美元上下，复制者须在描图质量或尺寸工作流上做出差异，B 级可做。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 8
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14~21 天出 MVP",
+      "initial_cost": "$100~$300（接口额度 + 存储）",
+      "startup_cost": "$100~$300（接口额度 + 存储）",
+      "est_monthly_profit": "$1,000 ~ $3,500 / 月（复制者稳态，单一纹身风格口径）",
+      "revenue_model": "按点订阅 Hobby $14/月 20 点、Pro $29/月 100 点、Studio $69/月起"
+    },
+    "monetization_model": "按点订阅 Hobby $14/月 20 点、Pro $29/月 100 点、Studio $69/月起",
+    "core_thesis": {
+      "market_pain": "纹身师接单后要把客户照片或参考图手工描成线稿再转印到皮肤上，一单描图约 1 小时；淡季无所谓，旺季排队时这一小时直接等于少接一单。通用 AI 绘图工具出的是好看的图片，不是边缘干净、可转印、尺寸准确的描图线稿，纹身师还得二次加工。",
+      "opportunity_arbitrage": "只做一件事并做到可直接上转印机：照片转线稿、线条粗细可调、按真实厘米尺寸导出 PDF。按点计费对齐生成成本，0.99 美元体验包把首次付费门槛压到最低。复制者不要做通用描图，选一个风格（如写实肖像、传统美式）把线条算法调深，或绑定一个地区的纹身店做 Studio 档团购。与库内企业 AI 封装案例的差异：客群是纹身师这一具体职业，交付物是可打印文件而非对话。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "选风格并验描图质量",
+        "detail": "访谈 10 位在岗纹身师，拿他们真实的照片样本测描图效果：线条是否干净、细节丢多少、尺寸对不对。质量不过关就换风格，直到 8 位以上说能直接上转印机。",
+        "deliverable": "单一风格的描图质量验收标准"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "描图流水线 MVP",
+        "detail": "上传照片后做灰度、对比度、边缘提取、二值化，输出线稿 PNG 与按真实尺寸（厘米、300dpi）的 PDF；线条粗细和细节强度给两个滑杆，其余参数藏起来。",
+        "deliverable": "照片转线稿并按尺寸导出 PDF 的 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "按点订阅与体验包",
+        "detail": "Hobby 14 美元 20 点、Pro 29 美元 100 点、Studio 69 美元起多席位；0.99 美元 5 点体验包只卖一次。点数按生成次数扣，失败自动退点。",
+        "deliverable": "按点计费订阅闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "纹身师社群冷启",
+        "detail": "在纹身师社群和短视频发真实前后对比（手工描图 1 小时 vs 一键 1 分钟，附转印上身效果）；前 20 个付费用户靠一对一带跑，Studio 档按店谈。",
+        "deliverable": "首批 20 个付费纹身师"
+      }
+    ],
+    "pitfalls_to_avoid": "描图质量是生死线：线条糊、细节丢、尺寸偏都会被纹身师一次否决，上线前必须用真实样本验收；客户照片涉及肖像，存储和删除政策要写清、默认不用于训练；原版收入自 2026-07 起停滞，别指望赛道自然增长，靠风格做深和店面团购；点数规则要简单，失败退点写进条款。",
+    "tools": [
+      "Python + Pillow",
+      "OpenCV",
+      "Stripe",
+      "Cloudflare R2"
+    ],
+    "source_url": "https://stencilai.app/",
+    "created_at": "2026-11-22",
+    "prototype": "C",
+    "en": {
+      "title": "Tattoo Stencil AI: Photo to Print-Ready Line Art at True Size",
+      "category": "AI Wrappers & B2B Solutions",
+      "tags": [
+        "Tattoo Tools",
+        "AI Line Art",
+        "Vertical SaaS",
+        "Credit Pricing",
+        "Subscription"
+      ],
+      "summary": "A vertical AI tool for working tattoo artists: upload a client photo or reference image and get a clean stencil line drawing exported at true physical size, saving about an hour of hand tracing per job. Pricing runs $14/month for 20 credits, $29/month for 100 credits and $69/month for studios, with a $0.99 five-credit trial pack; TrustMRR verified $48.8K MRR, 1,800 subscriptions and about $493K cumulative revenue.",
+      "verdict": "A sharply defined buyer paying to save an hour per job, with TrustMRR-verified revenue; the incumbent has been flat around $60K-$64K/month since July 2026, so copycats must win on line quality or the sizing workflow. B tier.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "14-21 Days to MVP",
+        "initial_cost": "$100-$300",
+        "startup_cost": "$100-$300",
+        "est_monthly_profit": "$1,000 - $3,500 / mo (copycat steady state, one tattoo style)",
+        "revenue_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+      "deep_dive": {
+        "opportunity": "Tattoo artists spend about an hour hand-tracing each client photo into a transferable stencil, and in peak season that hour is a lost booking. Generic image generators produce pretty pictures, not clean, true-size, print-ready line art. A tool that does only photo-to-stencil well, with adjustable line weight and centimeter-accurate PDF export, priced by credits with a $0.99 trial pack, fits the workflow. Copycats should specialize in one style such as realism portraits.",
+        "workflow": [
+          "Phase 01: Interview 10 working tattoo artists and test stencil quality on their real photo samples until at least 8 say the output can go straight to the transfer printer.",
+          "Phase 02: Build the pipeline: grayscale, contrast, edge extraction and binarization, exporting a line-art PNG plus a true-size PDF at 300 dpi with two sliders for line weight and detail.",
+          "Phase 03: Charge by credits: Hobby $14 for 20, Pro $29 for 100, Studio from $69 for multi-seat shops, plus a one-time $0.99 five-credit trial; failed generations refund the credit.",
+          "Phase 04: Launch in tattoo artist communities with before-and-after demos, hand tracing versus one click, and win the first 20 paying artists one by one."
+        ],
+        "risk_and_pitfalls": "Line quality is existential: blurry edges, lost detail or wrong size get rejected instantly, so validate on real samples before launch. Client photos are portraits; state storage and deletion rules clearly and never train on them by default. The incumbent has been flat since July 2026, so growth must come from style depth and studio deals, not category tailwinds.",
+        "tools": [
+          "Python + Pillow",
+          "OpenCV",
+          "Stripe",
+          "Cloudflare R2"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261122-026",
+    "title": "Leave Me Alone 式收件箱退订审计 SaaS：隐私优先一键清订阅邮件",
+    "title_en": "Inbox Unsubscribe Audit SaaS: Privacy-First Bulk Cleanup",
+    "slug": "leave-me-alone-inbox-unsubscribe-audit",
+    "category": "出海/独立开发",
+    "tags": [
+      "收件箱清理",
+      "邮箱SaaS",
+      "隐私优先",
+      "订阅制"
+    ],
+    "summary": "连接 Gmail 后批量列出订阅邮件并一键退订/拉黑，免费退订 10 封、7 天通行证 19 美元、年付 48 美元起；原版 Stripe Live 验证约 1.4 万美元/月。复制者打隐私牌切一个垂直人群，务实目标月入 300-1500 美元。",
+    "summary_en": "Connect Gmail, list every subscription sender, and unsubscribe or block in bulk; free for 10 unsubscribes, $19 for a 7-day pass, $48+/yr. Original verified at ~$14K/mo via Stripe Live.",
+    "score": 65,
+    "rating_tier": "C",
+    "prototype": "C",
+    "verdict": "Stripe Live 第三方验证的真实小生意，隐私卖点（不卖数据）是护城河；但 Google 安全审计与邮箱 OAuth 信任门槛不低，复制者务实稳态月入 300-1500 美元，C 级值得观察。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 7,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14~28 天出 MVP",
+      "initial_cost": "$50~$300",
+      "startup_cost": "$50~$300",
+      "est_monthly_profit": "$300 ~ $1,500 / 月（复制者稳态口径）",
+      "revenue_model": "7 天通行证 $19 + 年付 $48/$72/$59"
+    },
+    "monetization_model": "7 天通行证 $19 + 年付 $48/$72/$59",
+    "core_thesis": {
+      "market_pain": "职场人的收件箱被订阅邮件淹没，手动逐封点退订又慢又烦；老牌 Unroll.me 靠卖用户数据赚钱，用户对隐私越来越不放心，宁愿付钱买一个「不卖数据」的干净工具。",
+      "opportunity_arbitrage": "切口是信任而非功能：OAuth 只读扫描订阅发件人、批量退订加一键拉黑，承诺不存储邮件正文、不卖数据，过 Google 安全审计。定价用 7 天通行证 19 美元承接一次性大扫除需求，年付 48 美元起卖持续守护。复制者可选一个垂直人群（如自由职业者、网店卖家）做专属话术，不要做通用版。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定垂直人群与信任话术",
+        "detail": "选一类邮箱最脏的人群（如自由职业者），列出他们最烦的订阅来源；把「不卖数据、只读扫描、随时断开」写成首页第一屏卖点。",
+        "deliverable": "垂直人群与隐私卖点清单"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "订阅扫描与退订提取 MVP",
+        "detail": "用 Gmail API 只读拉取带 List-Unsubscribe 头的邮件，按发件人聚合计数，提取退订链接与一键退订接口；本地处理、不存正文。",
+        "deliverable": "订阅发件人聚合与退订链接提取跑通"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "免费额度与通行证付费墙",
+        "detail": "免费退订 10 封验证价值，之后 7 天通行证 19 美元完成大扫除，年付 48 美元起卖持续拦截；Stripe 收款。",
+        "deliverable": "免费额度 + 通行证付费闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "隐私对比页与社区冷启",
+        "detail": "做「vs Unroll.me 数据政策」对比页承接搜索；Product Hunt 与独立开发者社区发隐私优先故事，收集首批 30 位种子用户反馈。",
+        "deliverable": "对比页流量与种子用户验证"
+      }
+    ],
+    "pitfalls_to_avoid": "邮箱 OAuth 权限是信任命门：只申请最小只读范围，Google 安全审计要预留时间和费用；绝不存储邮件正文、绝不卖数据，隐私承诺写进政策并做到；一键退订失败要有手动链接兜底，别对发件人做误杀拉黑。",
+    "tools": [
+      "Gmail API",
+      "Stripe",
+      "Google OAuth",
+      "Python"
+    ],
+    "source_url": "https://leavemealone.com",
+    "created_at": "2026-11-22",
+    "en": {
+      "title": "Inbox Unsubscribe Audit SaaS: Privacy-First Bulk Cleanup",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "Inbox Cleanup",
+        "Email SaaS",
+        "Privacy First",
+        "Subscription"
+      ],
+      "summary": "Connect Gmail, list every subscription sender, and unsubscribe or block in bulk; free for 10 unsubscribes, $19 for a 7-day pass, $48+/yr. Original verified at ~$14K/mo via Stripe Live.",
+      "verdict": "A real small business verified via Stripe Live; privacy (never selling data) is the moat. Google security review and OAuth trust are the barrier. Copycat steady state $300-$1,500/mo. Tier C, worth watching.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "14-28 Days to MVP",
+        "initial_cost": "$50-$300",
+        "startup_cost": "$50-$300",
+        "est_monthly_profit": "$300 - $1,500 / mo (copycat steady state)",
+        "revenue_model": "7-day pass $19 + annual $48/$72/$59",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "7-day pass $19 + annual $48/$72/$59",
+      "deep_dive": {
+        "opportunity": "Inboxes are buried in subscription mail and manual unsubscribing is slow; the legacy leader monetizes user data, so a privacy-first tool that never sells data wins trust. Read-only Gmail scanning, bulk unsubscribe plus blocking, and a $19 seven-day pass for one-off cleanups form the wedge. Copycats should serve one vertical audience with tailored copy.",
+        "workflow": [
+          "Phase 01: Pick one inbox-heavy audience and write the privacy promise (read-only, no body storage, no data sales) as the hero.",
+          "Phase 02: Ship read-only Gmail scanning that aggregates List-Unsubscribe senders and extracts one-click unsubscribe endpoints.",
+          "Phase 03: Gate with 10 free unsubscribes, then a $19 seven-day pass and $48+/yr annual plans via Stripe.",
+          "Phase 04: Launch with a data-policy comparison page against the legacy leader and one community launch for 30 seed users."
+        ],
+        "risk_and_pitfalls": "OAuth scope is the trust bottleneck: request minimal read-only access and budget time and money for Google security review. Never store message bodies or sell data. Provide manual unsubscribe links as fallback when one-click fails, and avoid false-positive blocks.",
+        "tools": [
+          "Gmail API",
+          "Stripe",
+          "Google OAuth",
+          "Python"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261122-027",
+    "title": "Excel Exercises 式交互练习题库：动手练会才付费的技能订阅站",
+    "title_en": "Interactive Excel Drill SaaS: Learn-by-Doing Practice",
+    "slug": "excel-exercises-interactive-drills",
+    "category": "出海/独立开发",
+    "tags": [
+      "Excel练习",
+      "技能题库",
+      "订阅制",
+      "SEO获客"
+    ],
+    "summary": "在浏览器里动手做 Excel 公式练习并自动判分，免费题练手、Premium 19.99 美元/月或 199 美元终身解锁全套加证书；原版收入为创始人自述 3 万-3.5 万美元/月（未审计）。复制者务实目标月入 300-2500 美元，靠 SEO 慢慢滚雪球。",
+    "summary_en": "Practice Excel formulas in the browser with instant grading; Premium $19.99/mo or $199 lifetime. Founder-reported $30K-35K/mo (unaudited). Copycat target $300-$2,500/mo via SEO.",
+    "score": 65,
+    "rating_tier": "C",
+    "prototype": "G",
+    "verdict": "需求真实（求职与在职都要过 Excel 实操关），但原版收入仅创始人自述未审计，且靠 SEO 慢热、首版约一年；复制者务实稳态月入 300-2500 美元，C 级值得观察。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 5,
+      "ceiling": 6,
+      "reliability": 8
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "21~42 天出 MVP",
+      "initial_cost": "$20~$150",
+      "startup_cost": "$20~$150",
+      "est_monthly_profit": "$300 ~ $2,500 / 月（复制者稳态口径）",
+      "revenue_model": "Premium $19.99/月、$59.99/年、$199 终身"
+    },
+    "monetization_model": "Premium $19.99/月、$59.99/年、$199 终身",
+    "core_thesis": {
+      "market_pain": "求职和在职的人都要过 Excel 实操关，免费视频看懂了却不会动手做；培训班又贵又慢。用户缺的是「做一道题、立刻知道对错」的动手练习，而不是再看一遍教程。",
+      "opportunity_arbitrage": "切口是浏览器端即时判分：题目给半成品表格，用户填公式，引擎比对结果值与公式结构后给提示。免费题承接 SEO 搜索（excel exercises 等长尾词），Premium 19.99 美元/月或 199 美元终身卖全套题库加证书。复制者可换一个技能（如 SQL、Google Sheets、Python 基础）做同款练习站，边际成本极低。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "选技能与题型清单",
+        "detail": "选一个求职刚需技能（如 Excel 公式），列出 30 道高频题型：查找、条件求和、文本处理、日期计算；每题配半成品数据与标准答案。",
+        "deliverable": "30 道高频题型与答案库"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "浏览器端判分练习引擎",
+        "detail": "单文件 HTML/JS 引擎：渲染表格、接收公式、计算结果并与标准值比对，给出对错与分级提示；进度存本地。",
+        "deliverable": "可判分可提示的练习引擎 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "免费题与 Premium 付费墙",
+        "detail": "前 10 题免费承接 SEO，之后 Premium 19.99 美元/月解锁全套；终身 199 美元锁定现金流；完成证书作分享物料。",
+        "deliverable": "免费额度 + 订阅/终身付费闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "长尾 SEO 与社区冷启",
+        "detail": "每道题一个可索引页面承接长尾搜索；Reddit 与求职社区发免费练习帖；SEO 是慢变量，前 3 个月以内容量换流量。",
+        "deliverable": "长尾页面矩阵与首批付费用户"
+      }
+    ],
+    "pitfalls_to_avoid": "原版收入是创始人自述未审计，别当已验证数字宣传；SEO 见效慢，首版到有流量约一年，急功近利会放弃；题目答案必须亲测，判分逻辑要兼容等价公式写法，否则口碑崩；证书别冒充官方认证。",
+    "tools": [
+      "JavaScript",
+      "HTML5",
+      "Stripe",
+      "SEO"
+    ],
+    "source_url": "https://excelexercises.com/premium.html",
+    "created_at": "2026-11-22",
+    "en": {
+      "title": "Interactive Excel Drill SaaS: Learn-by-Doing Practice",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "Excel Practice",
+        "Skill Drills",
+        "Subscription",
+        "SEO"
+      ],
+      "summary": "Practice Excel formulas in the browser with instant grading; Premium $19.99/mo or $199 lifetime. Founder-reported $30K-35K/mo (unaudited). Copycat target $300-$2,500/mo via SEO.",
+      "verdict": "Real demand from job seekers who must pass hands-on Excel tests, but revenue is founder-reported and unaudited, and growth is slow SEO over about a year. Copycat steady state $300-$2,500/mo. Tier C, worth watching.",
+      "metrics": {
+        "difficulty_stars": 2,
+        "tech_barrier": "★★☆☆☆ (2/5)",
+        "cycle_time": "21-42 Days to MVP",
+        "initial_cost": "$20-$150",
+        "startup_cost": "$20-$150",
+        "est_monthly_profit": "$300 - $2,500 / mo (copycat steady state)",
+        "revenue_model": "Premium $19.99/mo, $59.99/yr, $199 lifetime",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Premium $19.99/mo, $59.99/yr, $199 lifetime",
+      "deep_dive": {
+        "opportunity": "Job seekers watch free videos but cannot actually perform spreadsheet tasks; what they lack is hands-on practice with instant feedback. A browser grading engine checks formula results and structure, free drills capture long-tail SEO, and Premium or lifetime plans monetize the full set plus certificates. Copycats can swap in SQL, Sheets, or Python basics with near-zero marginal cost.",
+        "workflow": [
+          "Phase 01: Pick one job-critical skill and list 30 high-frequency drill types with starter data and answer keys.",
+          "Phase 02: Ship a single-file browser grading engine that renders sheets, evaluates formulas, and gives tiered hints.",
+          "Phase 03: Offer 10 free drills, then Premium at $19.99/mo and $199 lifetime via Stripe, with completion certificates.",
+          "Phase 04: Build one indexable page per drill for long-tail SEO and seed free practice posts in job communities."
+        ],
+        "risk_and_pitfalls": "Revenue figures are founder-reported and unaudited; do not market them as verified. SEO is slow, roughly a year to meaningful traffic. Test every answer key and accept equivalent formula forms in grading, or reputation collapses. Never imply official certification.",
+        "tools": [
+          "JavaScript",
+          "HTML5",
+          "Stripe",
+          "SEO"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261122-031",
+    "title": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用",
+    "title_en": "CreativeClaw: MCP Media Gateway for Multi-Model Image and Video Generation",
+    "slug": "creativeclaw-mcp-media-gateway",
+    "category": "AI应用与服务",
+    "tags": [
+      "MCP",
+      "媒体生成网关",
+      "模型聚合",
+      "点数计费",
+      "一人公司"
+    ],
+    "summary": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+    "summary_en": "A solo-built MCP gateway that aggregates multiple image/video models so creators call them in one place inside Claude/ChatGPT, billed by points ($10 = 1000 points, never expiring), with model routing and brand-parameter injection at the gateway layer.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "真实收入可查但毛利不确定、高度依赖平台目录分发：MRR $14,900、近 30 天流水 $112,268 均为流水非利润，转售成本未披露，9 月 18 倍跳涨原因未明，适合观察切口而非照抄体量。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 8,
+      "reliability": 4
+    },
+    "prototype": "C",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "2~4 周（网关 MVP 约 1~2 周，MCP 目录上架与支付另计）",
+      "initial_cost": "$100~$400（域名、服务器、上游 API 预付额度、支付通道）",
+      "startup_cost": "$100~$400（域名、服务器、上游 API 预付额度、支付通道）",
+      "est_monthly_profit": "复制者早期务实区间 $300~$1,500/月流水（毛利须扣除上游模型成本，未披露前不得按利润计）；对标方近 30 天流水 $112,268 为流水非利润，不可直接套用",
+      "revenue_model": "点数预付 $10=1000 点永不过期 + 100 免费点 + 团队版 $50/月起"
+    },
+    "monetization_model": "点数预付 $10=1000 点永不过期 + 100 免费点 + 团队版 $50/月起",
+    "core_thesis": {
+      "market_pain": "在 Claude/ChatGPT 里做图做视频的创作者与小团队，原本要逐个模型站单独订阅、来回切换、分别记账，品牌风格还得每次手动重述一遍；单点订阅叠加后月费高、闲置浪费多，且生成结果散落在各站无法统一管理。现有替代方案要么太贵（每家都订一遍）、要么太重（离开对话界面去各站操作），用户愿意为“一处调用 + 品牌一致性”付费，本质是为省切换时间和省重复订阅费付费。",
+      "opportunity_arbitrage": "切口不在自研模型，而在网关层：把多家模型经 fal.ai 等正规 API 聚合为一个 MCP 服务，用户只充一笔点数（$10=1000 点永不过期、100 免费点试用），网关负责模型路由表、按次扣点、品牌参数注入与失败重试，团队版 $50/月起收协作溢价。TrustMRR 经 The AI Receipts 于 2026-11-21 核实：MRR $14,900、近 30 天收入 $112,268、累计约 $291,000，一人公司运营。必须写清三件事：第一，上述收入为流水非利润，转售第三方模型的成本与毛利未披露，毛利不确定，复制者须先算清单次生成成本再定点数价；第二，9 月收入约 18 倍跳涨原因未说明，不可假设可复制；第三，获客高度依赖 Claude/ChatGPT 目录分发，平台规则或目录排名变化即断流，抗风险稳定性仅 4 分。务实测算：单兵复制者早期更现实的是 $300~$1,500/月流水区间，且须扣除上游调用成本、支付手续费与退款后才是利润，严禁把对标方流水当复制者利润宣传。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁客群与算清单次成本",
+        "detail": "只服务在 Claude/ChatGPT 里高频做图做视频的创作者与 2~5 人小团队；逐项核对上游各模型的单次生成价格、失败是否计费、并发与商用授权，算出每点成本与毛利安全垫，毛利算不清不上线。",
+        "deliverable": "客群一页纸 + 单次生成成本与点数定价表（含毛利不确定声明）"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "搭最小 MCP 媒体网关",
+        "detail": "实现 /generate 端点：点数账户与扣减、模型路由表、品牌参数注入、上游调用适配层与失败退款；上游先接一家正规 API 跑通闭环，再扩模型清单，网关逻辑必须可独立运行自测。",
+        "deliverable": "可运行的网关服务 + curl 自测通过的扣点与路由记录"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "点数支付与对账",
+        "detail": "接入正规支付通道卖点数包（对标 $10=1000 点永不过期、100 免费点），团队版按月收费；每笔扣点留流水、失败自动退点，每周对上游账单与点数收入，毛利为负的模型立即调价或下架。",
+        "deliverable": "点数购买—扣减—退点—对账闭环与周对账表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "目录分发与种子用户",
+        "detail": "申请进入 Claude/ChatGPT 相关目录与 MCP 清单获取分发，同时在创作者社区用真实生成案例冷启 10~50 个种子用户；不把目录当唯一渠道，同步沉淀官网直购与社群，避免单点依赖。",
+        "deliverable": "目录上架记录 + 首批种子用户与首笔点数收入"
+      }
+    ],
+    "pitfalls_to_avoid": "合规与避坑：收入为流水非利润，转售模型成本未披露、毛利不确定，不得用流水冒充利润；9 月跳涨原因未明，不得承诺可复制；高度依赖 Claude/ChatGPT 目录分发，须预留官网直购等第二渠道；只走 fal.ai 等正规 API 并核对各模型商用授权与内容政策，禁止套壳倒卖、共享账号与绕过上游计费；点数永不过期须预提未履约负债，失败生成必须退点并留痕。",
+    "tools": [
+      "Python 标准库 http.server / FastAPI",
+      "fal.ai 等正规模型 API",
+      "Stripe 或 LemonSqueezy 点数支付",
+      "MCP 目录与 Claude/ChatGPT 连接器生态"
+    ],
+    "source_url": "https://creativeclaw.co",
+    "created_at": "2026-11-22",
+    "en": {
+      "title": "CreativeClaw: MCP Media Gateway for Multi-Model Image and Video Generation",
+      "category": "AI Wrappers & B2B Solutions",
+      "tags": [
+        "MCP",
+        "Media Gateway",
+        "Model Aggregation",
+        "Points Billing",
+        "Solo Founder"
+      ],
+      "summary": "A solo-built MCP gateway that aggregates multiple image and video models so creators call them in one place inside Claude and ChatGPT, billed by points ($10 = 1000 points, never expiring), with model routing and brand-parameter injection at the gateway layer.",
+      "verdict": "Verified gross revenue with undisclosed margin and heavy platform-distribution dependence: MRR $14,900 and trailing-30-day revenue $112,268 are gross revenue, not profit; resale model costs are undisclosed, the September 18x jump is unexplained, and the wedge is worth watching rather than copying at scale.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "2-4 weeks (gateway MVP in about 1-2 weeks, plus MCP directory listing and payments)",
+        "initial_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+        "startup_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+        "est_monthly_profit": "Realistic early replicator range: $300-$1,500/mo in gross revenue before upstream model costs; the benchmark trailing-30-day figure of $112,268 is gross revenue, not profit, and must not be treated as replicator profit",
+        "revenue_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+        "clean_model": "Prepaid Points + Team Subscription"
+      },
+      "monetization_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+      "deep_dive": {
+        "opportunity": "The wedge is the gateway layer, not proprietary models: aggregate third-party image and video models through legitimate APIs such as fal.ai into one MCP service, sell one points balance ($10 = 1000 points, never expiring, with 100 free points), and let the gateway handle model routing, per-call point deduction, brand-parameter injection, and failure refunds, with a Team plan from $50/mo. TrustMRR via The AI Receipts on 2026-11-21 verified MRR $14,900, trailing-30-day revenue $112,268, and cumulative revenue of about $291,000 for a one-person company. Three caveats are mandatory: first, revenue is gross revenue, not profit, and resale model costs and margin are undisclosed, so margin is uncertain and replicators must cost each generation before pricing points; second, the roughly 18x September revenue jump is unexplained and must not be assumed replicable; third, acquisition depends heavily on Claude and ChatGPT directory distribution, so a policy or ranking change can cut off demand, which is why reliability scores only 4. A prudent replicator estimate is $300-$1,500/mo in early gross revenue, with profit only after upstream call costs, payment fees, and refunds; never market benchmark gross revenue as replicator profit.",
+        "workflow": [
+          "Phase 01: Lock the customer and cost each generation: serve creators and 2-5 person teams who generate media inside Claude/ChatGPT, verify per-call upstream pricing, failure billing, concurrency, and commercial licenses, and publish a points price table with an explicit uncertain-margin note.",
+          "Phase 02: Build the minimal MCP media gateway: implement a /generate endpoint with points accounts and deduction, a model routing table, brand-parameter injection, an upstream adapter layer, and automatic refunds on failure; prove it with curl self-tests.",
+          "Phase 03: Close the points loop: sell points packs through a legitimate payment provider (benchmark: $10 = 1000 points, never expiring, 100 free points), charge Team monthly, log every deduction, auto-refund failed generations, and reconcile upstream bills against points revenue weekly.",
+          "Phase 04: Cold-start through directories plus direct channels: list in Claude/ChatGPT and MCP directories, recruit 10-50 seed users with real generation examples, and build a direct website and community channel so the business is not single-threaded on directory ranking."
+        ],
+        "risk_and_pitfalls": "Revenue is gross revenue, not profit; resale model costs are undisclosed and margin is uncertain, so never present gross revenue as profit. The September jump is unexplained and must not be promised as replicable. Distribution depends heavily on Claude and ChatGPT directories, so keep a direct-purchase second channel. Use only legitimate APIs such as fal.ai, verify each model's commercial license and content policy, and never resell shared accounts or bypass upstream billing. Never-expiring points create an unfulfilled-service liability; failed generations must refund points with an audit trail.",
+        "tools": [
+          "Python stdlib http.server or FastAPI",
+          "Legitimate model APIs such as fal.ai",
+          "Stripe or LemonSqueezy for points payments",
+          "MCP directories and the Claude/ChatGPT connector ecosystem"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261122-029",
+    "title": "Bulk Mockup 式 Photoshop 批量套图插件：POD 卖家几分钟出几百张",
+    "title_en": "Photoshop Bulk Mockup Plugin: Hundreds of POD Product Shots in Minutes",
+    "slug": "bulk-mockup-photoshop-batch",
+    "category": "跨境与电商",
+    "tags": [
+      "Photoshop插件",
+      "POD",
+      "Etsy卖家",
+      "批量套图",
+      "订阅制"
+    ],
+    "summary": "一款 Photoshop UXP 插件：把设计图批量替换进模板的智能对象，一次导出几百张产品展示图，卖给 POD、Etsy、Shopify 卖家，定价 15 美元/月、77 美元/年、2 台设备不限量。创始人自述年收约 15 万美元、月收 1.3 万美元以上（自述未第三方核实）。复制者务实目标月入 600-2000 美元。",
+    "summary_en": "A Photoshop UXP plugin that batch-swaps designs into smart-object mockup templates for POD, Etsy and Shopify sellers at $15/month or $77/year; founder reports about $150K/year, unverified by third parties.",
+    "score": 68,
+    "rating_tier": "C",
+    "verdict": "痛点真实且客群清晰，但收入数字仅创始人自述未第三方核实，且强依赖 Photoshop 宿主与 Q4 季节性；C 级观察，复制者须先锁定一个 POD 品类模板库再做插件。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14~21 天出 MVP",
+      "initial_cost": "$50~$200（Adobe 开发者账号 + 域名）",
+      "startup_cost": "$50~$200（Adobe 开发者账号 + 域名）",
+      "est_monthly_profit": "$600 ~ $2,000 / 月（复制者稳态，单品类模板口径；原版自述数字不作承诺）",
+      "revenue_model": "订阅 $15/月、$77/年，2 台设备不限量"
+    },
+    "monetization_model": "订阅 $15/月、$77/年，2 台设备不限量",
+    "core_thesis": {
+      "market_pain": "POD、Etsy、Shopify 卖家每上一个新设计，都要把图案逐张套进 T 恤、马克杯、海报等模板图，手工在 Photoshop 里一张张换智能对象、改名、导出，几百张图要耗数小时；Q4 旺季上新量翻倍，套图成了最耗时的机械劳动。现成免费动作（Action）只能单张跑、换模板就要重录，网页面向消费者的套图工具又不支持卖家自己的 PSD 模板。",
+      "opportunity_arbitrage": "把「设计文件夹 × 模板 PSD」做成笛卡尔积批量任务：插件自动遍历智能对象、替换、按规则命名、批量导出，几分钟出几百张。运行在用户本地 Photoshop 里，零服务器成本，敢卖 77 美元/年不限量。复制者不要做通用版，先绑一个品类（如宠物肖像 T 恤、KDP 封面）预装模板库和命名规则，模板即卖点。与库内通用插件案例的差异：宿主是 Photoshop UXP、客群是 POD 卖家，不碰浏览器扩展。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定单品类与模板库",
+        "detail": "选一类高频上新的卖家（如 Etsy 宠物定制 T 恤），收集其最常用的 10 个 PSD 模板与命名习惯，确认他们愿意为省 3 小时/批付 15 美元/月。先收 5 个意向再写代码。",
+        "deliverable": "单品类模板清单 + 5 个付费意向"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "UXP 插件 MVP",
+        "detail": "用 Photoshop UXP API 做核心链路：选模板 PSD、选设计文件夹、指定智能对象层名、批量替换并按规则导出 PNG/JPG。先支持单模板单智能对象，跑通再加多模板队列。",
+        "deliverable": "可批量套图的 UXP 插件 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅与授权",
+        "detail": "免费版每批限 5 张；付费版 15 美元/月、77 美元/年、2 台设备不限量，用 LemonSqueezy/Stripe 收款并发授权码，插件内联网校验、离线宽限 7 天。",
+        "deliverable": "订阅授权闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "YouTube 教程冷启",
+        "detail": "原版靠 YouTube 搜索获客：录「手工 3 小时 vs 插件 3 分钟」对比教程，标题布局 bulk mockup、POD mockup generator 等搜索词；Q4 前 2 个月集中发教程吃旺季。",
+        "deliverable": "教程搜索流量与首批付费卖家"
+      }
+    ],
+    "pitfalls_to_avoid": "Adobe UXP 接口和 Photoshop 版本迭代会改 API，智能对象替换逻辑必须做版本兼容并在新版发布后 48 小时内回归；收入数字为创始人自述未第三方核实，宣传别照搬；Q4 季节性明显，年付要给足折扣锁现金流；别碰卖家设计图的云端存储，本地处理是隐私卖点也是红线。",
+    "tools": [
+      "Photoshop UXP",
+      "JavaScript",
+      "Python + Pillow",
+      "LemonSqueezy"
+    ],
+    "source_url": "https://bulkmockup.com/",
+    "created_at": "2026-11-22",
+    "prototype": "B",
+    "en": {
+      "title": "Photoshop Bulk Mockup Plugin: Hundreds of POD Product Shots in Minutes",
+      "category": "Cross-Border & E-Commerce",
+      "tags": [
+        "Photoshop Plugin",
+        "POD",
+        "Etsy Sellers",
+        "Bulk Mockups",
+        "Subscription"
+      ],
+      "summary": "A Photoshop UXP plugin that batch-swaps design files into smart-object mockup templates and exports hundreds of product shots in minutes, priced at $15/month or $77/year for 2 devices with unlimited output. The founder reports about $150K/year and $13K+/month, which is self-reported and not third-party verified.",
+      "verdict": "Real pain with a clear buyer, but revenue is founder-reported only and the tool depends on the Photoshop host plus Q4 seasonality; copycats should lock one POD category with a template library first.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "14-21 Days to MVP",
+        "initial_cost": "$50-$200",
+        "startup_cost": "$50-$200",
+        "est_monthly_profit": "$600 - $2,000 / mo (copycat steady state, one POD category)",
+        "revenue_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+      "deep_dive": {
+        "opportunity": "POD, Etsy and Shopify sellers waste hours swapping each new design into T-shirt, mug and poster templates one by one in Photoshop, and Q4 multiplies the workload. A UXP plugin that runs the design-folder by template-PSD matrix automatically, with rule-based naming and batch export, turns hours into minutes at zero server cost. Copycats should bind one category such as pet-portrait tees and ship a template library as the wedge.",
+        "workflow": [
+          "Phase 01: Pick one high-volume seller category, collect its 10 most-used PSD templates and naming rules, and secure 5 paid-intent confirmations.",
+          "Phase 02: Build the UXP core: choose a template PSD and a design folder, replace the named smart object for every design, and batch-export with rule-based filenames.",
+          "Phase 03: Free tier capped at 5 outputs per batch; paid at $15/month or $77/year for 2 devices, license keys via a merchant of record with a 7-day offline grace period.",
+          "Phase 04: Grow with YouTube comparison tutorials targeting bulk mockup search terms, timed ahead of the Q4 peak."
+        ],
+        "risk_and_pitfalls": "Adobe UXP APIs change across Photoshop versions, so regression-test within 48 hours of each host release. Revenue figures are founder-reported and unverified; never market them as guarantees. Expect Q4 seasonality and push annual plans. Never upload seller designs to a server; local processing is the privacy promise.",
+        "tools": [
+          "Photoshop UXP",
+          "JavaScript",
+          "Python + Pillow",
+          "Lemon Squeezy"
+        ]
+      }
+    }
+  },
+  {
     "id": "ml-20261121-004",
     "title": "Nocapmocap 式 Roblox 动画生成：文字或手机视频一键出 R15 动作、点数包收费",
     "title_en": "Roblox Animation Generator: Text or Phone Video to R15 Moves, Credit Packs",

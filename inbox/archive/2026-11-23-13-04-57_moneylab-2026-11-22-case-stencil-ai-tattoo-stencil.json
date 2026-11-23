@@ -1,0 +1,121 @@
+[
+  {
+    "id": "ml-20261122-033",
+    "title": "Stencil AI 式纹身描图工具：照片一键转线稿，按真实尺寸导出",
+    "title_en": "Tattoo Stencil AI: Photo to Print-Ready Line Art at True Size",
+    "slug": "stencil-ai-tattoo-stencil",
+    "category": "AI应用与服务",
+    "tags": [
+      "纹身工具",
+      "AI描图",
+      "垂直SaaS",
+      "按点计费",
+      "订阅制"
+    ],
+    "summary": "给在岗纹身师的垂直 AI 工具：上传客户照片或参考图，自动生成可打印的描图线稿（stencil），按真实尺寸导出，省去手工描图约 1 小时/单。Hobby 14 美元/月 20 点、Pro 29 美元/月 100 点、Studio 69 美元/月起，另有 0.99 美元 5 点体验包；TrustMRR 核实 MRR 4.88 万美元、1800 个订阅、累计约 49.3 万美元。复制者务实目标月入 1000-3500 美元。",
+    "summary_en": "A vertical AI tool for working tattoo artists: upload a photo, get a print-ready stencil line drawing exported at true size, saving about an hour of hand tracing per job; TrustMRR verified $48.8K MRR and 1,800 subscriptions.",
+    "score": 70,
+    "rating_tier": "B",
+    "verdict": "客群极具象、付费理由是省时间多接单，收入经 TrustMRR 核实；但原版月收入自 2026-07 起停滞在 6 万美元上下，复制者须在描图质量或尺寸工作流上做出差异，B 级可做。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 7,
+      "reliability": 8
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14~21 天出 MVP",
+      "initial_cost": "$100~$300（接口额度 + 存储）",
+      "startup_cost": "$100~$300（接口额度 + 存储）",
+      "est_monthly_profit": "$1,000 ~ $3,500 / 月（复制者稳态，单一纹身风格口径）",
+      "revenue_model": "按点订阅 Hobby $14/月 20 点、Pro $29/月 100 点、Studio $69/月起"
+    },
+    "monetization_model": "按点订阅 Hobby $14/月 20 点、Pro $29/月 100 点、Studio $69/月起",
+    "core_thesis": {
+      "market_pain": "纹身师接单后要把客户照片或参考图手工描成线稿再转印到皮肤上，一单描图约 1 小时；淡季无所谓，旺季排队时这一小时直接等于少接一单。通用 AI 绘图工具出的是好看的图片，不是边缘干净、可转印、尺寸准确的描图线稿，纹身师还得二次加工。",
+      "opportunity_arbitrage": "只做一件事并做到可直接上转印机：照片转线稿、线条粗细可调、按真实厘米尺寸导出 PDF。按点计费对齐生成成本，0.99 美元体验包把首次付费门槛压到最低。复制者不要做通用描图，选一个风格（如写实肖像、传统美式）把线条算法调深，或绑定一个地区的纹身店做 Studio 档团购。与库内企业 AI 封装案例的差异：客群是纹身师这一具体职业，交付物是可打印文件而非对话。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "选风格并验描图质量",
+        "detail": "访谈 10 位在岗纹身师，拿他们真实的照片样本测描图效果：线条是否干净、细节丢多少、尺寸对不对。质量不过关就换风格，直到 8 位以上说能直接上转印机。",
+        "deliverable": "单一风格的描图质量验收标准"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "描图流水线 MVP",
+        "detail": "上传照片后做灰度、对比度、边缘提取、二值化，输出线稿 PNG 与按真实尺寸（厘米、300dpi）的 PDF；线条粗细和细节强度给两个滑杆，其余参数藏起来。",
+        "deliverable": "照片转线稿并按尺寸导出 PDF 的 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "按点订阅与体验包",
+        "detail": "Hobby 14 美元 20 点、Pro 29 美元 100 点、Studio 69 美元起多席位；0.99 美元 5 点体验包只卖一次。点数按生成次数扣，失败自动退点。",
+        "deliverable": "按点计费订阅闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "纹身师社群冷启",
+        "detail": "在纹身师社群和短视频发真实前后对比（手工描图 1 小时 vs 一键 1 分钟，附转印上身效果）；前 20 个付费用户靠一对一带跑，Studio 档按店谈。",
+        "deliverable": "首批 20 个付费纹身师"
+      }
+    ],
+    "pitfalls_to_avoid": "描图质量是生死线：线条糊、细节丢、尺寸偏都会被纹身师一次否决，上线前必须用真实样本验收；客户照片涉及肖像，存储和删除政策要写清、默认不用于训练；原版收入自 2026-07 起停滞，别指望赛道自然增长，靠风格做深和店面团购；点数规则要简单，失败退点写进条款。",
+    "tools": [
+      "Python + Pillow",
+      "OpenCV",
+      "Stripe",
+      "Cloudflare R2"
+    ],
+    "source_url": "https://stencilai.app/",
+    "created_at": "2026-11-22",
+    "prototype": "C",
+    "en": {
+      "title": "Tattoo Stencil AI: Photo to Print-Ready Line Art at True Size",
+      "category": "AI Wrappers & B2B Solutions",
+      "tags": [
+        "Tattoo Tools",
+        "AI Line Art",
+        "Vertical SaaS",
+        "Credit Pricing",
+        "Subscription"
+      ],
+      "summary": "A vertical AI tool for working tattoo artists: upload a client photo or reference image and get a clean stencil line drawing exported at true physical size, saving about an hour of hand tracing per job. Pricing runs $14/month for 20 credits, $29/month for 100 credits and $69/month for studios, with a $0.99 five-credit trial pack; TrustMRR verified $48.8K MRR, 1,800 subscriptions and about $493K cumulative revenue.",
+      "verdict": "A sharply defined buyer paying to save an hour per job, with TrustMRR-verified revenue; the incumbent has been flat around $60K-$64K/month since July 2026, so copycats must win on line quality or the sizing workflow. B tier.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "14-21 Days to MVP",
+        "initial_cost": "$100-$300",
+        "startup_cost": "$100-$300",
+        "est_monthly_profit": "$1,000 - $3,500 / mo (copycat steady state, one tattoo style)",
+        "revenue_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Credit subscriptions: Hobby $14/mo 20 credits, Pro $29/mo 100 credits, Studio $69/mo+",
+      "deep_dive": {
+        "opportunity": "Tattoo artists spend about an hour hand-tracing each client photo into a transferable stencil, and in peak season that hour is a lost booking. Generic image generators produce pretty pictures, not clean, true-size, print-ready line art. A tool that does only photo-to-stencil well, with adjustable line weight and centimeter-accurate PDF export, priced by credits with a $0.99 trial pack, fits the workflow. Copycats should specialize in one style such as realism portraits.",
+        "workflow": [
+          "Phase 01: Interview 10 working tattoo artists and test stencil quality on their real photo samples until at least 8 say the output can go straight to the transfer printer.",
+          "Phase 02: Build the pipeline: grayscale, contrast, edge extraction and binarization, exporting a line-art PNG plus a true-size PDF at 300 dpi with two sliders for line weight and detail.",
+          "Phase 03: Charge by credits: Hobby $14 for 20, Pro $29 for 100, Studio from $69 for multi-seat shops, plus a one-time $0.99 five-credit trial; failed generations refund the credit.",
+          "Phase 04: Launch in tattoo artist communities with before-and-after demos, hand tracing versus one click, and win the first 20 paying artists one by one."
+        ],
+        "risk_and_pitfalls": "Line quality is existential: blurry edges, lost detail or wrong size get rejected instantly, so validate on real samples before launch. Client photos are portraits; state storage and deletion rules clearly and never train on them by default. The incumbent has been flat since July 2026, so growth must come from style depth and studio deals, not category tailwinds.",
+        "tools": [
+          "Python + Pillow",
+          "OpenCV",
+          "Stripe",
+          "Cloudflare R2"
+        ]
+      }
+    }
+  }
+]

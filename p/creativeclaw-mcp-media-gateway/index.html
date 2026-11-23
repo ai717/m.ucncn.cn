@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ2D2NRYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NWJ2D2NRYK');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用 - 商业模式尽调与落地SOP | 搞钱实验室 MoneyLab</title>
+  <meta name="description" content="搞钱实验室对【CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用】的深度商业模式尽调。预期月利：复制者早期务实区间 $300~$1,500/月流水（毛利须扣除上游模型成本，未披露前不得按利润计）；对标方近 30 天流水 $112,268 为流水非利润，不可直接套用。包含真实商业逻辑、4步落地SOP、避坑防线与开箱即用 AI Prompt / SKILL.md。">
+  <meta name="keywords" content="MCP, 媒体生成网关, 模型聚合, 点数计费, 一人公司, MoneyLab, Solopreneur, Micro-SaaS">
+  <meta name="author" content="MoneyLab Research Team">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/">
+  <link rel="alternate" hreflang="zh-CN" href="https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/">
+  <link rel="alternate" hreflang="en" href="https://m.ucncn.cn/en/p/creativeclaw-mcp-media-gateway/">
+  <link rel="alternate" hreflang="x-default" href="https://m.ucncn.cn/en/p/creativeclaw-mcp-media-gateway/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/">
+  <meta property="og:site_name" content="MoneyLab">
+  <meta property="og:title" content="CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用">
+  <meta property="og:description" content="一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。">
+  <meta property="og:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/">
+  <meta name="twitter:title" content="CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用">
+  <meta name="twitter:description" content="一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。">
+  <meta name="twitter:image" content="https://m.ucncn.cn/moneylab_stripe_cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://m.ucncn.cn/favicon.svg">
+
+  <!-- Tailwind CSS CDN with Custom Theme Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#060709',
+              surface: '#0f1218',
+              surfaceHover: '#161b24',
+              border: '#1c222e',
+              borderHighlight: '#2a3447',
+              textPrimary: '#f1f5f9',
+              textSecondary: '#94a3b8',
+              textMuted: '#64748b',
+              primary: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/#article",
+      "headline": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用",
+      "description": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+      "author": {
+        "@type": "Organization",
+        "name": "MoneyLab Research Team",
+        "url": "https://m.ucncn.cn/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MoneyLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://m.ucncn.cn/favicon.svg"
+        }
+      },
+      "datePublished": "2026-11-22",
+      "dateModified": "2026-10-31",
+      "mainEntityOfPage": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "搞钱实验室总库",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI应用与服务",
+          "item": "https://m.ucncn.cn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用",
+          "item": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/#product",
+      "name": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用 (Turnkey Execution Skill & Blueprint)",
+      "description": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+      "brand": {
+        "@type": "Brand",
+        "name": "MoneyLab"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "29.90",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": 38,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/#howto",
+      "name": "如何落地变现【CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用】的标准SOP路径",
+      "description": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+      "totalTime": "P7D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "阶段 01: 锁客群与算清单次成本",
+          "text": "只服务在 Claude/ChatGPT 里高频做图做视频的创作者与 2~5 人小团队；逐项核对上游各模型的单次生成价格、失败是否计费、并发与商用授权，算出每点成本与毛利安全垫，毛利算不清不上线。 [阶段交付: 客群一页纸 + 单次生成成本与点数定价表（含毛利不确定声明）]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "阶段 02: 搭最小 MCP 媒体网关",
+          "text": "实现 /generate 端点：点数账户与扣减、模型路由表、品牌参数注入、上游调用适配层与失败退款；上游先接一家正规 API 跑通闭环，再扩模型清单，网关逻辑必须可独立运行自测。 [阶段交付: 可运行的网关服务 + curl 自测通过的扣点与路由记录]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "阶段 03: 点数支付与对账",
+          "text": "接入正规支付通道卖点数包（对标 $10=1000 点永不过期、100 免费点），团队版按月收费；每笔扣点留流水、失败自动退点，每周对上游账单与点数收入，毛利为负的模型立即调价或下架。 [阶段交付: 点数购买—扣减—退点—对账闭环与周对账表]"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "阶段 04: 目录分发与种子用户",
+          "text": "申请进入 Claude/ChatGPT 相关目录与 MCP 清单获取分发，同时在创作者社区用真实生成案例冷启 10~50 个种子用户；不把目录当唯一渠道，同步沉淀官网直购与社群，避免单点依赖。 [阶段交付: 目录上架记录 + 首批种子用户与首笔点数收入]"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    body {
+      background-color: #060709;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
+</head>
+<body class="bg-[#060709] text-brand-textPrimary font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#060709]/90 border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo + Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="flex items-center space-x-3">
+        <a href="../../" class="flex items-center space-x-2.5 group cursor-pointer">
+          <div class="relative flex items-center justify-center shrink-0">
+            <img 
+              src="https://m.ucncn.cn/favicon.svg" 
+              alt="MoneyLab" 
+              class="w-8 h-8 rounded-lg shadow-md shadow-emerald-500/20 group-hover:scale-105 group-hover:shadow-emerald-500/35 transition-all duration-300"
+            />
+            <span class="absolute inset-0 rounded-lg bg-emerald-500/20 blur-sm -z-10 group-hover:bg-emerald-500/35 transition-all"></span>
+          </div>
+          <span class="font-extrabold tracking-tight text-white text-base font-mono group-hover:text-emerald-400 transition-colors">MoneyLab</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-[240px] hidden sm:inline">AI应用与服务</span>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="../en/p/creativeclaw-mcp-media-gateway/" 
+          title="Switch to English Edition (EN)" 
+          class="px-2.5 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono font-bold text-brand-textSecondary hover:text-white transition-colors flex items-center space-x-1 shadow-2xs"
+        >
+          <span>🌐 EN</span>
+        </a>
+        <a 
+          href="../../" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-surfaceHover border border-brand-border text-xs font-mono text-slate-300 hover:text-white transition-colors"
+        >
+          <span class="hidden sm:inline">← 返回项目库</span>
+          <span class="sm:hidden">← 返回</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Hero Card -->
+    <article class="rounded-2xl border border-brand-border bg-brand-surface/70 p-6 sm:p-8 space-y-5">
+      
+      <!-- Top Row Badges -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-brand-border text-emerald-400 font-semibold">
+            AI应用与服务
+          </span>
+          <span class="text-slate-500 font-mono">ID: ml-20261122-031</span>
+        </div>
+        <div class="px-3 py-1 rounded-md border text-xs font-bold font-mono tracking-wide bg-indigo-950/40 text-indigo-300 border-indigo-800/50">
+          Tier C · 63 / 100 pts
+        </div>
+      </div>
+
+      <!-- Title H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+        CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用
+      </h1>
+
+      <!-- Executive Summary -->
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。
+      </p>
+
+      <!-- 4 Quantitative Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-brand-border/60">
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">预估月流水</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-emerald-400 tracking-tight">复制者早期务实区间 $300~$1,500/月流水（毛利须扣除上游模型成本，未披露前不得按利润计）；对标方近 30 天流水 $112,268 为流水非利润，不可直接套用</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">验证周期</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-slate-200">2~4 周（网关 MVP 约 1~2 周，MCP 目录上架与支付另计）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">启动资金壁垒</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-teal-400">$100~$400（域名、服务器、上游 API 预付额度、支付通道）</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-brand-border space-y-1">
+          <span class="text-[11px] font-mono text-slate-400">上手复杂度</span>
+          <p class="text-sm sm:text-base font-mono font-bold text-amber-400">★★★☆☆</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Institutional Verdict Callout -->
+    <section class="rounded-xl p-5 border border-emerald-500/30 bg-emerald-500/[0.04] space-y-2">
+      <div class="flex items-center space-x-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+        <span>⚡</span>
+        <span>研究团队尽调核心结论</span>
+      </div>
+      <p class="text-sm text-slate-200 leading-relaxed font-sans font-medium">
+        真实收入可查但毛利不确定、高度依赖平台目录分发：MRR $14,900、近 30 天流水 $112,268 均为流水非利润，转售成本未披露，9 月 18 倍跳涨原因未明，适合观察切口而非照抄体量。
+      </p>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🔍</span>
+        <span>市场痛点剖析与商机本质</span>
+      </h2>
+      <div class="space-y-3"><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-emerald-400 font-mono block mb-1">【真实市场痛点与供需断层】</strong>在 Claude/ChatGPT 里做图做视频的创作者与小团队，原本要逐个模型站单独订阅、来回切换、分别记账，品牌风格还得每次手动重述一遍；单点订阅叠加后月费高、闲置浪费多，且生成结果散落在各站无法统一管理。现有替代方案要么太贵（每家都订一遍）、要么太重（离开对话界面去各站操作），用户愿意为“一处调用 + 品牌一致性”付费，本质是为省切换时间和省重复订阅费付费。</div><div class="p-4 rounded-xl bg-slate-900/60 border border-brand-border/80 text-xs sm:text-sm text-slate-300 leading-relaxed"><strong class="text-teal-400 font-mono block mb-1">【破局机制与商业套利切口】</strong>切口不在自研模型，而在网关层：把多家模型经 fal.ai 等正规 API 聚合为一个 MCP 服务，用户只充一笔点数（$10=1000 点永不过期、100 免费点试用），网关负责模型路由表、按次扣点、品牌参数注入与失败重试，团队版 $50/月起收协作溢价。TrustMRR 经 The AI Receipts 于 2026-11-21 核实：MRR $14,900、近 30 天收入 $112,268、累计约 $291,000，一人公司运营。必须写清三件事：第一，上述收入为流水非利润，转售第三方模型的成本与毛利未披露，毛利不确定，复制者须先算清单次生成成本再定点数价；第二，9 月收入约 18 倍跳涨原因未说明，不可假设可复制；第三，获客高度依赖 Claude/ChatGPT 目录分发，平台规则或目录排名变化即断流，抗风险稳定性仅 4 分。务实测算：单兵复制者早期更现实的是 $300~$1,500/月流水区间，且须扣除上游调用成本、支付手续费与退款后才是利润，严禁把对标方流水当复制者利润宣传。</div></div>
+    </section>
+
+    <!-- 4-Step Execution Workflow (SOP) -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-4">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🛠️</span>
+        <span>4 阶段落地实施 SOP</span>
+      </h2>
+      <div class="space-y-3">
+        
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 01 · 锁客群与算清单次成本</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">逆向洞察</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">只服务在 Claude/ChatGPT 里高频做图做视频的创作者与 2~5 人小团队；逐项核对上游各模型的单次生成价格、失败是否计费、并发与商用授权，算出每点成本与毛利安全垫，毛利算不清不上线。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>客群一页纸 + 单次生成成本与点数定价表（含毛利不确定声明）</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 02 · 搭最小 MCP 媒体网关</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">极速构建</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">实现 /generate 端点：点数账户与扣减、模型路由表、品牌参数注入、上游调用适配层与失败退款；上游先接一家正规 API 跑通闭环，再扩模型清单，网关逻辑必须可独立运行自测。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>可运行的网关服务 + curl 自测通过的扣点与路由记录</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 03 · 点数支付与对账</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">商业闭环</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">接入正规支付通道卖点数包（对标 $10=1000 点永不过期、100 免费点），团队版按月收费；每笔扣点留流水、失败自动退点，每周对上游账单与点数收入，毛利为负的模型立即调价或下架。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>点数购买—扣减—退点—对账闭环与周对账表</span></div>
+        </div>
+      
+        <div class="p-4 rounded-xl bg-slate-950/70 border border-brand-border/80 space-y-1.5">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-200">阶段 04 · 目录分发与种子用户</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">渠道冷启</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">申请进入 Claude/ChatGPT 相关目录与 MCP 清单获取分发，同时在创作者社区用真实生成案例冷启 10~50 个种子用户；不把目录当唯一渠道，同步沉淀官网直购与社群，避免单点依赖。</p>
+          <div class="mt-2 text-xs font-mono text-emerald-300 flex items-center space-x-1.5"><span class="text-slate-500">🏁 阶段交付物:</span><span>目录上架记录 + 首批种子用户与首笔点数收入</span></div>
+        </div>
+      
+      </div>
+    </section>
+
+    <!-- Pitfall Post-Mortem -->
+    <section class="rounded-2xl border border-rose-500/30 bg-rose-500/[0.03] p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-rose-400 flex items-center space-x-2 font-mono">
+        <span>⚠️</span>
+        <span>避坑警戒与防范底线</span>
+      </h2>
+      <p class="text-sm text-rose-200/90 leading-relaxed font-sans">
+        合规与避坑：收入为流水非利润，转售模型成本未披露、毛利不确定，不得用流水冒充利润；9 月跳涨原因未明，不得承诺可复制；高度依赖 Claude/ChatGPT 目录分发，须预留官网直购等第二渠道；只走 fal.ai 等正规 API 并核对各模型商用授权与内容政策，禁止套壳倒卖、共享账号与绕过上游计费；点数永不过期须预提未履约负债，失败生成必须退点并留痕。
+      </p>
+    </section>
+
+    <!-- Weaponry & Tool Stack -->
+    <section class="rounded-2xl border border-brand-border bg-brand-surface/40 p-6 sm:p-7 space-y-3">
+      <h2 class="text-lg font-bold text-white flex items-center space-x-2 font-mono">
+        <span>🧰</span>
+        <span>推荐工程与武器库工具链</span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Python 标准库 http.server / FastAPI
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # fal.ai 等正规模型 API
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # Stripe 或 LemonSqueezy 点数支付
+          </span>
+        
+          <span class="px-3 py-1.5 rounded-lg bg-slate-950 border border-brand-border text-xs font-mono text-emerald-400 font-medium">
+            # MCP 目录与 Claude/ChatGPT 连接器生态
+          </span>
+        
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Box -->
+    <section class="rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-b from-emerald-500/10 via-brand-surface to-brand-surface p-6 sm:p-8 text-center space-y-4 shadow-xl shadow-emerald-500/10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+        <span>⚡</span>
+        <span>Stripe 官方安全收单 · 支付后秒级授权</span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+        立即解锁该项目一手未脱敏源帖线索与开箱即用 AI 技能包
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        包含创始人未经清洗的一手信源讨论贴、完整交付物架构图、实操 Prompt 库以及直接可导入 Cursor 和 Claude Code 的 SKILL.md 技能包。
+      </p>
+      
+      <div class="pt-2">
+        <a 
+          href="../../#creativeclaw-mcp-media-gateway" 
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all cursor-pointer group"
+        >
+          <span>⚡ 前往实验室主站解锁完整项目</span>
+          <span class="font-mono group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
+
+      <!-- Overseas Pricing Benchmark -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-brand-border text-[11px] font-mono text-slate-300">
+        <span class="text-amber-400 font-bold">💡 对标海外商业情报库</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">BizPeel / Exploding Topics 年费 $300~$1,000+</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-emerald-400 font-bold">MoneyLab VIP 仅零头 HK$299 买断全年</span>
+      </div>
+
+      <div class="flex items-center justify-center space-x-4 text-xs font-mono text-slate-400 pt-1">
+        <span>单篇买断：HK$29.90 (约 ¥27.5)</span>
+        <span>·</span>
+        <span>年度 VIP：HK$299 全库畅享</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border bg-[#060709] py-8 text-xs font-mono text-slate-500 text-center">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p>MoneyLab © 2026. All Solopreneur Playbooks Verified & Deconstructed.</p>
+      <div class="space-x-3 text-slate-400">
+        <a href="../../" class="hover:text-emerald-400 transition-colors">项目库</a>
+        <span>·</span>
+        <a href="https://m.ucncn.cn/sitemap.xml" class="hover:text-emerald-400 transition-colors">Sitemap</a>
+        <span>·</span>
+        <a href="https://ucncn.cn" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">UCNCN Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "ml-20261122-029",
+    "title": "Bulk Mockup 式 Photoshop 批量套图插件：POD 卖家几分钟出几百张",
+    "title_en": "Photoshop Bulk Mockup Plugin: Hundreds of POD Product Shots in Minutes",
+    "slug": "bulk-mockup-photoshop-batch",
+    "category": "跨境与电商",
+    "tags": [
+      "Photoshop插件",
+      "POD",
+      "Etsy卖家",
+      "批量套图",
+      "订阅制"
+    ],
+    "summary": "一款 Photoshop UXP 插件：把设计图批量替换进模板的智能对象，一次导出几百张产品展示图，卖给 POD、Etsy、Shopify 卖家，定价 15 美元/月、77 美元/年、2 台设备不限量。创始人自述年收约 15 万美元、月收 1.3 万美元以上（自述未第三方核实）。复制者务实目标月入 600-2000 美元。",
+    "summary_en": "A Photoshop UXP plugin that batch-swaps designs into smart-object mockup templates for POD, Etsy and Shopify sellers at $15/month or $77/year; founder reports about $150K/year, unverified by third parties.",
+    "score": 68,
+    "rating_tier": "C",
+    "verdict": "痛点真实且客群清晰，但收入数字仅创始人自述未第三方核实，且强依赖 Photoshop 宿主与 Q4 季节性；C 级观察，复制者须先锁定一个 POD 品类模板库再做插件。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "14~21 天出 MVP",
+      "initial_cost": "$50~$200（Adobe 开发者账号 + 域名）",
+      "startup_cost": "$50~$200（Adobe 开发者账号 + 域名）",
+      "est_monthly_profit": "$600 ~ $2,000 / 月（复制者稳态，单品类模板口径；原版自述数字不作承诺）",
+      "revenue_model": "订阅 $15/月、$77/年，2 台设备不限量"
+    },
+    "monetization_model": "订阅 $15/月、$77/年，2 台设备不限量",
+    "core_thesis": {
+      "market_pain": "POD、Etsy、Shopify 卖家每上一个新设计，都要把图案逐张套进 T 恤、马克杯、海报等模板图，手工在 Photoshop 里一张张换智能对象、改名、导出，几百张图要耗数小时；Q4 旺季上新量翻倍，套图成了最耗时的机械劳动。现成免费动作（Action）只能单张跑、换模板就要重录，网页面向消费者的套图工具又不支持卖家自己的 PSD 模板。",
+      "opportunity_arbitrage": "把「设计文件夹 × 模板 PSD」做成笛卡尔积批量任务：插件自动遍历智能对象、替换、按规则命名、批量导出，几分钟出几百张。运行在用户本地 Photoshop 里，零服务器成本，敢卖 77 美元/年不限量。复制者不要做通用版，先绑一个品类（如宠物肖像 T 恤、KDP 封面）预装模板库和命名规则，模板即卖点。与库内通用插件案例的差异：宿主是 Photoshop UXP、客群是 POD 卖家，不碰浏览器扩展。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定单品类与模板库",
+        "detail": "选一类高频上新的卖家（如 Etsy 宠物定制 T 恤），收集其最常用的 10 个 PSD 模板与命名习惯，确认他们愿意为省 3 小时/批付 15 美元/月。先收 5 个意向再写代码。",
+        "deliverable": "单品类模板清单 + 5 个付费意向"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "UXP 插件 MVP",
+        "detail": "用 Photoshop UXP API 做核心链路：选模板 PSD、选设计文件夹、指定智能对象层名、批量替换并按规则导出 PNG/JPG。先支持单模板单智能对象，跑通再加多模板队列。",
+        "deliverable": "可批量套图的 UXP 插件 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅与授权",
+        "detail": "免费版每批限 5 张；付费版 15 美元/月、77 美元/年、2 台设备不限量，用 LemonSqueezy/Stripe 收款并发授权码，插件内联网校验、离线宽限 7 天。",
+        "deliverable": "订阅授权闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "YouTube 教程冷启",
+        "detail": "原版靠 YouTube 搜索获客：录「手工 3 小时 vs 插件 3 分钟」对比教程，标题布局 bulk mockup、POD mockup generator 等搜索词；Q4 前 2 个月集中发教程吃旺季。",
+        "deliverable": "教程搜索流量与首批付费卖家"
+      }
+    ],
+    "pitfalls_to_avoid": "Adobe UXP 接口和 Photoshop 版本迭代会改 API，智能对象替换逻辑必须做版本兼容并在新版发布后 48 小时内回归；收入数字为创始人自述未第三方核实，宣传别照搬；Q4 季节性明显，年付要给足折扣锁现金流；别碰卖家设计图的云端存储，本地处理是隐私卖点也是红线。",
+    "tools": [
+      "Photoshop UXP",
+      "JavaScript",
+      "Python + Pillow",
+      "LemonSqueezy"
+    ],
+    "source_url": "https://bulkmockup.com/",
+    "created_at": "2026-11-22",
+    "prototype": "B",
+    "en": {
+      "title": "Photoshop Bulk Mockup Plugin: Hundreds of POD Product Shots in Minutes",
+      "category": "Cross-Border & E-Commerce",
+      "tags": [
+        "Photoshop Plugin",
+        "POD",
+        "Etsy Sellers",
+        "Bulk Mockups",
+        "Subscription"
+      ],
+      "summary": "A Photoshop UXP plugin that batch-swaps design files into smart-object mockup templates and exports hundreds of product shots in minutes, priced at $15/month or $77/year for 2 devices with unlimited output. The founder reports about $150K/year and $13K+/month, which is self-reported and not third-party verified.",
+      "verdict": "Real pain with a clear buyer, but revenue is founder-reported only and the tool depends on the Photoshop host plus Q4 seasonality; copycats should lock one POD category with a template library first.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "14-21 Days to MVP",
+        "initial_cost": "$50-$200",
+        "startup_cost": "$50-$200",
+        "est_monthly_profit": "$600 - $2,000 / mo (copycat steady state, one POD category)",
+        "revenue_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Subscription $15/mo, $77/year, 2 devices, unlimited",
+      "deep_dive": {
+        "opportunity": "POD, Etsy and Shopify sellers waste hours swapping each new design into T-shirt, mug and poster templates one by one in Photoshop, and Q4 multiplies the workload. A UXP plugin that runs the design-folder by template-PSD matrix automatically, with rule-based naming and batch export, turns hours into minutes at zero server cost. Copycats should bind one category such as pet-portrait tees and ship a template library as the wedge.",
+        "workflow": [
+          "Phase 01: Pick one high-volume seller category, collect its 10 most-used PSD templates and naming rules, and secure 5 paid-intent confirmations.",
+          "Phase 02: Build the UXP core: choose a template PSD and a design folder, replace the named smart object for every design, and batch-export with rule-based filenames.",
+          "Phase 03: Free tier capped at 5 outputs per batch; paid at $15/month or $77/year for 2 devices, license keys via a merchant of record with a 7-day offline grace period.",
+          "Phase 04: Grow with YouTube comparison tutorials targeting bulk mockup search terms, timed ahead of the Q4 peak."
+        ],
+        "risk_and_pitfalls": "Adobe UXP APIs change across Photoshop versions, so regression-test within 48 hours of each host release. Revenue figures are founder-reported and unverified; never market them as guarantees. Expect Q4 seasonality and push annual plans. Never upload seller designs to a server; local processing is the privacy promise.",
+        "tools": [
+          "Photoshop UXP",
+          "JavaScript",
+          "Python + Pillow",
+          "Lemon Squeezy"
+        ]
+      }
+    }
+  }
+]

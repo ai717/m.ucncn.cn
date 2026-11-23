@@ -1,0 +1,99 @@
+[
+  {
+    "id": "ml-20261122-031",
+    "title": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用",
+    "title_en": "CreativeClaw: MCP Media Gateway for Multi-Model Image and Video Generation",
+    "slug": "creativeclaw-mcp-media-gateway",
+    "category": "AI应用与服务",
+    "tags": ["MCP", "媒体生成网关", "模型聚合", "点数计费", "一人公司"],
+    "summary": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+    "summary_en": "A solo-built MCP gateway that aggregates multiple image/video models so creators call them in one place inside Claude/ChatGPT, billed by points ($10 = 1000 points, never expiring), with model routing and brand-parameter injection at the gateway layer.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "真实收入可查但毛利不确定、高度依赖平台目录分发：MRR $14,900、近 30 天流水 $112,268 均为流水非利润，转售成本未披露，9 月 18 倍跳涨原因未明，适合观察切口而非照抄体量。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 8,
+      "reliability": 4
+    },
+    "prototype": "C",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "2~4 周（网关 MVP 约 1~2 周，MCP 目录上架与支付另计）",
+      "initial_cost": "$100~$400（域名、服务器、上游 API 预付额度、支付通道）",
+      "startup_cost": "$100~$400（域名、服务器、上游 API 预付额度、支付通道）",
+      "est_monthly_profit": "复制者早期务实区间 $300~$1,500/月流水（毛利须扣除上游模型成本，未披露前不得按利润计）；对标方近 30 天流水 $112,268 为流水非利润，不可直接套用",
+      "revenue_model": "点数预付 $10=1000 点永不过期 + 100 免费点 + 团队版 $50/月起"
+    },
+    "monetization_model": "点数预付 $10=1000 点永不过期 + 100 免费点 + 团队版 $50/月起",
+    "core_thesis": {
+      "market_pain": "在 Claude/ChatGPT 里做图做视频的创作者与小团队，原本要逐个模型站单独订阅、来回切换、分别记账，品牌风格还得每次手动重述一遍；单点订阅叠加后月费高、闲置浪费多，且生成结果散落在各站无法统一管理。现有替代方案要么太贵（每家都订一遍）、要么太重（离开对话界面去各站操作），用户愿意为“一处调用 + 品牌一致性”付费，本质是为省切换时间和省重复订阅费付费。",
+      "opportunity_arbitrage": "切口不在自研模型，而在网关层：把多家模型经 fal.ai 等正规 API 聚合为一个 MCP 服务，用户只充一笔点数（$10=1000 点永不过期、100 免费点试用），网关负责模型路由表、按次扣点、品牌参数注入与失败重试，团队版 $50/月起收协作溢价。TrustMRR 经 The AI Receipts 于 2026-11-21 核实：MRR $14,900、近 30 天收入 $112,268、累计约 $291,000，一人公司运营。必须写清三件事：第一，上述收入为流水非利润，转售第三方模型的成本与毛利未披露，毛利不确定，复制者须先算清单次生成成本再定点数价；第二，9 月收入约 18 倍跳涨原因未说明，不可假设可复制；第三，获客高度依赖 Claude/ChatGPT 目录分发，平台规则或目录排名变化即断流，抗风险稳定性仅 4 分。务实测算：单兵复制者早期更现实的是 $300~$1,500/月流水区间，且须扣除上游调用成本、支付手续费与退款后才是利润，严禁把对标方流水当复制者利润宣传。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁客群与算清单次成本",
+        "detail": "只服务在 Claude/ChatGPT 里高频做图做视频的创作者与 2~5 人小团队；逐项核对上游各模型的单次生成价格、失败是否计费、并发与商用授权，算出每点成本与毛利安全垫，毛利算不清不上线。",
+        "deliverable": "客群一页纸 + 单次生成成本与点数定价表（含毛利不确定声明）"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "搭最小 MCP 媒体网关",
+        "detail": "实现 /generate 端点：点数账户与扣减、模型路由表、品牌参数注入、上游调用适配层与失败退款；上游先接一家正规 API 跑通闭环，再扩模型清单，网关逻辑必须可独立运行自测。",
+        "deliverable": "可运行的网关服务 + curl 自测通过的扣点与路由记录"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "点数支付与对账",
+        "detail": "接入正规支付通道卖点数包（对标 $10=1000 点永不过期、100 免费点），团队版按月收费；每笔扣点留流水、失败自动退点，每周对上游账单与点数收入，毛利为负的模型立即调价或下架。",
+        "deliverable": "点数购买—扣减—退点—对账闭环与周对账表"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "目录分发与种子用户",
+        "detail": "申请进入 Claude/ChatGPT 相关目录与 MCP 清单获取分发，同时在创作者社区用真实生成案例冷启 10~50 个种子用户；不把目录当唯一渠道，同步沉淀官网直购与社群，避免单点依赖。",
+        "deliverable": "目录上架记录 + 首批种子用户与首笔点数收入"
+      }
+    ],
+    "pitfalls_to_avoid": "合规与避坑：收入为流水非利润，转售模型成本未披露、毛利不确定，不得用流水冒充利润；9 月跳涨原因未明，不得承诺可复制；高度依赖 Claude/ChatGPT 目录分发，须预留官网直购等第二渠道；只走 fal.ai 等正规 API 并核对各模型商用授权与内容政策，禁止套壳倒卖、共享账号与绕过上游计费；点数永不过期须预提未履约负债，失败生成必须退点并留痕。",
+    "tools": ["Python 标准库 http.server / FastAPI", "fal.ai 等正规模型 API", "Stripe 或 LemonSqueezy 点数支付", "MCP 目录与 Claude/ChatGPT 连接器生态"],
+    "source_url": "https://creativeclaw.co",
+    "created_at": "2026-11-22",
+    "en": {
+      "title": "CreativeClaw: MCP Media Gateway for Multi-Model Image and Video Generation",
+      "category": "AI Wrappers & B2B Solutions",
+      "tags": ["MCP", "Media Gateway", "Model Aggregation", "Points Billing", "Solo Founder"],
+      "summary": "A solo-built MCP gateway that aggregates multiple image and video models so creators call them in one place inside Claude and ChatGPT, billed by points ($10 = 1000 points, never expiring), with model routing and brand-parameter injection at the gateway layer.",
+      "verdict": "Verified gross revenue with undisclosed margin and heavy platform-distribution dependence: MRR $14,900 and trailing-30-day revenue $112,268 are gross revenue, not profit; resale model costs are undisclosed, the September 18x jump is unexplained, and the wedge is worth watching rather than copying at scale.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "2-4 weeks (gateway MVP in about 1-2 weeks, plus MCP directory listing and payments)",
+        "initial_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+        "startup_cost": "$100-$400 (domain, server, prepaid upstream API credits, payment setup)",
+        "est_monthly_profit": "Realistic early replicator range: $300-$1,500/mo in gross revenue before upstream model costs; the benchmark trailing-30-day figure of $112,268 is gross revenue, not profit, and must not be treated as replicator profit",
+        "revenue_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+        "clean_model": "Prepaid Points + Team Subscription"
+      },
+      "monetization_model": "Prepaid points $10 = 1000 points, never expiring, plus 100 free points; Team plan from $50/mo",
+      "deep_dive": {
+        "opportunity": "The wedge is the gateway layer, not proprietary models: aggregate third-party image and video models through legitimate APIs such as fal.ai into one MCP service, sell one points balance ($10 = 1000 points, never expiring, with 100 free points), and let the gateway handle model routing, per-call point deduction, brand-parameter injection, and failure refunds, with a Team plan from $50/mo. TrustMRR via The AI Receipts on 2026-11-21 verified MRR $14,900, trailing-30-day revenue $112,268, and cumulative revenue of about $291,000 for a one-person company. Three caveats are mandatory: first, revenue is gross revenue, not profit, and resale model costs and margin are undisclosed, so margin is uncertain and replicators must cost each generation before pricing points; second, the roughly 18x September revenue jump is unexplained and must not be assumed replicable; third, acquisition depends heavily on Claude and ChatGPT directory distribution, so a policy or ranking change can cut off demand, which is why reliability scores only 4. A prudent replicator estimate is $300-$1,500/mo in early gross revenue, with profit only after upstream call costs, payment fees, and refunds; never market benchmark gross revenue as replicator profit.",
+        "workflow": [
+          "Phase 01: Lock the customer and cost each generation: serve creators and 2-5 person teams who generate media inside Claude/ChatGPT, verify per-call upstream pricing, failure billing, concurrency, and commercial licenses, and publish a points price table with an explicit uncertain-margin note.",
+          "Phase 02: Build the minimal MCP media gateway: implement a /generate endpoint with points accounts and deduction, a model routing table, brand-parameter injection, an upstream adapter layer, and automatic refunds on failure; prove it with curl self-tests.",
+          "Phase 03: Close the points loop: sell points packs through a legitimate payment provider (benchmark: $10 = 1000 points, never expiring, 100 free points), charge Team monthly, log every deduction, auto-refund failed generations, and reconcile upstream bills against points revenue weekly.",
+          "Phase 04: Cold-start through directories plus direct channels: list in Claude/ChatGPT and MCP directories, recruit 10-50 seed users with real generation examples, and build a direct website and community channel so the business is not single-threaded on directory ranking."
+        ],
+        "risk_and_pitfalls": "Revenue is gross revenue, not profit; resale model costs are undisclosed and margin is uncertain, so never present gross revenue as profit. The September jump is unexplained and must not be promised as replicable. Distribution depends heavily on Claude and ChatGPT directories, so keep a direct-purchase second channel. Use only legitimate APIs such as fal.ai, verify each model's commercial license and content policy, and never resell shared accounts or bypass upstream billing. Never-expiring points create an unfulfilled-service liability; failed generations must refund points with an audit trail.",
+        "tools": ["Python stdlib http.server or FastAPI", "Legitimate model APIs such as fal.ai", "Stripe or LemonSqueezy for points payments", "MCP directories and the Claude/ChatGPT connector ecosystem"]
+      }
+    }
+  }
+]

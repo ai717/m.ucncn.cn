@@ -1,9 +1,14 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-21",
-  "total_count": 35,
+  "updated_at": "2026-11-23",
+  "total_count": 40,
   "existing_slugs": [
+    "stencil-ai-tattoo-stencil",
+    "leave-me-alone-inbox-unsubscribe-audit",
+    "excel-exercises-interactive-drills",
+    "creativeclaw-mcp-media-gateway",
+    "bulk-mockup-photoshop-batch",
     "nocapmocap-roblox-animation-credits",
     "howtoconvert-local-file-converter",
     "monatelier-repair-shop-erp",
@@ -64,6 +69,104 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261122-033",
+      "slug": "stencil-ai-tattoo-stencil",
+      "title": "Stencil AI 式纹身描图工具：照片一键转线稿，按真实尺寸导出",
+      "category": "AI应用与服务",
+      "tags": [
+        "纹身工具",
+        "AI描图",
+        "垂直SaaS",
+        "按点计费",
+        "订阅制"
+      ],
+      "score": 70,
+      "rating_tier": "B",
+      "summary": "给在岗纹身师的垂直 AI 工具：上传客户照片或参考图，自动生成可打印的描图线稿（stencil），按真实尺寸导出，省去手工描图约 1 小时/单。Hobby 14 美元/月 20 点、Pro 29 美元/月 100 点、Studio 69 美元/月起，另有 0.99 美元 5 点体验包；TrustMRR 核实 MRR 4.88 万美元、1800 个订阅、累计约 49.3 万美元。复制者务实目标月入 1000-3500 美元。",
+      "monetization_model": "按点订阅 Hobby $14/月 20 点、Pro $29/月 100 点、Studio $69/月起",
+      "est_monthly_profit": "$1,000 ~ $3,500 / 月（复制者稳态，单一纹身风格口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/stencil-ai-tattoo-stencil/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/stencil-ai-tattoo-stencil/"
+    },
+    {
+      "id": "ml-20261122-026",
+      "slug": "leave-me-alone-inbox-unsubscribe-audit",
+      "title": "Leave Me Alone 式收件箱退订审计 SaaS：隐私优先一键清订阅邮件",
+      "category": "出海/独立开发",
+      "tags": [
+        "收件箱清理",
+        "邮箱SaaS",
+        "隐私优先",
+        "订阅制"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "连接 Gmail 后批量列出订阅邮件并一键退订/拉黑，免费退订 10 封、7 天通行证 19 美元、年付 48 美元起；原版 Stripe Live 验证约 1.4 万美元/月。复制者打隐私牌切一个垂直人群，务实目标月入 300-1500 美元。",
+      "monetization_model": "7 天通行证 $19 + 年付 $48/$72/$59",
+      "est_monthly_profit": "$300 ~ $1,500 / 月（复制者稳态口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/leave-me-alone-inbox-unsubscribe-audit/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/leave-me-alone-inbox-unsubscribe-audit/"
+    },
+    {
+      "id": "ml-20261122-027",
+      "slug": "excel-exercises-interactive-drills",
+      "title": "Excel Exercises 式交互练习题库：动手练会才付费的技能订阅站",
+      "category": "出海/独立开发",
+      "tags": [
+        "Excel练习",
+        "技能题库",
+        "订阅制",
+        "SEO获客"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "在浏览器里动手做 Excel 公式练习并自动判分，免费题练手、Premium 19.99 美元/月或 199 美元终身解锁全套加证书；原版收入为创始人自述 3 万-3.5 万美元/月（未审计）。复制者务实目标月入 300-2500 美元，靠 SEO 慢慢滚雪球。",
+      "monetization_model": "Premium $19.99/月、$59.99/年、$199 终身",
+      "est_monthly_profit": "$300 ~ $2,500 / 月（复制者稳态口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/excel-exercises-interactive-drills/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/excel-exercises-interactive-drills/"
+    },
+    {
+      "id": "ml-20261122-031",
+      "slug": "creativeclaw-mcp-media-gateway",
+      "title": "CreativeClaw：MCP 媒体网关，把多家生图/生视频模型收进 Claude 与 ChatGPT 一处调用",
+      "category": "AI应用与服务",
+      "tags": [
+        "MCP",
+        "媒体生成网关",
+        "模型聚合",
+        "点数计费",
+        "一人公司"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "一人公司把 fal.ai 等多家生图/生视频模型聚合为 MCP 服务，用户在 Claude/ChatGPT 里一处调用、按点数付费（$10=1000 点永不过期），网关层做模型路由与品牌参数注入。",
+      "monetization_model": "点数预付 $10=1000 点永不过期 + 100 免费点 + 团队版 $50/月起",
+      "est_monthly_profit": "复制者早期务实区间 $300~$1,500/月流水（毛利须扣除上游模型成本，未披露前不得按利润计）；对标方近 30 天流水 $112,268 为流水非利润，不可直接套用",
+      "landing_url_zh": "https://m.ucncn.cn/p/creativeclaw-mcp-media-gateway/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/creativeclaw-mcp-media-gateway/"
+    },
+    {
+      "id": "ml-20261122-029",
+      "slug": "bulk-mockup-photoshop-batch",
+      "title": "Bulk Mockup 式 Photoshop 批量套图插件：POD 卖家几分钟出几百张",
+      "category": "跨境与电商",
+      "tags": [
+        "Photoshop插件",
+        "POD",
+        "Etsy卖家",
+        "批量套图",
+        "订阅制"
+      ],
+      "score": 68,
+      "rating_tier": "C",
+      "summary": "一款 Photoshop UXP 插件：把设计图批量替换进模板的智能对象，一次导出几百张产品展示图，卖给 POD、Etsy、Shopify 卖家，定价 15 美元/月、77 美元/年、2 台设备不限量。创始人自述年收约 15 万美元、月收 1.3 万美元以上（自述未第三方核实）。复制者务实目标月入 600-2000 美元。",
+      "monetization_model": "订阅 $15/月、$77/年，2 台设备不限量",
+      "est_monthly_profit": "$600 ~ $2,000 / 月（复制者稳态，单品类模板口径；原版自述数字不作承诺）",
+      "landing_url_zh": "https://m.ucncn.cn/p/bulk-mockup-photoshop-batch/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/bulk-mockup-photoshop-batch/"
+    },
     {
       "id": "ml-20261121-004",
       "slug": "nocapmocap-roblox-animation-credits",
