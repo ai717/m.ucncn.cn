@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ml-20261125-042",
+    "title": "Etsy 网站模板与预设包数字下载店：给小商家卖现成建站主题，60-160 美元一单",
+    "title_en": "Etsy Website Template and Preset Shop: Ready-Made Themes for Small Shops at $60-$160",
+    "slug": "etsy-website-templates-presets-shop",
+    "category": "跨境与电商",
+    "tags": [
+      "Etsy数字下载",
+      "网站模板",
+      "Shopify主题",
+      "Lightroom预设",
+      "小商家建站"
+    ],
+    "summary": "在 Etsy 向时尚、美妆、健康类小商家卖 Shopify/Wix/Squarespace 网站模板（60-160 美元）与 Lightroom 预设包（14 美元），数字下载无库存无发货。对标店 2022 年开店，89 个模板、5,815 个订单、累计收入约 29.7 万美元，近 12 个月约 2.08 万美元；销量下滑主因是 2026 年只上 3 个新品。复制者新店冷启动务实目标月入 500-1,500 美元。",
+    "summary_en": "Sell Shopify, Wix and Squarespace website templates ($60-$160) and Lightroom preset packs ($14) on Etsy to small fashion, beauty and wellness shops as instant downloads; the benchmark shop logged 5,815 orders and about $297K lifetime revenue since 2022.",
+    "score": 60,
+    "rating_tier": "C",
+    "verdict": "客群与付费理由都具体、收入有挂牌数据支撑，但对标店连年下滑且店铺账号不可转让，复制者必须从新店冷启动并靠持续上新续命，C 级值得观察、先小批量验证再扩目录。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "21~35 天做出首批 5~8 个模板上架",
+      "initial_cost": "$50~$200（Etsy 上架费 + 域名 + 设计工具订阅）",
+      "startup_cost": "$50~$200（Etsy 上架费 + 域名 + 设计工具订阅）",
+      "est_monthly_profit": "$500 ~ $1,500 / 月（复制者稳态，新店冷启动口径；对标店近 12 个月约 $20,800 为成熟店流水，不作承诺）",
+      "revenue_model": "一次性买断：网站模板 $60~$160/个、Lightroom 预设包 $14/个，Etsy 数字下载自动交付"
+    },
+    "monetization_model": "一次性买断：网站模板 $60~$160/个、Lightroom 预设包 $14/个，Etsy 数字下载自动交付",
+    "core_thesis": {
+      "market_pain": "时尚、美妆、健康类小商家想上线自己的网店，却卡在设计与技术门槛：请设计师做站要数百到数千美元，ThemeForest 等大市场模板偏通用、改起来费劲，自己用 Shopify 默认主题又显得廉价。卖家要的不是代码，而是一个看起来像同行头部店铺、装上就能改图改字上架卖货的现成主题，附带安装说明。",
+      "opportunity_arbitrage": "按垂直品类做模板而不是做万能主题：一个品类一个视觉语言（如美妆护肤、婚礼策划、瑜伽工作室），在 Etsy 用品类长尾词吃搜索流量，60-160 美元的客单价远高于普通数字下载，靠目录量与长尾词滚雪球。边际成本为零、交付全自动、日常维护每天几分钟；再把同一品类的 Lightroom 预设包与社媒模板做成低价加购，提高单均。对标店的教训同样值钱：2026 年只上 3 个新品后收入从 2022 年的 6.26 万英镑跌到 2026 年前十个月的 1.24 万英镑，持续上新是这门生意的命门。与库内 etsy-notion-template-digital-downloads 的差异：本案卖的是给小商家建站的网站主题与摄影预设，客群是开网店的商家，交付物是可安装的主题包与安装指南，不是 Notion 生产力系统。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定一个商家品类与长尾词",
+        "detail": "选一个视觉风格强、商家数量多的小品类（如美妆护肤、婚礼、瑜伽），在 Etsy 搜该品类网站模板，看头部店铺的定价、评价里买家夸什么骂什么、哪些长尾词有搜索没好货。先定 5 个模板选题再动手。",
+        "deliverable": "单品类 5 个模板选题 + 长尾词清单"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "做出首批模板与安装包",
+        "detail": "用 Figma 出视觉稿，Shopify 主题按 Online Store 2.0 规范（Liquid/HTML/CSS/JS）落地，Wix/Squarespace 做可复制模板；每个模板配安装指南、预览图与演示视频。首批 5~8 个就上架，不等攒满目录。",
+        "deliverable": "5~8 个可安装模板 + 安装指南 + 预览素材"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "Etsy 上架与定价",
+        "detail": "网站模板定价 60~160 美元、预设包 14 美元做加购；标题与 13 个标签按品类长尾词写满，数字下载自动交付。用随附的上架检查脚本先验标题、标签与到手价再发布。",
+        "deliverable": "Etsy 店铺上架完成、自动交付跑通"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "持续上新与多渠道分发",
+        "detail": "每月至少上 2~3 个新模板或变体，这是对标店下滑的直接教训；同步把目录挂到自有网站、Pinterest 与 Creative Market 等模板市场，评价攒起来后搜索排名才稳。",
+        "deliverable": "月度上新节奏 + 至少两个分发渠道"
+      }
+    ],
+    "pitfalls_to_avoid": "Etsy 店铺账号、评价与搜索排名不可转让，新店冷启动前几个月收入可能接近零，先小批量验证再扩目录；模板必须跟随 Shopify 等平台规范更新，老主题会被下架或差评；只用自有或可商用素材，图片与字体侵权是数字下载店最常见的封店原因；对标店收入连年下滑是真实信号，别拿累计 29.7 万美元当复制者的预期，务实目标按新店口径 500~1,500 美元/月。",
+    "tools": [
+      "Figma",
+      "Shopify Liquid",
+      "Etsy",
+      "Lightroom",
+      "Python"
+    ],
+    "source_url": "https://www.microns.io/startup-listings/digital-template-etsy-business",
+    "created_at": "2026-11-25",
+    "prototype": "D",
+    "en": {
+      "title": "Etsy Website Template and Preset Shop: Ready-Made Themes for Small Shops at $60-$160",
+      "category": "Cross-Border & E-Commerce",
+      "tags": [
+        "Etsy Digital Downloads",
+        "Website Templates",
+        "Shopify Themes",
+        "Lightroom Presets",
+        "Small Business Websites"
+      ],
+      "summary": "Sell Shopify, Wix and Squarespace website templates ($60-$160) and Lightroom preset packs ($14) on Etsy to small fashion, beauty and wellness shops as instant downloads with no inventory or shipping. The benchmark shop opened in 2022, sold 5,815 orders across 89 templates for about $297K lifetime revenue, and made about $20,800 in the last 12 months after adding only 3 new listings in 2026.",
+      "verdict": "A specific buyer with a clear reason to pay and listing-backed revenue, but the benchmark shop is in decline and an Etsy shop account cannot be transferred, so copycats start cold and must keep shipping new templates. C tier: validate small first.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "21-35 Days to First 5-8 Templates",
+        "initial_cost": "$50-$200",
+        "startup_cost": "$50-$200",
+        "est_monthly_profit": "$500 - $1,500 / mo (copycat steady state from a fresh shop; the benchmark $20,800 trailing year is a mature shop, not a promise)",
+        "revenue_model": "One-time sales: website templates $60-$160 each, Lightroom preset packs $14 each, delivered as Etsy instant downloads",
+        "clean_model": "One-time sales"
+      },
+      "monetization_model": "One-time sales: website templates $60-$160 each, Lightroom preset packs $14 each, delivered as Etsy instant downloads",
+      "deep_dive": {
+        "opportunity": "Small fashion, beauty and wellness sellers want their own online shop but stall on design and technical skills: a freelance designer costs hundreds to thousands of dollars, big theme marketplaces feel generic, and default themes look cheap. They pay for a ready-made theme that already looks like a leading shop in their niche, with a setup guide, so they can swap photos and text and start selling. Building per-niche templates and winning Etsy long-tail search terms keeps the ticket at $60-$160 with zero marginal cost, while preset packs add a $14 attach item. The benchmark also shows the failure mode: revenue fell from GBP 62,615 in 2022 to GBP 12,395 in the first ten months of 2026 after only 3 new listings that year, so steady new releases are the lifeline.",
+        "workflow": [
+          "Phase 01: Pick one visual niche such as beauty, weddings or yoga, study top Etsy template shops, their prices and review complaints, and list 5 template ideas with long-tail keywords before building.",
+          "Phase 02: Design in Figma and build Shopify themes to Online Store 2.0 standards in Liquid, HTML, CSS and JavaScript, with Wix and Squarespace variants, setup guides, preview images and demo videos; ship the first 5-8 templates.",
+          "Phase 03: List on Etsy at $60-$160 per website template with $14 preset packs as add-ons, fill titles and all 13 tags with niche long-tail terms, and run the listing checker for title, tags and net payout before publishing.",
+          "Phase 04: Release at least 2-3 new templates or variants every month and expand to your own website, Pinterest and template marketplaces such as Creative Market."
+        ],
+        "risk_and_pitfalls": "An Etsy shop account, its reviews and search ranking cannot be transferred, so a fresh shop may earn near zero for the first months; validate with a small catalogue first. Themes must track Shopify and platform standards or they get delisted and down-rated. Use only owned or commercially licensed photos and fonts, since infringement is the most common takedown cause for download shops. Treat the benchmark decline as real and plan on $500-$1,500 per month, not the $297K lifetime figure.",
+        "tools": [
+          "Figma",
+          "Shopify Liquid",
+          "Etsy",
+          "Lightroom",
+          "Python"
+        ]
+      }
+    }
+  }
+]

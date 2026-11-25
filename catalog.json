@@ -1,9 +1,10 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-23",
-  "total_count": 40,
+  "updated_at": "2026-11-25",
+  "total_count": 41,
   "existing_slugs": [
+    "etsy-website-templates-presets-shop",
     "stencil-ai-tattoo-stencil",
     "leave-me-alone-inbox-unsubscribe-audit",
     "excel-exercises-interactive-drills",
@@ -69,6 +70,26 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261125-042",
+      "slug": "etsy-website-templates-presets-shop",
+      "title": "Etsy 网站模板与预设包数字下载店：给小商家卖现成建站主题，60-160 美元一单",
+      "category": "跨境与电商",
+      "tags": [
+        "Etsy数字下载",
+        "网站模板",
+        "Shopify主题",
+        "Lightroom预设",
+        "小商家建站"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "在 Etsy 向时尚、美妆、健康类小商家卖 Shopify/Wix/Squarespace 网站模板（60-160 美元）与 Lightroom 预设包（14 美元），数字下载无库存无发货。对标店 2022 年开店，89 个模板、5,815 个订单、累计收入约 29.7 万美元，近 12 个月约 2.08 万美元；销量下滑主因是 2026 年只上 3 个新品。复制者新店冷启动务实目标月入 500-1,500 美元。",
+      "monetization_model": "一次性买断：网站模板 $60~$160/个、Lightroom 预设包 $14/个，Etsy 数字下载自动交付",
+      "est_monthly_profit": "$500 ~ $1,500 / 月（复制者稳态，新店冷启动口径；对标店近 12 个月约 $20,800 为成熟店流水，不作承诺）",
+      "landing_url_zh": "https://m.ucncn.cn/p/etsy-website-templates-presets-shop/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/etsy-website-templates-presets-shop/"
+    },
     {
       "id": "ml-20261122-033",
       "slug": "stencil-ai-tattoo-stencil",
