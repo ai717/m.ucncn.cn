@@ -1,5 +1,161 @@
 [
   {
+    "id": "ml-20261128-001",
+    "slug": "pocketdpe-checkride-oral-coach",
+    "score": 63,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "source_url": "https://apps.apple.com/us/app/pocketdpe-checkride-oral-prep/id6761171977",
+    "created_at": "2026-11-28",
+    "title": "PocketDPE-Style FAA Checkride Oral Coach: AI Voice Examiner Mapped to ACS",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "FAA Checkride",
+      "Pilot Exam Prep",
+      "Voice AI",
+      "Niche Exam Prep",
+      "Subscription"
+    ],
+    "summary": "Voice mock orals for FAA Private, Instrument and Commercial checkrides: an AI examiner asks ACS-mapped questions, follows up, and scores readiness so candidates pay to rehearse out loud.",
+    "verdict": "Revenue is processor-verified with fast recent growth in a narrow, high-stakes niche; replicators must keep the self-study boundary and control voice costs.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3-6 weeks to MVP",
+      "initial_cost": "$100-$400",
+      "startup_cost": "$100-$400",
+      "est_monthly_profit": "$800 - $2,500 / mo (replicator steady state, single-certificate scope)",
+      "revenue_model": "Pro subscription $19.99/week, $39.99/month, $129.99/year",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Pro subscription $19.99/week, $39.99/month, $129.99/year",
+    "deep_dive": {
+      "opportunity": "Candidates fear freezing under oral questioning. Books and flashcards are silent, human mock orals are scarce and hourly, and generic chatbots ignore ACS structure. A curated ACS question bank with a scoring rubric plus voice follow-ups turns scarce rehearsal into unlimited practice.",
+      "workflow": [
+        "Phase 01: Build a single-certificate ACS question bank with sources, key points and common errors.",
+        "Phase 02: Ship a voice loop for question, answer, follow-up, score and debrief.",
+        "Phase 03: Add a free mock oral, paid unlimited practice, and clear self-study disclaimers.",
+        "Phase 04: Seed pilot communities and ACS search pages, then expand the bank from real follow-ups."
+      ],
+      "risk_and_pitfalls": "Never claim FAA approval or instructor replacement. Warn that AI can err and official publications govern. Cap session minutes to control voice cost and write original questions.",
+      "tools": [
+        "Public ACS outlines",
+        "Speech APIs",
+        "RevenueCat",
+        "App Store subscriptions"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261128-002",
+    "slug": "road-to-offer-case-interview-coach",
+    "score": 60,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "source_url": "https://www.roadtooffer.com/",
+    "created_at": "2026-11-28",
+    "title": "Road to Offer-Style Consulting Case Interview Coach: Unlimited Cases With AI Debriefs",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "Consulting Recruiting",
+      "Case Interview",
+      "AI Practice",
+      "Season Pass",
+      "Assessment Packs"
+    ],
+    "summary": "Case-interview practice for consulting candidates: a free first case, then paid unlimited cases, drills, voice practice and AI debriefs, plus one-time assessment packs sold into recruiting season.",
+    "verdict": "Pricing and willingness to pay hold with processor-verified revenue, but seasonality and case production cap the ceiling; best run as a seasonal product.",
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4-8 weeks to MVP",
+      "initial_cost": "$100-$500",
+      "startup_cost": "$100-$500",
+      "est_monthly_profit": "$600 - $2,000 / mo (replicator steady state, recruiting-season scope)",
+      "revenue_model": "Pro $49/month, 90-day $120, annual $249 plus packs $29-$79",
+      "clean_model": "Subscription plus one-time packs"
+    },
+    "monetization_model": "Pro $49/month, 90-day $120, annual $249 plus packs $29-$79",
+    "deep_dive": {
+      "opportunity": "Candidates need volume with feedback. Human coaches are hourly, peers are uneven, and case books do not score answers. Original cases with a three-part rubric give unlimited reps, while a free first case and a 90-day pass match the recruiting window.",
+      "workflow": [
+        "Phase 01: Write 20 original cases with structures, math keys and a scoring rubric.",
+        "Phase 02: Ship text and voice practice with instant debriefs and drills.",
+        "Phase 03: Sell monthly and 90-day plans plus single-assessment packs with clear non-affiliation notices.",
+        "Phase 04: Seed consulting clubs and candidate communities, then grow drills from real errors."
+      ],
+      "risk_and_pitfalls": "Never use real firm tests or imply affiliation. Demand falls outside recruiting season, so plan content and ads seasonally.",
+      "tools": [
+        "Original case bank",
+        "Voice practice",
+        "Stripe subscriptions",
+        "Rubric scoring engine"
+      ]
+    }
+  },
+  {
+    "id": "ml-20261128-003",
+    "slug": "play-designer-pro-football-playbook-quiz",
+    "score": 65,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 7
+    },
+    "source_url": "https://www.playdesignerpro.com/resources/best-football-playbook-software-2025",
+    "created_at": "2026-11-28",
+    "title": "Play Designer Pro-Style Football Playbook: Draw Plays and Auto-Generate Player Quizzes",
+    "category": "Micro-SaaS & Automation",
+    "tags": [
+      "American Football",
+      "Coach Tool",
+      "Playbook",
+      "Player Quizzes",
+      "Subscription"
+    ],
+    "summary": "A play designer for American football coaches: draw offensive plays, manage playbooks, and auto-generate player quizzes so athletes learn assignments, sold as coach subscriptions with team sharing.",
+    "verdict": "A specific need with processor-verified revenue and low compliance risk; the ceiling is bounded by team counts and season rhythm, fitting a small steady vertical tool.",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "3-5 weeks to MVP",
+      "initial_cost": "$50-$300",
+      "startup_cost": "$50-$300",
+      "est_monthly_profit": "$500 - $1,800 / mo (replicator steady state, single-region coach scope)",
+      "revenue_model": "Subscription $20/month or $120/year with 14-day trial",
+      "clean_model": "Subscription"
+    },
+    "monetization_model": "Subscription $20/month or $120/year with 14-day trial",
+    "deep_dive": {
+      "opportunity": "Coaches redraw paper plays for every change and cannot verify whether players learned assignments. Structured formations and responsibilities let one drawing become a testable team assignment, and share links turn each coach into a team-wide channel.",
+      "workflow": [
+        "Phase 01: Model offensive formations, routes and per-position responsibilities with coach validation.",
+        "Phase 02: Ship a drag-and-drop board, playbook manager and quiz generator with auto-grading.",
+        "Phase 03: Sell coach subscriptions after a trial, with free team quiz links and paid print exports.",
+        "Phase 04: Seed coach communities with free templates and pre-season team offers."
+      ],
+      "risk_and_pitfalls": "Use original or licensed play content only. Plan off-season retention and collect minimal player data, with extra care for minors.",
+      "tools": [
+        "Canvas board",
+        "Playbook data model",
+        "Quiz generator",
+        "Stripe subscriptions"
+      ]
+    }
+  },
+  {
     "id": "ml-20261125-042",
     "slug": "etsy-website-templates-presets-shop",
     "score": 60,

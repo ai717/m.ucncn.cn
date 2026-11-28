@@ -1,0 +1,359 @@
+[
+  {
+    "id": "ml-20261128-001",
+    "title": "PocketDPE 式 FAA 飞行员口试语音陪练：AI 考官按 ACS 提问打分",
+    "title_en": "PocketDPE-Style FAA Checkride Oral Coach: AI Voice Examiner Mapped to ACS",
+    "slug": "pocketdpe-checkride-oral-coach",
+    "category": "出海/独立开发",
+    "prototype": "G",
+    "tags": [
+      "FAA口试",
+      "飞行员备考",
+      "语音AI",
+      "垂直题库",
+      "订阅制"
+    ],
+    "summary": "给备考 Private/Instrument/Commercial 的学员做语音模拟口试：AI 考官按 FAA ACS 提问、追问并给出 readiness 分数与复盘，学员为通过高 stakes 考试付周/月/年订阅。",
+    "summary_en": "Voice mock orals for FAA Private, Instrument and Commercial checkrides: an AI examiner asks ACS-mapped questions, follows up, and scores readiness so candidates pay to rehearse out loud.",
+    "score": 63,
+    "rating_tier": "C",
+    "verdict": "收入经 RevenueCat 核验且近月增速快，客群窄但付费理由硬；复制者须守住自学工具边界并控制语音成本，稳态按小体量估算。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 7,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "3~6 周出 MVP",
+      "initial_cost": "$100~$400",
+      "startup_cost": "$100~$400",
+      "est_monthly_profit": "$800 ~ $2,500 / 月（复制者稳态，单一证书口径；对标方 MRR $6,300 为成熟读数，不作承诺）",
+      "revenue_model": "订阅 Pro $19.99/周、$39.99/月、$129.99/年"
+    },
+    "monetization_model": "订阅 Pro $19.99/周、$39.99/月、$129.99/年",
+    "core_thesis": {
+      "market_pain": "学员考前最怕口试被追问卡住：教材和闪卡只能默读，真人模拟口试要约教员时间且按小时收费，临考一周想天天开口练却约不到人。现有通用聊天机器人不懂 ACS 结构，问法散、评分无依据。",
+      "opportunity_arbitrage": "把公开的 ACS 知识域做成结构化题库与评分量表，语音对话只做提问、追问和复盘，内容可人工校对、成本可控。切口是单一考试的口试环节，不做地面课全家桶，用免费试练加硬付费墙承接临考高意愿流量。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定一个证书的 ACS 题库",
+        "detail": "只选 Private 先行，按 ACS 任务拆题，每题标注出处页码、标准答法要点与常见错误；找 5 名学员做真人模拟口试验证问法。",
+        "deliverable": "单证书题库 v1 与评分量表"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "语音陪练 MVP",
+        "detail": "实现听题、答题、追问、评分、复盘闭环；语音识别与合成走成熟 API，评分先用关键词加量表规则，AI 只做追问改写。",
+        "deliverable": "可完整跑一轮模拟口试的 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "订阅与试用墙",
+        "detail": "免费 1 次完整模拟，付费解锁无限练习与弱项报告；接入应用内订阅并在页面明示自学工具、非 FAA 批准培训、不替代教员。",
+        "deliverable": "订阅付费墙与合规声明上线"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "学员社区冷启",
+        "detail": "在飞行学员论坛与航校社群发免费模拟口试测评帖，收集真实追问补进题库；做 ACS 关键词落地页承接搜索。",
+        "deliverable": "首批 20 名付费学员与题库迭代清单"
+      }
+    ],
+    "pitfalls_to_avoid": "严禁宣称 FAA 批准或替代教员；AI 回答可能出错，必须提示以 ACS、FAR/AIM 与教员为准。语音成本按分钟计，须设单次时长与周上限。题库不得照抄受版权保护的商业题库原文。",
+    "tools": [
+      "ACS 公开大纲",
+      "语音识别与合成 API",
+      "RevenueCat",
+      "App Store 订阅"
+    ],
+    "source_url": "https://apps.apple.com/us/app/pocketdpe-checkride-oral-prep/id6761171977",
+    "created_at": "2026-11-28",
+    "en": {
+      "title": "PocketDPE-Style FAA Checkride Oral Coach: AI Voice Examiner Mapped to ACS",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "FAA Checkride",
+        "Pilot Exam Prep",
+        "Voice AI",
+        "Niche Exam Prep",
+        "Subscription"
+      ],
+      "summary": "Voice mock orals for FAA Private, Instrument and Commercial checkrides: an AI examiner asks ACS-mapped questions, follows up, and scores readiness so candidates pay to rehearse out loud.",
+      "verdict": "Revenue is processor-verified with fast recent growth in a narrow, high-stakes niche; replicators must keep the self-study boundary and control voice costs.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "3-6 weeks to MVP",
+        "initial_cost": "$100-$400",
+        "startup_cost": "$100-$400",
+        "est_monthly_profit": "$800 - $2,500 / mo (replicator steady state, single-certificate scope)",
+        "revenue_model": "Pro subscription $19.99/week, $39.99/month, $129.99/year",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Pro subscription $19.99/week, $39.99/month, $129.99/year",
+      "deep_dive": {
+        "opportunity": "Candidates fear freezing under oral questioning. Books and flashcards are silent, human mock orals are scarce and hourly, and generic chatbots ignore ACS structure. A curated ACS question bank with a scoring rubric plus voice follow-ups turns scarce rehearsal into unlimited practice.",
+        "workflow": [
+          "Phase 01: Build a single-certificate ACS question bank with sources, key points and common errors.",
+          "Phase 02: Ship a voice loop for question, answer, follow-up, score and debrief.",
+          "Phase 03: Add a free mock oral, paid unlimited practice, and clear self-study disclaimers.",
+          "Phase 04: Seed pilot communities and ACS search pages, then expand the bank from real follow-ups."
+        ],
+        "risk_and_pitfalls": "Never claim FAA approval or instructor replacement. Warn that AI can err and official publications govern. Cap session minutes to control voice cost and write original questions.",
+        "tools": [
+          "Public ACS outlines",
+          "Speech APIs",
+          "RevenueCat",
+          "App Store subscriptions"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261128-002",
+    "title": "Road to Offer 式咨询案例面试陪练：无限案例加 AI 复盘卖季票",
+    "title_en": "Road to Offer-Style Consulting Case Interview Coach: Unlimited Cases With AI Debriefs",
+    "slug": "road-to-offer-case-interview-coach",
+    "category": "出海/独立开发",
+    "prototype": "G",
+    "tags": [
+      "咨询求职",
+      "案例面试",
+      "AI陪练",
+      "季票订阅",
+      "测评包"
+    ],
+    "summary": "给冲刺咨询公司的候选人做案例面试练习：首个案例免费，付费解锁无限案例、 drills、语音练习与 AI 复盘，另卖单项测评包，靠招聘季高意愿收费。",
+    "summary_en": "Case-interview practice for consulting candidates: a free first case, then paid unlimited cases, drills, voice practice and AI debriefs, plus one-time assessment packs sold into recruiting season.",
+    "score": 60,
+    "rating_tier": "C",
+    "verdict": "客单与付费理由成立且收入经 Stripe 核验，但招聘季季节性与案例内容生产是硬约束，只适合按季运营的复制者。",
+    "score_breakdown": {
+      "feasibility": 6,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 6
+    },
+    "metrics": {
+      "difficulty_stars": 3,
+      "tech_barrier": "★★★☆☆ (3/5)",
+      "cycle_time": "4~8 周出 MVP",
+      "initial_cost": "$100~$500",
+      "startup_cost": "$100~$500",
+      "est_monthly_profit": "$600 ~ $2,000 / 月（复制者稳态，招聘季口径；淡季更低）",
+      "revenue_model": "Pro $49/月、90 天 $120、年付 $249 + 测评包 $29~$79"
+    },
+    "monetization_model": "Pro $49/月、90 天 $120、年付 $249 + 测评包 $29~$79",
+    "core_thesis": {
+      "market_pain": "候选人需要大量重复练习，但真人教练按小时收费、陪练伙伴水平参差，免费案例书只有题目没有评分。临近面试窗口时，缺的是随时能练、练完知道错在哪的反馈。",
+      "opportunity_arbitrage": "把案例拆成结构、计算、沟通三个可评分维度，用原创案例加量表评分提供无限次练习，真人教练留给最后润色。免费首案做获客，90 天季票对齐招聘周期，测评包做单项加购。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "原创案例与评分量表",
+        "detail": "先写 20 个原创案例，每案配标准结构、关键计算与评分量表；请 5 名候选人盲测评分一致性。",
+        "deliverable": "20 案题库与三维评分量表"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "练习与复盘闭环",
+        "detail": "实现文字加语音答题、即时复盘与 drills；评分先走量表规则，AI 负责点评改写与追问。",
+        "deliverable": "可完整练一案并出复盘的 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "季票与测评包",
+        "detail": "首案免费，月付与 90 天季票解锁无限练习，单项测评模拟单独售卖；全站明示原创练习、与目标公司无隶属关系。",
+        "deliverable": "订阅加单品付费闭环"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "咨询社团冷启",
+        "detail": "面向大学咨询社团与求职社区做免费案例夜与团购价，沉淀真实错题补 drills。",
+        "deliverable": "首批 30 名付费候选人与错题库"
+      }
+    ],
+    "pitfalls_to_avoid": "严禁使用目标公司的真实试题或宣称隶属/官方；商标只作 nominative 指向且须加免责。招聘季外需求陡降，须按季排内容与广告预算，不得按旺季收入做全年承诺。",
+    "tools": [
+      "原创案例库",
+      "语音练习",
+      "Stripe 订阅",
+      "量表评分引擎"
+    ],
+    "source_url": "https://www.roadtooffer.com/",
+    "created_at": "2026-11-28",
+    "en": {
+      "title": "Road to Offer-Style Consulting Case Interview Coach: Unlimited Cases With AI Debriefs",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "Consulting Recruiting",
+        "Case Interview",
+        "AI Practice",
+        "Season Pass",
+        "Assessment Packs"
+      ],
+      "summary": "Case-interview practice for consulting candidates: a free first case, then paid unlimited cases, drills, voice practice and AI debriefs, plus one-time assessment packs sold into recruiting season.",
+      "verdict": "Pricing and willingness to pay hold with processor-verified revenue, but seasonality and case production cap the ceiling; best run as a seasonal product.",
+      "metrics": {
+        "difficulty_stars": 3,
+        "tech_barrier": "★★★☆☆ (3/5)",
+        "cycle_time": "4-8 weeks to MVP",
+        "initial_cost": "$100-$500",
+        "startup_cost": "$100-$500",
+        "est_monthly_profit": "$600 - $2,000 / mo (replicator steady state, recruiting-season scope)",
+        "revenue_model": "Pro $49/month, 90-day $120, annual $249 plus packs $29-$79",
+        "clean_model": "Subscription plus one-time packs"
+      },
+      "monetization_model": "Pro $49/month, 90-day $120, annual $249 plus packs $29-$79",
+      "deep_dive": {
+        "opportunity": "Candidates need volume with feedback. Human coaches are hourly, peers are uneven, and case books do not score answers. Original cases with a three-part rubric give unlimited reps, while a free first case and a 90-day pass match the recruiting window.",
+        "workflow": [
+          "Phase 01: Write 20 original cases with structures, math keys and a scoring rubric.",
+          "Phase 02: Ship text and voice practice with instant debriefs and drills.",
+          "Phase 03: Sell monthly and 90-day plans plus single-assessment packs with clear non-affiliation notices.",
+          "Phase 04: Seed consulting clubs and candidate communities, then grow drills from real errors."
+        ],
+        "risk_and_pitfalls": "Never use real firm tests or imply affiliation. Demand falls outside recruiting season, so plan content and ads seasonally.",
+        "tools": [
+          "Original case bank",
+          "Voice practice",
+          "Stripe subscriptions",
+          "Rubric scoring engine"
+        ]
+      }
+    }
+  },
+  {
+    "id": "ml-20261128-003",
+    "title": "Play Designer Pro 式美式橄榄球战术板：画战术自动出球员测验",
+    "title_en": "Play Designer Pro-Style Football Playbook: Draw Plays and Auto-Generate Player Quizzes",
+    "slug": "play-designer-pro-football-playbook-quiz",
+    "category": "出海/独立开发",
+    "prototype": "C",
+    "tags": [
+      "美式橄榄球",
+      "教练工具",
+      "战术板",
+      "球员测验",
+      "订阅制"
+    ],
+    "summary": "给美式橄榄球教练画进攻战术、管 playbook，并自动生成球员测验帮队员记住跑位，教练按月或按年付费，球队分享链接做传播。",
+    "summary_en": "A play designer for American football coaches: draw offensive plays, manage playbooks, and auto-generate player quizzes so athletes learn assignments, sold as coach subscriptions with team sharing.",
+    "score": 65,
+    "rating_tier": "C",
+    "verdict": "需求具体、收入经 Stripe 核验、合规风险低；天花板受球队数量与赛季节奏限制，适合小而稳的垂直工具复制。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 7
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "3~5 周出 MVP",
+      "initial_cost": "$50~$300",
+      "startup_cost": "$50~$300",
+      "est_monthly_profit": "$500 ~ $1,800 / 月（复制者稳态，单地区教练口径）",
+      "revenue_model": "订阅 $20/月或 $120/年（14 天试用）"
+    },
+    "monetization_model": "订阅 $20/月或 $120/年（14 天试用）",
+    "core_thesis": {
+      "market_pain": "教练用纸和白板画战术，改一版要重画全队资料，球员记不住跑位只能靠训练场反复喊。通用画图工具不懂阵型与职责分工，画完也无法检验球员是否真懂。",
+      "opportunity_arbitrage": "把阵型、路线与职责做成结构化数据，画战术的同时自动生成球员测验，教练的交付物从一张图变成全队可检验的作业。球队分享链接让每个付费教练带来整队使用者，形成低成本传播。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "阵型与职责数据模型",
+        "detail": "只做进攻端，先支持常用阵型与路线，定义每个位置的职责字段；找 3 名教练用纸质流程对照验证。",
+        "deliverable": "阵型模板与职责数据模型"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "画板加测验生成器",
+        "detail": "实现拖拽画板、playbook 管理与一键测验生成；测验题由职责字段自动出题并判分。",
+        "deliverable": "可画战术并生成测验的 MVP"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "教练订阅与球队分享",
+        "detail": "14 天试用后按教练订阅收费，球队分享链接免费给球员做测验；导出打印做付费点。",
+        "deliverable": "订阅与分享闭环上线"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "教练社区冷启",
+        "detail": "在教练论坛发免费战术模板包，赛季前做球队团购；收集真实战术补模板库。",
+        "deliverable": "首批 20 支付费球队与模板库"
+      }
+    ],
+    "pitfalls_to_avoid": "战术内容须原创或经授权，不得搬运付费 playbook。赛季外活跃度下降，须做休赛期留存设计。球员数据只收最小必要信息，未成年球员场景须遵守当地隐私要求。",
+    "tools": [
+      "Canvas 画板",
+      "Playbook 数据模型",
+      "测验生成器",
+      "Stripe 订阅"
+    ],
+    "source_url": "https://www.playdesignerpro.com/resources/best-football-playbook-software-2025",
+    "created_at": "2026-11-28",
+    "en": {
+      "title": "Play Designer Pro-Style Football Playbook: Draw Plays and Auto-Generate Player Quizzes",
+      "category": "Micro-SaaS & Automation",
+      "tags": [
+        "American Football",
+        "Coach Tool",
+        "Playbook",
+        "Player Quizzes",
+        "Subscription"
+      ],
+      "summary": "A play designer for American football coaches: draw offensive plays, manage playbooks, and auto-generate player quizzes so athletes learn assignments, sold as coach subscriptions with team sharing.",
+      "verdict": "A specific need with processor-verified revenue and low compliance risk; the ceiling is bounded by team counts and season rhythm, fitting a small steady vertical tool.",
+      "metrics": {
+        "difficulty_stars": 2,
+        "tech_barrier": "★★☆☆☆ (2/5)",
+        "cycle_time": "3-5 weeks to MVP",
+        "initial_cost": "$50-$300",
+        "startup_cost": "$50-$300",
+        "est_monthly_profit": "$500 - $1,800 / mo (replicator steady state, single-region coach scope)",
+        "revenue_model": "Subscription $20/month or $120/year with 14-day trial",
+        "clean_model": "Subscription"
+      },
+      "monetization_model": "Subscription $20/month or $120/year with 14-day trial",
+      "deep_dive": {
+        "opportunity": "Coaches redraw paper plays for every change and cannot verify whether players learned assignments. Structured formations and responsibilities let one drawing become a testable team assignment, and share links turn each coach into a team-wide channel.",
+        "workflow": [
+          "Phase 01: Model offensive formations, routes and per-position responsibilities with coach validation.",
+          "Phase 02: Ship a drag-and-drop board, playbook manager and quiz generator with auto-grading.",
+          "Phase 03: Sell coach subscriptions after a trial, with free team quiz links and paid print exports.",
+          "Phase 04: Seed coach communities with free templates and pre-season team offers."
+        ],
+        "risk_and_pitfalls": "Use original or licensed play content only. Plan off-season retention and collect minimal player data, with extra care for minors.",
+        "tools": [
+          "Canvas board",
+          "Playbook data model",
+          "Quiz generator",
+          "Stripe subscriptions"
+        ]
+      }
+    }
+  }
+]

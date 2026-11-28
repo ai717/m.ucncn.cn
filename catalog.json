@@ -1,9 +1,12 @@
 {
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
-  "updated_at": "2026-11-25",
-  "total_count": 41,
+  "updated_at": "2026-11-28",
+  "total_count": 44,
   "existing_slugs": [
+    "play-designer-pro-football-playbook-quiz",
+    "road-to-offer-case-interview-coach",
+    "pocketdpe-checkride-oral-coach",
     "etsy-website-templates-presets-shop",
     "stencil-ai-tattoo-stencil",
     "leave-me-alone-inbox-unsubscribe-audit",
@@ -70,6 +73,66 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261128-003",
+      "slug": "play-designer-pro-football-playbook-quiz",
+      "title": "Play Designer Pro 式美式橄榄球战术板：画战术自动出球员测验",
+      "category": "出海/独立开发",
+      "tags": [
+        "美式橄榄球",
+        "教练工具",
+        "战术板",
+        "球员测验",
+        "订阅制"
+      ],
+      "score": 65,
+      "rating_tier": "C",
+      "summary": "给美式橄榄球教练画进攻战术、管 playbook，并自动生成球员测验帮队员记住跑位，教练按月或按年付费，球队分享链接做传播。",
+      "monetization_model": "订阅 $20/月或 $120/年（14 天试用）",
+      "est_monthly_profit": "$500 ~ $1,800 / 月（复制者稳态，单地区教练口径）",
+      "landing_url_zh": "https://m.ucncn.cn/p/play-designer-pro-football-playbook-quiz/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/play-designer-pro-football-playbook-quiz/"
+    },
+    {
+      "id": "ml-20261128-002",
+      "slug": "road-to-offer-case-interview-coach",
+      "title": "Road to Offer 式咨询案例面试陪练：无限案例加 AI 复盘卖季票",
+      "category": "出海/独立开发",
+      "tags": [
+        "咨询求职",
+        "案例面试",
+        "AI陪练",
+        "季票订阅",
+        "测评包"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "给冲刺咨询公司的候选人做案例面试练习：首个案例免费，付费解锁无限案例、 drills、语音练习与 AI 复盘，另卖单项测评包，靠招聘季高意愿收费。",
+      "monetization_model": "Pro $49/月、90 天 $120、年付 $249 + 测评包 $29~$79",
+      "est_monthly_profit": "$600 ~ $2,000 / 月（复制者稳态，招聘季口径；淡季更低）",
+      "landing_url_zh": "https://m.ucncn.cn/p/road-to-offer-case-interview-coach/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/road-to-offer-case-interview-coach/"
+    },
+    {
+      "id": "ml-20261128-001",
+      "slug": "pocketdpe-checkride-oral-coach",
+      "title": "PocketDPE 式 FAA 飞行员口试语音陪练：AI 考官按 ACS 提问打分",
+      "category": "出海/独立开发",
+      "tags": [
+        "FAA口试",
+        "飞行员备考",
+        "语音AI",
+        "垂直题库",
+        "订阅制"
+      ],
+      "score": 63,
+      "rating_tier": "C",
+      "summary": "给备考 Private/Instrument/Commercial 的学员做语音模拟口试：AI 考官按 FAA ACS 提问、追问并给出 readiness 分数与复盘，学员为通过高 stakes 考试付周/月/年订阅。",
+      "monetization_model": "订阅 Pro $19.99/周、$39.99/月、$129.99/年",
+      "est_monthly_profit": "$800 ~ $2,500 / 月（复制者稳态，单一证书口径；对标方 MRR $6,300 为成熟读数，不作承诺）",
+      "landing_url_zh": "https://m.ucncn.cn/p/pocketdpe-checkride-oral-coach/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/pocketdpe-checkride-oral-coach/"
+    },
     {
       "id": "ml-20261125-042",
       "slug": "etsy-website-templates-presets-shop",
