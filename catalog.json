@@ -2,8 +2,9 @@
   "name": "MoneyLab Verified Blueprints Catalog",
   "site_url": "https://m.ucncn.cn/",
   "updated_at": "2026-11-28",
-  "total_count": 44,
+  "total_count": 45,
   "existing_slugs": [
+    "local-trades-website-hosting",
     "play-designer-pro-football-playbook-quiz",
     "road-to-offer-case-interview-coach",
     "pocketdpe-checkride-oral-coach",
@@ -73,6 +74,26 @@
     "无代码模板资产"
   ],
   "projects": [
+    {
+      "id": "ml-20261127-052",
+      "slug": "local-trades-website-hosting",
+      "title": "本地工种免建站费网站托管：先免费做出单页站再收 199 美元/月维护费",
+      "category": "线下数字化线索",
+      "tags": [
+        "本地服务获客",
+        "网站托管月费",
+        "冷邮件外联",
+        "单页网站",
+        "小商户数字化"
+      ],
+      "score": 60,
+      "rating_tier": "C",
+      "summary": "给没有像样网站的本地屋顶承包商等工种商户免费做出定制单页站，录 2 分钟演示视频发个性化冷邮件，客户同意上线才签 199 美元/月的托管与维护协议。对标案例自述累计签约 23 家、流失 4 家、现存 19 家，含追加销售月流水约 4,400 美元（C 级证据，Reddit 自述经周刊转述，未经第三方支付核验）。复制者务实目标 8-18 家客户、月入 1,500-3,500 美元。",
+      "monetization_model": "免建站费 + $199/月托管维护订阅（含 SSL、备份与每月小改），追加销售另计",
+      "est_monthly_profit": "$1,500 ~ $3,500 / 月（复制者稳态，8~18 家在约客户口径，扣托管与工具成本后；对标方 19 家约 $4,400 MRR 为自述流水，不作承诺）",
+      "landing_url_zh": "https://m.ucncn.cn/p/local-trades-website-hosting/",
+      "landing_url_en": "https://m.ucncn.cn/en/p/local-trades-website-hosting/"
+    },
     {
       "id": "ml-20261128-003",
       "slug": "play-designer-pro-football-playbook-quiz",

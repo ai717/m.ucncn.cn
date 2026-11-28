@@ -1,5 +1,58 @@
 [
   {
+    "id": "ml-20261127-052",
+    "slug": "local-trades-website-hosting",
+    "score": 60,
+    "rating_tier": "C",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 5
+    },
+    "source_url": "https://aiside.day/zh/weekly/week-2026-11-09",
+    "created_at": "2026-11-27",
+    "title": "Free-Build Website Hosting for Local Trades: $199/mo Care Plans Sold with a Done-For-You Demo Site",
+    "category": "Local Lead-Gen & Arbitrage",
+    "tags": [
+      "Local Service Outreach",
+      "Website Care Plans",
+      "Cold Email",
+      "One-Page Websites",
+      "Small Business Digital"
+    ],
+    "summary": "Build a free custom one-page website for local trades businesses that lack a decent site, send a personalized cold email with a 2-minute walkthrough video, and charge $199/mo for hosting and maintenance only if they approve going live. The benchmark operator self-reports 23 signings, 4 churned, 19 active clients and about $4,400 MRR including upsells (C-grade evidence, self-reported, not payment-verified).",
+    "verdict": "A concrete niche with a friction-free offer: zero upfront cost removes the small merchant fear of an unfinished build. Evidence is C-grade self-reporting, cold-email conversion is only about 1%, and 17% of clients churned, so replicators must win on personalization and maintenance discipline. Tier C: validate small before scaling client count.",
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "14-21 days to the first 2-3 signed clients (about 200 personalized outreach emails)",
+      "initial_cost": "$30-$80/mo (domains, hosting, sending domain, basic Loom/Stripe tiers)",
+      "startup_cost": "$30-$80/mo (domains, hosting, sending domain, basic Loom/Stripe tiers)",
+      "est_monthly_profit": "$1,500 - $3,500 / mo (replicator steady state at 8-18 active clients after hosting and tool costs; the benchmark $4,400 MRR is self-reported revenue, not a promise)",
+      "revenue_model": "No build fee + $199/mo hosting and maintenance subscription (SSL, backups, capped monthly edits), upsells billed separately",
+      "clean_model": "Monthly Subscription"
+    },
+    "monetization_model": "No build fee + $199/mo hosting and maintenance subscription (SSL, backups, capped monthly edits), upsells billed separately",
+    "deep_dive": {
+      "opportunity": "Local trades such as roofers win jobs through local search and word of mouth but often lack a credible website. Agencies charge thousands upfront with abandonment risk, and DIY builders demand time owners do not have. The wedge is to flip the sale: build the site first for free, show it in a 2-minute video, and charge $199/mo only after the owner approves going live. Hosting and DNS stay in the operator account, creating switching friction, while the monthly fee buys ongoing maintenance rather than a one-off build. At roughly 1% email conversion, about 200 personalized emails produced the first 3 clients and 2,000-2,500 emails produced 23 signings.",
+      "workflow": [
+        "Phase 01: Pick one trade and one metro area, list 200 businesses with reviews but no site or a clearly outdated site, and rank them by review activity and site gap.",
+        "Phase 02: Generate a custom one-page site per prospect from its own public business facts, with a call button, services, reviews, service area and contact form, plus a 2-minute walkthrough video.",
+        "Phase 03: Send one-to-one personalized emails with the preview link, clear $199/mo scope, edit caps, cancellation terms, real sender identity and opt-out; sign an e-agreement and start Stripe billing on approval.",
+        "Phase 04: Enforce per-client edit caps and response times, log maintenance hours per client, sell extra pages and review-collection add-ons as upsells, and review churn monthly before expanding to a second trade or city."
+      ],
+      "risk_and_pitfalls": "Cold email must stay one-to-one and personalized with real identity, postal address and opt-out; bought lists and blast sending will burn domain reputation. Never fabricate reviews, credentials or service promises on demo sites. The $199/mo plan must cap included edits and response times or maintenance creep will erase the margin. Put domain ownership and migration terms in the agreement to avoid hostage-domain disputes. Treat the benchmark $4,400 MRR as self-reported revenue including undisclosed upsells and budget on a $1,500-$3,500 replicator range.",
+      "tools": [
+        "Claude (one-page site generation)",
+        "Loom (walkthrough videos)",
+        "Stripe (monthly subscriptions)",
+        "Cloudflare Pages or similar static hosting",
+        "Public Google Maps business listings"
+      ]
+    }
+  },
+  {
     "id": "ml-20261128-001",
     "slug": "pocketdpe-checkride-oral-coach",
     "score": 63,

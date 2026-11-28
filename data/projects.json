@@ -1,5 +1,126 @@
 [
   {
+    "id": "ml-20261127-052",
+    "title": "本地工种免建站费网站托管：先免费做出单页站再收 199 美元/月维护费",
+    "title_en": "Free-Build Website Hosting for Local Trades: $199/mo Care Plans Sold with a Done-For-You Demo Site",
+    "slug": "local-trades-website-hosting",
+    "category": "线下数字化线索",
+    "prototype": "A",
+    "tags": [
+      "本地服务获客",
+      "网站托管月费",
+      "冷邮件外联",
+      "单页网站",
+      "小商户数字化"
+    ],
+    "summary": "给没有像样网站的本地屋顶承包商等工种商户免费做出定制单页站，录 2 分钟演示视频发个性化冷邮件，客户同意上线才签 199 美元/月的托管与维护协议。对标案例自述累计签约 23 家、流失 4 家、现存 19 家，含追加销售月流水约 4,400 美元（C 级证据，Reddit 自述经周刊转述，未经第三方支付核验）。复制者务实目标 8-18 家客户、月入 1,500-3,500 美元。",
+    "summary_en": "Build a free custom one-page website for local trades businesses that lack a decent site, send a personalized cold email with a 2-minute walkthrough video, and charge $199/mo for hosting and maintenance only if they approve going live. The benchmark operator self-reports 23 signings, 4 churned, 19 active clients and about $4,400 MRR including upsells (C-grade evidence, self-reported via Reddit and retold by a newsletter, not payment-verified).",
+    "score": 60,
+    "rating_tier": "C",
+    "verdict": "客群、付费理由与成交路径都具体，零首付把小商户最怕的烂尾风险直接拆掉；但证据为 C 级自述、冷邮件成交率仅约 1%、已有 17% 客户流失，复制者必须靠个性化外联与维护工时纪律续命，C 级值得观察、先小批量验证再扩客户数。原型 A（B2B 外联获客）为主、带 C（本地服务交付）成分，与库内 reddit-leadgen-cold-email-bot 的关键词监听机器人是不同渠道、不同客群、不同成交机制，不撞车。",
+    "score_breakdown": {
+      "feasibility": 7,
+      "velocity": 6,
+      "ceiling": 6,
+      "reliability": 5
+    },
+    "metrics": {
+      "difficulty_stars": 2,
+      "tech_barrier": "★★☆☆☆ (2/5)",
+      "cycle_time": "14~21 天拿到首批 2~3 家签约客户（200 封个性化外联量级）",
+      "initial_cost": "$30~$80/月（域名与托管、发信域名、Loom/Stripe 基础档）",
+      "startup_cost": "$30~$80/月（域名与托管、发信域名、Loom/Stripe 基础档）",
+      "est_monthly_profit": "$1,500 ~ $3,500 / 月（复制者稳态，8~18 家在约客户口径，扣托管与工具成本后；对标方 19 家约 $4,400 MRR 为自述流水，不作承诺）",
+      "revenue_model": "免建站费 + $199/月托管维护订阅（含 SSL、备份与每月小改），追加销售另计"
+    },
+    "monetization_model": "免建站费 + $199/月托管维护订阅（含 SSL、备份与每月小改），追加销售另计",
+    "core_thesis": {
+      "market_pain": "本地屋顶、维修等工种商户靠 Google 本地搜索和口碑接活，却普遍没有像样网站：请建站公司要先付两三千美元且怕烂尾，自己用 Wix 等工具又没时间维护。客户缺的不是建站技术，而是一个不用先掏大钱、有人长期负责的线上门面。垂直工种 CRM（如 Jobber）主要管派单收款，公开获客门面仍是商户自己的事，这块缝隙没有被生态底座吃掉。",
+      "opportunity_arbitrage": "把销售博弈从“要不要掏大钱重构网站”降维成“已经做好的站要不要上线”：用 AI 免费生成定制单页、录 2 分钟演示视频、发一对一个性化冷邮件，客户零风险尝甜头，同意上线才开始收 199 美元/月。域名 DNS 与托管环境锁在操盘手云账户里形成迁移摩擦，月费买的是持续维护而非一次性交付。成交率约 1% 意味着漏斗靠量：约 200 封外联出首批 3 家，2,000-2,500 封累计签约 23 家。"
+    },
+    "workflow_steps": [
+      {
+        "phase": "阶段 01",
+        "stage_tag": "逆向洞察",
+        "title": "锁定单一工种与城市，筛出无站商户名单",
+        "detail": "只选一个工种（如屋顶承包商）加一个城市圈，从 Google Maps 与本地目录筛出有评价、无网站或网站明显过时的商户，逐家记录评价数、评分、电话与服务范围，按无站程度与评价活跃度打分排序。名单质量决定外联回复率，严禁买现成邮箱包群发。",
+        "deliverable": "200 家合格商户名单（含评分排序与联系人信息）"
+      },
+      {
+        "phase": "阶段 02",
+        "stage_tag": "极速构建",
+        "title": "批量生成定制单页站与 2 分钟演示视频",
+        "detail": "用 AI 按商户真实信息（工种、城市、服务、评价）生成单页站：首屏电话按钮、服务清单、评价区、服务区域与联系表单，每家站只用该商户自己的公开信息，不编造资质与评价。录 2 分钟 Loom 逐家演示站面与上线方式。",
+        "deliverable": "每家商户一个可预览的定制单页站 + 专属演示视频"
+      },
+      {
+        "phase": "阶段 03",
+        "stage_tag": "商业闭环",
+        "title": "个性化外联与 199 美元/月协议签约",
+        "detail": "一对一发送个性化邮件：正文点名该商户的业务与站面预览链接，附演示视频，明确写清免建站费、199 美元/月含什么、每月小改次数上限、取消条款，并带真实发信地址与退订方式。客户同意上线后签电子协议，域名 DNS 与托管统一放在操盘手账户，Stripe 按月扣款。",
+        "deliverable": "签约客户上线 + Stripe 月费订阅生效"
+      },
+      {
+        "phase": "阶段 04",
+        "stage_tag": "渠道冷启",
+        "title": "维护工时纪律与追加销售续命",
+        "detail": "给每家客户定每月小改上限与响应时限，工时逐家记账，超限改动走追加销售（新页面、评价收集、本地 SEO 基础项）。每月复盘流失原因，流失率守在 20% 以内；客户数到 15 家以上再扩第二个工种或城市。",
+        "deliverable": "8~18 家在约客户的稳态月费盘子与流失复盘表"
+      }
+    ],
+    "pitfalls_to_avoid": "冷邮件必须一对一个性化并带真实身份、地址与退订，严禁买名单群发或伪造发信域名，触反垃圾规则会连域名信誉一起赔掉；站面不得编造客户评价、资质或服务承诺；199 美元/月必须写清包含的小改次数与响应时限，维护工时失控会吃掉全部利润；客户域名所有权与迁移条款要在协议里写明，避免扣域名式纠纷；对标方 4,400 美元 MRR 为自述流水、含未披露的追加销售，复制者按 1,500-3,500 美元稳态做预算。",
+    "tools": [
+      "Claude（单页站生成）",
+      "Loom（演示视频）",
+      "Stripe（月费订阅）",
+      "Cloudflare Pages 或同类静态托管",
+      "Google Maps 商户公开信息"
+    ],
+    "source_url": "https://aiside.day/zh/weekly/week-2026-11-09",
+    "created_at": "2026-11-27",
+    "en": {
+      "title": "Free-Build Website Hosting for Local Trades: $199/mo Care Plans Sold with a Done-For-You Demo Site",
+      "category": "Local Lead-Gen & Arbitrage",
+      "tags": [
+        "Local Service Outreach",
+        "Website Care Plans",
+        "Cold Email",
+        "One-Page Websites",
+        "Small Business Digital"
+      ],
+      "summary": "Build a free custom one-page website for local trades businesses that lack a decent site, send a personalized cold email with a 2-minute walkthrough video, and charge $199/mo for hosting and maintenance only if they approve going live. The benchmark operator self-reports 23 signings, 4 churned, 19 active clients and about $4,400 MRR including upsells (C-grade evidence, self-reported, not payment-verified).",
+      "verdict": "A concrete niche with a friction-free offer: zero upfront cost removes the small merchant fear of an unfinished build. Evidence is C-grade self-reporting, cold-email conversion is only about 1%, and 17% of clients churned, so replicators must win on personalization and maintenance discipline. Tier C: validate small before scaling client count.",
+      "metrics": {
+        "difficulty_stars": 2,
+        "tech_barrier": "★★☆☆☆ (2/5)",
+        "cycle_time": "14-21 days to the first 2-3 signed clients (about 200 personalized outreach emails)",
+        "initial_cost": "$30-$80/mo (domains, hosting, sending domain, basic Loom/Stripe tiers)",
+        "startup_cost": "$30-$80/mo (domains, hosting, sending domain, basic Loom/Stripe tiers)",
+        "est_monthly_profit": "$1,500 - $3,500 / mo (replicator steady state at 8-18 active clients after hosting and tool costs; the benchmark $4,400 MRR is self-reported revenue, not a promise)",
+        "revenue_model": "No build fee + $199/mo hosting and maintenance subscription (SSL, backups, capped monthly edits), upsells billed separately",
+        "clean_model": "Monthly Subscription"
+      },
+      "monetization_model": "No build fee + $199/mo hosting and maintenance subscription (SSL, backups, capped monthly edits), upsells billed separately",
+      "deep_dive": {
+        "opportunity": "Local trades such as roofers win jobs through local search and word of mouth but often lack a credible website. Agencies charge thousands upfront with abandonment risk, and DIY builders demand time owners do not have. The wedge is to flip the sale: build the site first for free, show it in a 2-minute video, and charge $199/mo only after the owner approves going live. Hosting and DNS stay in the operator account, creating switching friction, while the monthly fee buys ongoing maintenance rather than a one-off build. At roughly 1% email conversion, about 200 personalized emails produced the first 3 clients and 2,000-2,500 emails produced 23 signings.",
+        "workflow": [
+          "Phase 01: Pick one trade and one metro area, list 200 businesses with reviews but no site or a clearly outdated site, and rank them by review activity and site gap.",
+          "Phase 02: Generate a custom one-page site per prospect from its own public business facts, with a call button, services, reviews, service area and contact form, plus a 2-minute walkthrough video.",
+          "Phase 03: Send one-to-one personalized emails with the preview link, clear $199/mo scope, edit caps, cancellation terms, real sender identity and opt-out; sign an e-agreement and start Stripe billing on approval.",
+          "Phase 04: Enforce per-client edit caps and response times, log maintenance hours per client, sell extra pages and review-collection add-ons as upsells, and review churn monthly before expanding to a second trade or city."
+        ],
+        "risk_and_pitfalls": "Cold email must stay one-to-one and personalized with real identity, postal address and opt-out; bought lists and blast sending will burn domain reputation. Never fabricate reviews, credentials or service promises on demo sites. The $199/mo plan must cap included edits and response times or maintenance creep will erase the margin. Put domain ownership and migration terms in the agreement to avoid hostage-domain disputes. Treat the benchmark $4,400 MRR as self-reported revenue including undisclosed upsells and budget on a $1,500-$3,500 replicator range.",
+        "tools": [
+          "Claude (one-page site generation)",
+          "Loom (walkthrough videos)",
+          "Stripe (monthly subscriptions)",
+          "Cloudflare Pages or similar static hosting",
+          "Public Google Maps business listings"
+        ]
+      }
+    }
+  },
+  {
     "id": "ml-20261128-003",
     "title": "Play Designer Pro 式美式橄榄球战术板：画战术自动出球员测验",
     "title_en": "Play Designer Pro-Style Football Playbook: Draw Plays and Auto-Generate Player Quizzes",
